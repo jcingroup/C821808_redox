@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+$tooltip-bg: rgba(#000, .85) !default;
+$tooltip-size: 12px !default;
+
+//
+// tooltip
+// --------------------------------------------------
+// == 用法
+// <div class="tooltip"><i class="tips">提示內容</i>按我</div>
+
+.tooltip {
+    position: relative;
+    z-index: z(tooltip);
+
+    .tips {
+        @extend .text-white, .font-tiny, .px-4;
+
+        z-index: z(tooltip) + 1;
+        display: block;
+        visibility: hidden;
+        opacity: 0;
+
+        background-color: $tooltip-bg;
+        border-radius: 3px;
+        font-style: normal;
+        line-height: 1.8;
+        white-space: nowrap;
+
+        margin-bottom: $tooltip-size/2;
+        min-width: 100%;
+
+        @include absolute(bottom 80% left 50%);
+        @include transition(.35s ease-out);
+        @include transform(translateX(-50%));
+
+        // 箭頭
+        @include el(after) {
+            // @include absolute(bottom 100% left 22%);
+            // @include arrow(up, 18px, 10px, $tooltip-bg);
+            // margin-left: -5px;
+
+            @include absolute(left 50% top 100%);
+            @include arrow(down, $tooltip-size, $tooltip-size/2, $tooltip-bg);
+            margin-left: -($tooltip-size/2);
+            pointer-events: none;
+        }
+    }
+
+    &:hover {
+        .tips {
+            visibility: visible;
+            opacity: 1;
+            bottom: 100%;
+        }
+    }
+}
+
+// == 用法二
+// <span class="tip" aria-label="tip text">xxx</span>
+.tip {
+    position: relative;
+
+    @include el(all) {
+        z-index: z(tooltip);
+        visibility: hidden;
+        opacity: 0;
+
+        @include absolute(left 50%);
+        @include transition(.5s);
+    }
+
+    // 箭頭
+    &:before {
+        @include arrow(down, $tooltip-size, $tooltip-size/2, $tooltip-bg);
+        top: -($tooltip-size/2);
+        margin-left: -($tooltip-size/2);
+        pointer-events: none;
+    }
+
+    // 內容
+    &:after {
+        @extend .px-8, .text-white, .font-tiny;
+
+        bottom: 100%;
+        margin-bottom: $tooltip-size/2;
+
+        border-radius: 3px;
+        background: $tooltip-bg;
+        content: attr(aria-label);
+
+        white-space: pre;
+        line-height: $tooltip-size*1.2;
+        letter-spacing: 0;
+
+        @include transform(translateX(-50%));
+    }
+
+    &:hover {
+        &::before, &::after {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}

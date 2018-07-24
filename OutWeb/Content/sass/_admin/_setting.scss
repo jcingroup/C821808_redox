@@ -1,0 +1,125 @@
+@charset "UTF-8";
+
+$img-path:                '../images';
+
+// == color
+// ----------------------------------------------------------------------
+$gray-100:         #f8f9fa !default;
+$gray-200:         #e9ecef !default;
+$gray-300:         #dee2e6 !default;
+$gray-400:         #ced4da !default;
+$gray-500:         #adb5bd !default;
+$gray-600:         #868e96 !default;
+$gray-700:         #495057 !default;
+$gray-800:         #343a40 !default;
+$gray-900:         #212529 !default;
+
+$blue:             #007bff !default;
+$indigo:           #6610f2 !default;
+$purple:           #6f42c1 !default;
+$pink:             #e83e8c !default;
+$red:              #dc3545 !default;
+$orange:           #fd7e14 !default;
+$yellow:           #ffc107 !default;
+$green:            #28a745 !default;
+$teal:             #20c997 !default;
+$cyan:             #17a2b8 !default;
+
+$pale-green:       #E7FFE7 !default;
+$pale-blue:        #E7FFFF !default;
+$pale-yellow:      #fffFD7 !default;
+$pale-red:         #FFE7E7 !default;
+
+$colors: (
+    primary:       #00BB82,
+    secondary:     #175361,
+    success:       #7BD160,
+    info:          #007BA1,
+    warning:       #C7EC99,
+    danger:        #FF5F73,
+    light:         $gray-100,
+    dark:          $gray-800,
+    muted:         #E6E7DF
+) !default;
+
+$color-warning2:   darken(adjust-hue(color(warning), -30deg), 30.5);
+
+
+// == custom-element
+// ----------------------------------------------------------------------
+$body-bg:                   lighten(color(muted), 7.5); //darken(#F9FAF7, 2)
+$font-family-sp:            'Roboto'; // src: https://fonts.google.com/specimen/Roboto
+$link-color:                darken(color(), 5);
+
+$input-bg-disabled:         lighten(color(muted), 3);
+$input-focus-border-color:  color(success);
+$input-color-placeholder:   $gray-500;
+
+$input-group-addon-color:   color(secondary);
+$input-group-addon-bg:      darken(adjust-hue(color(muted), -20deg), 1);
+
+$table-bg-striped:          lighten(color(muted), 9);
+$table-bg-hover:            lighten(#fffFD7, 2);
+
+$label-bg:                  darken(color(), 3);
+$label-mg:                  2px 4px;
+$label-theme: (
+    success:                color(success),
+    info:                   color(info),
+    warning:                $color-warning2,
+    danger:                 color(danger)
+);
+
+$btn-radius:                3px;
+$btn-theme: (
+    success:                     color(success),
+    info:                        color(info),
+    warning:                     $color-warning2,
+    danger:                      color(danger),
+    cancel:                      #808080
+);
+
+
+// == layout
+// ----------------------------------------------------------------------
+// wrapper
+$max-width:             1400px !default;
+$min-width:             1200px !default;
+$footBeBottom:          true !default; // 頁腳是否置底 true / false
+
+// header
+$header-height:         64px !default;
+$header-bg:             color() url(#{$img-path}/headerBg.gif) 0 0 repeat-y !default;
+
+// sidebar
+$sidebar-width:         240px;
+$sidebar-theme-color:   #fff;
+
+//
+// z-index
+$z-index: (
+    header:             6,
+    main:               1,
+    footer:             2,
+    sidebar:            4,
+    logo:               10,
+    menu:               20,
+    tooltip:            100,
+    goTop:              99,
+    overlay:            999,
+);
+
+
+// nav
+$navbar-height:         $header-height !default;
+
+$nav-name:              '.nav-link' !default;
+$nav-height:            'full' !default;   // 'full' | 18px | flase
+$nav-font-size:         17px !default;
+$nav-color:             #fff !default;
+$nav-bg:                lighten(color(), 16) !default;
+
+$nav-item: (
+    home:               color(warning),
+    logout:             color(success)
+) !default;

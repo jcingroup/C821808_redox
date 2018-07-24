@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+.alert-close {
+    @extend .font-xxl;
+    color: darken(color(danger), 30);
+    position: relative;
+    top: -10px;
+    z-index: 1;
+    line-height: 1;
+}
+
+[class*='alert'] {
+    @if $alert-round     { border-radius: $alert-round; }
+    @if $alert-padding   { padding: $alert-padding; }
+    letter-spacing: .02em;
+}
+
+@each $type, $color in $alerts {
+    .alert-#{$type}   {
+        color: darken(nth($color,1), 40);
+        background: lighten(nth($color,1),26.5);
+        border-left: 4px solid lighten(nth($color,1),12);
+    }
+}

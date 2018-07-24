@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+// overlay
+.modal {
+    z-index: z(overlay);
+    overflow: auto;
+    padding-top: $modal-top;;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+
+    @include fixed(left 0 top 0);
+    @include size(100%);
+
+    @if $enable-RWD {
+        @include mq-max(break(phone,-1)) {
+            padding-top: 5%;
+        }
+    }
+
+    &.in { display: block; }
+
+    // 內容區塊
+    &-container {
+        margin: auto;
+        background-color: #fff;
+        position: relative;
+        max-width: 1020px;
+    }
+
+    // header
+    &-header {
+        @extend .bg-secondary, .text-white, .font-xl, .py-8, .px-12, .mb-32;
+    }
+
+    // footer
+    &-footer {
+        @extend .py-12, .mt-32, .text-center;
+
+        border-top: 1px solid lighten($border-color, 5);
+    }
+
+    // close btn
+    &-close {
+        @include rem('font-size', $modal-close-size);
+        @include transition(.35s ease-in);
+
+        float: right;
+        color: $modal-close-color;
+        line-height: 22px;
+
+        &:hover, &:focus {
+            color: $modal-close-color-hover;
+            cursor: pointer;
+        }
+    }
+
+    // this proj
+    // 確認/取消
+    .btn {
+        min-width: 20%;
+    }
+
+    main {
+        @extend .mx-32;
+    }
+}
+
+
+
+
+// 特效
+.animate-top {
+    position: relative;
+
+    @include diy-animate(slide-down, .4s) {
+        from { top: -300px; opacity: 0; }
+        to   { top: 0; opacity: 1; }
+    }
+}
+.animate-zoom {
+    @include diy-animate(animatezoom, .6s) {
+        from { @include transform(scale(0)); }
+        to   { @include transform(scale(1)); }
+    }
+}

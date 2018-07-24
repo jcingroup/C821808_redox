@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+$lte7:                    false;
+$enable-flex:             false;     // 是否使用 flex 版
+
+$grid-breakpoints: (
+    // xs:                   phone, << 很少用
+    sm:                   tablet,
+    md:                   desktop,
+    lg:                   wide
+    // xl:                   wider << 很少用
+) !default;
+
+@import "core/function";
+@import "core/mixins";
+
+
+// output
+// ------------------------------------------------------------
+.row {
+    @include clearfix;
+
+    // mixin> grid> 拿掉 padding，這也要拿掉
+    // margin-right: -($gutter / 2);
+    // margin-left:  -($gutter / 2);
+
+    & + & { margin-top: 0.5rem; }
+}
+
+// helper> mixins> grid
+@include make-grid-columns;
+
+// .no-gutters {
+//     margin-left: 0;
+//     margin-right: 0;
+
+//     > [class*="col-"] {
+//         padding-left: 0;
+//         padding-right: 0;
+//     }
+// }
+
+//
+// grid-new src: http://www.responsivegridsystem.com/
+// .col {
+//     float: left;
+
+//     :not(:last-child) {
+//         margin-right: 1%;
+//     }
+// }
+// .half {
+//     @include grid(1, 2, 1%);
+// }
+// .third {
+//     @include grid(1, 3, 1%);
+// }
+// .fourth {
+//     @include grid(1, 4, 1%);
+// }
+
+// 模擬 table
+.cells    { display: table; width:100%; }
+.cell     { display: table-cell; }

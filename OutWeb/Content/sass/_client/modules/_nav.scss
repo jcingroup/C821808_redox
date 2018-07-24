@@ -1,0 +1,303 @@
+﻿@charset "UTF-8";
+
+$subnav-icon-size: 20px;
+
+
+// == 主選單
+// ------------------------------------------------------------
+
+#menu {
+    // z-index: z(menu);
+
+    // 行動版面
+    @if $mobile-menu-has {
+        @include mq-max(break($mobile-menu-bk, -1)) {
+            display: none;
+        }
+    }
+
+    //
+    // 子選單
+    // <div class="dropdown">
+    //     <a class="nav-link"></a>
+    //     <nav class="sub-nav">子選單內容</nav>
+    // </div>
+    //
+    @if $sub-nav-has {
+        .dropdown {
+            display: inline-block;
+            vertical-align: top;
+
+            // 子選單顯示
+            &:hover {
+                .sub-nav {
+                    opacity: 1;
+                    visibility: visible;
+                    top: 139px;
+
+                    .scrolling & {
+                        top: $header-scrolling;
+                    }
+                }
+                #{$nav-root} {
+                    &:after {
+                        opacity: 1;
+                        bottom: 0;
+                    }
+                }
+            }
+
+            // 下拉選單的箭頭
+            #{$nav-root} {
+                @include el(after) {
+                    @include arrow(up, $subnav-icon-size, 8px, #fff);
+                    @include transition(.3s ease-out);
+                    @include center($subnav-icon-size);
+                }
+                &:after {
+                    bottom: -($subnav-icon-size);
+                    opacity: 0;
+                }
+            }
+
+            img {
+                @extend .p-4, .mr-12, .bg-white;
+
+                border: 1px solid $border-color;
+                border-radius: $border-radius 0 0 $border-radius;
+                height: 120px;
+            }
+            .sub-nav {
+                @include transition(.3s, opacity .5s ease-out); // 這不能跟jquery slideToggle同時用，會有奇怪抖動
+                @include absolute(left 0 top 120px);
+
+                width: 100%;
+                background: #fff;
+                padding: 24px 16px 12px;
+                box-shadow: 0 3px 7px rgba(#000, .1);
+                z-index: z(menu) + 1;
+
+                opacity: 0;
+                visibility: hidden;
+
+                .scrolling & {
+                    top: $header-scrolling - 20;
+                }
+
+                // 子選單樣式
+                a {
+                    @extend .pr-12, .ml-12, .mb-12, .font-lg, .bg-info, .text-primary;
+
+                    display: inline-block;
+                    border-radius: $border-radius;
+
+                    @include mq-max(break($mobile-menu-bk, -1)) {
+                        padding: 8px 12px;
+                    }
+
+                    &:hover, &:active, &.active {
+                        @extend .bg-success, .text-white;
+
+                        img {
+                            border-color: darken(color(success), 5);
+                        }
+                    }
+                    &.active {
+                        box-shadow: 3px 3px 5px color(muted);
+                    }
+                }
+            }
+        }
+    }
+}
+
+#{$nav-root} {
+    @extend .text-white;
+
+    position: relative;
+    letter-spacing: 1px;
+
+    @include transition(.35s);
+
+    @include el(before) {
+        border-top: 3px solid color(info);
+        width: 0;
+        @include absolute(left 0 top 0);
+        @include transition(.5s ease-out);
+    }
+
+    // pc版
+    #header & {
+        @extend .font-lg, .py-24, .px-4;
+
+        display: inline-block;
+        margin-left: 20px;
+
+        [lang='ja'] &,
+        [lang='en'] & {
+            @include mq-max(wider) {
+                margin-left: 12px;
+            }
+        }
+    }
+
+    // 卷動時的pc版選單
+    .scrolling #header & {
+        line-height: 1;
+        padding-top: ($header-scrolling - 18)/2;
+        padding-bottom: ($header-scrolling - 18)/2;
+    }
+
+    // 當前選單樣式
+    &:hover, &:active {
+        color: darken(color(info), 8);
+    }
+    &:hover, &:active, &.active {
+        &:before { width: 100%; }
+    }
+}
+
+// 語系
+.lang-nav {
+    margin-top: 10px;
+
+    @include mq-max(break(desktop, -1)) {
+        #header & {
+            display: none;
+        }
+    }
+
+    a {
+        @extend .font-tiny, .bg-muted, .mb-4;
+
+        display: inline-block;
+        border-radius: $border-radius;
+        width: 72px;
+        color: darken(color(muted), 45);
+        line-height: 26px;
+        letter-spacing: .1em;
+
+        &:not(.active) {
+            text-shadow: 1px 1px 0 rgba(#fff, .8);
+
+            &:hover, &:active {
+                @extend .bg-info;
+            }
+        }
+
+        &.active {
+            @extend .bg-secondary, .text-white;
+        }
+    }
+}
+
+// == mobile-toggle
+@if $mobile-menu-has {
+    // <body>
+    #{$mobile-body-class} {
+        overflow-y: hidden;
+
+        // this proj only
+        .mobile-toggle {
+            top: 6px;
+        }
+        .overlay-nav {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    // 點擊開啟主選單
+    .mobile-toggle {
+        display: none;
+        background: none;
+        cursor: pointer;
+        z-index: z(overlay) + 1;
+
+        @include transition(.3s);
+        @include mq-max(break($mobile-menu-bk,-1)) {
+            display: block;
+        }
+        &:focus {
+            box-shadow: none;
+        }
+
+        // this proj only
+        @extend .font-xl, .text-white;
+
+        // float: right;
+        // position: relative;
+        // top: 16px;
+        // right: 16px;
+        text-shadow: 2px 2px 15px;
+
+        @include absolute(right 16px top 74px);
+
+        @include mq-max(break(desktop, -1)) {
+            top: 12px;
+        }
+
+        .scrolling & {
+            position: fixed;
+            top: 6px;
+        }
+    }
+
+    // 行動版選單
+    .overlay-nav {
+        @extend .py-24;
+
+        @if $mobile-menu-bg    { background: $mobile-menu-bg; }
+        @if $mobile-transition { @include transition($mobile-transition); }
+
+        @include fixed(top 0);
+
+        width: $mobile-menu-width;
+        height: 100%;
+
+        opacity: 0;
+        visibility: hidden;
+        overflow-y: auto;
+        z-index: z(overlay);
+
+        .main-nav {
+            @extend .my-24;
+
+            border-bottom: 1px solid rgba(#fff, .1);
+        }
+
+        #{$nav-root} {
+            display: block;
+            border-top: 1px solid rgba(#fff, .1);
+            font-size: rem(20);
+            padding: 10px 0;
+
+            &:hover, &:active, &.active {
+                @extend .text-white;
+            }
+            &.active {
+                background-color: rgba(color(info), .1);
+            }
+        }
+        .sub-nav {
+            display: flex;
+            flex-direction: column;
+
+            a {
+                @extend .text-white, .my-4, .font-lg;
+
+                &:hover, &.active {
+                    @extend .text-success;
+                }
+            }
+        }
+
+        footer {
+            @extend .text-white, .font-tiny;
+            display: inline-block;
+            background: url(#{$img-path}/logo-s.gif) 0 center no-repeat;
+            line-height: 41px;
+            padding-left: 54px;
+        }
+    }
+}

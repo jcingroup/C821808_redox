@@ -1,0 +1,165 @@
+@charset "UTF-8";
+
+// == btn-custom
+// ------------------------------------------------------------
+.btn {
+    // 各尺寸按鈕
+    &.sm {
+        // @extend .font-sm, .py-0, .px-8;
+        @extend .font-sm, .py-0;
+    }
+    &.lg {
+        // @extend .font-lg, .py-12, .px-32;
+        @extend .font-lg;
+    }
+    &.outline {
+        @extend .bg-white, .text-secondary;
+
+        border: 1px solid $btn-bg;
+
+        &:hover, &:active {
+            @extend .bg-success, .text-white;
+            border-color: #fff;
+        }
+    }
+}
+
+
+// == custom
+// ------------------------------------------------------------
+//
+// src: w3.css v4
+.font-tiny   { @include rem('font-size', 12); }  // 13px
+.font-sm     { @include rem('font-size', 13); }  // 14px
+.font-md     { @include rem('font-size', 15); }
+.font-lg     { @include rem('font-size', 19); }  // 20px
+.font-xl     { @include rem('font-size', 24); }
+.font-xxl    { @include rem('font-size', 32); }
+.font-xxxl   { @include rem('font-size', 48); }
+.font-jumbo  { @include rem('font-size', 64); }
+
+//
+// this proj only才用到的樣式
+.underline {
+    border-bottom: 1px solid $border-color;
+}
+
+.title {
+    @extend .mb-24, .pb-12, .underline;
+
+    color: darken(color(), 10);
+
+    h2 {
+        @extend .mb-12;
+        @include rem('font-size', 28);
+    }
+
+    small {
+        @extend .ml-8;
+        color: darken(color(muted), 15);
+    }
+}
+
+// 幫助 - 滑鼠會變問號
+// <sup class="help" title="說明項目">*</sup>
+.help {
+    @extend .text-danger, .font-lg;
+    cursor: help;
+}
+
+::selection {
+    @extend .bg-warning;
+}
+
+.breadcrumb {
+    @extend %list-inline, .font-sm, .mb-0;
+
+    color: #6A8891;
+
+    li {
+        &:not(:last-child) {
+            &:after {
+                content: "/";
+            }
+        }
+    }
+}
+
+.arrow {
+    display: inline-block;
+    border: solid color("secondary");
+    border-width: 0 2px 2px 0;
+    padding: 4px;
+
+    @include transition(.35s ease);
+
+    &.right {
+        @include transform(rotate(-45deg));
+    }
+
+    &.left {
+        @include transform(rotate(135deg));
+    }
+
+    &.up {
+        @include transform(rotate(-135deg));
+    }
+
+    &.down {
+        @include transform(rotate(45deg));
+    }
+}
+
+.dropdown {
+    position: relative;
+
+    &-toggle {
+        &:focus { box-shadow: none; }
+    }
+
+    &-content {
+        @extend .bg-white, .text-left;
+
+        @include absolute(top 110%);
+
+        box-shadow: 1px 3px 10px rgba(#000, .2);
+        z-index: 1;
+
+        &.search-box {
+
+            min-width: 300px;
+            padding: 8px 8px 0;
+
+            .select {
+                overflow-y: auto;
+                max-height: 280px;
+                margin-left: -8px;
+                margin-right: -8px;
+            }
+
+            a {
+                @extend .py-4, .pl-8;
+            }
+        }
+    }
+
+    .arrow {
+        @extend .ml-8;
+
+        border-color: inherit;
+        position: relative;
+        top: -3px;
+    }
+    a {
+        @extend .text-secondary;
+
+        display: block;
+
+        &:hover, &:active, &:focus, &.active {
+            background: lighten(color(warning), 10);
+        }
+    }
+    hr {
+        @extend .my-0;
+    }
+}

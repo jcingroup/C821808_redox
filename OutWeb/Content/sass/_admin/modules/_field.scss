@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+//
+// == 單行欄位樣式：label + input + btn
+// <dl class="field"><dt></dt><dd></dd>
+// -------------------------------------------------
+.field {
+    @extend .mb-0;
+
+    @include clearfix;
+
+    & ~ & { margin-top: rem($fields-spacer); }
+
+    // label
+    dt {
+        @extend .form-label, .text-right, .pr-8;
+        font-weight: normal;
+    }
+    dd {
+        min-height: $input-height;
+    }
+
+    sup {
+        @extend .text-danger;
+        cursor: help;
+    }
+}

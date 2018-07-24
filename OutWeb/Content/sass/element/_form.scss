@@ -1,0 +1,263 @@
+@charset "UTF-8";
+
+// Forms
+// -----------------------------------------------------------------
+// input 預設
+%form-element {
+    display: block;
+    width: 100%;
+
+    // $input-height = button (line-height + padding)
+    padding: $input-pd;
+    line-height: $input-height;
+    min-height: $input-height;
+
+    @if $input-color      { color: $input-color; }
+    @if $input-bg         { background-color: $input-bg; }
+    @if $input-font-size  { font-size: rem($input-font-size); }
+    @if $input-border     { border: $input-border; }
+    @if $input-radius     { border-radius: $input-radius; }
+    @if $input-shadow     { box-shadow: $input-shadow; }
+    @if $input-transition { @include transition($input-transition); }
+
+    &:disabled,
+    &[disabled],
+    &[readonly] {
+        @if $input-bg-disabled { background-color: $input-bg-disabled; }
+        opacity: 1;
+    }
+    &:disabled,
+    &[disabled] {
+        cursor: $cursor-disabled;
+    }
+    &:focus {
+        outline: none;
+
+        @if $input-focus-color        { color: $input-focus-color; }
+        @if $input-focus-bg           { background-color: $input-focus-bg; }
+        @if $input-focus-border-color { border-color: $input-focus-border-color; }
+        @if $input-shadow {
+            box-shadow: $input-shadow, $input-focus-box-shadow;
+        } @else {
+            box-shadow: $input-focus-box-shadow;
+        }
+    }
+
+    .form-inline &, &.inline {
+        display: inline;
+        width: auto;
+
+        &:not(:last-child) {
+            margin-right: $spacer*0.3;
+        }
+    }
+
+    // 元素外觀屬性: 移除預設樣式
+    @if $form-appearance {
+        @include prefix(appearance, $form-appearance, webkit moz);
+    }
+
+    // Unstyle the caret on `<select>`s in IE10+.
+    &::-ms-expand {
+        background-color: transparent;
+        border: 0;
+    }
+    &::placeholder {
+        color: $input-color-placeholder;
+        opacity: 1;
+    }
+}
+.form-element {
+    @extend %form-element;
+}
+
+@if $form-appearance {
+    select {
+        background-image: str-replace(url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 14" width="32" height="14"><path fill="#{$select-caret-color}" d="M9.37727 3.625l5.08154 6.93523L19.54036 3.625"/></svg>'), '#', '%23');
+        background-position: right center;
+        background-repeat: no-repeat;
+        padding-right: 2rem !important;
+
+        &:focus {
+            background-image: str-replace(url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 14" width="32" height="14"><path fill="#{$select-caret-color-checked}" d="M9.37727 3.625l5.08154 6.93523L19.54036 3.625"/></svg>'), '#', '%23');
+        }
+    }
+}
+
+input[type='number'] {
+    padding-right: 0;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+    display: inline;
+}
+
+// .block in util
+.form-label {
+    display: inline-block;
+    font-weight: normal;
+    // line-height: $input-height;
+
+    line-height: $form-label-line-height;
+    padding-top: ($input-height - $form-label-line-height)/2;
+    padding-bottom: ($input-height - $form-label-line-height)/2;
+}
+
+legend { width: 100%; }
+
+legend,
+.form-label.block {
+    margin-bottom: $spacer/2;
+}
+
+fieldset {
+    border-width: 0;
+    padding: 0;
+    min-width: 0;
+    margin: 0;
+}
+
+body:not(:-moz-handler-blocked) fieldset {
+    display: table-cell;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 6.5rem;
+}
+
+output {
+    display: inline-block;
+}
+
+// iOS 的時間欄位垂直對齊 - safari
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    input[type='date'],
+    input[type='time'],
+    input[type='datetime-local'],
+    input[type='month'] {
+        line-height: $input-height;
+
+        @if $input-border {
+            height: $input-height + 2;
+        } @else {
+            height: $input-height;
+        }
+    }
+}
+
+@if $choice-box-has {
+    // == checkbox + radio
+    // 使用方法 1
+    // <input class="checkbox" type="checkbox" id="show2" name="show">
+    // <label for="show2" class="icon"></label>
+
+    // 使用方法 2 - 有字的時候用
+    // <label class="control-group">
+    //     <input class="radio" type="radio">
+    //     <i class="icon"></i> 選項
+    // </label>
+
+    $icon: '+ .icon';
+
+    // all icon
+    .checkbox, .radio {
+        position: absolute;
+        opacity: 0;
+        visibility: hidden;
+
+        #{$icon} {
+            // 共用設定
+            cursor: pointer; cursor:hand;
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            outline: none;
+            user-select: none;
+            margin: 0;
+
+            // 設計樣式
+            background: $input-bg;
+            border: 1px solid darken($input-color-border,2);
+        }
+
+        &[disabled] #{$icon} {
+            cursor: $cursor-disabled;
+        }
+    }
+
+    // 各別設定(換圖及調大小)
+    .checkbox {
+        #{$icon} {
+            @if $checkbox-radius { border-radius: $checkbox-radius; }
+            @include size($checkbox-size);
+            text-align: center;
+
+            // icon
+            &:before {
+                opacity: 0;
+                color: $choice-box-color;
+                line-height: $checkbox-size;
+
+                @include center();
+            }
+        }
+        &:not(:checked):hover {
+            #{$icon} {
+                border-color: $choice-box-color;
+                &:before { opacity: 0.6; }
+            }
+        }
+        &:checked {
+            #{$icon} {
+                border-color: $choice-box-color;
+                background: $choice-box-color;
+                &:before {
+                    opacity: 1;
+                    color: #fff;
+                }
+            }
+        }
+    }
+    .radio {
+        #{$icon} {
+            @include circle($checkbox-size,center);
+            @include transition(background .3s, border .3s);
+        }
+        &:not(:checked):hover {
+            #{$icon} {
+                border-color: $choice-box-color;
+            }
+        }
+        &:checked {
+            #{$icon} {
+                box-shadow: 0 0 3px $choice-box-color;
+                border: 4px solid #fff;
+                background: $choice-box-color;
+            }
+        }
+    }
+
+    // 方法2
+    %congroup-all {
+        cursor: pointer;
+        cursor: hand;
+        .icon { margin-right: .1em; }
+    }
+    .control-group {
+        @extend %congroup-all;
+
+        display: inline-block;
+
+        &:not(:last-of-type) { margin-right: $spacer*.6; }
+
+        &-stacked {
+            @extend %congroup-all;
+
+            display: block;
+
+            &:not(:last-of-type) { margin-bottom: $spacer*.6;}
+        }
+    }
+}
