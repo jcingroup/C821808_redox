@@ -12,18 +12,21 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+                <address><a href="mailto:service@redoxm.com">service@redoxm.com</a></address>
+                <span class="icon-bar">FB</span>
+                <span class="icon-bar">Line</span>
                 @Html.ActionLink("應用程式名稱", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("首頁", "Index", "Home")</li>
-                    <li>@Html.ActionLink("關於", "About", "Home")</li>
-                    <li>@Html.ActionLink("連絡人", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("關於我們", "About", "Home")</li>
+                    <li>@Html.ActionLink("最新消息", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("產品介紹", "Contact", "Home")</li>
+                    <li class=""><img src="">logo</li>
+                    <li>@Html.ActionLink("專業服務", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("哪裡購買", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("連絡我們", "Contact", "Home")</li>
                 </ul>
             </div>
         </div>
@@ -32,7 +35,20 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 應用程式</p>
+            <div>
+                <img src="">
+                <div>
+                    <p>肽研生醫秉持著年輕、活力、創新、誠信、關懷、國際化的精神持續鞭策自己，期望可以永續經營回饋社會，邁向國際</p>
+                </div>
+                <div>
+                    <p>肽研生醫股份有限公司</p>
+                    <p>服務專線：(02)8771-5958</p>
+                    <p>傳真專線：(02)8771-0677</p>
+                    <p>E-mail：　service@redoxm.com</p>
+                    <p>服務地址： 10690台北市大安區忠孝東路四段221號10樓</p>
+                </div>
+                <div>google map</div>
+            </div>
         </footer>
     </div>
 
