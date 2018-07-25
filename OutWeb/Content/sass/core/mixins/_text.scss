@@ -34,13 +34,20 @@
 }
 
 // == 字換圖
-@mixin text-pic($img, $width:false, $height:false, $seat: 0 0) {
+@mixin text-pic($img, $w:false, $h:false, $seat: 0 0) {
     @include text-hide;
 
     background: url(#{$img-path}/#{$img}) $seat no-repeat;
 
-    @if $width  { width: $width; }
-    @if $height { height: $height; }
+    @if $w { width: $w; }
+    @if $h { height: $h; }
+
+    // @if length($size) {
+    //     @each $prop in width height {
+    //         $i: index($size, $prop);
+    //         #{$prop}: nth($size, $i);
+    //     }
+    // }
 }
 
 // == 文字溢位出現省略號,要設寬度

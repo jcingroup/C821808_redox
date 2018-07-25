@@ -1,5 +1,6 @@
 ﻿@charset "UTF-8";
 
+$enable-RWD:              false;
 $img-path:                '../images';
 
 // == color
@@ -11,12 +12,12 @@ $pale-red:                #FFE7E7 !default;
 
 // 情境狀態 + 配色
 $colors: (
-    primary:              #25BB8D,
-    secondary:            #175361,
-    muted:                #E6E7DF,
+    primary:              #1599A3,
+    secondary:            #005081,
+    muted:                #EFEFEF,
     success:              #7BD160,
     info:                 #007BA1,
-    warning:              #C7EC99,
+    warning:              #FCDE6D,
     danger:               #FF5F73
 );
 
@@ -25,38 +26,11 @@ $colors: (
 // ----------------------------------------------------------------------
 
 // basic
-$body-bg:                    #fff;
-$body-color:                 #222;
-$font-family-sp:             'Raleway'; // src: https://fonts.google.com/specimen/Raleway
-
-$link-color:                 mix(color(), color(secondary));
+$body-color:                 #231815;
+$font-family-sp:             'Montserrat'; // src: https://fonts.google.com/specimen/Montserrat
 
 $border-color:               color(muted);
-
-// $p-spacer:                   16px;
-
-// btn
-$btn-font-size:              24px;
-$btn-letter-spacing:         .2em;
-$btn-bg:                     color(success);
-$btn-bg-hover:               color();
-$btn-radius:                 3px;
-$btn-bg-disabled:            darken($body-bg, 40);
-
-// input
-$input-font-size:            false;
-$input-height:               38px;
-$input-pd:                   0 .7em;
-
-$input-bg:                   false;
-$input-color:                #fff;
-$input-color-border:         #fff;
-$input-focus-border-color:   lighten(color(success), 10);
-$input-color-placeholder:    rgba(#fff, .6);
-
-$form-label-line-height:     16px;
-
-$form-appearance:            false;
+$border-radius:              12px;
 
 
 // == layout
@@ -68,18 +42,17 @@ $wrapper-bg:            false !default;            // 外套背景
 $wrapper-b-spacing:     72px !default;                // 與頁腳的間距
 
 // header
-$header-height:         452px !default;            // 頁頭高度
-$header-bg:             lighten(desaturate(color(), 18), 8) !default;            // 頁頭背景
-$header-scrolling:      54px;                      // this proj only使用 - 滾動時的頁頭高度
-$header-mobile-hg:      80px;                      // this proj only使用 - 行動版的高度
+$header-height:         false !default;            // 頁頭高度
+$header-bg:             false !default;            // 頁頭背景
+$sticky-h:              54px;                      // this proj only使用 - 滾動時的頁頭高度
 
 // logo
-$logo-img:              'logo.png' !default;       // logo 圖檔名: 可用 false
-$logo-size:             67px 58px !default;        // logo 圖尺寸
+$logo-img:              'logo.gif' !default;       // logo 圖檔名: 可用 false
+$logo-size:             217px 69px !default;        // logo 圖尺寸
 
 // footer
-$footer-height:         260px !default;                                                              // 頁腳最小高度
-$footer-bg:             color(secondary) !default;  // 頁腳背景
+$footer-height:         266px !default;                                                              // 頁腳最小高度
+$footer-bg:             tint(color(), 20) !default;  // 頁腳背景 #65ABB3
 $footer-color:          #fff !default;                                                               // 頁腳文字顏色
 
 // z-index
@@ -87,6 +60,7 @@ $z-index: (
     header:             3,
     main:               1,
     footer:             2,
+    figure:             9,
     logo:               10,
     goTop:              99,
     overlay:            999,

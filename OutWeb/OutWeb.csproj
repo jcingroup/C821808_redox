@@ -152,6 +152,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Inc\DotWeb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -159,15 +160,19 @@
     <Content Include="Content\css\editor.css" />
     <Content Include="Content\css\grid.css" />
     <Content Include="Content\css\index.css" />
-    <Content Include="Content\css\vendor\loaders.min.css" />
     <Content Include="Content\css\vendor\open-iconic.css" />
-    <Content Include="Content\css\vendor\owl.carousel.min.css" />
-    <Content Include="Content\css\vendor\owlStyle.css" />
-    <Content Include="Content\css\vendor\react-datetime.css" />
-    <Content Include="Content\css\vendor\toastr.css" />
-    <Content Include="Content\css\vendor\typeahead.css" />
+    <Content Include="Content\css\vendor\swiper.min.css" />
+    <Content Include="Content\css\vendor\themify-icons.css" />
     <Content Include="Content\font\open-iconic\open-iconic.svg" />
-    <Content Include="Content\js\owl.carousel.min.js" />
+    <Content Include="Content\font\themify-icons\themify.svg" />
+    <Content Include="Content\images\icon-social.gif" />
+    <Content Include="Content\images\index\banner1.png" />
+    <Content Include="Content\images\index\intro.jpg" />
+    <Content Include="Content\images\index\intro2.jpg" />
+    <Content Include="Content\images\logo-foot.gif" />
+    <Content Include="Content\images\logo-s.gif" />
+    <Content Include="Content\images\logo.gif" />
+    <Content Include="Content\js\swiper.min.js" />
     <Content Include="Content\noIE\bg.gif" />
     <Content Include="Content\noIE\brow.gif" />
     <Content Include="Content\noIE\brow2.gif" />
@@ -200,7 +205,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\images\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\" />
   </ItemGroup>
@@ -270,6 +274,9 @@
     <Content Include="Content\sass\_client\_custom.scss" />
     <Content Include="Content\sass\_client\_layout.scss" />
     <Content Include="Content\sass\_client\_setting.scss" />
+    <Content Include="Content\font\themify-icons\themify.eot" />
+    <Content Include="Content\font\themify-icons\themify.ttf" />
+    <Content Include="Content\font\themify-icons\themify.woff" />
     <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup>

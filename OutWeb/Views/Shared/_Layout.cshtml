@@ -1,59 +1,113 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - 我的 ASP.NET 應用程式</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>@ViewBag.Title - 肽研生醫 REDOX MEDICARE</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300">
+    <link rel="stylesheet" href="~/Content/css/vendor/themify-icons.css">
+    <link rel="stylesheet" href="~/Content/css/grid.css">
+    @if (ViewBag.IsFirstPage)
+    {
+        <link rel="stylesheet" href="~/Content/css/index.css">
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/Content/css/page.css">
+    }
+    @RenderSection("css", required: false)
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <address><a href="mailto:service@redoxm.com">service@redoxm.com</a></address>
-                <span class="icon-bar">FB</span>
-                <span class="icon-bar">Line</span>
-                @Html.ActionLink("應用程式名稱", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("首頁", "Index", "Home")</li>
-                    <li>@Html.ActionLink("關於我們", "About", "Home")</li>
-                    <li>@Html.ActionLink("最新消息", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("產品介紹", "Contact", "Home")</li>
-                    <li class=""><img src="">logo</li>
-                    <li>@Html.ActionLink("專業服務", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("哪裡購買", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("連絡我們", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
+<body class="@ViewBag.BodyClass">
+    <div id="wrapper">
+        <header id="header">
+            <nav class="top-nav">
+                <div class="wrap">
+                    <a class="pull-left mail" href="mailto:service@redoxm.com">service@redoxm.com</a>
+                    <section class="pull-right social">
+                        <a href="" class="icon-fb" target="new">FB</a>
+                        <a href="" class="icon-line" target="new">Line</a>
+                    </section>
+                </div>
+            </nav>
+            <nav id="menu" class="sticky">
+                <h1 class="logo" onclick="location.href='@Url.Content("~/Home")'" title="回首頁" tabindex="-1">肽研生醫 REDOX MEDICARE</h1>
+                <div class="wrap">
+                    <section class="pull-left">
+                        <a class="nav-link @(ViewBag.BodyClass == "Index" ? "active" : "")" href="~/Home">首頁</a>
+                        <a class="nav-link @(ViewBag.BodyClass == "AboutUs" ? "active" : "")" href="~/Home/AboutUs">關於我們</a>
+                        <a class="nav-link @(ViewBag.BodyClass == "News" ? "active" : "")" href="~/News">最新消息</a>
+                        <a class="nav-link @(ViewBag.BodyClass == "Products" ? "active" : "")" href="~/Products">產品介紹</a>
+                    </section>
+                    <section class="pull-right">
+                        <a class="nav-link @(ViewBag.BodyClass == "Service" ? "active" : "")" href="~/Home/Service">專業服務</a>
+                        <a class="nav-link @(ViewBag.BodyClass == "Buy" ? "active" : "")" href="~/Home/Buy">哪裡購買</a>
+                        <a class="nav-link @(ViewBag.BodyClass == "ContactUs" ? "active" : "")" href="~/ContactUs">連絡我們</a>
+                    </section>
+                </div>
+            </nav>
+        </header>
+
+        @if (!ViewBag.IsFirstPage)
+        {
+            <section id="banner"></section>
+        }
+
         @RenderBody()
-        <hr />
-        <footer>
-            <div>
-                <img src="">
-                <div>
-                    <p>肽研生醫秉持著年輕、活力、創新、誠信、關懷、國際化的精神持續鞭策自己，期望可以永續經營回饋社會，邁向國際</p>
-                </div>
-                <div>
-                    <p>肽研生醫股份有限公司</p>
-                    <p>服務專線：(02)8771-5958</p>
-                    <p>傳真專線：(02)8771-0677</p>
-                    <p>E-mail：　service@redoxm.com</p>
-                    <p>服務地址： 10690台北市大安區忠孝東路四段221號10樓</p>
-                </div>
-                <div>google map</div>
-            </div>
-        </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    <a href="#wrapper" class="goTop ti-arrow-up" title="至頂端"></a>
+
+    <footer id="footer">
+        <div class="wrap">
+            <h2 class="logo-foot">肽研生醫 REDOX MEDICARE</h2>
+            <p class="col-4 foot-about">
+                肽研生醫秉持著年輕、活力、創新、誠信、關懷、國際化的精神持續鞭策自己，期望可以永續經營回饋社會，邁向國際
+            </p>
+            <dl class="col-5 foot-contacts">
+                <dt>肽研生醫股份有限公司</dt>
+                <dd>服務專線：<a href="tel:0287715958" class="hover-underline">(02)8771-5958</a></dd>
+                <dd>傳真專線：(02)8771-0677</dd>
+                <dd>E-mail：<a class="hover-underline" href="mailto:service@redoxm.com">service@redoxm.com</a></dd>
+                <dd>服務地址：<a class="hover-underline" href="https://goo.gl/maps/o888xrs1imH2" target="new">10690 台北市大安區忠孝東路四段221號10樓</a></dd>
+            </dl>
+            <div class="col-3 map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.7760056845837!2d121.55043071556398!3d25.04167458396865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abc5c62b1c13%3A0x1fd18eead4eade42!2zMTA25Y-w5YyX5biC5aSn5a6J5Y2A5b-g5a2d5p2x6Lev5Zub5q61MjIx6JmfMTA!5e0!3m2!1szh-TW!2stw!4v1532502241662" height="186" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="//code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $('.goTop').click(function(){
+            $("html, body").animate({ scrollTop: 0 }, 800);
+            return false;
+        });
+
+        /// 卷軸滾動效果 (Header goTop) ////
+        var $sticky = $('.sticky');
+        var wrapOffset = $sticky.offset().top + $sticky.outerHeight();
+        // var wrapOffset = $sticky.offset().top;
+        $(window).scroll(function (e) {
+            e.preventDefault();
+
+            if (($(this).scrollTop() > wrapOffset) && (!$('body').hasClass('scrolling'))) {
+                $('body').addClass('scrolling');
+            }
+            else if ($(this).scrollTop() <= wrapOffset && ($('body').hasClass('scrolling'))) {
+                $('body').removeClass('scrolling');
+            }
+
+            if ($(this).scrollTop() > 100) {
+                $('.goTop').addClass('fade-in').removeClass('fade-out');
+            }
+            else {
+                $('.goTop').removeClass('fade-in').addClass('fade-out');
+            }
+        });
+    </script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

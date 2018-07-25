@@ -20,11 +20,11 @@ $img-index:                      '../images/index';
 @import "element/basic";
 @import "element/link";
 @import "element/type";
-@import "element/form";
 @import "element/btn";
 @import "element/util";   // 共用工具樣式
 
-@import "_client/modules/field"; // 前台用雜項樣式
+@import "_client/modules/nav"; // 選單
+@import "_client/modules/figure";
 
 @import "_client/custom"; // 前台用雜項樣式
 @import "_client/layout"; // 前台用版面
@@ -33,139 +33,46 @@ $img-index:                      '../images/index';
 // main
 // ------------------------------------------------------------
 
-option {
-    @extend .bg-primary;
-}
+// == banner
+$banner-h: 535px;
 
-.submit-bar {
-    @extend .mt-32;
+#banner {
 
-    .half {
-        @include grid(1,2,1%);
-
-        &:first-child { margin-right: 1%;}
+    &, .swiper-slide {
+        height: $banner-h;
     }
 }
+.banner {
+    &-1 {
+        @extend .bg-warning;
 
-// 頁籤: 登入, 註冊
-.tab-main {
-    @extend .text-left, .bg-white;
+        color: #595757;
 
-    box-shadow: 1px 2px 12px 3px rgba(color(secondary), .5);
-    border-radius: 35px 0 35px;
-    padding: 16px 42px 64px;
-
-    // title
-    h2 {
-        @extend .text-info;
-
-        font-weight: 600;
-        letter-spacing: .1em;
-
-        @include rem('font-size',56);
-    }
-
-    // icon
-    .icon {
-        @extend .mb-12;
-
-        display: block;
-        position: relative;
-
-        &:before {
-            @extend .text-white;
-
-            position: absolute !important;
-            right: 0;
-            top: 50% !important;
-            width: 36px;
-            text-align: center;
-
-            @include transform(translateY(-50%));
+        .inner {
+            margin-top: 42px;
+            max-width: 763px;
         }
-
-        .form-element {
-            padding-right: 36px;
+        h2 {
+            margin-top: 120px;
+            margin-bottom: 38px;
         }
-    }
-
-    // input
-    .form-element {
-        @include linear-gradient(to right, #00BB82, #80DA64);
-    }
-}
-
-
-.tab-pane {
-    display: none;
-
-    @include transition(.3s);
-
-    &.in {
-        display: block;
-
-        @include diy-animate(slide-right, 1s 1 forwards) {
-            0%   {
-                opacity: 0;
-                @include transform(translateX(-20px));
-            }
-            100% {
-                opacity: 1;
-                @include transform(translateX(0));
-            }
+        .lead {
+            font-weight: bolder;
+            @include rem('font-size', 21);
         }
     }
 }
 
-$switch-w: 128px;
-$switch-h: 34px;
-.switch {
+// == intro
+.intro {
     position: relative;
-    width: $switch-w;
-    line-height: $switch-h;
-    border-radius: $switch-h;
-    background: #7FA7B4;
-    float: right;
+    top: -62px;
+    z-index: 2;
+    // margin-top: -62px;
 
-    &-indicator {
-        width: ($switch-w/2 + 2);
-        height: $switch-h + 2;
-        background: color(success);
-        border-radius: $switch-h;
-        box-shadow: 3px 2px 3px rgba(#000, .45);
+    .card {
+        display: inline-block;
 
-        @include absolute(top -1px left -2px);
-        @include transition(transform .6s cubic-bezier(.02,.94,.09,.97));
+        @include grid(1, 6);
     }
-}
-.tab-nav {
-    @extend .text-white, .text-center;
-
-    width: $switch-w/2;
-    display: inline-block;
-    margin-right: -4px;
-    position: relative;
-    z-index: 1;
-
-    &.active {
-        color: darken(color(secondary), 8);
-
-        &:first-child {
-            ~ .switch-indicator {
-                @include transform(translateX(0));
-            }
-        }
-        &:nth-child(2) {
-            ~ .switch-indicator {
-                @include transform(translateX($switch-w/2));
-            }
-        }
-    }
-}
-
-
-
-// slide effect
-.carousel {
-
 }

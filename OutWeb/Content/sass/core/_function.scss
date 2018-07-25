@@ -70,13 +70,26 @@
     @return $string;
 }
 
+// == 取得組合色
 @function color($value: "primary") {
     @if map-has-key($colors, $value) {
         @return map-get($colors, $value);
     }
     @return null;
 }
+// 漸淡色
+// color: tint(#BADA55, 42%);
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
 
+// 漸濃色
+// background-color: shade(#663399, 42%);
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+// == 取間距
 @function spacing($value: 16) {
     @if map-has-key($spacing, $value) {
         @return map-get($spacing, $value);

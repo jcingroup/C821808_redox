@@ -92,7 +92,7 @@
         .bg-#{$type}   { background-color: $color; }
         .hover-#{$type} {
             color: $color;
-            &:hover, &:active { color: darken($color, 15); }
+            &:hover, &:active { color: shade($color, 15); }
         }
     }
     [class*="text-"],

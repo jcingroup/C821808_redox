@@ -1,13 +1,15 @@
 @charset "UTF-8";
 
+//
 // 這裡是本專案用的自定義樣式
 // == custom
 // ------------------------------------------------------------
+// 各種尺寸的字型大小
 // src: w3.css v4
 .font-tiny   { @include rem('font-size', 12); }  // 10px
 .font-sm     { @include rem('font-size', 13); }  // 12px
 .font-md     { @include rem('font-size', 15); }  // 15px
-.font-lg     { @include rem('font-size', 17); }  // 18px
+.font-lg     { @include rem('font-size', 18); }  // 18px
 .font-xl     { @include rem('font-size', 24); }  // 24px
 .font-xxl    { @include rem('font-size', 36); }  // 36px
 .font-xxxl   { @include rem('font-size', 48); }  // 48px
@@ -15,23 +17,42 @@
 
 .font-normal { font-style: normal; }
 
+// 滑鼠
+// 幫助 - 滑鼠會變問號
+// <sup class="help" title="說明項目">*</sup>
+.help {
+    @extend .text-danger, .font-lg;
+    cursor: help;
+}
+
+// 滑鼠選取效果
+::selection {
+    @extend .bg-warning;
+}
+
+// btn add
+.btn {
+    &:hover, &:active, &:focus {
+        box-shadow: inset 3px 3px 5px rgba(#000, .3);
+    }
+}
 
 // == goTop
 // ------------------------------------------------------------
 .goTop {
-    @extend .text-white, .font-lg, .px-16, .py-8;
+    @extend .text-white, .font-lg, .px-16, .py-12;
 
     z-index: z(goTop);
     opacity: 0;
     border-radius: $border-radius border-radius 0 0;
-    background: rgba(color(), .35);
+    background: rgba(darken(color(), 10), .5);
 
     @include fixed(bottom 0 right 1.6%);
     @include transition(.4s);
 
     &:hover, &:active {
         @extend .text-white;
-        background: color();
+        background: color(secondary);
     }
 }
 
@@ -74,31 +95,16 @@
 // }
 
 // // 標題
-// .title {
-//     @extend .text-primary;
+.title {
+    @extend .font-xxxl;
 
-//     line-height: 1.3;
-
-//     @include rem('font-size', if($isIndex, 62, 48));
-
-//     &::first-letter {
-//         border-bottom: 4px solid color(info);
-//     }
-
-//     .underline {
-//         border-bottom: 4px solid color(info);
-//     }
-// }
-
-// 幫助 - 滑鼠會變問號
-// <sup class="help" title="說明項目">*</sup>
-.help {
-    @extend .text-danger, .font-lg;
-    cursor: help;
+    font-weight: bolder;
+    line-height: 1.3;
 }
 
-::selection {
-    @extend .bg-warning;
+// add 情景
+.bg-primary-light {
+    background: tint(color(), 20);
 }
 
 // 連結底線特效
@@ -107,17 +113,43 @@
 
     @include el(after) {
         border-bottom: 1px solid;
-        width: 100%;
+        width: 0;
 
         @include transition(.35s);
-        @include absolute(left 0 bottom -2px);
+        @include absolute(left 50% bottom -2px);
     }
 
     &:hover, &:active {
         &:after {
-            width: 0;
-            left: 50%;
+            width: 100%;
+            left: 0;
         }
+    }
+}
+
+// figure.card
+.card {
+    @extend .bg-white;
+
+    box-shadow: 5px 5px 8px rgba(#000, .2);
+    border-radius: $border-radius;
+    border: 1px solid color(muted);
+    padding: 20px;
+
+    img {
+        max-width: 100%;
+    }
+    figcaption {
+        padding-bottom: 72px;
+        position: relative;
+    }
+    h4 {
+        font-weight: bolder;
+    }
+    .more {
+        @include center(x);
+        bottom: 0;
+        z-index: z(figure) + 1;
     }
 }
 
