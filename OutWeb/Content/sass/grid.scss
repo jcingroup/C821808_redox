@@ -42,22 +42,26 @@ $grid-breakpoints: (
 
 //
 // grid-new src: http://www.responsivegridsystem.com/
-// .col {
-//     float: left;
+// grid new
+[data-col] {
+    // float: left;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: -4px;
 
-//     :not(:last-child) {
-//         margin-right: 1%;
-//     }
-// }
-// .half {
-//     @include grid(1, 2, 1%);
-// }
-// .third {
-//     @include grid(1, 3, 1%);
-// }
-// .fourth {
-//     @include grid(1, 4, 1%);
-// }
+    &:not(:last-of-type) {
+        margin-right: 1.6%;
+    }
+}
+[data-col="half"] {
+    @include grid(1, 2, 1.6%);
+}
+[data-col="third"] {
+    @include grid(1, 3, 1.6%);
+}
+[data-col="fourth"] {
+    @include grid(1, 4, 1.6%);
+}
 
 // 模擬 table
 .cells    { display: table; width:100%; }

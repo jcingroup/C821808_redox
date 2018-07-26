@@ -10,7 +10,7 @@
 .font-sm     { @include rem('font-size', 13); }  // 12px
 .font-md     { @include rem('font-size', 15); }  // 15px
 .font-lg     { @include rem('font-size', 18); }  // 18px
-.font-xl     { @include rem('font-size', 24); }  // 24px
+.font-xl     { @include rem('font-size', 21); }  // 24px
 .font-xxl    { @include rem('font-size', 36); }  // 36px
 .font-xxxl   { @include rem('font-size', 48); }  // 48px
 .font-jumbo  { @include rem('font-size', 64); }  // 64px
@@ -104,7 +104,7 @@
 
 // add 情景
 .bg-primary-light {
-    background: tint(color(), 20);
+    background: $bg-primary-light;
 }
 
 // 連結底線特效
@@ -131,7 +131,7 @@
 .card {
     @extend .bg-white;
 
-    box-shadow: 5px 5px 8px rgba(#000, .2);
+    box-shadow: 5px 5px 15px rgba(#000, .2);
     border-radius: $border-radius;
     border: 1px solid color(muted);
     padding: 20px;
@@ -140,11 +140,9 @@
         max-width: 100%;
     }
     figcaption {
+        @extend .font-lg;
         padding-bottom: 72px;
         position: relative;
-    }
-    h4 {
-        font-weight: bolder;
     }
     .more {
         @include center(x);

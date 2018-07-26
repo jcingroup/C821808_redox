@@ -292,13 +292,13 @@ dt {
 dd {
   margin-left: 0; }
 
-.list-inline, .breadcrumb, .user-search, .list-unstyled {
+.list-inline, .breadcrumb, .list-unstyled {
   list-style: none;
   padding-left: 0; }
 
-.list-inline > li, .breadcrumb > li, .user-search > li {
+.list-inline > li, .breadcrumb > li {
   display: inline-block; }
-  .list-inline > li:not(:last-child), .breadcrumb > li:not(:last-child), .user-search > li:not(:last-child) {
+  .list-inline > li:not(:last-child), .breadcrumb > li:not(:last-child) {
     margin-right: 5px; }
 
 /*      table
@@ -322,22 +322,21 @@ th, td {
   padding: 0.25rem 0.5rem;
   border-top: 1px solid #E6E7DF; }
 
-.table-bordered, .report-list, .table-list {
+.table-bordered, .table-list {
   border: 1px solid #E6E7DF; }
-  .table-bordered th, .report-list th, .table-list th, .table-bordered td, .report-list td, .table-list td {
+  .table-bordered th, .table-list th, .table-bordered td, .table-list td {
     border: 1px solid #E6E7DF; }
-  .table-bordered thead th:not([colspan]), .report-list thead th:not([colspan]), .table-list thead th:not([colspan]), .table-bordered thead td:not([colspan]), .report-list thead td:not([colspan]), .table-list thead td:not([colspan]) {
+  .table-bordered thead th:not([colspan]), .table-list thead th:not([colspan]), .table-bordered thead td:not([colspan]), .table-list thead td:not([colspan]) {
     border-bottom-width: 2px; }
 
 .table-striped :not(thead) tr:nth-child(even) {
   background-color: #fafbf9; }
 
-.table-striped-rowspan tbody:nth-child(even), .report-list tbody:nth-child(even) {
+.table-striped-rowspan tbody:nth-child(even) {
   background-color: #fafbf9; }
 
-.table-hover tbody:hover > tr > [rowspan], .report-list tbody:hover > tr > [rowspan],
-.table-hover tbody tr:hover,
-.report-list tbody tr:hover {
+.table-hover tbody:hover > tr > [rowspan],
+.table-hover tbody tr:hover {
   -webkit-transition: 0.2s ease;
   transition: 0.2s ease;
   background-color: #ffffe1; }
@@ -630,7 +629,7 @@ output {
 .circle {
   border-radius: 50%; }
 
-.full, .report-list, .table-list {
+.full, .table-list {
   width: 100%; }
 
 .max-full {
@@ -645,7 +644,7 @@ output {
 .mr-0 {
   margin-right: 0; }
 
-.mb-0, .field, .breadcrumb, .site-title, .user-search {
+.mb-0, .field, .breadcrumb, .site-title {
   margin-bottom: 0; }
 
 .ml-0 {
@@ -794,7 +793,7 @@ output {
   margin-right: 1.5rem;
   margin-left: 1.5rem; }
 
-.my-24, .user-box {
+.my-24 {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem; }
 
@@ -804,10 +803,10 @@ output {
 .mt-32, .modal-footer {
   margin-top: 2rem; }
 
-.mr-32, .user-search {
+.mr-32 {
   margin-right: 2rem; }
 
-.mb-32, .modal-header, .report-info {
+.mb-32, .modal-header {
   margin-bottom: 2rem; }
 
 .ml-32 {
@@ -955,11 +954,11 @@ output {
   padding-right: 0.5rem;
   padding-left: 0.5rem; }
 
-.py-8, .modal-header, .report-list th, .report-list td, .user-box, .list-link a:before {
+.py-8, .modal-header, .list-link a:before {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem; }
 
-.p-12, .navbar .dropdown-content a, .report-info li {
+.p-12, .navbar .dropdown-content a {
   padding: 0.75rem; }
 
 .pt-12 {
@@ -997,7 +996,7 @@ output {
 .pl-16 {
   padding-left: 1rem; }
 
-.px-16, .user-box {
+.px-16 {
   padding-right: 1rem;
   padding-left: 1rem; }
 
@@ -1034,7 +1033,7 @@ output {
 .pt-32 {
   padding-top: 2rem; }
 
-.pr-32, .user-search {
+.pr-32 {
   padding-right: 2rem; }
 
 .pb-32 {
@@ -1126,13 +1125,13 @@ output {
 .font-sp {
   font-family: "Roboto"; }
 
-.text-white, .btn.white:hover, .btn.white:active, .btn.white.active, .input-group-btn.danger, [class*="label-"], .tooltip .tips, .tip:after, .modal-header, .btn.outline:hover, .btn.outline:active, .site-title, .report-list thead, .table-list > thead, .th-sort-toggle, .uploaded .btn-del {
+.text-white, .btn.white:hover, .btn.white:active, .btn.white.active, .input-group-btn.danger, [class*="label-"], .tooltip .tips, .tip:after, .modal-header, .btn.outline:hover, .btn.outline:active, .site-title, .table-list > thead, .th-sort-toggle, .uploaded .btn-del {
   color: #fff; }
 
 .text-black {
   color: #000; }
 
-.bg-white, .btn.white, .btn.outline, .dropdown-content, .report-list, .pager button:not([disabled]), .download-file {
+.bg-white, .btn.white, .btn.outline, .dropdown-content, .pager button:not([disabled]), .download-file {
   background-color: #fff; }
 
 .bg-black {
@@ -1154,7 +1153,7 @@ output {
     color: #009f6f; }
 
 .text-secondary, .btn.outline, .dropdown a, #sidebar .collapse-toggle,
-#sidebar > a, .table-head, .form-list legend, .report-info {
+#sidebar > a, .table-head, .form-list legend {
   color: #175361; }
 
 .bg-secondary, .modal-header {
@@ -1864,34 +1863,6 @@ a.label-danger:hover, a.label-danger:focus, a.label-danger:active {
       padding: 10px 10px 10px 42px;
       color: #1b6171; }
 
-[data-col] {
-  float: left; }
-  [data-col]:not(:last-of-type) {
-    margin-right: 1%; }
-
-[data-col="half"] {
-  width: 49.5%; }
-
-[data-col="third"] {
-  width: 32.66%; }
-
-[data-col="fourth"] {
-  width: 24.25%; }
-
-.report-list {
-  box-shadow: 0 0 3px 2px #eee; }
-  .report-list thead {
-    background: #326c79; }
-  .report-list caption {
-    background: #d4d6c8;
-    border: 1px solid #fff;
-    border-bottom: none; }
-
-.user-search {
-  border-right: 1px solid #E6E7DF; }
-.user-box {
-  border: 1px solid #E6E7DF; }
-
 .table-head {
   background: #e6e7df; }
   .table-head * {
@@ -1976,9 +1947,6 @@ a.label-danger:hover, a.label-danger:focus, a.label-danger:active {
   border: none;
   border-bottom: 1px solid #E6E7DF;
   box-shadow: none; }
-
-.report-info {
-  background: #e7ebcc; }
 
 .submit-bar {
   border-top: 2px solid #ace29b;

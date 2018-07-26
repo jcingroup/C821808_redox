@@ -57,8 +57,8 @@ $banner-h: 535px;
             margin-bottom: 38px;
         }
         .lead {
+            @extend .font-xl;
             font-weight: bolder;
-            @include rem('font-size', 21);
         }
     }
 }
@@ -74,5 +74,110 @@ $banner-h: 535px;
         display: inline-block;
 
         @include grid(1, 6);
+    }
+}
+
+// == 關於肽研
+.about {
+    padding: 120px 0;
+
+    .btn {
+        margin-top: 120px;
+    }
+}
+
+// == 產品
+.products {
+    @extend .py-48;
+
+    background: $bg-primary-light url(#{$img-index}/product-bg.png) 0 45% no-repeat;
+    // background-size: cover;
+
+    .card {
+        float: left;
+        width: (100% - 41.66 - 2%)/2;
+
+        &:last-child {
+            margin-left: 2%;
+        }
+
+        img {
+            min-height: 180px;
+            max-height: 180px;
+        }
+    }
+}
+
+// == 五大保證
+.safe {
+    // 列表
+    &-list {
+        @extend %list-inline, .font-xl, .text-primary;
+
+        li {
+            $img-size: 122px;
+            $img-mg: 82px;
+
+            background: url(#{$img-index}/safe.gif) 0 0 no-repeat;
+            font-weight: bolder;
+            padding-top: $img-size + 26;
+            min-width: $img-size + 2;
+            margin: 0 3.2%;
+
+            @for $i from 2 through 4 {
+                &:nth-child(#{$i}) {
+                    background-position: -(($img-size + $img-mg) * ($i - 1)) 0;
+                }
+            }
+            &:last-child {
+                background-position: right 0;
+            }
+        }
+    }
+}
+
+// == 最新消息
+.news {
+    &-item {
+        $mgr: 3%;
+
+        display: inline-block;
+        vertical-align: top;
+        margin-left: -4px;
+
+        width: (100% / 3 - $mgr - 2);
+
+        &:not(:last-of-type) {
+            margin-right: $mgr;
+        }
+
+        .date {
+            @extend .bg-primary, .text-white, .font-md, .px-12, .py-4;
+            border-radius: $border-radius/2;
+        }
+        img {
+            max-height: 170px;
+        }
+        figcaption {
+            margin-top: -8px;
+        }
+    }
+}
+
+// == 專業服務
+.sub-title {
+    @extend .text-primary, .my-48;
+
+    max-width: 800px;
+    line-height: 1.4;
+}
+.list-half {
+    li {
+        float: left;
+        width: 46%;
+
+        &:nth-child(even) {
+            margin-left: 4%;
+        }
     }
 }

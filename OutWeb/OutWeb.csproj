@@ -148,6 +148,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -166,9 +167,18 @@
     <Content Include="Content\font\open-iconic\open-iconic.svg" />
     <Content Include="Content\font\themify-icons\themify.svg" />
     <Content Include="Content\images\icon-social.gif" />
+    <Content Include="Content\images\index\about.jpg" />
     <Content Include="Content\images\index\banner1.png" />
     <Content Include="Content\images\index\intro.jpg" />
     <Content Include="Content\images\index\intro2.jpg" />
+    <Content Include="Content\images\index\news.jpg" />
+    <Content Include="Content\images\index\news2.jpg" />
+    <Content Include="Content\images\index\news3.jpg" />
+    <Content Include="Content\images\index\product-bg.png" />
+    <Content Include="Content\images\index\product.jpg" />
+    <Content Include="Content\images\index\product2.jpg" />
+    <Content Include="Content\images\index\safe.gif" />
+    <Content Include="Content\images\index\service.jpg" />
     <Content Include="Content\images\logo-foot.gif" />
     <Content Include="Content\images\logo-s.gif" />
     <Content Include="Content\images\logo.gif" />
@@ -199,8 +209,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\AboutUs.cshtml" />
+    <Content Include="Views\Home\ContactUs.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -278,6 +288,8 @@
     <Content Include="Content\font\themify-icons\themify.ttf" />
     <Content Include="Content\font\themify-icons\themify.woff" />
     <None Include="packages.config" />
+    <Content Include="Views\Home\Service.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

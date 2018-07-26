@@ -229,7 +229,7 @@ h1 {
 
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.5em;
-  font-weight: 500;
+  font-weight: bolder;
   line-height: 1.1; }
 
 h1 {
@@ -257,7 +257,7 @@ h6 {
   font-size: 1.0625rem; }
 
 b, strong, .b, .strong {
-  font-weight: bold; }
+  font-weight: bolder; }
 
 mark {
   background-color: #fffFD7;
@@ -292,13 +292,13 @@ dt {
 dd {
   margin-left: 0; }
 
-.list-inline, .list-unstyled {
+.list-inline, .safe-list, .list-unstyled {
   list-style: none;
   padding-left: 0; }
 
-.list-inline > li {
+.list-inline > li, .safe-list > li {
   display: inline-block; }
-  .list-inline > li:not(:last-child) {
+  .list-inline > li:not(:last-child), .safe-list > li:not(:last-child) {
     margin-right: 5px; }
 
 .btn {
@@ -309,11 +309,11 @@ dd {
   user-select: none;
   background: #1599A3;
   color: #fff;
-  font-size: 15px;
-  font-size: 0.9375rem;
+  font-size: 21px;
+  font-size: 1.3125rem;
   line-height: 28px;
   letter-spacing: 0.06em;
-  padding: 0.3em 0.9em;
+  padding: 0.5em 1.2em;
   border-radius: 12px;
   -webkit-transition: all .35s, color .5s;
   transition: all .35s, color .5s; }
@@ -616,7 +616,7 @@ dd {
   margin-right: 3rem;
   margin-left: 3rem; }
 
-.my-48 {
+.my-48, .sub-title {
   margin-top: 3rem;
   margin-bottom: 3rem; }
 
@@ -708,7 +708,7 @@ dd {
   padding-right: 0.25rem;
   padding-left: 0.25rem; }
 
-.py-4 {
+.py-4, .news-item .date {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem; }
 
@@ -750,7 +750,7 @@ dd {
 .pl-12 {
   padding-left: 0.75rem; }
 
-.px-12 {
+.px-12, .news-item .date {
   padding-right: 0.75rem;
   padding-left: 0.75rem; }
 
@@ -846,7 +846,7 @@ dd {
   padding-right: 3rem;
   padding-left: 3rem; }
 
-.py-48, #footer {
+.py-48, #footer, .products {
   padding-top: 3rem;
   padding-bottom: 3rem; }
 
@@ -902,7 +902,7 @@ dd {
 .font-sp {
   font-family: "Montserrat"; }
 
-.text-white, .btn.white:hover, .btn.white:active, .btn.white.active, .top-nav .mail, .goTop, .goTop:hover, .goTop:active, #footer, #footer a {
+.text-white, .btn.white:hover, .btn.white:active, .btn.white.active, .top-nav .mail, .goTop, .goTop:hover, .goTop:active, #footer, #footer a, .news-item .date {
   color: #fff; }
 
 .text-black {
@@ -914,10 +914,10 @@ dd {
 .bg-black {
   background-color: #000; }
 
-.text-primary, .btn.white {
+.text-primary, .btn.white, .safe-list, .sub-title {
   color: #1599A3; }
 
-.bg-primary {
+.bg-primary, .news-item .date {
   background-color: #1599A3; }
 
 .hover-primary {
@@ -1064,17 +1064,17 @@ figure {
   font-size: 13px;
   font-size: 0.8125rem; }
 
-.font-md {
+.font-md, .news-item .date {
   font-size: 15px;
   font-size: 0.9375rem; }
 
-.font-lg, .nav-link, .help, .goTop, #footer {
+.font-lg, .nav-link, .help, .goTop, .card figcaption, #footer {
   font-size: 18px;
   font-size: 1.125rem; }
 
-.font-xl {
-  font-size: 24px;
-  font-size: 1.5rem; }
+.font-xl, .banner-1 .lead, .safe-list {
+  font-size: 21px;
+  font-size: 1.3125rem; }
 
 .font-xxl {
   font-size: 36px;
@@ -1177,7 +1177,7 @@ figure {
     left: 0; }
 
 .card {
-  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
   border-radius: 12px;
   border: 1px solid #EFEFEF;
   padding: 20px; }
@@ -1186,8 +1186,6 @@ figure {
   .card figcaption {
     padding-bottom: 72px;
     position: relative; }
-  .card h4 {
-    font-weight: bolder; }
   .card .more {
     position: absolute;
     left: 50%;
@@ -1200,8 +1198,8 @@ figure {
 /*      layout
 -----------------------------------------------------------------------*/
 .wrap {
-  max-width: 1400px; }
-  @media (max-width: 87.4375em) {
+  max-width: 1200px; }
+  @media (max-width: 74.9375em) {
     .wrap {
       padding-left: 16px;
       padding-left: 1rem;
@@ -1209,14 +1207,14 @@ figure {
       padding-right: 1rem; } }
   @media only screen and (min-device-width: 1024px) {
     .wrap {
-      min-width: 1200px; } }
+      min-width: 1120px; } }
 
 #wrapper {
   min-height: 100%;
   padding-bottom: 338px; }
   @media only screen and (min-device-width: 1024px) {
     #wrapper {
-      min-width: 1200px; } }
+      min-width: 1120px; } }
   .scrolling #wrapper {
     padding-top: 54px; }
 
@@ -1280,9 +1278,7 @@ figure {
     margin-top: 120px;
     margin-bottom: 38px; }
   .banner-1 .lead {
-    font-weight: bolder;
-    font-size: 21px;
-    font-size: 1.3125rem; }
+    font-weight: bolder; }
 
 .intro {
   position: relative;
@@ -1291,3 +1287,58 @@ figure {
   .intro .card {
     display: inline-block;
     width: 16.66%; }
+
+.about {
+  padding: 120px 0; }
+  .about .btn {
+    margin-top: 120px; }
+
+.products {
+  background: #44adb5 url(../images/index/product-bg.png) 0 45% no-repeat; }
+  .products .card {
+    float: left;
+    width: 28.17%; }
+    .products .card:last-child {
+      margin-left: 2%; }
+    .products .card img {
+      min-height: 180px;
+      max-height: 180px; }
+
+.safe-list li {
+  background: url(../images/index/safe.gif) 0 0 no-repeat;
+  font-weight: bolder;
+  padding-top: 148px;
+  min-width: 124px;
+  margin: 0 3.2%; }
+  .safe-list li:nth-child(2) {
+    background-position: -204px 0; }
+  .safe-list li:nth-child(3) {
+    background-position: -408px 0; }
+  .safe-list li:nth-child(4) {
+    background-position: -612px 0; }
+  .safe-list li:last-child {
+    background-position: right 0; }
+
+.news-item {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: -4px;
+  width: 28.3333333333%; }
+  .news-item:not(:last-of-type) {
+    margin-right: 3%; }
+  .news-item .date {
+    border-radius: 6px; }
+  .news-item img {
+    max-height: 170px; }
+  .news-item figcaption {
+    margin-top: -8px; }
+
+.sub-title {
+  max-width: 800px;
+  line-height: 1.4; }
+
+.list-half li {
+  float: left;
+  width: 46%; }
+  .list-half li:nth-child(even) {
+    margin-left: 4%; }
