@@ -1218,14 +1218,14 @@ figure {
       padding-right: 1rem; } }
   @media only screen and (min-device-width: 1024px) {
     .wrap {
-      min-width: 1120px; } }
+      min-width: 1200px; } }
 
 #wrapper {
   min-height: 100%;
   padding-bottom: 338px; }
   @media only screen and (min-device-width: 1024px) {
     #wrapper {
-      min-width: 1120px; } }
+      min-width: 1200px; } }
   .scrolling #wrapper {
     padding-top: 54px; }
 

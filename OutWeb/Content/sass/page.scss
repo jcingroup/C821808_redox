@@ -31,7 +31,9 @@ $img-page:                      '../images/page';
 
 //共用------------------------
 
+
 // == banner
+
 
 $banner-h: 360px;
 
@@ -39,6 +41,8 @@ $banner-h: 360px;
 
     width: 100%;
     height: $banner-h;
+    background-size: cover;
+
 
     h2 {
         margin-top: 10%;
@@ -76,14 +80,14 @@ $banner-h: 360px;
         
         img {
             position: absolute;
-            left: 0;
+            // left: 0;
             top: 0;
         }
 
         figcaption{
 
             position: relative;
-            left:650px;
+            // left:650px;
             width: 500px;
             padding-top: 30px;
             margin-bottom:200px;
@@ -103,79 +107,87 @@ $banner-h: 360px;
     #banner {
         background-image: url("#{$img-page}/banner-pro.gif");
     }
-}
-
 
 // == 產品
-.products {
+    .products {
 
-    .wrap {
-        padding: 0 120px;
-        .card {
-            float: left;
-            width: 48%;
+        .wrap {
 
-            figcaption{
-                padding-top: 30px;
-                padding-bottom: 0;
-            }
+            padding: 0 120px;
 
-            &:last-child {
-                margin-left: 2%;
-            }
+            .card {
 
-            img {
                 float: left;
-                min-height: 220px;
-                max-height: 220px;
-                margin-right: 40px;
-            }
+                width: 48%;
 
-            h5 {
-                font-size:20px;
-                line-height:0.1;
+                figcaption{
+                    padding-top: 30px;
+                    padding-bottom: 0;
+                }
+
+                &:last-child {
+                    margin-left: 2%;
+                }
+
+                img {
+                    float: left;
+                    min-height: 220px;
+                    max-height: 220px;
+                    margin-right: 40px;
+                }
+
+                h5 {
+                    font-size:20px;
+                    line-height:0.1;
+                }
             }
         }
+
     }
 
-}
-
 // == 五大保證
-.fivetop {
+    .fivetop {
 
-    .wrap{
+        .wrap{
 
-        margin-top: 250px;
+            margin-top: 250px;
 
-        figcaption{
-
-            p {
-                position: relative;
-                color: color(words);
+            img{
+                left: 0;
             }
 
-            #p1 {
-                left: -130px;
-                margin-bottom: 90px;
-            }
+            figcaption{
 
-            #p2 {
-                left: -15px;
-                margin-bottom: 125px;
-            }
+                left:650px;
 
-            #p3 {
-                left: 25px;
-                margin-bottom: 125px;
-            }
+                p {
+                    position: relative;
+                    color: color(words);
+                }
 
-            #p4 {
-                left: -15px;
-                margin-bottom: 95px;
-            }
+                #p1 {
+                    left: -130px;
+                    margin-bottom: 90px;
+                }
 
-            #p5 {
-                left: -90px;
+                #p2 {
+                    left: -15px;
+                    margin-bottom: 125px;
+                }
+
+                #p3 {
+                    left: 25px;
+                    margin-bottom: 125px;
+                }
+
+                #p4 {
+                    left: -15px;
+                    margin-bottom: 95px;
+                }
+
+                #p5 {
+                    left: -90px;
+                }
             }
         }
     }
@@ -183,10 +195,11 @@ $banner-h: 360px;
 
 //專業服務-------------------
 
-//banner
 
 .Service {
-    
+
+//banner
+
     #banner {
         background-image: url("#{$img-page}/banner-service.gif");
     }
@@ -194,58 +207,165 @@ $banner-h: 360px;
     .title{
         text-shadow: -2px -2px rgba(230,245,255,0.7),-0.5px -0.5px rgba(230,245,255,0.9);
     }
-}
-
 
 //safe
 
-.h2-line{
+    .h2-line{
 
-    border-bottom: color(secondary) 5px solid;
-    width:430px;
-    margin: 0 auto;
-}
-
-.wrap {
-
-    figcaption {
-
-        color: color(words);
-
-        ul {
-            position: relative;
-        }
-        
-        #test1 {
-            left: -160px;
-            margin: 55px 0 125px;
-        }
-
-        #test2 {
-            margin-bottom: 120px;
-        }
-
-        #test3 {
-            left: -160px;
-            margin-bottom: 130px;
-        }
-
-        #test4 {
-            margin-bottom: 110px;
-        }
-
-        #test5 {
-            left: -160px;
-            margin-bottom: 95px;
-        }
-
-        #test6 {
-            margin-bottom: 130px;
-        }
-
-        #test7 {
-            left: -160px;
-        }
+        border-bottom: color(secondary) 5px solid;
+        width:430px;
+        margin: 0 auto;
     }
 
+    .wrap {
+
+        img {
+           left: 100px;
+        }
+
+        figcaption {
+
+            color: color(words);
+            left: 750px;
+
+            ul {
+                position: relative;
+            }
+            
+            #test1 {
+                left: -160px;
+                margin: 55px 0 125px;
+            }
+
+            #test2 {
+                margin-bottom: 120px;
+            }
+
+            #test3 {
+                left: -160px;
+                margin-bottom: 130px;
+            }
+
+            #test4 {
+                margin-bottom: 110px;
+            }
+
+            #test5 {
+                left: -160px;
+                margin-bottom: 95px;
+            }
+
+            #test6 {
+                margin-bottom: 130px;
+            }
+
+            #test7 {
+                left: -160px;
+            }
+        }
+
+    }
+
+//實驗
+
+    .exper{
+
+
+        .shorter{
+            width: 330px;
+        }
+
+        .wrap {
+
+            padding: 0 200px;
+
+            .card-2{
+
+                @extend .bg-white;
+
+                float: left;
+                width: 48%;
+                height: 620px;
+
+                .shadow {
+
+                    -webkit-filter: drop-shadow(5px 5px 10px rgba(#000, .2));
+                    filter: drop-shadow(5px 5px 10px rgba(#000, .2));
+                }
+
+                .corner{
+
+                    position: relative;
+                    background-color: #F1F1F1;
+                    clear: both;
+                    height:180px;
+                    width:100%;
+                    border-top-right-radius: $border-radius;
+                    border-top-left-radius: $border-radius;
+
+                    h5 {
+
+                        margin:0;
+                        padding-top: 100px;
+                        color: #1786A6;
+
+                    } 
+
+                    &:after {
+
+                        content: "";
+                        position: absolute;
+                        bottom: -70px;
+                        left: 0;
+                        background: none;
+                        z-index: 1;
+
+
+                        @include arrow(bottom,  384px, 70px, #F1F1F1);
+
+                    }
+                }
+
+                figcaption{
+
+                    @extend .font-lg;
+
+                    height: 420px;
+                    background-color: #1786A6;
+                    padding: 110px 40px 20px;
+                    color: #ffffff;
+                    text-align: left;
+                    border-bottom-right-radius: $border-radius;
+                    border-bottom-left-radius: $border-radius;
+
+                    ul {
+                        margin-bottom: 0;
+                        line-height: 1.7;
+                        letter-spacing: 0.5px;
+
+                    }
+
+                    // &:last-child {
+                    //     background-color: #2BB7BB;
+                    // }
+                    
+                }
+
+                &:last-child {
+                    margin-left: 4%;
+
+                    h5{
+                        color: #2BB7BB;
+                    }
+
+                    figcaption {
+                        background-color: #2BB7BB;
+                    }
+                }
+
+            }
+        }
+    }
 }
+
+
