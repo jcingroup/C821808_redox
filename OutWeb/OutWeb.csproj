@@ -161,6 +161,7 @@
     <Content Include="Content\css\editor.css" />
     <Content Include="Content\css\grid.css" />
     <Content Include="Content\css\index.css" />
+    <Content Include="Content\css\page.css" />
     <Content Include="Content\css\vendor\open-iconic.css" />
     <Content Include="Content\css\vendor\swiper.min.css" />
     <Content Include="Content\css\vendor\themify-icons.css" />
@@ -182,6 +183,12 @@
     <Content Include="Content\images\logo-foot.gif" />
     <Content Include="Content\images\logo-s.gif" />
     <Content Include="Content\images\logo.gif" />
+    <Content Include="Content\images\page\5p.gif" />
+    <Content Include="Content\images\page\banner-pro.gif" />
+    <Content Include="Content\images\page\banner-service.gif" />
+    <Content Include="Content\images\page\product01.jpg" />
+    <Content Include="Content\images\page\product02.jpg" />
+    <Content Include="Content\images\page\safe.gif" />
     <Content Include="Content\js\swiper.min.js" />
     <Content Include="Content\noIE\bg.gif" />
     <Content Include="Content\noIE\brow.gif" />
@@ -287,6 +294,7 @@
     <Content Include="Content\font\themify-icons\themify.eot" />
     <Content Include="Content\font\themify-icons\themify.ttf" />
     <Content Include="Content\font\themify-icons\themify.woff" />
+    <Content Include="Content\sass\page.scss" />
     <None Include="packages.config" />
     <Content Include="Views\Home\Service.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
