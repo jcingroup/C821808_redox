@@ -22,11 +22,6 @@ namespace OutWeb.Controllers
             return View();
         }
 
-        public ActionResult ContactUs()
-        {
-            return View();
-        }
-
         public ActionResult Service()
         {
             return View();
