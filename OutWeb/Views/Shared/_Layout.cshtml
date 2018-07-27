@@ -51,7 +51,9 @@
 
         @if (!ViewBag.IsFirstPage)
         {
-            <section id="banner"></section>
+            <section id="banner">
+                <h2 class="title">@ViewBag.bannerTitle</h2>
+            </section>
         }
 
         @RenderBody()

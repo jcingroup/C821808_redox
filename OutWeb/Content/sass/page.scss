@@ -1,0 +1,251 @@
+﻿@charset "UTF-8";
+
+// 本頁專用變數(把下面的setting,variables蓋掉)
+$isIndex:                        true;
+$img-page:                      '../images/page';
+
+// import
+// ------------------------------------------------------------
+@import "core/function";     // (置頂)
+
+@import "_client/setting";   // 前台用變數 (會覆蓋下面的變數)
+@import "core/variables";    // 共用變數
+@import "core/mixins";
+
+// 由此 output css
+@import "vendor/normalize";  // 重置樣式
+@import "vendor/print";      // 列印樣式
+
+@import "element/basic";
+@import "element/link";
+@import "element/type";
+@import "element/btn";
+@import "element/util";   // 共用工具樣式
+
+@import "_client/modules/nav"; // 選單
+@import "_client/modules/figure";
+
+@import "_client/custom"; // 前台用雜項樣式
+@import "_client/layout"; // 前台用版面
+
+
+//共用------------------------
+
+// == banner
+
+$banner-h: 360px;
+
+#banner {
+
+    width: 100%;
+    height: $banner-h;
+
+    h2 {
+        margin-top: 10%;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        color: color(secondary);
+    }
+}
+
+
+// == intro
+
+.intro {
+    position: relative;
+    text-align: left;
+
+    article {
+        position: relative;
+        margin: 120px auto 100px;
+        width: 1000px;
+        color: color(words);
+    }
+
+}
+
+
+// == 五大保證
+.safe {
+
+    .wrap{
+
+        position: relative;
+        padding: 0 60px;
+        
+        img {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        figcaption{
+
+            position: relative;
+            left:650px;
+            width: 500px;
+            padding-top: 30px;
+            margin-bottom:200px;
+
+        }
+    }
+}
+
+
+
+//產品介紹頁---------------------
+
+// == banner
+
+.Products {
+
+    #banner {
+        background-image: url("#{$img-page}/banner-pro.gif");
+    }
+}
+
+
+// == 產品
+.products {
+
+    .wrap {
+        padding: 0 120px;
+        .card {
+            float: left;
+            width: 48%;
+
+            figcaption{
+                padding-top: 30px;
+                padding-bottom: 0;
+            }
+
+            &:last-child {
+                margin-left: 2%;
+            }
+
+            img {
+                float: left;
+                min-height: 220px;
+                max-height: 220px;
+                margin-right: 40px;
+            }
+
+            h5 {
+                font-size:20px;
+                line-height:0.1;
+            }
+        }
+    }
+
+}
+
+// == 五大保證
+.fivetop {
+
+    .wrap{
+
+        margin-top: 250px;
+
+        figcaption{
+
+            p {
+                position: relative;
+                color: color(words);
+            }
+
+            #p1 {
+                left: -130px;
+                margin-bottom: 90px;
+            }
+
+            #p2 {
+                left: -15px;
+                margin-bottom: 125px;
+            }
+
+            #p3 {
+                left: 25px;
+                margin-bottom: 125px;
+            }
+
+            #p4 {
+                left: -15px;
+                margin-bottom: 95px;
+            }
+
+            #p5 {
+                left: -90px;
+            }
+        }
+    }
+}
+
+//專業服務-------------------
+
+//banner
+
+.Service {
+    
+    #banner {
+        background-image: url("#{$img-page}/banner-service.gif");
+    }
+
+    .title{
+        text-shadow: -2px -2px rgba(230,245,255,0.7),-0.5px -0.5px rgba(230,245,255,0.9);
+    }
+}
+
+
+//safe
+
+.h2-line{
+
+    border-bottom: color(secondary) 5px solid;
+    width:430px;
+    margin: 0 auto;
+}
+
+.wrap {
+
+    figcaption {
+
+        color: color(words);
+
+        ul {
+            position: relative;
+        }
+        
+        #test1 {
+            left: -160px;
+            margin: 55px 0 125px;
+        }
+
+        #test2 {
+            margin-bottom: 120px;
+        }
+
+        #test3 {
+            left: -160px;
+            margin-bottom: 130px;
+        }
+
+        #test4 {
+            margin-bottom: 110px;
+        }
+
+        #test5 {
+            left: -160px;
+            margin-bottom: 95px;
+        }
+
+        #test6 {
+            margin-bottom: 130px;
+        }
+
+        #test7 {
+            left: -160px;
+        }
+    }
+
+}
