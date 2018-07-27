@@ -290,6 +290,7 @@
     <None Include="packages.config" />
     <Content Include="Views\Home\Service.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\Demo.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
