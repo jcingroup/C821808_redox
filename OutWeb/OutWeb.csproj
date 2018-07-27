@@ -150,6 +150,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SignInController.cs" />
+    <Compile Include="Controllers\_SysAdmController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -291,6 +293,15 @@
     <Content Include="Views\Home\Service.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <None Include="Properties\PublishProfiles\Demo.pubxml" />
+    <Content Include="Views\SignIn\Login.cshtml" />
+    <Content Include="Views\_SysAdm\NewsList.cshtml" />
+    <Content Include="Views\_SysAdm\NewsEdit.cshtml" />
+    <Content Include="Views\_SysAdm\ProductsList.cshtml" />
+    <Content Include="Views\_SysAdm\ProductsEdit.cshtml" />
+    <Content Include="Views\_SysAdm\FAQList.cshtml" />
+    <Content Include="Views\_SysAdm\FAQEdit.cshtml" />
+    <Content Include="Views\_SysAdm\ChangePW.cshtml" />
+    <Content Include="Views\Shared\_MLayout.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
