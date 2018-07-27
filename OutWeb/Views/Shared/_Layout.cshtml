@@ -26,8 +26,8 @@
                 <div class="wrap">
                     <a class="pull-left mail" href="mailto:service@redoxm.com">service@redoxm.com</a>
                     <section class="pull-right social">
-                        <a class="icon-fb" target="new">FB</a>
-                        <a class="icon-line" target="new">Line</a>
+                        <a href="" class="icon-fb" target="new">FB</a>
+                        <a href="" class="icon-line" target="new">Line</a>
                     </section>
                 </div>
             </nav>
@@ -36,14 +36,14 @@
                 <div class="wrap">
                     <section class="pull-left">
                         <a class="nav-link @(ViewBag.BodyClass == "Index" ? "active" : "")" href="~/Home">首頁</a>
-                        <a class="nav-link @(ViewBag.BodyClass == "AboutUs" ? "active" : "")">關於我們</a>
-                        <a class="nav-link @(ViewBag.BodyClass == "News" ? "active" : "")">最新消息</a>
+                        <a class="nav-link @(ViewBag.BodyClass == "AboutUs" ? "active" : "")" href="~/Home/AboutUs">關於我們</a>
+                        <a class="nav-link @(ViewBag.BodyClass == "News" ? "active" : "")" href="~/News">最新消息</a>
                         <a class="nav-link @(ViewBag.BodyClass == "Products" ? "active" : "")" href="~/Products">產品介紹</a>
                     </section>
                     <section class="pull-right">
                         <a class="nav-link @(ViewBag.BodyClass == "Service" ? "active" : "")" href="~/Home/Service">專業服務</a>
-                        <a class="nav-link @(ViewBag.BodyClass == "Buy" ? "active" : "")">哪裡購買</a>
-                        <a class="nav-link @(ViewBag.BodyClass == "ContactUs" ? "active" : "")">連絡我們</a>
+                        <a class="nav-link @(ViewBag.BodyClass == "Buy" ? "active" : "")" href="~/Home/Buy">哪裡購買</a>
+                        <a class="nav-link @(ViewBag.BodyClass == "ContactUs" ? "active" : "")" href="~/ContactUs">連絡我們</a>
                     </section>
                 </div>
             </nav>
