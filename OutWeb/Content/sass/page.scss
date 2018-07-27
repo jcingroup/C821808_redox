@@ -51,6 +51,10 @@ $banner-h: 360px;
         width: 100%;
         color: color(secondary);
     }
+
+    .Info & ,.Products-Contant & {
+        height: 0;
+    }
 }
 
 
@@ -369,3 +373,39 @@ $banner-h: 360px;
 }
 
 
+
+//關於阿勃勒-------------------
+
+.Info{
+
+    text-align: left;
+
+    .intro{
+
+        padding: 50px 0;
+
+        .wrap{
+
+            img {
+                float: right;
+                margin-top: 400px;
+            }
+
+            h6{
+                margin-top: 8px;
+                font-size: 16px;
+                font-weight: normal;
+            }
+        }
+    }
+}
+
+//產品內頁----------------------
+
+.Products-Contant{
+
+    .inner{
+        max-width: 1000px;
+    }
+    
+}

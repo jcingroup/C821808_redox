@@ -1150,7 +1150,7 @@ output {
 .hover-primary {
   color: #00BB82; }
   .hover-primary:hover, .hover-primary:active {
-    color: #009f6f; }
+    color: #009e6e; }
 
 .text-secondary, .btn.outline, .dropdown a, #sidebar .collapse-toggle,
 #sidebar > a, .table-head, .form-list legend {
@@ -1162,7 +1162,7 @@ output {
 .hover-secondary {
   color: #175361; }
   .hover-secondary:hover, .hover-secondary:active {
-    color: #144752; }
+    color: #134652; }
 
 .text-success {
   color: #7BD160; }
@@ -1173,7 +1173,7 @@ output {
 .hover-success {
   color: #7BD160; }
   .hover-success:hover, .hover-success:active {
-    color: #69b252; }
+    color: #68b151; }
 
 .text-info {
   color: #007BA1; }
@@ -1184,7 +1184,7 @@ output {
 .hover-info {
   color: #007BA1; }
   .hover-info:hover, .hover-info:active {
-    color: #006989; }
+    color: #006888; }
 
 .text-warning, .navbar .nav-link:hover {
   color: #C7EC99; }
@@ -1195,7 +1195,7 @@ output {
 .hover-warning {
   color: #C7EC99; }
   .hover-warning:hover, .hover-warning:active {
-    color: #a9c982; }
+    color: #a9c882; }
 
 .text-danger, .field sup, .help {
   color: #FF5F73; }
@@ -1206,7 +1206,7 @@ output {
 .hover-danger {
   color: #FF5F73; }
   .hover-danger:hover, .hover-danger:active {
-    color: #d95162; }
+    color: #d85061; }
 
 .text-light {
   color: #f8f9fa; }
@@ -1217,7 +1217,7 @@ output {
 .hover-light {
   color: #f8f9fa; }
   .hover-light:hover, .hover-light:active {
-    color: #d3d4d5; }
+    color: #d2d3d4; }
 
 .text-dark {
   color: #343a40; }
@@ -1239,7 +1239,7 @@ output {
 .hover-muted {
   color: #E6E7DF; }
   .hover-muted:hover, .hover-muted:active {
-    color: #c4c4be; }
+    color: #c3c4bd; }
 
 [class*="text-"].disabled, [class*="text-"][disabled],
 [class*="hover-"].disabled,

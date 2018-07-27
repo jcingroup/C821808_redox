@@ -191,6 +191,8 @@
     <Content Include="Content\images\page\5p.gif" />
     <Content Include="Content\images\page\banner-pro.gif" />
     <Content Include="Content\images\page\banner-service.gif" />
+    <Content Include="Content\images\page\content01.jpg" />
+    <Content Include="Content\images\page\info.gif" />
     <Content Include="Content\images\page\product01.jpg" />
     <Content Include="Content\images\page\product02.jpg" />
     <Content Include="Content\images\page\safe.gif" />
