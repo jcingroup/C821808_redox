@@ -1,7 +1,31 @@
 ﻿
 @{
-    ViewBag.Title = "Login";
+    ViewBag.Title = "登入";
+    ViewBag.mainName = "肽研生醫 網站管理系統";
 }
 
-<h2>Login</h2>
+<h1 class="site-title">
+    @ViewBag.mainName <small class="text-muted ml-8 font-sp">Web Manager</small>
+</h1>
+<h6 class="sub-copyright">REDOX MEDICARE &copy; 2018</h6>
 
+<form action="" class="login text-left">
+    <header class="title font-sp">System Login</header>
+
+    <main>
+        <label>帳號 Username</label>
+        <input type="text" class="form-element mb-12" tabindex="1" name="Account" id="account" placeholder="請輸入帳號" required>
+
+        <label>密碼 Password</label>
+        <input type="password" class="form-element mb-12" tabindex="2" name="Password" id="pwd" placeholder="請輸入密碼" required>
+
+        <label>驗證碼 Code</label>
+        <input type="text" class="form-element mb-4" tabindex="3" placeholder="請輸入驗證碼" required>
+        <img src="" alt="驗證碼圖片">
+
+    </main>
+
+    <footer class="action-bar text-center">
+        <button type="submit" class="btn info" tabindex="4">登入 LOGIN</button>
+    </footer>
+</form>

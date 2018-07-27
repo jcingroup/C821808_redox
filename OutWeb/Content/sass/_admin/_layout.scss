@@ -5,10 +5,10 @@
 .wrap {
     @include clearfix;
 
-    // @include mq-max(break($max-width, -1)) {
-    //     @include rem('padding-left', $gutter);
-    //     @include rem('padding-right', $gutter);
-    // }
+    @include mq-max(break($max-width, -1)) {
+        @include rem('padding-left', $gutter);
+        @include rem('padding-right', $gutter);
+    }
 
     @if not $enable-RWD {
         @media only screen and (min-device-width: 1024px) {
@@ -17,163 +17,181 @@
     }
 }
 
-// header
-// ----------------------------------------------------------------------
-#header {
-    @if $header-bg     { background: $header-bg; }
-    @if $header-height { height: $header-height; }
-    z-index: z(header);
+.wrapper {
+    @if $wrapper-bg      { background: $wrapper-bg; }
+    @if not $enable-RWD  { min-width: $min-width; }
+    @if $footBeBottom {
+        @if $lte7 { _height: 100%; }
+        min-height: 100%;
 
-    // this proj only
-    padding-right: $gutter;
-    padding-left: $gutter;
-
-    @include fixed(top 0 left 0 right 0);
+        @if $isAdmin {
+            padding-bottom: $wrapper-b-spacing; // 內容與footer間距
+        }
+        @if $isLogin {
+            padding-bottom: $footer-height + $wrapper-b-spacing; // 內容與footer間距
+        }
+    }
 }
 
 .site-title {
-    @extend .mb-0, .text-white;
-
-    cursor: pointer; cursor: hand; // for ie
-    text-shadow: 2px 1px 10px rgba(#000, .75);
-    letter-spacing: .08em;
-    line-height: $header-height;
+    @extend .mb-0;
 
     // this proj
-    @include rem('font-size', $header-height/2);
-
-    img {
-        @extend .mx-4;
-        margin-top: -12px;
+    @if $isLogin {
+        @extend .font-xxl, .text-danger;
     }
-}
+    @if $isAdmin {
+        @extend .pull-left, .font-xl, .text-white;
 
-// 右上方資訊選單(回首頁,登出等)
-.navbar {
-    @extend .font-md;
-
-    margin-top: $header-height/2.5;
-
-    #{$nav-name} {
-        @extend .px-8;
-
-        @if $nav-color     { color: $nav-color; }
-        @if $nav-font-size { @include rem('font-size', $nav-font-size); }
-
-        display: inline-block;
-        vertical-align: top;
-
-        &:hover {
-            @extend .text-warning;
-        }
-    }
-
-    .dropdown-content {
-        min-width: 160px;
-        right: 0;
-
-        a {
-            @extend .p-12;
-        }
+        cursor: pointer; cursor: hand; // for ie
+        line-height: $header-height;
+        text-shadow: 2px 1px 10px rgba(#000, .75);
     }
 }
 
 
-// main
+// Admin
 // ----------------------------------------------------------------------
-#main {
-    @extend .text-left;
-    padding: $header-height $gutter 30px ($sidebar-width + $gutter);
-}
 
+@if $isAdmin {
+    // == header
+    #header {
+        @if $header-bg     { background: $header-bg; }
+        @if $header-height { height: $header-height; }
+        z-index: z(header);
 
-// sidebar
-// ----------------------------------------------------------------------
-#sidebar {
-    @extend .text-left;
+        // this proj only
+        padding-right: $gutter;
+        padding-left: $gutter;
 
-    @include fixed(left 0 top $header-height bottom 0);
-
-    z-index: z(sidebar);
-    width: $sidebar-width;
-    background: $sidebar-theme-color;
-
-    // this proj
-    box-shadow: 0 1px 1px rgba(#000, .08);
-
-    a { display: block; }
-
-    .collapse-toggle,
-    > a {
-        @extend .text-secondary;
-
-        padding: 15px 8px 15px 20px;
-        border-left: 4px solid color(muted);
-
-        @include rem('font-size', 18);
-
-        &:before {
-            @extend .mr-8;
-
-            color: darken(color(muted), 8);
-        }
-        &:hover, &:active, &:focus, &.active {
-            @extend .text-primary;
-
-            border-color: color(success);
-        }
-        &:active, &:focus, &.active {
-            background: #F9FAF7;
-        }
+        @include fixed(top 0 left 0 right 0);
     }
 
-    // 伸縮
-    .collapse {
+    // 右上方資訊選單(回首頁,登出等)
+    .navbar {
+        @extend .font-md;
 
-        &-toggle {
-            cursor: pointer; cursor: hand;
+        margin-top: $header-height/2.5;
 
-            position: relative;
+        #{$nav-name} {
+            @extend .px-8;
 
-            @include transition(.3s ease);
+            @if $nav-color     { color: $nav-color; }
+            @if $nav-font-size { @include rem('font-size', $nav-font-size); }
 
-            .arrow {
-                @include absolute(top 21px right 12px);
-            }
+            display: inline-block;
+            vertical-align: top;
 
-            &:active, &:focus, &.active, &.click {
-                .arrow {
-                    @include transform(rotate(-135deg));
-                }
-            }
-            &.click {
-                border-color: color(success);
+            &:hover {
+                @extend .text-warning;
             }
         }
 
-        &-content {
-            @extend .hidden;
-
-            border-left: 4px solid color(muted);
-            background: lighten(color(muted), 8);
-            box-shadow: inset 1px 2px 1px rgba(#000, .05);
-
-            &.in {
-                display: block;
-                border-right: 3px solid color();
-            }
+        .dropdown-content {
+            min-width: 160px;
+            right: 0;
 
             a {
-                @extend .font-md;
+                @extend .p-12;
+            }
+        }
+    }
 
-                padding: 10px 10px 10px 42px;
-                color: lighten(color(secondary), 4);
+    // == main
+    #main {
+        @extend .text-left;
+        padding: $header-height $gutter 30px ($sidebar-width + $gutter);
+    }
 
-                &:hover, &:active, &:focus, &.active {
-                    @extend .bg-warning;
+    // == sidebar
+    #sidebar {
+        @extend .text-left;
+
+        @include fixed(left 0 top $header-height bottom 0);
+
+        z-index: z(sidebar);
+        width: $sidebar-width;
+        background: $sidebar-theme-color;
+
+        // this proj
+        box-shadow: 0 1px 1px rgba(#000, .08);
+
+        a { display: block; }
+
+        .collapse-toggle,
+        > a {
+            @extend .text-secondary;
+
+            padding: 15px 8px 15px 20px;
+            border-left: 4px solid color(muted);
+
+            @include rem('font-size', 18);
+
+            &:before {
+                @extend .mr-8;
+
+                color: darken(color(muted), 8);
+            }
+            &:hover, &:active, &:focus, &.active {
+                @extend .text-primary;
+
+                border-color: color(success);
+            }
+            &:active, &:focus, &.active {
+                background: #F9FAF7;
+            }
+        }
+
+        // 伸縮
+        .collapse {
+
+            &-toggle {
+                cursor: pointer; cursor: hand;
+
+                position: relative;
+
+                @include transition(.3s ease);
+
+                .arrow {
+                    @include absolute(top 21px right 12px);
+                }
+
+                &:active, &:focus, &.active, &.click {
+                    .arrow {
+                        @include transform(rotate(-135deg));
+                    }
+                }
+                &.click {
+                    border-color: color(success);
+                }
+            }
+
+            &-content {
+                @extend .hidden;
+
+                border-left: 4px solid color(muted);
+                background: lighten(color(muted), 8);
+                box-shadow: inset 1px 2px 1px rgba(#000, .05);
+
+                &.in {
+                    display: block;
+                    border-right: 3px solid color();
+                }
+
+                a {
+                    @extend .font-md;
+
+                    padding: 10px 10px 10px 42px;
+                    color: lighten(color(secondary), 4);
+
+                    &:hover, &:active, &:focus, &.active {
+                        @extend .bg-warning;
+                    }
                 }
             }
         }
     }
 }
+
+
 

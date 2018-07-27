@@ -48,7 +48,9 @@ $color-warning2:   darken(adjust-hue(color(warning), -30deg), 30.5);
 // == custom-element
 // ----------------------------------------------------------------------
 $body-bg:                   lighten(color(muted), 7.5); //darken(#F9FAF7, 2)
+
 $font-family-sp:            'Roboto'; // src: https://fonts.google.com/specimen/Roboto
+
 $link-color:                darken(color(), 5);
 
 $input-bg-disabled:         lighten(color(muted), 3);
@@ -57,9 +59,6 @@ $input-color-placeholder:   $gray-500;
 
 $input-group-addon-color:   color(secondary);
 $input-group-addon-bg:      darken(adjust-hue(color(muted), -20deg), 1);
-
-$table-bg-striped:          lighten(color(muted), 9);
-$table-bg-hover:            lighten(#fffFD7, 2);
 
 $label-bg:                  darken(color(), 3);
 $label-mg:                  2px 4px;
@@ -70,7 +69,6 @@ $label-theme: (
     danger:                 color(danger)
 );
 
-$btn-radius:                3px;
 $btn-theme: (
     success:                     color(success),
     info:                        color(info),
@@ -82,14 +80,21 @@ $btn-theme: (
 
 // == layout
 // ----------------------------------------------------------------------
-// wrapper
 $max-width:             1400px !default;
 $min-width:             1200px !default;
+
+// wrapper
+$wrapper-bg:            false !default;
+$wrapper-b-spacing:     30px !default;
+$container-x-spacing:   24px !default;
 $footBeBottom:          true !default; // 頁腳是否置底 true / false
 
 // header
 $header-height:         64px !default;
 $header-bg:             color() url(#{$img-path}/headerBg.gif) 0 0 repeat-y !default;
+
+// footer
+$footer-height:         70px !default;
 
 // sidebar
 $sidebar-width:         240px;

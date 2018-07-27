@@ -165,6 +165,7 @@
     <Content Include="Content\css\editor.css" />
     <Content Include="Content\css\grid.css" />
     <Content Include="Content\css\index.css" />
+    <Content Include="Content\css\login.css" />
     <Content Include="Content\css\page.css" />
     <Content Include="Content\css\vendor\open-iconic.css" />
     <Content Include="Content\css\vendor\swiper.min.css" />
@@ -298,6 +299,7 @@
     <Content Include="Content\font\themify-icons\themify.ttf" />
     <Content Include="Content\font\themify-icons\themify.woff" />
     <Content Include="Content\sass\page.scss" />
+    <Content Include="Content\sass\login.scss" />
     <None Include="packages.config" />
     <Content Include="Views\Home\Service.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />

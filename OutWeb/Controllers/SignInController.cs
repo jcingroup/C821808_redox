@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using OutWeb.Inc;
 using System.Web.Mvc;
 
 namespace OutWeb.Controllers
 {
-    public class SignInController : Controller
+    public class SignInController : WebUserController
     {
         // GET: _SysAdm
         public ActionResult Index()
         {
+            ViewBag.IsFirstPage = true;
             return View("Login");
         }
     }

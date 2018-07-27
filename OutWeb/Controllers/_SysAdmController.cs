@@ -1,13 +1,14 @@
-﻿using System.Web.Mvc;
+﻿using OutWeb.Inc;
+using System.Web.Mvc;
 
 namespace OutWeb.Controllers
 {
-    public class _SysAdmController : Controller
+    public class _SysAdmController : WebUserController
     {
         // GET: _SysAdm
         public ActionResult Index()
         {
-            return View("~/SignIn");
+            return View("Login", "SignIn");
         }
 
         public ActionResult NewsList()

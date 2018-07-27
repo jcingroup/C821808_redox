@@ -2,10 +2,101 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewBag.Title - 肽研生醫 網站管理系統</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300">
+    <link rel="stylesheet" href="~/Content/css/vendor/open-iconic.css">
+    <link rel="stylesheet" href="~/Content/css/grid.css">
+    @if (ViewBag.IsFirstPage)
+    {
+        <link rel="stylesheet" href="~/Content/css/login.css">
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/Content/css/admin.css">
+    }
+    @RenderSection("css", required: false)
 </head>
-<body>
 
+<body>
+    <div class="wrapper">
+        @if (!ViewBag.IsFirstPage)
+        {
+            <header id="header">
+                <h1 class="site-title">@ViewBag.mainName</h1>
+
+                <nav class="navbar">
+                    <span class="nav-link">登入身份: 管理者</span>
+
+                    <a href="~/Home" class="nav-link oi home" data-glyph="home">
+                        回首頁
+                    </a>
+                    <a href="~/_SysAdm/LogOut" class="nav-link oi logout" data-glyph="power-standby">
+                        登出
+                    </a>
+                </nav>
+            </header><!-- header //-->
+        }
+
+        @if (ViewBag.IsFirstPage)
+        {
+            @RenderBody()
+        }
+        else
+        {
+            <div id="main">
+                <div id="content" class="font-md">
+                    @RenderSection("Breadcrumb", false)
+                    @RenderBody()
+                </div><!-- content //-->
+
+                <aside id="sidebar">
+                    <h6 class="oi" data-glyph="menu">功能選單 MENU</h6>
+
+                    <header class='collapse-toggle oi @(ViewBag.subnav == "Products" ? "active" : "")' data-glyph="book">產品介紹 管理</header>
+                    <nav class='collapse-content @(ViewBag.subnav == "Products" ? "in" : "")'>
+                        <a href="~/_SysAdm/FAQList" class='@(ViewBag.subnav2 == "FAQ" ? "active" : "")'>公會沿革</a>
+                        <a href="~/_SysAdm/ProductsList" class='@(ViewBag.subnav2 == "Products" ? "active" : "")'>產品介紹</a>
+                    </nav>
+
+                    <a href="~/_SysAdm/NewsList" class='oi @(ViewBag.subnav == "News" ? "active" : "")' data-glyph="bullhorn">最新消息 管理</a>
+
+                    <header class='collapse-toggle oi @(ViewBag.subnav == "Cog" ? "active" : "")' data-glyph="cog">系統設定</header>
+                    <nav class='collapse-content @(ViewBag.subnav == "Cog" ? "in" : "")'>
+                        <a href="~/_SysAdm/ChangePW" class='@(ViewBag.subnav2 == "ChangPW" ? "active" : "")'>變更密碼</a>
+                    </nav>
+                </aside><!-- sidebar //-->
+            </div><!-- main //-->
+        }
+
+    </div><!-- wrapper //-->
+
+    @if (ViewBag.IsFirstPage)
+    {
+        <footer id="footer" class="text-muted">
+            <div class="copyright font-sp">Powered By <a class="hover-info" href="http://www.jcin.com.tw" target="new">JCIN INFORMATION CO.</a></div>
+            <small>本網站適用 Chrome, firefox, IE10.0+, 最佳瀏覽解析度為 1280*800 以上</small>
+        </footer><!-- footer //-->
+    }
+
+    @* 引用 jQuery *@
+    <script src="//code.jquery.com/jquery-latest.min.js"></script>
+
+    @if (!ViewBag.IsFirstPage)
+    {
+        <script>
+            // 左選單縮放特效
+            var $collapse = $('.collapse-toggle');
+            var fall = '.collapse-content';
+
+            $collapse.click(function (e) {
+                $(this).addClass('active').next(fall).slideToggle();
+                $(this).siblings().removeClass('active').next(fall).slideUp();
+                // event.preventDefault();
+            });
+        </script>
+    }
+    @RenderSection("IncludeScript", false)
 </body>
 </html>
 
