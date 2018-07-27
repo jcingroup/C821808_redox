@@ -15,6 +15,12 @@ namespace OutWeb.Controllers
         {
             return View();
         }
+        
+        //關於阿勃勒
+        public ActionResult Info()
+        {
+            return View();
+        }
 
         public ActionResult ContactUs()
         {
@@ -22,6 +28,11 @@ namespace OutWeb.Controllers
         }
 
         public ActionResult Service()
+        {
+            return View();
+        }
+
+        public ActionResult Buy()
         {
             return View();
         }
