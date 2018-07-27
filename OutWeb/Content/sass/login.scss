@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 $isLogin:              true;
-
+$body-bg:              lighten(#CAC3B2, 22);
 
 // import
 // ------------------------------------------------------------
@@ -27,8 +27,11 @@ $isLogin:              true;
 @import "_admin/custom"; // 建議放置在最後一個
 
 
-// footer
-// ----------------------------------------------------------------------
+// this proj
+// ------------------------------------------------------------
+
+
+// == footer
 #footer {
     @extend .pt-8, .mx-8;
 
@@ -39,21 +42,20 @@ $isLogin:              true;
     margin-right: 5px;
     font-size: em(13);
     letter-spacing: 1px;
-    border-top: 1px solid darken(color("light"),5);
+    border-top: 1px solid $border-color;
 }
 
 
-// main
-// ------------------------------------------------------------
+// == main
 .sub-copyright {
-    @extend .font-sp, .text-primary, .mt-8;
+    @extend .font-sp, .text-secondary, .mt-8;
 }
+
 form {
     @extend .center, .pt-12;
 
-    border: 1px solid color("muted");
-    box-shadow: 0 0 10px color("muted");
-    background: $gray-100;
+    border: 1px solid $border-color;
+    box-shadow: 0 0 10px $border-color;
     max-width: 450px;
     margin-top: 40px;
 
@@ -64,10 +66,12 @@ form {
 }
 
 label {
-    @extend .mb-4, .font-md, .text-dark;
+    @extend .mb-4, .font-md;
 }
 
 .action-bar {
-    @extend .mt-32, .pt-12, .pb-16, .bg-primary;
-    border-top: 1px solid darken(color('primary'),5);
+    @extend .mt-32, .pt-12, .pb-16;
+
+    border-top: 1px solid rgba(#000, .03);
+    background: tint(color(), 35);
 }

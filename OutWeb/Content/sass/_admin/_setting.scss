@@ -31,15 +31,13 @@ $pale-yellow:      #fffFD7 !default;
 $pale-red:         #FFE7E7 !default;
 
 $colors: (
-    primary:       #00BB82,
-    secondary:     #175361,
-    success:       #7BD160,
-    info:          #007BA1,
-    warning:       #C7EC99,
-    danger:        #FF5F73,
-    light:         $gray-100,
-    dark:          $gray-800,
-    muted:         #E6E7DF
+    primary:       #99B6BD,
+    secondary:     #BB9568,
+    success:       #849271,
+    info:          #6EBBC0,
+    warning:       #CF9546,
+    danger:        #C67052,
+    muted:         #CAC3B2
 ) !default;
 
 $color-warning2:   darken(adjust-hue(color(warning), -30deg), 30.5);
@@ -47,18 +45,19 @@ $color-warning2:   darken(adjust-hue(color(warning), -30deg), 30.5);
 
 // == custom-element
 // ----------------------------------------------------------------------
-$body-bg:                   lighten(color(muted), 7.5); //darken(#F9FAF7, 2)
+// $body-bg:                   $gray-100; //darken(#F9FAF7, 2)
 
 $font-family-sp:            'Roboto'; // src: https://fonts.google.com/specimen/Roboto
 
 $link-color:                darken(color(), 5);
 
-$input-bg-disabled:         lighten(color(muted), 3);
-$input-focus-border-color:  color(success);
-$input-color-placeholder:   $gray-500;
+$border-color:              tint(color(muted), 30);
+// $input-bg-disabled:         lighten(color(muted), 3);
+// $input-focus-border-color:  color(success);
+// $input-color-placeholder:   $gray-500;
 
-$input-group-addon-color:   color(secondary);
-$input-group-addon-bg:      darken(adjust-hue(color(muted), -20deg), 1);
+// $input-group-addon-color:   color(secondary);
+// $input-group-addon-bg:      darken(adjust-hue(color(muted), -20deg), 1);
 
 $label-bg:                  darken(color(), 3);
 $label-mg:                  2px 4px;

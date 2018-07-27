@@ -24,11 +24,12 @@
         @if $lte7 { _height: 100%; }
         min-height: 100%;
 
+        @if $isLogin {
+            padding-top: 5%;
+            padding-bottom: $footer-height + $wrapper-b-spacing; // 內容與footer間距
+        }
         @if $isAdmin {
             padding-bottom: $wrapper-b-spacing; // 內容與footer間距
-        }
-        @if $isLogin {
-            padding-bottom: $footer-height + $wrapper-b-spacing; // 內容與footer間距
         }
     }
 }
@@ -38,7 +39,7 @@
 
     // this proj
     @if $isLogin {
-        @extend .font-xxl, .text-danger;
+        @extend .font-xxl, .text-primary;
     }
     @if $isAdmin {
         @extend .pull-left, .font-xl, .text-white;
