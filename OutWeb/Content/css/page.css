@@ -1287,6 +1287,8 @@ figure {
     text-align: center;
     width: 100%;
     color: #005081; }
+  .Info #banner, .Products-Contant #banner {
+    height: 0; }
 
 .intro {
   position: relative;
@@ -1438,3 +1440,18 @@ figure {
         color: #2BB7BB; }
       .Service .exper .wrap .card-2:last-child figcaption {
         background-color: #2BB7BB; }
+
+.Info {
+  text-align: left; }
+  .Info .intro {
+    padding: 50px 0; }
+    .Info .intro .wrap img {
+      float: right;
+      margin-top: 400px; }
+    .Info .intro .wrap h6 {
+      margin-top: 8px;
+      font-size: 16px;
+      font-weight: normal; }
+
+.Products-Contant .inner {
+  max-width: 1000px; }
