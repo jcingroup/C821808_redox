@@ -412,6 +412,10 @@ $banner-h: 360px;
             margin-top: 80px;
         }
 
+        img{
+            margin-top: 50px;
+        }
+
         article {
 
             padding: 0 25px;
@@ -499,7 +503,6 @@ $banner-h: 360px;
 
     .table{
 
-        background-color: $bg-primary-light;
         color: #ffffff;
         margin-top: 100px;
 
@@ -549,7 +552,108 @@ $banner-h: 360px;
                 font-weight: bold;
             }
         }
+    }
+}
 
+
+//最新消息----------------------
+
+.List{
+
+
+    #banner {
+        background-image: url("#{$img-page}/banner-list.jpg");
+        margin-bottom: 100px;
     }
 
+    .news {
+
+        &-item {
+            $mgr: 3%;
+            background-color: #F7F8F8;
+            display: inline-block;
+            vertical-align: top;
+            margin-left: -4px;
+
+            width: (100% / 3 - $mgr - 2);
+
+            &:not(:last-of-type) {
+                margin-right: $mgr;
+            }
+
+            .date {
+                @extend .bg-primary, .text-white, .font-md, .px-12, .py-4;
+                border-radius: $border-radius/2;
+            }
+            img {
+                max-height: 170px;
+                margin-top: 20px;
+            }
+            figcaption {
+                margin-top: -8px;
+            }
+        }
+    }
+
+}
+
+
+//最新消息內頁----------------------
+
+.News-Content {
+
+    #banner {
+        background-image: url("#{$img-page}/banner-list.jpg");
+        margin-bottom: 100px;
+    }
+    img {
+        margin: 60px 0;
+    }
+    article {
+        margin: 30px 60px 60px;
+        color: #757575;
+
+        p {
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+    }
+}
+
+
+
+//聯絡我們----------------------
+
+
+.Contact-Us {
+
+    #banner {
+        background-image: url("#{$img-page}/banner-contactus.jpg");
+        margin-bottom: 100px;
+
+        .title{
+            @extend .font-jumbo;
+
+            color: #ffffff;
+            margin: 8% 0 0 10%;
+
+            -moz-transform:rotate(3deg);
+            -webkit-transform:rotate(3deg);
+            -o-transform:rotate(3deg);
+            -ms-transform:rotate(3deg);
+            transform:rotate(3deg);
+        }
+    }
+
+    .wrap{
+
+        h5{
+            color: color(secondary);
+            font-weight: bold;
+        }
+
+        form {
+            vertical-align: top;
+        }
+    }
 }
