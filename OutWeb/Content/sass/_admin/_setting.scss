@@ -31,49 +31,38 @@ $pale-yellow:      #fffFD7 !default;
 $pale-red:         #FFE7E7 !default;
 
 $colors: (
-    primary:       #99B6BD,
+    primary:       #5BAEBF,
     secondary:     #BB9568,
-    success:       #849271,
-    info:          #6EBBC0,
-    warning:       #CF9546,
-    danger:        #C67052,
-    muted:         #CAC3B2
+    success:       #73C6A9,
+    info:          #9BC1BC,
+    warning:       #F4EE7F,
+    danger:        #ED6A5A,
+    muted:         #DAD7CF
 ) !default;
 
-$color-warning2:   darken(adjust-hue(color(warning), -30deg), 30.5);
 
 
 // == custom-element
 // ----------------------------------------------------------------------
-// $body-bg:                   $gray-100; //darken(#F9FAF7, 2)
+$body-bg:                   #f8f7f4; //darken(#F9FAF7, 2)
+$body-color:                #4F5D75;
 
-$font-family-sp:            'Roboto'; // src: https://fonts.google.com/specimen/Roboto
+$font-family-sp:            'Montserrat'; // src: https://fonts.google.com/specimen/Montserrat
 
 $link-color:                darken(color(), 5);
 
-$border-color:              tint(color(muted), 30);
-// $input-bg-disabled:         lighten(color(muted), 3);
-// $input-focus-border-color:  color(success);
-// $input-color-placeholder:   $gray-500;
-
-// $input-group-addon-color:   color(secondary);
-// $input-group-addon-bg:      darken(adjust-hue(color(muted), -20deg), 1);
+$border-color:              lighten(#D0CCAF, 10);
+$input-focus-border-color:  saturate(lighten(color(secondary), 10), 20);
 
 $label-bg:                  darken(color(), 3);
 $label-mg:                  2px 4px;
-$label-theme: (
-    success:                color(success),
-    info:                   color(info),
-    warning:                $color-warning2,
-    danger:                 color(danger)
-);
 
 $btn-theme: (
+    muted:                       color(muted),
     success:                     color(success),
     info:                        color(info),
-    warning:                     $color-warning2,
+    warning:                     color(warning),
     danger:                      color(danger),
-    cancel:                      #808080
 );
 
 
@@ -89,15 +78,15 @@ $container-x-spacing:   24px !default;
 $footBeBottom:          true !default; // 頁腳是否置底 true / false
 
 // header
-$header-height:         64px !default;
-$header-bg:             color() url(#{$img-path}/headerBg.gif) 0 0 repeat-y !default;
+$header-height:         50px !default;
+$header-bg:             color() !default;
 
 // footer
 $footer-height:         70px !default;
 
 // sidebar
 $sidebar-width:         240px;
-$sidebar-theme-color:   #fff;
+$sidebar-nav-bd-color:  tint(color(), 30);
 
 //
 // z-index

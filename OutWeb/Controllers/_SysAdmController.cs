@@ -8,7 +8,7 @@ namespace OutWeb.Controllers
         // GET: _SysAdm
         public ActionResult Index()
         {
-            return View("Login", "SignIn");
+            return View("../SignIn/Login");
         }
 
         public ActionResult NewsList()

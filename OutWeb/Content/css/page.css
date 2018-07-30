@@ -923,7 +923,7 @@ dd {
 .hover-primary {
   color: #1599A3; }
   .hover-primary:hover, .hover-primary:active {
-    color: #11828a; }
+    color: #12828b; }
 
 .text-secondary, .nav-link {
   color: #005081; }
@@ -934,7 +934,7 @@ dd {
 .hover-secondary {
   color: #005081; }
   .hover-secondary:hover, .hover-secondary:active {
-    color: #00446d; }
+    color: #00446e; }
 
 .text-muted {
   color: #EFEFEF; }
@@ -956,7 +956,7 @@ dd {
 .hover-success {
   color: #7BD160; }
   .hover-success:hover, .hover-success:active {
-    color: #68b151; }
+    color: #69b252; }
 
 .text-info {
   color: #007BA1; }
@@ -967,7 +967,7 @@ dd {
 .hover-info {
   color: #007BA1; }
   .hover-info:hover, .hover-info:active {
-    color: #006888; }
+    color: #006989; }
 
 .text-warning {
   color: #FCDE6D; }
@@ -978,7 +978,7 @@ dd {
 .hover-warning {
   color: #FCDE6D; }
   .hover-warning:hover, .hover-warning:active {
-    color: #d6bc5c; }
+    color: #d6bd5d; }
 
 .text-danger, .help {
   color: #FF5F73; }
@@ -989,7 +989,7 @@ dd {
 .hover-danger {
   color: #FF5F73; }
   .hover-danger:hover, .hover-danger:active {
-    color: #d85061; }
+    color: #d95162; }
 
 .text-words {
   color: #757575; }
@@ -1168,7 +1168,7 @@ figure {
   line-height: 1.3; }
 
 .bg-primary-light {
-  background: #43adb5; }
+  background: #44adb5; }
 
 .hover-underline, .top-nav .mail {
   position: relative; }
@@ -1250,7 +1250,7 @@ figure {
     margin-left: -24px; }
 
 #footer {
-  background: #43adb5;
+  background: #44adb5;
   color: #fff;
   min-height: 266px;
   margin-top: -266px;

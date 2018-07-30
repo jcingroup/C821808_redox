@@ -5,10 +5,9 @@ namespace OutWeb.Controllers
 {
     public class SignInController : WebUserController
     {
-        // GET: _SysAdm
+        // GET: Sign In 後台登入
         public ActionResult Index()
         {
-            ViewBag.IsFirstPage = true;
             return View("Login");
         }
     }

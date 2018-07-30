@@ -2,16 +2,16 @@
 @{
     ViewBag.Title = "登入";
     ViewBag.mainName = "肽研生醫 網站管理系統";
+    ViewBag.IsFirstPage = true;
 }
 
 <h1 class="site-title">
-    @ViewBag.mainName <small class="ml-8 font-sp">Web Manager</small>
+    @ViewBag.mainName <small class="ml-8">Web Manager</small>
 </h1>
 <h6 class="sub-copyright">REDOX MEDICARE &copy; 2018</h6>
 
 <form action="" class="login text-left">
-    <header class="title font-sp">System Login</header>
-
+    <h4 class="title mt-0">System Login</h4>
     <main>
         <label>帳號 Username</label>
         <input type="text" class="form-element mb-12" tabindex="1" name="Account" id="account" placeholder="請輸入帳號" required>
@@ -26,6 +26,6 @@
     </main>
 
     <footer class="action-bar text-center">
-        <button type="submit" class="btn" tabindex="4">登入 LOGIN</button>
+        <button type="botton" class="btn" tabindex="4" onclick="location.href='@Url.Content("~/_SysAdm/NewsList")'">登入 LOGIN</button>
     </footer>
 </form>

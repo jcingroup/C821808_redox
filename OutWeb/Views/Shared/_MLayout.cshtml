@@ -23,10 +23,10 @@
         @if (!ViewBag.IsFirstPage)
         {
             <header id="header">
-                <h1 class="site-title">@ViewBag.mainName</h1>
+                <h1 class="site-title">肽研生醫 網站管理系統</h1>
 
-                <nav class="navbar">
-                    <span class="nav-link">登入身份: 管理者</span>
+                <nav class="navbar pull-right">
+                    <span class="text-white">登入身份: 管理者</span>
 
                     <a href="~/Home" class="nav-link oi home" data-glyph="home">
                         回首頁
@@ -46,14 +46,18 @@
         {
             <div id="main">
                 <div id="content" class="font-md">
-                    @RenderSection("Breadcrumb", false)
+                    <header class="title">
+                        <h2>@ViewBag.Title</h2>
+                        <ul class="breadcrumb">
+                            <li>HOME</li>
+                            @RenderSection("Breadcrumb", false)
+                        </ul>
+                    </header>
                     @RenderBody()
                 </div><!-- content //-->
 
                 <aside id="sidebar">
-                    <h6 class="oi" data-glyph="menu">功能選單 MENU</h6>
-
-                    <header class='collapse-toggle oi @(ViewBag.subnav == "Products" ? "active" : "")' data-glyph="book">產品介紹 管理</header>
+                    <header class='collapse-toggle oi @(ViewBag.subnav == "Products" ? "active" : "")' data-glyph="book">產品介紹 管理 <i class="arrow down"></i></header>
                     <nav class='collapse-content @(ViewBag.subnav == "Products" ? "in" : "")'>
                         <a href="~/_SysAdm/FAQList" class='@(ViewBag.subnav2 == "FAQ" ? "active" : "")'>公會沿革</a>
                         <a href="~/_SysAdm/ProductsList" class='@(ViewBag.subnav2 == "Products" ? "active" : "")'>產品介紹</a>
@@ -61,7 +65,7 @@
 
                     <a href="~/_SysAdm/NewsList" class='oi @(ViewBag.subnav == "News" ? "active" : "")' data-glyph="bullhorn">最新消息 管理</a>
 
-                    <header class='collapse-toggle oi @(ViewBag.subnav == "Cog" ? "active" : "")' data-glyph="cog">系統設定</header>
+                    <header class='collapse-toggle oi @(ViewBag.subnav == "Cog" ? "active" : "")' data-glyph="cog">系統設定 <i class="arrow down"></i></header>
                     <nav class='collapse-content @(ViewBag.subnav == "Cog" ? "in" : "")'>
                         <a href="~/_SysAdm/ChangePW" class='@(ViewBag.subnav2 == "ChangPW" ? "active" : "")'>變更密碼</a>
                     </nav>
@@ -73,8 +77,8 @@
 
     @if (ViewBag.IsFirstPage)
     {
-        <footer id="footer" class="text-muted">
-            <div class="copyright font-sp">Powered By <a class="hover-info" href="http://www.jcin.com.tw" target="new">JCIN INFORMATION CO.</a></div>
+        <footer id="footer">
+            <div class="copyright">Powered By <a class="hover-secondary" href="http://www.jcin.com.tw" target="new">JCIN INFORMATION CO.</a></div>
             <small>本網站適用 Chrome, firefox, IE10.0+, 最佳瀏覽解析度為 1280*800 以上</small>
         </footer><!-- footer //-->
     }
@@ -90,9 +94,9 @@
             var fall = '.collapse-content';
 
             $collapse.click(function (e) {
-                $(this).addClass('active').next(fall).slideToggle();
-                $(this).siblings().removeClass('active').next(fall).slideUp();
-                // event.preventDefault();
+                $(this).toggleClass('click').next(fall).slideToggle();
+                $(this).siblings().removeClass('click').next(fall).slideUp();
+                event.preventDefault();
             });
         </script>
     }

@@ -1,7 +1,6 @@
 @charset "UTF-8";
 
 $isLogin:              true;
-$body-bg:              lighten(#CAC3B2, 22);
 
 // import
 // ------------------------------------------------------------
@@ -38,8 +37,7 @@ $body-bg:              lighten(#CAC3B2, 22);
     @if $footer-height { min-height: $footer-height; }
     @if $footBeBottom  { margin-top: -($footer-height); }
 
-    z-index: z(footer);
-    margin-right: 5px;
+    color: darken(color(muted), 20);
     font-size: em(13);
     letter-spacing: 1px;
     border-top: 1px solid $border-color;
@@ -52,7 +50,7 @@ $body-bg:              lighten(#CAC3B2, 22);
 }
 
 form {
-    @extend .center, .pt-12;
+    @extend .center, .pt-12, .bg-white;
 
     border: 1px solid $border-color;
     box-shadow: 0 0 10px $border-color;
@@ -73,5 +71,5 @@ label {
     @extend .mt-32, .pt-12, .pb-16;
 
     border-top: 1px solid rgba(#000, .03);
-    background: tint(color(), 35);
+    background: tint(color(), 42);
 }

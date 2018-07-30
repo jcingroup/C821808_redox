@@ -3,6 +3,11 @@
 // == btn-custom
 // ------------------------------------------------------------
 .btn {
+    // box-shadow: 2px 2px 0 2px rgba(#000, .1);
+    border-width: 0 3px 3px 0;
+    border-style: solid;
+    border-color: rgba(#000, .1);
+
     // 各尺寸按鈕
     &.sm {
         // @extend .font-sm, .py-0, .px-8;
@@ -87,7 +92,7 @@
 
 .arrow {
     display: inline-block;
-    border: solid color("secondary");
+    border: solid color(muted);
     border-width: 0 2px 2px 0;
     padding: 4px;
 

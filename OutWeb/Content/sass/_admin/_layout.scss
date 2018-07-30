@@ -34,6 +34,7 @@
     }
 }
 
+// 網站管理系統
 .site-title {
     @extend .mb-0;
 
@@ -72,7 +73,7 @@
     .navbar {
         @extend .font-md;
 
-        margin-top: $header-height/2.5;
+        margin-top: ($header-height - 22)/2;
 
         #{$nav-name} {
             @extend .px-8;
@@ -106,40 +107,35 @@
 
     // == sidebar
     #sidebar {
-        @extend .text-left;
+        @extend .text-left, .bg-white;
 
         @include fixed(left 0 top $header-height bottom 0);
 
         z-index: z(sidebar);
         width: $sidebar-width;
-        background: $sidebar-theme-color;
-
-        // this proj
         box-shadow: 0 1px 1px rgba(#000, .08);
 
         a { display: block; }
 
         .collapse-toggle,
         > a {
-            @extend .text-secondary;
+            @extend .font-lg;
 
-            padding: 15px 8px 15px 20px;
-            border-left: 4px solid color(muted);
-
-            @include rem('font-size', 18);
+            color: $body-color;
+            border-left: 4px solid tint(color(muted), 30);
+            padding: 14px 8px 14px 16px;
 
             &:before {
-                @extend .mr-8;
-
-                color: darken(color(muted), 8);
+                @extend .mr-8, .text-muted;
+                text-shadow: none;
             }
-            &:hover, &:active, &:focus, &.active {
-                @extend .text-primary;
-
-                border-color: color(success);
+            &:hover, &:active, &.active {
+                border-color: darken(color(warning), 27);
+                color: darken(color(), 8);
             }
             &:active, &:focus, &.active {
                 background: #F9FAF7;
+                text-shadow: 1px 0 0 rgba(#000, .1);
             }
         }
 
@@ -148,7 +144,6 @@
 
             &-toggle {
                 cursor: pointer; cursor: hand;
-
                 position: relative;
 
                 @include transition(.3s ease);
@@ -157,13 +152,13 @@
                     @include absolute(top 21px right 12px);
                 }
 
-                &:active, &:focus, &.active, &.click {
+                &:active, &.active, &.click {
                     .arrow {
                         @include transform(rotate(-135deg));
                     }
                 }
                 &.click {
-                    border-color: color(success);
+                    border-color: darken(color(warning), 27);
                 }
             }
 
@@ -171,28 +166,24 @@
                 @extend .hidden;
 
                 border-left: 4px solid color(muted);
-                background: lighten(color(muted), 8);
+                background: darken($body-bg, 2);
                 box-shadow: inset 1px 2px 1px rgba(#000, .05);
 
                 &.in {
                     display: block;
-                    border-right: 3px solid color();
                 }
 
                 a {
-                    @extend .font-md;
+                    @extend .font-md, .text-secondary;
 
                     padding: 10px 10px 10px 42px;
-                    color: lighten(color(secondary), 4);
 
-                    &:hover, &:active, &:focus, &.active {
-                        @extend .bg-warning;
+                    &:hover, &:active, &.active {
+                        color: $body-color;
+                        background: lighten(color(success), 21);
                     }
                 }
             }
         }
     }
 }
-
-
-
