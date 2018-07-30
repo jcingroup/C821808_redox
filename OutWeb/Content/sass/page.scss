@@ -378,8 +378,6 @@ $banner-h: 360px;
 
 .Info{
 
-    text-align: left;
-
     .intro{
 
         padding: 50px 0;
@@ -402,10 +400,156 @@ $banner-h: 360px;
 
 //產品內頁----------------------
 
-.Products-Contant{
+.Products-Contant {
 
-    .inner{
-        max-width: 1000px;
+//產品
+
+    .product{
+
+        .inner {
+
+            max-width: 1000px;
+            margin-top: 80px;
+        }
+
+        article {
+
+            padding: 0 25px;
+
+            h2 {
+
+                margin: 175px 0 50px;
+            }
+
+            p {
+
+                margin-top: 20px;
+                line-height: 1.7;
+            }
+        }
+
     }
-    
+
+//列表
+
+    .list{
+
+        margin-top: 200px;
+
+        ul{
+
+            list-style-type: none;
+
+            .list01 {
+
+                height: 192px;
+                width: 1200px;
+                margin: 40px 0;
+
+                h5{
+
+                    width: 200px;
+                    padding-left: 90px;
+                    color: #ffffff;
+                    margin-top: 30px;
+                    vertical-align: top;
+                }
+                article {
+                    padding: 45px 0 0 15px;
+                    line-height: 1.5;
+                }
+            }
+
+            #list01{
+                background-image: url("#{$img-page}/product/list01.gif");
+            }
+            #list02{
+                background-image: url("#{$img-page}/product/list02.gif");
+            }
+            #list03{
+                background-image: url("#{$img-page}/product/list03.gif");
+            }
+            #list04{
+                background-image: url("#{$img-page}/product/list04.gif");
+            }
+        }
+    }
+
+//產品資訊
+
+    .info{
+
+        h2 {
+            color: #595757;
+            padding: 100px 0 50px;
+        }
+
+        table{
+
+            line-height: 1.5;
+            margin: 20px 60px;
+        }
+
+        p{
+            margin: 0 60px;
+        }
+    }
+
+//營養標示
+
+    .table{
+
+        background-color: $bg-primary-light;
+        color: #ffffff;
+        margin-top: 100px;
+
+        h2 {
+            padding: 100px 0 50px;
+        }
+
+        table {
+            border: 4px solid #ffffff;
+            border-collapse: collapse;
+            width: 85%;
+            margin: 0 auto;
+        }
+
+        tr,td{
+            border: 1px solid #ffffff;
+            padding: 20px;
+            transition: all .35s, color .5s;
+
+        }
+
+        tr:hover {
+            background-color: #128088;;
+        }
+
+        .refer {
+            margin: 50px 0 100px;
+        }
+    }
+
+// Q & A
+
+    .qa{
+
+        margin-bottom: 100px;
+
+        h2 {
+            padding: 100px 0 50px;
+        }
+        .paragraph {
+
+            margin: 20px auto;
+            width: 1000px;
+
+            p:first-child {
+                color: color(secondary);
+                font-weight: bold;
+            }
+        }
+
+    }
+
 }
