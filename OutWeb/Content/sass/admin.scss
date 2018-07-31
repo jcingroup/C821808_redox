@@ -208,11 +208,11 @@ $table-list-thead: shade(color(), 38);
 
 // == 按鈕bar
 .submit-bar {
-    @extend .py-12;
+    @extend .py-12, .pl-16;
 
     border-top: 2px solid rgba(#000, .03);
-    background: tint(color(muted), 20);
-    padding-left: 16.72%;
+    background: tint(color(muted), 36);
+    // padding-left: 16.72%;
 
     .btn {
         &:not(:last-child) { @extend .mr-8; }

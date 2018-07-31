@@ -993,7 +993,7 @@ output {
 .pb-16 {
   padding-bottom: 1rem; }
 
-.pl-16 {
+.pl-16, .submit-bar {
   padding-left: 1rem; }
 
 .px-16 {
@@ -1137,7 +1137,7 @@ output {
 .bg-black {
   background-color: #000; }
 
-.text-primary, .btn.white, .tab-nav.active {
+.text-primary, .btn.white {
   color: #5BAEBF; }
 
 .bg-primary {
@@ -1159,7 +1159,7 @@ output {
   .hover-secondary:hover, .hover-secondary:active {
     color: #9f7f58; }
 
-.text-success, .tab-nav:hover, .pager button:not([disabled]) {
+.text-success, .tab-nav:hover, .tab-nav.active, .pager button:not([disabled]) {
   color: #58C99E; }
 
 .bg-success, .btn.outline:hover, .btn.outline:active {
@@ -1776,8 +1776,7 @@ a.label-danger:hover, a.label-danger:focus, a.label-danger:active {
 
 .submit-bar {
   border-top: 2px solid rgba(0, 0, 0, 0.03);
-  background: #e1dfd9;
-  padding-left: 16.72%; }
+  background: #e7e5e0; }
 
 .input-file:not(:empty) {
   border: 1px solid #e3e0cf;
