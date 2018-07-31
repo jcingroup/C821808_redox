@@ -13,12 +13,15 @@
     @if $alert-round     { border-radius: $alert-round; }
     @if $alert-padding   { padding: $alert-padding; }
     letter-spacing: .02em;
+
+    // this proj
+    @extend .bg-white;
 }
 
 @each $type, $color in $alerts {
     .alert-#{$type}   {
-        color: darken(nth($color,1), 40);
-        background: lighten(nth($color,1),26.5);
-        border-left: 4px solid lighten(nth($color,1),12);
+        color: shade(nth($color, 1), 40);
+        // background: lighten(nth($color,1),26.5);
+        border-left: 4px solid nth($color, 1);
     }
 }

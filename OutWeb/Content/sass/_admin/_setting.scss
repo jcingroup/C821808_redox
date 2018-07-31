@@ -54,11 +54,8 @@ $link-color:                darken(color(), 5);
 $border-color:              lighten(#D0CCAF, 10);
 $input-focus-border-color:  saturate(lighten(color(secondary), 10), 20);
 
-$label-bg:                  darken(color(), 3);
-$label-mg:                  2px 4px;
-
 $btn-theme: (
-    muted:                       color(muted),
+    muted:                       darken(color(muted), 18),
     success:                     color(success),
     info:                        color(info),
     warning:                     color(warning),

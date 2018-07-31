@@ -47,7 +47,10 @@
             <div id="main">
                 <div id="content" class="font-md">
                     <header class="title">
-                        <h2>@ViewBag.Title</h2>
+                        <h2>
+                            @ViewBag.Title
+                            @RenderSection("Title", false)
+                        </h2>
                         <ul class="breadcrumb">
                             <li>HOME</li>
                             @RenderSection("Breadcrumb", false)
@@ -57,13 +60,13 @@
                 </div><!-- content //-->
 
                 <aside id="sidebar">
+                    <a href="~/_SysAdm/NewsList" class='oi @(ViewBag.subnav == "News" ? "active" : "")' data-glyph="bullhorn">最新消息 管理</a>
+
                     <header class='collapse-toggle oi @(ViewBag.subnav == "Products" ? "active" : "")' data-glyph="book">產品介紹 管理 <i class="arrow down"></i></header>
                     <nav class='collapse-content @(ViewBag.subnav == "Products" ? "in" : "")'>
-                        <a href="~/_SysAdm/FAQList" class='@(ViewBag.subnav2 == "FAQ" ? "active" : "")'>公會沿革</a>
-                        <a href="~/_SysAdm/ProductsList" class='@(ViewBag.subnav2 == "Products" ? "active" : "")'>產品介紹</a>
+                        <a href="" class='@(ViewBag.subnav2 == "Intro" ? "active" : "")'>簡介管理</a> @* 待客戶通知 *@
+                        <a href="~/_SysAdm/ProductsList" class='@(ViewBag.subnav2 == "Product" ? "active" : "")'>產品管理</a>
                     </nav>
-
-                    <a href="~/_SysAdm/NewsList" class='oi @(ViewBag.subnav == "News" ? "active" : "")' data-glyph="bullhorn">最新消息 管理</a>
 
                     <header class='collapse-toggle oi @(ViewBag.subnav == "Cog" ? "active" : "")' data-glyph="cog">系統設定 <i class="arrow down"></i></header>
                     <nav class='collapse-content @(ViewBag.subnav == "Cog" ? "in" : "")'>

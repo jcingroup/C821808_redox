@@ -1,8 +1,85 @@
 ﻿
 @{
-    ViewBag.Title = "ProductsList";
-    Layout = "~/Views/Shared/_MLayout.cshtml";
+    ViewBag.Title = "產品介紹管理";
+    ViewBag.subnav = "Products";
+    ViewBag.subnav2 = "Product";
 }
 
-<h2>ProductsList</h2>
+@section Breadcrumb {
+    <li>@ViewBag.Title</li>
+}
 
+<div class="alert-warning mb-16">
+    <strong>排序：</strong> 數字愈大愈前面。
+</div>
+
+<div class="btn-group mb-8">
+    <button type="button" class="btn success oi" data-glyph="plus" onclick="location.href='@Url.Content("ProductsEdit")'"> 新增</button>
+</div>
+
+<header class="table-head form-inline">
+    <label>狀態</label>
+    <select  class="form-element">
+        <option value="">全部</option>
+        <option value="Y">上架</option>
+        <option value="N">下架</option>
+    </select>
+    <input type="text" class="form-element" placeholder="請輸入關鍵字">
+    <button class="btn oi" data-glyph="magnifying-glass" id="searchBtn"> 搜尋</button>
+</header>
+<table class="table-list table-hover table-striped">
+    <colgroup>
+        <col span="2">
+        <col>
+        <col style="width: 250px">
+        <col span="2" style="width: 160px">
+    </colgroup>
+    <thead>
+        <tr>
+            @* 點選排序功能 (點一下遞增, 點兩下遞減)
+                <button class="th-sort-toggle"></button>
+                遞增 asc
+                <button class="th-sort-toggle asc"></button>
+                遞減 desc
+                <button class="th-sort-toggle desc"></button>
+            *@
+            <th class="item-edit">修改</th>
+            <th class="item-edit">刪除</th>
+            <th class="text-left"><button id="sortPublishDate" type="button" sort-type="" class="th-sort-toggle">產品名稱</button></th>
+            <th><button type="button" sort-type="" class="th-sort-toggle">產品規格</button></th>
+            <th><button id="sortDisplayForFront" type="button" sort-type="" class="th-sort-toggle">顯示狀態</button></th>
+            <th><button id="sortIndex" sort-type="" type="button" class="th-sort-toggle">排序</button></th>
+        </tr>
+    </thead>
+    <tbody>
+        @* <tr class="bg-pale-red"><td colspan="7">查無資料!</td></tr> *@
+
+        <tr>
+            <td><button class="hover-primary oi" title="修改" data-glyph="pencil" type="button" onclick="location.href='@Url.Content("ProductsEdit")'"></button></td>
+            <td><button class="hover-danger oi" title="刪除" type="button" data-glyph="trash"></button></td>
+            <td class="text-left">順便有酵 阿勃勒酵素軟糖</td>
+            <td>60粒</td>
+            <td><span class="label">下架</span></td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td><button class="hover-primary oi" title="修改" data-glyph="pencil" type="button" onclick="location.href='@Url.Content("ProductsEdit")'"></button></td>
+            <td><button class="hover-danger oi" title="刪除" type="button" data-glyph="trash"></button></td>
+            <td class="text-left">順便有酵 阿勃勒酵素軟糖</td>
+            <td>18粒</td>
+            <td><span class="label-success">上架</span></td>
+            <td>1</td>
+        </tr>
+    </tbody>
+</table>
+
+<footer class="table-foot">
+    <small class="pull-right">第 1 - 10 筆，共 100 筆</small>
+    <nav class="pager">
+        <button class="oi" data-glyph="media-step-backward" title="到最前頁" type="button" onclick="paginationSubmit('');"></button>
+        <button class="oi" data-glyph="chevron-left" title="上一頁" type="button" onclick="paginationSubmit('');"></button>
+        <span>第<input id="numPage" name="page" class="form-element" type="number" value="1">頁，共 10 頁</span>
+        <button class="oi" data-glyph="chevron-right" title="下一頁" type="button" onclick="paginationSubmit('');"></button>
+        <button class="oi" data-glyph="media-step-forward" title="到最後頁" type="button" onclick="paginationSubmit('')"></button>
+    </nav>
+</footer>

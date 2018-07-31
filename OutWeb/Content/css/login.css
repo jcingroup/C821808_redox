@@ -372,9 +372,9 @@ output {
     opacity: .65;
     background: #DAD7CF; }
   .btn.muted {
-    background: #DAD7CF; }
+    background: #b2ac9b; }
     .btn.muted:hover, .btn.muted:active, .btn.muted.active {
-      background: #eceae6; }
+      background: #c4bfb2; }
   .btn.success {
     background: #73C6A9; }
     .btn.success:hover, .btn.success:active, .btn.success.active {
@@ -1090,9 +1090,11 @@ output {
     transform: translateX(-50%); }
 
 .btn {
-  border-width: 0 3px 3px 0;
+  border-width: 0 2px 2px 0;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.1); }
+  .btn:hover {
+    border-color: transparent; }
   .btn.outline {
     border: 1px solid #5BAEBF; }
     .btn.outline:hover, .btn.outline:active {
@@ -1148,6 +1150,8 @@ output {
   color: #6A8891; }
   .breadcrumb li:not(:last-child):after {
     content: "/"; }
+  .breadcrumb a {
+    color: #4F5D75; }
 
 .arrow {
   display: inline-block;

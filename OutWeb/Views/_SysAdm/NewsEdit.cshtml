@@ -1,8 +1,87 @@
 ﻿
 @{
-    ViewBag.Title = "NewsEdit";
-    Layout = "~/Views/Shared/_MLayout.cshtml";
+    ViewBag.Title = "最新消息管理";
+    ViewBag.subnav = "News";
+    ViewBag.Crumb = "編輯";
 }
 
-<h2>NewsEdit</h2>
+@section Title {
+    <small class="oi" data-glyph="tags">@ViewBag.Crumb</small>
+}
 
+@section Breadcrumb {
+    <li><a href="NewsList">@ViewBag.Title</a></li>
+    <li>@ViewBag.Crumb</li>
+}
+
+<form action="" class="form-list">
+    <dl class="field">
+        <dt class="col-2"><sup title="必填">*</sup> 發稿時間</dt>
+        <dd class="col-5">
+            <input type="text" class="form-element" required placeholder="請輸入發稿時間">
+        </dd>
+    </dl>
+    <dl class="field">
+        <dt class="col-2"><sup title="必填">*</sup> 標題</dt>
+        <dd class="col-10">
+            <input type="text" class="form-element" required placeholder="請輸入標題">
+        </dd>
+    </dl>
+    <dl class="field">
+        <dt class="col-2">排序</dt>
+        <dd class="col-5">
+            <input type="number" class="form-element inline" value="0">
+            <small class="text-danger">數字愈大愈前面</small>
+        </dd>
+    </dl>
+    <dl class="field">
+        <dt class="col-2">顯示狀態</dt>
+        <dd class="col-5">
+            <label class="control-group">
+                <input type="radio" class="radio" name="show" checked>
+                <i class="icon"></i> 上架
+            </label>
+            <label class="control-group">
+                <input type="radio" class="radio" name="show">
+                <i class="icon"></i> 下架
+            </label>
+        </dd>
+    </dl>
+    <dl class="field">
+        <dt class="col-2">列表圖上傳</dt>
+        <dd class="col-5">
+            <div class="input-file">
+                <input type="file" >
+            </div>
+            <small class="text-danger">
+                1. 檔案請勿超過 1 MB。<br>
+                2. 可上傳檔案格式：JPG, PNG, GIF
+            </small>
+            <ul class="list-inline">
+                <li class="uploaded">
+                    <button class="btn-del" type="button">&times;</button>
+                    <a href=""><img src="" alt="縮圖"></a>
+                </li>
+            </ul>
+        </dd>
+    </dl>
+    <fieldset class="mt-24">
+        <legend class="underline">[ 內容 ]</legend>
+        <div class="alert-warning mb-16">
+            <strong>編輯器注意事項:</strong><br>
+            從 WORD 複製文字時，請使用下方的<img src="~/Content/images/_sysadm/icon-word.jpg" /> 圖示來貼上 WORD 文字，避免跑版<br />
+            編輯器上傳圖片或新增表格等時，請勿設定寬度及高度(將數字刪除) ，以免行動裝置顯示時會跑版。<br />
+            檔案尺寸寬度超過 1600 或 高度超過1200 的圖片會被壓縮(PNG透明背景會變成不透明)
+        </div>
+        <textarea name="" id="" cols="30" rows="10" class="form-element"></textarea>
+    </fieldset>
+
+    <footer class="submit-bar mt-24">
+        <button id="submitBtn" type="button" class="btn success oi" data-glyph="circle-check">
+            儲存
+        </button>
+        <button type="button" class="btn muted oi" data-glyph="circle-x" onclick="location.href = 'NewsList'">
+            回列表
+        </button>
+    </footer>
+</form>
