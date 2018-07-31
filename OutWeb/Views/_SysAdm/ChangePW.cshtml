@@ -1,7 +1,45 @@
 ﻿
 @{
-    ViewBag.Title = "ChangePW";
+    ViewBag.Title = "變更密碼";
+    ViewBag.subnav = "Cog";
+    ViewBag.subnav2 = "ChangPW";
+    ViewBag.Crumb = "編輯";
 }
 
-<h2>ChangePW</h2>
+@section Title {
+    <small class="oi" data-glyph="tags">@ViewBag.Crumb</small>
+}
 
+@section Breadcrumb {
+    <li><a href="NewsList">@ViewBag.Title</a></li>
+    <li>@ViewBag.Crumb</li>
+}
+
+<form action="" class="form-list">
+    <dl class="field">
+        <dt class="col-2">目前密碼</dt>
+        <dd class="col-5">
+            <input type="password" class="form-element" required placeholder="請輸入舊密碼">
+        </dd>
+    </dl>
+    <dl class="field">
+        <dt class="col-2">新密碼</dt>
+        <dd class="col-5">
+            <input type="password" class="form-element" required placeholder="請輸入新密碼">
+        </dd>
+        @* 有限制密碼規則時才顯示
+            <dd class="col-4 text-danger">*密碼規則</dd> *@
+    </dl>
+    <dl class="field">
+        <dt class="col-2">確認密碼</dt>
+        <dd class="col-5">
+            <input type="password" class="form-element" required placeholder="請再次輸入新密碼">
+        </dd>
+    </dl>
+
+    <footer class="submit-bar mt-24">
+        <button type="submit" class="btn success oi" data-glyph="circle-check">
+            儲存
+        </button>
+    </footer>
+</form>

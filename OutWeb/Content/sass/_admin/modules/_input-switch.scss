@@ -37,7 +37,7 @@
             background: $choice-box-color;
             box-shadow: inset 1px 1px 1px darken($choice-box-color,12);
             &:before {
-                @include transform(translateX($checkbox-size*0.63));
+                @include transform(translateX($checkbox-size*.58));
             }
         }
         &:focus + .slider {

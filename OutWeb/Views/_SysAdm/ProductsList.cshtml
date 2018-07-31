@@ -1,11 +1,12 @@
 ﻿
 @{
-    ViewBag.Title = "產品介紹管理";
+    ViewBag.Title = "產品管理";
     ViewBag.subnav = "Products";
     ViewBag.subnav2 = "Product";
 }
 
 @section Breadcrumb {
+    <li>產品介紹管理</li>
     <li>@ViewBag.Title</li>
 }
 
@@ -47,7 +48,7 @@
             <th class="item-edit">刪除</th>
             <th class="text-left"><button id="sortPublishDate" type="button" sort-type="" class="th-sort-toggle">產品名稱</button></th>
             <th><button type="button" sort-type="" class="th-sort-toggle">產品規格</button></th>
-            <th><button id="sortDisplayForFront" type="button" sort-type="" class="th-sort-toggle">顯示狀態</button></th>
+            <th><button id="sortDisplayForFront" type="button" sort-type="" class="th-sort-toggle">上架狀態</button></th>
             <th><button id="sortIndex" sort-type="" type="button" class="th-sort-toggle">排序</button></th>
         </tr>
     </thead>

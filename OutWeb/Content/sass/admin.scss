@@ -31,9 +31,10 @@ $choice-box-has:   true;
 @import "_admin/modules/field";
 @import "_admin/modules/label";
 @import "_admin/modules/alerts";
-@import "_admin/modules/loader";
-@import "_admin/modules/tooltip";
-@import "_admin/modules/modal";
+@import "_admin/modules/tab";
+// @import "_admin/modules/loader";
+// @import "_admin/modules/tooltip";
+// @import "_admin/modules/modal";
 
 @import "_admin/custom";
 @import "_admin/layout";

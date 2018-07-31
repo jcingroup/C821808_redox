@@ -171,7 +171,7 @@ button, [role="button"], [type="button"] {
   border: none; }
   button:focus, [role="button"]:focus, [type="button"]:focus {
     outline: 0;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 2px rgba(220, 175, 122, 0.35); }
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 2px rgba(88, 201, 158, 0.35); }
 
 a {
   color: #49a5b8;
@@ -282,8 +282,8 @@ dd {
     cursor: not-allowed; }
   .form-element:focus {
     outline: none;
-    border-color: #dcaf7a;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 2px rgba(220, 175, 122, 0.35); }
+    border-color: #58C99E;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 2px rgba(88, 201, 158, 0.35); }
   .form-inline .form-element, .inline.form-element {
     display: inline;
     width: auto; }
@@ -376,9 +376,9 @@ output {
     .btn.muted:hover, .btn.muted:active, .btn.muted.active {
       background: #c4bfb2; }
   .btn.success {
-    background: #73C6A9; }
+    background: #58C99E; }
     .btn.success:hover, .btn.success:active, .btn.success.active {
-      background: #90d2bb; }
+      background: #77d3b0; }
   .btn.info {
     background: #9BC1BC; }
     .btn.info:hover, .btn.info:active, .btn.info.active {
@@ -988,15 +988,15 @@ output {
     color: #9f7f58; }
 
 .text-success {
-  color: #73C6A9; }
+  color: #58C99E; }
 
 .bg-success, .btn.outline:hover, .btn.outline:active {
-  background-color: #73C6A9; }
+  background-color: #58C99E; }
 
 .hover-success {
-  color: #73C6A9; }
+  color: #58C99E; }
   .hover-success:hover, .hover-success:active {
-    color: #62a890; }
+    color: #4bab86; }
 
 .text-info {
   color: #9BC1BC; }

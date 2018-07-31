@@ -1,19 +1,23 @@
 @charset "UTF-8";
 
-$tab-border-color: lighten(color('muted'), 8);
+$tab-border-color: $border-color !default;
 
 .tab {
     @include clearfix;
 }
 .tab-nav {
-    @extend .py-4, .px-12, .text-muted;
+    @extend .py-4, .px-12;
 
     display: block;
     float: left;
     margin-bottom: -1px;
-    background: darken(color('light'), 1);
+    margin-right: -1px;
     border: 1px solid $tab-border-color;
     border-bottom: transparent;
+
+    // this proj
+    background: lighten($body-bg, 1);
+    color: darken(color(muted), 5);
 
     &:hover {
         @extend .text-success, .bg-white;
@@ -22,7 +26,7 @@ $tab-border-color: lighten(color('muted'), 8);
     &.active {
         @extend .bg-white, .text-primary;
 
-        border-top: 2px solid color('success');
+        border-top: 2px solid color(success);
         box-shadow: 0 (-2px) 2px rgba(#000, .1); //#ddd
     }
 }
@@ -35,5 +39,9 @@ textarea {
     .tab-main &, &.tab-content {
         border: none;
         box-shadow: none;
+
+        &:focus {
+            outline: 1px dashed $border-color;
+        }
     }
 }
