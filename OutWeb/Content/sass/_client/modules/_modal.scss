@@ -10,9 +10,15 @@
     @include fixed(left 0 top 0);
     @include size(100%);
 
-    @include diy-animate(fadeIn, .4s) {
-        from { opacity: 0; }
-        to   { top: 0; opacity: 1; }
+    opacity: 0;
+    display: none;
+
+    &.in {
+        display: block;
+        @include diy-animate(fadeIn, .4s forwards) {
+            from { opacity: 0; }
+            to   { top: 0; opacity: 1; }
+        }
     }
 
     // padding-top: $modal-top;

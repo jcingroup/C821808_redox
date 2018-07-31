@@ -9,9 +9,9 @@
 	<h5 class="font-xl">如果您有任何疑問，或是有專案需求欲更進一步瞭解，歡迎隨時來信，我們將竭誠為您服務。</h5>
 
 	<form class="text-left">
-		<div class="boxleft pull-left">
+		<div class="boxleft">
 			<div class="form-box">
-				<label>類別</label>
+				<label class="label">類別</label>
 				<select class="select">
 					<option value ="專案需求">專案需求</option>
 					<option value ="專案需求">專案需求</option>
@@ -20,47 +20,135 @@
 				</select>
 			</div>
 			<div class="form-box">
-				<label>內容</label>
-				<textarea rows="10"></textarea>
+				<label class="label">內容</label>
+				<textarea rows="22"></textarea>
 			</div>
 		</div>
-		<div class="boxleft  pull-left">
+		<div class="boxleft">
 			<div class="form-box">
 				<span class="none">*</span>
-				<label>公司名稱</label>
+				<label class="label">公司名稱</label>
 				<input type="text" name="CompanyName">
 			</div>
 			<div class="form-box">
 
 				<span class="red">*</span>
-				<label>姓&emsp;&emsp;名</label>
+				<label class="label">姓&emsp;&emsp;名</label>
 				<input type="text" name="Name">
 
-				<span class="gender">
-					<label>先生</label>
+				<label  class="gender">先生
 					<input class="input" type="radio" name="gender" value="先生">
 					<span class="checkmark"></span>
-				</span>
+				</label>
 
-				<input class="gender" type="radio" name="gender" value="小姐">小姐
+				<label class="gender">小姐
+					<input class="input" type="radio" name="gender" value="小姐">
+					<span class="checkmark"></span>
+				</label>
+
 			</div>
+
 			<div class="form-box">
 				<span class="red">*</span>
-				<label>連絡電話</label>
+				<label class="label">連絡電話</label>
 				<input type="text" name="tel">
 			</div>
 			<div class="form-box">
 				<span class="red">*</span>
-				<label>電子信箱</label>
+				<label class="label">電子信箱</label>
 				<input type="email" name="email">
 			</div>
-			<div class="form-box">
-				<p>我不是機器人</p>
+
+
+
+			<!-- 這邊要用google 我不是機器人 取代div box -->
+
+			<div class="form-box" id="robox">
+				<p>我不是機器人空間預留</p>
 			</div>
+
+
 			<div class="form-box">
 				<p>所提供的資料只供肽研生醫內部使用。</p>
-				<p>當您提供資料，即表示接受我們的<a>資料私隱政策</a>。</p>
+				<p>當您提供資料，即表示接受我們的<a class="hover-underline" data-modal="#modalOne">資料私隱政策</a>。</p>
 			</div>
 		</div>
+
+		<input class="center" id="submit" type="submit" value="提交">
 	</form>
 </section>
+
+<section id="modalOne" class="modal">
+  <div class="modal-content">
+    <div class="contact-form">
+	    <main class="modal-content text-left">
+	    	<h2>隱私權及個資保護政策</h2>
+	    	<article>
+	    		<h5>肽研生醫隱私權及個人資料保護政策</h5>
+	    		<p>肽研生醫網站（以下簡稱本網站）非常重視並尊重網友的隱私權，為了幫助您瞭解本網站如何收集資訊、應用及保護您的個人資訊，因此制訂了隱私權保護政策。 請詳細閱讀以下本所隱私權保護政策，本政策將幫助您了解，在您使用本網站以及其延伸之相關網站所提供之服務時，我們收集、運用及保護網友個人資料的政策與原則。</p>
+	    	</article>
+	    	<ol>
+	    		<li>適用範圍</li>
+	    		<p>以下的個人隱私權聲明，適用於您在本所網站（以 redoxm.com 網域為原則）活動時，所涉及的個人身份識別資料收集、運用與保護。但不適用於經由經濟所網站搜尋連結之其他網站，當您在這些網站進行活動時，關於個人資料的保護，關於個人資料的保護，適用各該網站的隱私權政策，我們無法負擔任何連帶責任。</p>
+
+	    		<li>個人資料收集方式</li>
+    			<p>我們會透過以下幾種管道收集網友個人資料：</p>
+    			<p>一般瀏覽：</p>
+    			<p>網站會自動記錄您每次上網瀏覽或查詢時，伺服器產生的相關記錄 (LOG) ，包括連線設備 IP 位址、使用時間、使用的瀏覽器、瀏覽及點選資料記錄等。本網站也會對個別連線者的瀏覽器予以標示，歸納使用者瀏覽器在本所網站內部所瀏覽的網頁，除非您願意告知您的個人資料，否則本所網站不會，也無法將此項記錄和您的個人資料進行對應。</p>
+    			<p>其他：</p>
+    			<p>除了您主動於網站登錄提供個人資料外，如您寫信與我們聯繫，或是透過其他管道向我們反應意見，我們也會保存此項通訊及處理紀錄。</p>
+
+	    		<li>Cookies的運用與政策</li>
+    			<p>本網站會使用Cookies技術來儲存並在某些時候追蹤網友的資料。Cookie是從網站傳送到瀏覽器，並保存在使用者電腦硬碟中的簡短資料。網友可以在Netscape的「功能設定」的「進階」或是IE的「Internet選項」的「安全性」中選擇修改瀏覽器對Cookies的接受程度，包括接受所有Cookies、設定Cookies時得到通知、拒絕所有Cookies等。如果您選擇拒絕所有的Cookies，可能無法使用部份個人化服務或是參與部份的活動。本網站使用cookies主要用途如下：</p>
+    			<p>Cookies 在您登入網頁時建立，並在離開時修改記錄，以方便提供更好、更個人化的服務。統計瀏覽人數及分析瀏覽模式，做為改善網站服務的參考。在主辦的活動時，有時會寫入 Cookies 資料以追蹤整個活動過程中，網友的參與程度及相關數據。</p>
+	    		
+	    		<li>個人資料運用方式</li>
+    			<p>本所網站所搜集到之各項個人資料，將僅提供下列用途：</p>
+    			<p>本所網站所收集的網友姓名、電子郵件等個人資料，僅供聯絡依據，及事後活動成效分析之用，並不做其他用途。本所網站會根據網友註冊、問卷調查、參與活動或伺服器日誌文件，對瀏覽人數、使用者興趣和行為進行內部統計及分析。此份資料是根據全體網友的資料進行彙整，並非特定單一對象資料之分析報告。本所網站不會出售、出租或任意交換任何您的個人資料給其他團體或個人。</p>
+    			<p>本網站有義務保護其網友隱私及個人資料，非經您本人同意不會自行修改、刪除或提供任何（或部份）網友個人資料及檔案。除非經過您事先同意或符合以下情況：</p>
+    			<p>中華民國司法檢調單位透過合法程序進行調閱。</p>
+    			<p>違反網站相關規章且已造成脅迫性。</p>
+    			<p>基於主動延伸政府網站服務效益之考量。</p>
+    			<p>保護其他使用者之合法使用權益。</p>
+	    		
+	    		<li>資訊安全保護措施</li>
+	    		<p>由於網際網路資料的傳輸不能保證百分之百安全，儘管本網站努力保護網友的個人資料安全，但由於資料傳輸過程牽涉您本身上網環境的安全措施，本網站並無法確信或保證網友傳送或接收本所網站資料之安全，網友須注意並承擔網路資料傳輸之風險。</p>
+	    		
+	    		<li>隱私權暨資訊安全保護政策修訂</li>
+	    		<p>本網站會不定時修訂本項政策，以符合最新之隱私權保護規範。但除非有大幅度的規則修改，否則不另行於網頁公告通知。</p>
+	    		
+	    	</ol>
+
+	    	<button class="modal-close fa fa-times-circle" data-close="modal">X</button>
+	    </main>
+    </div>
+  </div>
+</section>
+
+@section scripts {
+	
+	<script>
+		// modal open
+		$("[data-modal]").click(function(e){
+		    var modal = $(this).attr("data-modal");
+		    $(modal).addClass("in");
+		    e.preventDefault();
+		});
+		// modal close
+		$("[data-close]").click(function(e){
+		    var target = $(this).attr("data-close");
+		    if ( target == "modal" ) {
+		        $(this).parents(".modal").removeClass("in");
+		    }
+		    e.preventDefault();
+		});
+		$(".modal").click(function() {
+		    $(this).removeClass("in");
+		});
+		// 點中間內容時不會被close
+		$(".modal-content").click(function(e){
+		    e.stopPropagation();
+		});
+
+	</script>
+}

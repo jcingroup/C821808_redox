@@ -189,7 +189,15 @@
     <Content Include="Content\images\logo-s.gif" />
     <Content Include="Content\images\logo.gif" />
     <Content Include="Content\images\page\5p.gif" />
+    <Content Include="Content\images\page\about\p01.jpg" />
+    <Content Include="Content\images\page\about\p02.jpg" />
+    <Content Include="Content\images\page\about\p03.jpg" />
+    <Content Include="Content\images\page\about\p05.jpg" />
+    <Content Include="Content\images\page\about\p4.jpg" />
+    <Content Include="Content\images\page\about\team.jpg" />
     <Content Include="Content\images\page\arrow.gif" />
+    <Content Include="Content\images\page\banner-about.jpg" />
+    <Content Include="Content\images\page\banner-buy.jpg" />
     <Content Include="Content\images\page\banner-contactus.jpg" />
     <Content Include="Content\images\page\banner-list.jpg" />
     <Content Include="Content\images\page\banner-pro.gif" />
