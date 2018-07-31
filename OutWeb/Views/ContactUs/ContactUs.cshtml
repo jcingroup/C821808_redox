@@ -9,14 +9,58 @@
 	<h5 class="font-xl">如果您有任何疑問，或是有專案需求欲更進一步瞭解，歡迎隨時來信，我們將竭誠為您服務。</h5>
 
 	<form class="text-left">
-		<p>類別</p>
-		<select>
-			<option value ="專案需求">專案需求</option>
-			<option value ="專案需求">專案需求</option>
-			<option value ="專案需求">專案需求</option>
-			<option value ="專案需求">專案需求</option>
-		</select>
-		<p>內容</p>
-		<textarea rows="5" cols="20"></textarea>
+		<div class="boxleft pull-left">
+			<div class="form-box">
+				<label>類別</label>
+				<select class="select">
+					<option value ="專案需求">專案需求</option>
+					<option value ="專案需求">專案需求</option>
+					<option value ="專案需求">專案需求</option>
+					<option value ="專案需求">專案需求</option>
+				</select>
+			</div>
+			<div class="form-box">
+				<label>內容</label>
+				<textarea rows="10"></textarea>
+			</div>
+		</div>
+		<div class="boxleft  pull-left">
+			<div class="form-box">
+				<span class="none">*</span>
+				<label>公司名稱</label>
+				<input type="text" name="CompanyName">
+			</div>
+			<div class="form-box">
+
+				<span class="red">*</span>
+				<label>姓&emsp;&emsp;名</label>
+				<input type="text" name="Name">
+
+				<span class="gender">
+					<label>先生</label>
+					<input class="input" type="radio" name="gender" value="先生">
+					<span class="checkmark"></span>
+				</span>
+
+				<input class="gender" type="radio" name="gender" value="小姐">小姐
+			</div>
+			<div class="form-box">
+				<span class="red">*</span>
+				<label>連絡電話</label>
+				<input type="text" name="tel">
+			</div>
+			<div class="form-box">
+				<span class="red">*</span>
+				<label>電子信箱</label>
+				<input type="email" name="email">
+			</div>
+			<div class="form-box">
+				<p>我不是機器人</p>
+			</div>
+			<div class="form-box">
+				<p>所提供的資料只供肽研生醫內部使用。</p>
+				<p>當您提供資料，即表示接受我們的<a>資料私隱政策</a>。</p>
+			</div>
+		</div>
 	</form>
 </section>

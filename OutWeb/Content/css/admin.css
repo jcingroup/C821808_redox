@@ -1437,15 +1437,15 @@ a.label-danger:hover, a.label-danger:focus, a.label-danger:active {
   letter-spacing: .02em; }
 
 .alert-success {
-  color: #497364;
+  color: #487364;
   border-left: 4px solid #79c0a7; }
 
 .alert-info {
-  color: #60716e;
+  color: #60706e;
   border-left: 4px solid #a0bcb8; }
 
 .alert-warning {
-  color: #908c4f;
+  color: #908c4e;
   border-left: 4px solid #f0ea83; }
 
 .alert-danger {
@@ -1861,7 +1861,7 @@ a.label-danger:hover, a.label-danger:focus, a.label-danger:active {
     font-size: inherit; }
 
 .table-list > thead {
-  background: #386c76; }
+  background: #386b76; }
 .table-list th {
   font-weight: normal;
   line-height: 1.4; }
@@ -1928,7 +1928,7 @@ a.label-danger:hover, a.label-danger:focus, a.label-danger:active {
 
 .submit-bar {
   border-top: 2px solid rgba(0, 0, 0, 0.03);
-  background: #e1dfd9;
+  background: #e1dfd8;
   padding-left: 16.72%; }
 
 .input-file:not(:empty) {
