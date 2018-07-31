@@ -653,7 +653,80 @@ $banner-h: 360px;
         }
 
         form {
-            vertical-align: top;
+
+            margin: 100px 150px;
+            
+            .form-box{
+                
+                color: color(secondary);
+                margin: 20px;
+                position: relative;
+
+                .boxleft{
+                    width: 500px;
+                }
+
+                label {
+                    vertical-align: middle;
+                    padding: 4px;
+                }
+
+                select,textarea,input{
+
+                    width: 250px;
+                    border: color(secondary) 2px solid;
+                    padding: 4px 10px;
+                    color: color(secondary);
+                }
+
+                option {
+                    border: color(secondary) 2px solid;
+                }
+                textarea {
+                    vertical-align: top;
+                }
+
+
+                .select {
+                    appearance:none;
+                    -moz-appearance:none;
+                    -webkit-appearance:none;
+
+                    background: url("#{$img-page}/arrow.gif") no-repeat right center transparent;
+                }
+
+                .gender {
+                    width: 35px;
+                    position: relative;
+                    padding-left: 35px;
+
+                    .input {
+                        position: absolute;
+                        opacity: 0;
+                        cursor: pointer;
+                        width: unset;
+                    }
+
+                    .checkmark {
+                        background-color: #eee;
+                        // background-color: #2196F3;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 25px;
+                        width: 25px;
+                        border-radius: 50%;
+                    }
+                }
+
+                .red {
+                    color: color(danger);
+                }
+                .none {
+                    visibility: hidden;
+                }
+
+            }
         }
     }
 }
