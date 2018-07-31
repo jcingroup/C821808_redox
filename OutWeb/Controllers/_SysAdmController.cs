@@ -21,6 +21,11 @@ namespace OutWeb.Controllers
             return View();
         }
 
+        public ActionResult ProductsInfo()
+        {
+            return View();
+        }
+
         public ActionResult ProductsList()
         {
             return View();
