@@ -96,6 +96,7 @@ $banner-h: 535px;
     .card {
         float: left;
         width: (100% - 41.66 - 2%)/2;
+        padding: 20px 30px;
 
         &:last-child {
             margin-left: 2%;
