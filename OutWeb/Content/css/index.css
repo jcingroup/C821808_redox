@@ -1309,7 +1309,8 @@ figure {
   .products .card {
     float: left;
     width: 28.17%;
-    padding: 20px 30px; }
+    padding: 20px 30px;
+    line-height: 1.5; }
     .products .card:last-child {
       margin-left: 2%; }
     .products .card img {

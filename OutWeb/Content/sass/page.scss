@@ -132,31 +132,37 @@ $banner-h: 360px;
                 width: 48%;
                 transition: all .3s;
                 margin-top: 2%;
+                position: relative;
 
                 &:hover {
                     color: color(primary);
                 }
 
+                .img {
+                    
+                    width: 48%;
+                    text-align: center;
+                    min-height: 220px;
+                    max-height: 220px;
+                    line-height: 220px;
+                }
+
                 figcaption{
-                    padding-top: 10px;
-                    padding-bottom: 0;
+                    padding: 5px;
+                    width: 48%;
+                    vertical-align: middle;
+
+
+                    h5 {
+                        font-size:20px;
+                        line-height: 1.5;
+                    }
                 }
 
                 &:nth-child(even) {
                     margin-left: 2%;
                 }
 
-                img {
-                    float: left;
-                    min-height: 220px;
-                    max-height: 220px;
-                    margin-right: 40px;
-                }
-
-                h5 {
-                    font-size:20px;
-                    line-height: 1.5;
-                }
             }
         }
 

@@ -1418,22 +1418,25 @@ figure {
     float: left;
     width: 48%;
     transition: all .3s;
-    margin-top: 2%; }
+    margin-top: 2%;
+    position: relative; }
     .Products .products .wrap .card:hover {
       color: #1599A3; }
-    .Products .products .wrap .card figcaption {
-      padding-top: 10px;
-      padding-bottom: 0; }
-    .Products .products .wrap .card:nth-child(even) {
-      margin-left: 2%; }
-    .Products .products .wrap .card img {
-      float: left;
+    .Products .products .wrap .card .img {
+      width: 48%;
+      text-align: center;
       min-height: 220px;
       max-height: 220px;
-      margin-right: 40px; }
-    .Products .products .wrap .card h5 {
-      font-size: 20px;
-      line-height: 1.5; }
+      line-height: 220px; }
+    .Products .products .wrap .card figcaption {
+      padding: 5px;
+      width: 48%;
+      vertical-align: middle; }
+      .Products .products .wrap .card figcaption h5 {
+        font-size: 20px;
+        line-height: 1.5; }
+    .Products .products .wrap .card:nth-child(even) {
+      margin-left: 2%; }
 .Products .fivetop .wrap {
   margin-top: 250px; }
   .Products .fivetop .wrap img {
