@@ -33,6 +33,12 @@ $img-page:                      '../images/page';
 //共用------------------------
 
 
+.editor img{
+
+    max-width: 100% !important;
+}
+
+
 // == banner
 
 
@@ -124,13 +130,19 @@ $banner-h: 360px;
 
                 float: left;
                 width: 48%;
+                transition: all .3s;
+                margin-top: 2%;
+
+                &:hover {
+                    color: color(primary);
+                }
 
                 figcaption{
                     padding-top: 30px;
                     padding-bottom: 0;
                 }
 
-                &:last-child {
+                &:nth-child(even) {
                     margin-left: 2%;
                 }
 
@@ -763,8 +775,10 @@ $banner-h: 360px;
                     border: color(secondary) 2px solid;
                     width: 338px;
                     padding: 20px 75px;
+                }
 
-
+                .hover-underline {
+                    cursor: pointer;
                 }
             }
 

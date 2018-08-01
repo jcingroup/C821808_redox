@@ -1373,6 +1373,9 @@ figure {
     width: 100%;
     vertical-align: middle; }
 
+.editor img {
+  max-width: 100% !important; }
+
 #banner {
   width: 100%;
   height: 360px;
@@ -1413,11 +1416,15 @@ figure {
   padding: 0 120px; }
   .Products .products .wrap .card {
     float: left;
-    width: 48%; }
+    width: 48%;
+    transition: all .3s;
+    margin-top: 2%; }
+    .Products .products .wrap .card:hover {
+      color: #1599A3; }
     .Products .products .wrap .card figcaption {
       padding-top: 30px;
       padding-bottom: 0; }
-    .Products .products .wrap .card:last-child {
+    .Products .products .wrap .card:nth-child(even) {
       margin-left: 2%; }
     .Products .products .wrap .card img {
       float: left;
@@ -1737,6 +1744,8 @@ figure {
         border: #005081 2px solid;
         width: 338px;
         padding: 20px 75px; }
+      .Contact-Us .wrap form .boxleft .hover-underline, .Contact-Us .wrap form .boxleft .top-nav .mail, .top-nav .Contact-Us .wrap form .boxleft .mail {
+        cursor: pointer; }
     .Contact-Us .wrap form #submit {
       display: block;
       width: 110px;

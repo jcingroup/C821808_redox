@@ -204,6 +204,7 @@
     <Content Include="Content\images\page\banner-service.gif" />
     <Content Include="Content\images\page\content01.jpg" />
     <Content Include="Content\images\page\info.gif" />
+    <Content Include="Content\images\page\left.gif" />
     <Content Include="Content\images\page\news01.jpg" />
     <Content Include="Content\images\page\product01.jpg" />
     <Content Include="Content\images\page\product02.jpg" />
@@ -211,6 +212,7 @@
     <Content Include="Content\images\page\product\list02.gif" />
     <Content Include="Content\images\page\product\list03.gif" />
     <Content Include="Content\images\page\product\list04.gif" />
+    <Content Include="Content\images\page\right.gif" />
     <Content Include="Content\images\page\safe.gif" />
     <Content Include="Content\images\_sysadm\icon-word.jpg" />
     <Content Include="Content\js\swiper.min.js" />
