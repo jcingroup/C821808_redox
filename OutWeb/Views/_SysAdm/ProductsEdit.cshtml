@@ -43,7 +43,41 @@
         <dt class="col-2"><sup title="必填">*</sup> 簡介</dt>
         <dd class="col-7">
             @* 輸入時，enter可換行。不用套編輯器 *@
-            <textarea rows="5" class="form-element"></textarea>
+            <textarea rows="6" class="form-element" required></textarea>
+        </dd>
+    </dl>
+    <dl class="field">
+        <dt class="col-2">產品圖上傳</dt>
+        <dd class="col-7">
+            <div class="input-file">
+                <input type="file" >
+            </div>
+            <small class="text-danger">
+                1. 檔案請勿超過 1 MB。<br>
+                2. 可上傳檔案格式：JPG, PNG, GIF
+            </small>
+            <ul class="list-inline">
+                <li class="uploaded">
+                    <button class="btn-del" type="button">&times;</button>
+                    <a href=""><img src="" alt="縮圖"></a>
+                </li>
+            </ul>
+        </dd>
+    </dl>
+    <dl class="field">
+        <dt class="col-2">顯示於首頁</dt>
+        <dd class="col-7">
+            <label class="switch">
+                <input type="checkbox">
+                <div class="slider round"></div>
+            </label>
+        </dd>
+    </dl>
+    <dl class="field">
+        <dt class="col-2">首頁專用資訊</dt>
+        <dd class="col-7">
+            @* 輸入時，enter可換行。不用套編輯器 *@
+            <textarea rows="3" class="form-element"></textarea>
         </dd>
     </dl>
     <dl class="field">
@@ -66,33 +100,7 @@
             </label>
         </dd>
     </dl>
-    <dl class="field">
-        <dt class="col-2">顯示於首頁</dt>
-        <dd class="col-7">
-            <label class="switch">
-                <input type="checkbox">
-                <div class="slider round"></div>
-            </label>
-        </dd>
-    </dl>
-    <dl class="field">
-        <dt class="col-2">產品圖上傳</dt>
-        <dd class="col-7">
-            <div class="input-file">
-                <input type="file" >
-            </div>
-            <small class="text-danger">
-                1. 檔案請勿超過 1 MB。<br>
-                2. 可上傳檔案格式：JPG, PNG, GIF
-            </small>
-            <ul class="list-inline">
-                <li class="uploaded">
-                    <button class="btn-del" type="button">&times;</button>
-                    <a href=""><img src="" alt="縮圖"></a>
-                </li>
-            </ul>
-        </dd>
-    </dl>
+
     <fieldset class="mt-24">
         <legend class="underline">[ 內容 ]</legend>
         <div class="alert-warning mb-16">
