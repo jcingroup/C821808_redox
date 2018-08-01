@@ -202,6 +202,9 @@
     <Content Include="Content\images\page\banner-list.jpg" />
     <Content Include="Content\images\page\banner-pro.gif" />
     <Content Include="Content\images\page\banner-service.gif" />
+    <Content Include="Content\images\page\buy\buy01.gif" />
+    <Content Include="Content\images\page\buy\buy02.gif" />
+    <Content Include="Content\images\page\buy\buy03.gif" />
     <Content Include="Content\images\page\content01.jpg" />
     <Content Include="Content\images\page\info.gif" />
     <Content Include="Content\images\page\left.gif" />

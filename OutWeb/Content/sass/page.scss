@@ -139,7 +139,7 @@ $banner-h: 360px;
                 }
 
                 .img {
-                    
+
                     width: 48%;
                     text-align: center;
                     min-height: 220px;
@@ -911,5 +911,21 @@ $banner-h: 360px;
         right: -950px;
         top: unset;
     }
+
+}
+
+
+//哪裡購買----------------------
+
+.Buy {
+
+    #banner {
+        background-image: url("#{$img-page}/banner-buy.jpg");
+    }
+
+    h2 {
+        
+    }
+
 
 }

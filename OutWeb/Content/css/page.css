@@ -1820,3 +1820,6 @@ figure {
     bottom: -15px;
     right: -950px;
     top: unset; }
+
+.Buy #banner {
+  background-image: url("../images/page/banner-buy.jpg"); }
