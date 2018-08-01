@@ -1823,3 +1823,32 @@ figure {
 
 .Buy #banner {
   background-image: url("../images/page/banner-buy.jpg"); }
+.Buy .shop {
+  margin: 200px; }
+  .Buy .shop h2 {
+    color: #005081;
+    margin-bottom: 0; }
+  .Buy .shop .h2-line {
+    border-bottom: #005081 5px solid;
+    width: 190px;
+    margin: 0 auto; }
+  .Buy .shop figure {
+    margin: 60px; }
+    .Buy .shop figure img {
+      margin: 0 20px; }
+    .Buy .shop figure a {
+      cursor: pointer; }
+
+.About #banner {
+  background-image: url("../images/page/banner-about.jpg"); }
+.About .wrap {
+  position: relative;
+  width: 100%; }
+  .About .wrap .img {
+    width: 40%;
+    padding-top: 30px; }
+  .About .wrap article {
+    width: 50%;
+    color: #757575; }
+.About .info {
+  margin-top: 100px; }

@@ -923,9 +923,59 @@ $banner-h: 360px;
         background-image: url("#{$img-page}/banner-buy.jpg");
     }
 
-    h2 {
-        
+    .shop {
+
+        margin: 200px;
+
+        h2 {
+            color: color(secondary);
+            margin-bottom: 0;
+        }
+
+        .h2-line {
+            border-bottom: #005081 5px solid;
+            width: 190px;
+            margin: 0 auto;
+        }
+
+        figure {
+
+            margin: 60px;
+            img{
+                margin: 0 20px;
+            }
+            a{
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+//關於我們----------------------
+
+.About {
+
+    #banner {
+        background-image: url("#{$img-page}/banner-about.jpg");
     }
 
+    .wrap{
 
+        position: relative;
+        width: 100%;
+
+        .img {
+            width: 40%;
+            padding-top: 30px;
+        }
+        article {
+            width: 50%;
+            color: #757575;
+        }
+    }
+
+    .info{
+        margin-top: 100px;
+    }
 }
