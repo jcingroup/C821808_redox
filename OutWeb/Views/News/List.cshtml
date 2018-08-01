@@ -8,40 +8,7 @@
 <section class="news-list py-48">
     <div class="wrap">
 
-        <figure class="card news-item">
-            <img src="~/Content/images/index/news.jpg">
-            <figcaption>
-                <span class="date">2018-06-13</span>
-                <h5 class="text-left text-primary">台灣力推魅力10島</h5>
-                <p class="text-left">台灣有豐富的海洋自然資源及人文景觀，交通部觀光局為呼應全球永續觀光發暫趨勢，挑選出10大魅力島嶼，包括龜山島、綠島、蘭嶼...</p>
-                <a href="~/News/Content" class="more font-xl b">閱讀更多</a>
-            </figcaption>
-        </figure>
-
-        <figure class="card news-item">
-            <img src="~/Content/images/index/news2.jpg">
-            <figcaption>
-                <span class="date">2018-06-13</span>
-                <h5 class="text-left text-primary">前進花東</h5>
-                <p class="text-left">為拓展花東地區國際觀光市場，交通部觀光局金(13)日於臺北火車站1樓多功能展演區舉辦「前進花東 好遊創意行銷啟航」記者會，宣告繼觀...</p>
-                <a href="~/News/Content" class="more font-xl b">閱讀更多</a>
-            </figcaption>
-        </figure>
-
-        <figure class="card news-item">
-            <img src="~/Content/images/index/news3.jpg">
-            <figcaption>
-                <span class="date">2018-06-13</span>
-                <h5 class="text-left text-primary">台灣力推魅力10島</h5>
-                <p class="text-left">台灣有豐富的海洋自然資源及人文景觀，交通部觀光局為呼應全球永續觀光發暫趨勢，挑選出10大魅力島嶼，包括龜山島、綠島、蘭嶼...</p>
-                <a href="~/News/Content" class="more font-xl b">閱讀更多</a>
-            </figcaption>
-        </figure>
-    </div>
-</section>
-
-<section class="news-list py-48">
-    <div class="wrap">
+        <!-- 套程式-最新消息 (每頁最多顯示9筆資料) -->
 
         <figure class="card news-item">
             <img src="~/Content/images/index/news.jpg">
@@ -72,11 +39,89 @@
                 <a href="~/News/Content" class="more font-xl b">閱讀更多</a>
             </figcaption>
         </figure>
+
+        <figure class="card news-item">
+            <img src="~/Content/images/index/news.jpg">
+            <figcaption>
+                <span class="date">2018-06-13</span>
+                <h5 class="text-left text-primary">台灣力推魅力10島</h5>
+                <p class="text-left">台灣有豐富的海洋自然資源及人文景觀，交通部觀光局為呼應全球永續觀光發暫趨勢，挑選出10大魅力島嶼，包括龜山島、綠島、蘭嶼...</p>
+                <a href="~/News/Content" class="more font-xl b">閱讀更多</a>
+            </figcaption>
+        </figure>
+
+        <figure class="card news-item">
+            <img src="~/Content/images/index/news2.jpg">
+            <figcaption>
+                <span class="date">2018-06-13</span>
+                <h5 class="text-left text-primary">前進花東</h5>
+                <p class="text-left">為拓展花東地區國際觀光市場，交通部觀光局金(13)日於臺北火車站1樓多功能展演區舉辦「前進花東 好遊創意行銷啟航」記者會，宣告繼觀...</p>
+                <a href="~/News/Content" class="more font-xl b">閱讀更多</a>
+            </figcaption>
+        </figure>
+
+        <figure class="card news-item">
+            <img src="~/Content/images/index/news3.jpg">
+            <figcaption>
+                <span class="date">2018-06-13</span>
+                <h5 class="text-left text-primary">台灣力推魅力10島</h5>
+                <p class="text-left">台灣有豐富的海洋自然資源及人文景觀，交通部觀光局為呼應全球永續觀光發暫趨勢，挑選出10大魅力島嶼，包括龜山島、綠島、蘭嶼...</p>
+                <a href="~/News/Content" class="more font-xl b">閱讀更多</a>
+            </figcaption>
+        </figure>
+
     </div>
 </section>
 
-<section>
-	<button>上一頁</button>
-	<button>這一頁</button>
-	<button>下一頁</button>
+
+<!-- 頁面切換套程式 :
+
+    想做這樣的效果：https://www.wfublog.com/2014/11/blogger-number-page-navigation.html
+    script複製在下面，尚未除錯，
+
+ -->
+
+<section class="blog-pager" id="blog-pager">
+    <span class="showPageOf">Page 1 of 16</span>
+    <span class="pagecurrent">1</span>
+    <span class="displaypageNum">
+        <a href="javascript:" onclick="pageNav.redirect(2)">2</a>
+    </span>
+    <span class="displaypageNum">
+        <a href="javascript:" onclick="pageNav.redirect(3)">3</a>
+    </span>
+    ......
+    <span class="displaypageNum">
+        <a href="javascript:" onclick="pageNav.redirect(16)">16</a>
+    </span>
+    <span class="displaypageNum">
+        <a href="javascript:" onclick="pageNav.redirect(2)">Next »</a>
+    </span>
+    <span class="displaypageNum">
+        <a href="javascript:" onclick="pageNav.redirect(16)">Last</a>
+    </span>
 </section>
+
+
+
+@section scripts {
+
+
+<!-- 數字分頁 + Ajax 動態載入 start-->
+
+<script>//<![CDATA[
+var pageNav = {
+perPage: 5, // 每頁顯示的文章數
+numPages: 5, // 要顯示數字的按鈕數量
+ajax: "Y", // 頁面是否動態載入, 不要則改成 "N"
+firstText: "First",
+lastText: "Last",
+prevText: "« Previous",
+nextText: "Next »"
+};
+
+$.getScript("https://drive.google.com/file/d/1u-QQxHCNTLxxyGGKtKjjhg2IH8psfFwJ/view");
+//]]></script>
+
+    <!-- 數字分頁 + Ajax 動態載入 end, designed by WFU BLOG-->
+}

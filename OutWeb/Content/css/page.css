@@ -1635,10 +1635,8 @@ figure {
   background-color: #F7F8F8;
   display: inline-block;
   vertical-align: top;
-  margin-left: -4px;
+  margin: 10px 2% 40px;
   width: 28.33333%; }
-  .List .news-item:not(:last-of-type) {
-    margin-right: 3%; }
   .List .news-item .date {
     border-radius: 6px; }
   .List .news-item img {
@@ -1646,6 +1644,31 @@ figure {
     margin-top: 20px; }
   .List .news-item figcaption {
     margin-top: -8px; }
+.List #blog-pager {
+  clear: both;
+  margin: 30px auto;
+  text-align: center;
+  padding: 7px; }
+  .List #blog-pager .pagecurrent {
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #1599A3; }
+  .List #blog-pager > span {
+    margin-bottom: 10px; }
+  .List #blog-pager .showPageOf {
+    display: none !important; }
+  .List #blog-pager .displaypageNum a, .List #blog-pager .showpage a, .List #blog-pager .pagecurrent {
+    display: inline-block;
+    font-size: 16px;
+    padding: 10px 16px;
+    margin: 10px;
+    border-radius: 20px;
+    color: #666;
+    background-color: #eee; }
+  .List #blog-pager .displaypageNum a:hover, .List #blog-pager .showpage a:hover, .List #blog-pager .pagecurrent {
+    background-color: #1599A3;
+    text-decoration: none;
+    color: #ffffff; }
 
 .News-Content #banner {
   background-image: url("../images/page/banner-list.jpg");
@@ -1658,6 +1681,29 @@ figure {
   .News-Content article p {
     margin: 20px 0;
     line-height: 1.8; }
+.News-Content #blog-pager {
+  clear: both;
+  margin: 30px auto;
+  text-align: center;
+  padding: 7px; }
+  .News-Content #blog-pager > span {
+    margin-bottom: 10px; }
+  .News-Content #blog-pager .showPageOf {
+    display: none !important; }
+  .News-Content #blog-pager .displaypageNum:last-child {
+    margin-left: 35%; }
+  .News-Content #blog-pager .displaypageNum a, .News-Content #blog-pager .showpage a {
+    display: inline-block;
+    font-size: 16px;
+    padding: 10px 16px;
+    margin: 10px;
+    border-radius: 20px;
+    color: #666;
+    background-color: #eee; }
+  .News-Content #blog-pager .displaypageNum a:hover, .News-Content #blog-pager .showpage a:hover {
+    background-color: #1599A3;
+    text-decoration: none;
+    color: #ffffff; }
 
 .Contact-Us {
   overflow-x: hidden; }

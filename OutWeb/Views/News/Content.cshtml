@@ -32,8 +32,43 @@
     </div>
 </section>
 
-<section>
-	<button>上一頁</button>
-	<button>這一頁</button>
-	<button>下一頁</button>
+<!-- 頁面切換套程式 :
+
+    想做這樣的效果：https://www.wfublog.com/2014/11/blogger-number-page-navigation.html
+    script複製在下面，尚未除錯，
+
+ -->
+
+<section class="blog-pager" id="blog-pager">
+    <span class="showPageOf">Page 1 of 16</span>
+    <span class="displaypageNum">
+        <a href="javascript:" onclick="pageNav.redirect(16)">« Previous</a>
+    </span>
+    <span class="displaypageNum">
+        <a href="javascript:" onclick="pageNav.redirect(2)">Next »</a>
+    </span>
 </section>
+
+
+
+@section scripts {
+
+
+<!-- 數字分頁 + Ajax 動態載入 start-->
+
+<script>//<![CDATA[
+var pageNav = {
+perPage: 5, // 每頁顯示的文章數
+numPages: 5, // 要顯示數字的按鈕數量
+ajax: "Y", // 頁面是否動態載入, 不要則改成 "N"
+firstText: "First",
+lastText: "Last",
+prevText: "« Previous",
+nextText: "Next »"
+};
+
+$.getScript("https://drive.google.com/file/d/1u-QQxHCNTLxxyGGKtKjjhg2IH8psfFwJ/view");
+//]]></script>
+
+    <!-- 數字分頁 + Ajax 動態載入 end, designed by WFU BLOG-->
+}
