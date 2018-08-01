@@ -1422,7 +1422,7 @@ figure {
     .Products .products .wrap .card:hover {
       color: #1599A3; }
     .Products .products .wrap .card figcaption {
-      padding-top: 30px;
+      padding-top: 10px;
       padding-bottom: 0; }
     .Products .products .wrap .card:nth-child(even) {
       margin-left: 2%; }
@@ -1433,7 +1433,7 @@ figure {
       margin-right: 40px; }
     .Products .products .wrap .card h5 {
       font-size: 20px;
-      line-height: 0.1; }
+      line-height: 1.5; }
 .Products .fivetop .wrap {
   margin-top: 250px; }
   .Products .fivetop .wrap img {
