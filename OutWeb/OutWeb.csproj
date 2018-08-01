@@ -189,11 +189,11 @@
     <Content Include="Content\images\logo-s.gif" />
     <Content Include="Content\images\logo.gif" />
     <Content Include="Content\images\page\5p.gif" />
-    <Content Include="Content\images\page\about\p01.jpg" />
-    <Content Include="Content\images\page\about\p02.jpg" />
-    <Content Include="Content\images\page\about\p03.jpg" />
-    <Content Include="Content\images\page\about\p05.jpg" />
-    <Content Include="Content\images\page\about\p4.jpg" />
+    <Content Include="Content\images\page\about\p01.gif" />
+    <Content Include="Content\images\page\about\p02.gif" />
+    <Content Include="Content\images\page\about\p03.gif" />
+    <Content Include="Content\images\page\about\p04.gif" />
+    <Content Include="Content\images\page\about\p05.gif" />
     <Content Include="Content\images\page\about\team.jpg" />
     <Content Include="Content\images\page\arrow.gif" />
     <Content Include="Content\images\page\banner-about.jpg" />
