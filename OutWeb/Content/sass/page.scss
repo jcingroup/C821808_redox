@@ -980,20 +980,44 @@ $banner-h: 360px;
         }
     }
 
-    .info{
+    .info {
         margin-top: 100px;
     }
 
-    .team{
+    .team {
 
         color: #ffffff;
         padding: 30px 0 50px;
         margin-top: 150px;
     }
-    .people{
+    .people {
+
         margin-top: 150px;
-        .card{
+
+        .card {
+
             background-color: #F7F8F8;
+
+            &-item {
+
+                $mgr: 3%;
+
+                display: inline-block;
+                vertical-align: top;
+                margin-left: -4px;
+
+                width: (100% / 3 - $mgr - 2);
+
+                &:not(:last-of-type) {
+                    margin-right: $mgr;
+                }
+
+                figcaption {
+                    margin-top: -8px;
+                    color: color(primary);
+                }
+            }
         }
+
     }
 }

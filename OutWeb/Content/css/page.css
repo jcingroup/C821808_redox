@@ -1862,3 +1862,13 @@ figure {
   margin-top: 150px; }
   .About .people .card {
     background-color: #F7F8F8; }
+    .About .people .card-item {
+      display: inline-block;
+      vertical-align: top;
+      margin-left: -4px;
+      width: 28.33333%; }
+      .About .people .card-item:not(:last-of-type) {
+        margin-right: 3%; }
+      .About .people .card-item figcaption {
+        margin-top: -8px;
+        color: #1599A3; }
