@@ -68,7 +68,8 @@
                         <a href="~/_SysAdm/ProductsList" class='@(ViewBag.subnav2 == "Product" ? "active" : "")'>產品管理</a>
                     </nav>
 
-                    <a href="~/_SysAdm/FAQList" class='oi @(ViewBag.subnav == "FAQ" ? "active" : "")' data-glyph="chat">Q&A 管理</a>
+                    @* 挪到產品內頁裡
+                    <a href="~/_SysAdm/FAQList" class='oi @(ViewBag.subnav == "FAQ" ? "active" : "")' data-glyph="chat">Q&A 管理</a> *@
 
                     <header class='collapse-toggle oi @(ViewBag.subnav == "Cog" ? "active" : "")' data-glyph="cog">系統設定 <i class="arrow down"></i></header>
                     <nav class='collapse-content @(ViewBag.subnav == "Cog" ? "in" : "")'>
