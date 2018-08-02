@@ -1209,8 +1209,8 @@ figure {
 /*      layout
 -----------------------------------------------------------------------*/
 .wrap {
-  max-width: 1200px; }
-  @media (max-width: 74.9375em) {
+  max-width: 1240px; }
+  @media (max-width: 77.4375em) {
     .wrap {
       padding-left: 16px;
       padding-left: 1rem;
@@ -1218,14 +1218,14 @@ figure {
       padding-right: 1rem; } }
   @media only screen and (min-device-width: 1024px) {
     .wrap {
-      min-width: 1200px; } }
+      min-width: 1240px; } }
 
 #wrapper {
   min-height: 100%;
   padding-bottom: 338px; }
   @media only screen and (min-device-width: 1024px) {
     #wrapper {
-      min-width: 1200px; } }
+      min-width: 1240px; } }
   .scrolling #wrapper {
     padding-top: 54px; }
 

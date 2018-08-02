@@ -49,10 +49,11 @@ $banner-h: 360px;
     width: 100%;
     height: $banner-h;
     background-size: cover;
+    background-position:center;
 
 
     h2 {
-        margin-top: 10%;
+        margin-top: 150px;
         position: absolute;
         text-align: center;
         width: 100%;
@@ -510,7 +511,7 @@ $banner-h: 360px;
         table{
 
             line-height: 1.5;
-            margin: 20px 60px;
+            margin: 0px 60px;
         }
 
         p{
@@ -736,14 +737,15 @@ $banner-h: 360px;
     overflow-x: hidden;
 
     #banner {
-        background-image: url("#{$img-page}/banner-contactus.jpg");
+        background-image: url("#{$img-page}/banner-contactus.gif");
         margin-bottom: 100px;
+        background-color: #F4D731;
 
         .title{
             @extend .font-jumbo;
 
             color: #ffffff;
-            margin: 8% 0 0 10%;
+            margin: 150px 0 0 10%;
 
             -moz-transform:rotate(3deg);
             -webkit-transform:rotate(3deg);
@@ -751,11 +753,11 @@ $banner-h: 360px;
             -ms-transform:rotate(3deg);
             transform:rotate(3deg);
 
+            min-width:1200px;
+
             @include mq-max(1600px) {
-                margin-left: 300px;
-            }
-            @include mq-max(1280px) {
-                margin-left: 400px;
+                margin-top: 150px;
+                margin-left: 200px;
             }
         }
     }
@@ -925,7 +927,7 @@ $banner-h: 360px;
 
     .shop {
 
-        margin: 200px;
+        margin: 200px 0;
 
         h2 {
             color: color(secondary);
@@ -999,28 +1001,37 @@ $banner-h: 360px;
 
             background-color: #F7F8F8;
             margin-bottom: 100px;
+            padding: 20px 50px;
 
             $mgr: 3%;
-
             display: inline-block;
             vertical-align: top;
             margin-left: -4px;
-
-            width: (100% / 3 - $mgr - 2);
 
             &:not(:last-of-type) {
                 margin-right: $mgr;
             }
 
+            &-1 {
+                height: 480px;
+                width: (100% / 3 - $mgr - 2);
+            }
+
+            &-2 {
+                height: 750px;
+                width: 35%;
+            }
 
             figcaption {
 
-                p{
+                h5 {
+                    line-height: 1.8;
+                }
+
+                p {
                     color: color(primary);
                 }
-                
             }
         }
-
     }
 }
