@@ -135,11 +135,13 @@
 @section scripts {
 	
 	<script>
+
 		// modal open
 		$("[data-modal]").click(function(e){
 		    var modal = $(this).attr("data-modal");
 		    $(modal).addClass("in");
 		    e.preventDefault();
+		    $("body").css("overflow","hidden");
 		});
 		// modal close
 		$("[data-close]").click(function(e){
@@ -148,6 +150,7 @@
 		        $(this).parents(".modal").removeClass("in");
 		    }
 		    e.preventDefault();
+		    $("body").css("overflow","auto");
 		});
 		$(".modal").click(function() {
 		    $(this).removeClass("in");
@@ -156,6 +159,5 @@
 		$(".modal-content").click(function(e){
 		    e.stopPropagation();
 		});
-
 	</script>
 }
