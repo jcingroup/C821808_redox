@@ -967,12 +967,13 @@ $banner-h: 360px;
 
         .img {
             width: 40%;
-            padding-top: 70px;
+            padding-top: 40px;
         }
 
         article {
             width: 50%;
             color: #757575;
+            margin-left: 60px;
 
             p {
                 margin-top: 30px;
@@ -992,30 +993,32 @@ $banner-h: 360px;
     }
     .people {
 
-        margin-top: 150px;
+        margin-top: 130px;
 
         .card {
 
             background-color: #F7F8F8;
+            margin-bottom: 100px;
 
-            &-item {
+            $mgr: 3%;
 
-                $mgr: 3%;
+            display: inline-block;
+            vertical-align: top;
+            margin-left: -4px;
 
-                display: inline-block;
-                vertical-align: top;
-                margin-left: -4px;
+            width: (100% / 3 - $mgr - 2);
 
-                width: (100% / 3 - $mgr - 2);
+            &:not(:last-of-type) {
+                margin-right: $mgr;
+            }
 
-                &:not(:last-of-type) {
-                    margin-right: $mgr;
-                }
 
-                figcaption {
-                    margin-top: -8px;
+            figcaption {
+
+                p{
                     color: color(primary);
                 }
+                
             }
         }
 

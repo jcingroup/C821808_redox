@@ -1846,10 +1846,11 @@ figure {
   width: 100%; }
   .About .wrap .img {
     width: 40%;
-    padding-top: 70px; }
+    padding-top: 40px; }
   .About .wrap article {
     width: 50%;
-    color: #757575; }
+    color: #757575;
+    margin-left: 60px; }
     .About .wrap article p {
       margin-top: 30px; }
 .About .info {
@@ -1859,16 +1860,15 @@ figure {
   padding: 30px 0 50px;
   margin-top: 150px; }
 .About .people {
-  margin-top: 150px; }
+  margin-top: 130px; }
   .About .people .card {
-    background-color: #F7F8F8; }
-    .About .people .card-item {
-      display: inline-block;
-      vertical-align: top;
-      margin-left: -4px;
-      width: 28.33333%; }
-      .About .people .card-item:not(:last-of-type) {
-        margin-right: 3%; }
-      .About .people .card-item figcaption {
-        margin-top: -8px;
-        color: #1599A3; }
+    background-color: #F7F8F8;
+    margin-bottom: 100px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: -4px;
+    width: 28.33333%; }
+    .About .people .card:not(:last-of-type) {
+      margin-right: 3%; }
+    .About .people .card figcaption p {
+      color: #1599A3; }
