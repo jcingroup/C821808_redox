@@ -1853,7 +1853,8 @@ figure {
   .About .wrap article {
     width: 50%;
     color: #757575;
-    margin-left: 60px; }
+    margin-left: 60px;
+    margin-top: 60px; }
     .About .wrap article p {
       margin-top: 30px; }
 .About .info {

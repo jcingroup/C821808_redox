@@ -173,7 +173,6 @@
     <Content Include="Content\font\open-iconic\open-iconic.svg" />
     <Content Include="Content\font\themify-icons\themify.svg" />
     <Content Include="Content\images\icon-social.gif" />
-    <Content Include="Content\images\index\about.jpg" />
     <Content Include="Content\images\index\banner1.png" />
     <Content Include="Content\images\index\intro.jpg" />
     <Content Include="Content\images\index\intro2.jpg" />
@@ -185,6 +184,7 @@
     <Content Include="Content\images\index\product2.jpg" />
     <Content Include="Content\images\index\safe.gif" />
     <Content Include="Content\images\index\service.jpg" />
+    <Content Include="Content\images\index\team.gif" />
     <Content Include="Content\images\logo-foot.gif" />
     <Content Include="Content\images\logo-s.gif" />
     <Content Include="Content\images\logo.gif" />
@@ -194,7 +194,6 @@
     <Content Include="Content\images\page\about\p03.gif" />
     <Content Include="Content\images\page\about\p04.gif" />
     <Content Include="Content\images\page\about\p05.gif" />
-    <Content Include="Content\images\page\about\team.jpg" />
     <Content Include="Content\images\page\arrow.gif" />
     <Content Include="Content\images\page\banner-about.jpg" />
     <Content Include="Content\images\page\banner-buy.jpg" />
