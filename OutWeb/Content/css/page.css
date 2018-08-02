@@ -1714,7 +1714,9 @@ figure {
   .Contact-Us #banner {
     background-image: url("../images/page/banner-contactus.gif");
     margin-bottom: 100px;
-    background-color: #F4D731; }
+    background-color: #F4D731;
+    background-size: unset;
+    background-repeat: no-repeat; }
     .Contact-Us #banner .title {
       color: #ffffff;
       margin: 150px 0 0 10%;

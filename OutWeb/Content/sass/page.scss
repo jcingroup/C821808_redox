@@ -740,6 +740,9 @@ $banner-h: 360px;
         background-image: url("#{$img-page}/banner-contactus.gif");
         margin-bottom: 100px;
         background-color: #F4D731;
+        background-size: unset;
+        background-repeat: no-repeat;
+
 
         .title{
             @extend .font-jumbo;
