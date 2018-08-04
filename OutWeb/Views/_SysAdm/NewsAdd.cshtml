@@ -1,0 +1,23 @@
+﻿@using OutWeb.Models.Manage.ManageNewsModels
+@model NewsDetailsDataModel
+@{
+    ViewBag.Title = "最新消息管理";
+    ViewBag.subnav = "News";
+    ViewBag.Crumb = "新增";
+}
+
+
+@section Title {
+    <small class="oi" data-glyph="tags">@ViewBag.Crumb</small>
+}
+
+@section Breadcrumb {
+    <li><a href="NewsList">@ViewBag.Title</a></li>
+    <li>@ViewBag.Crumb</li>
+}
+
+@*<h3 class="title">@ViewBag.Crumb <small class="oi" data-glyph="tags">新增</small></h3>*@
+@using (Html.BeginForm("NewsAdd", "_SysAdm", FormMethod.Post, new { id = "formManageNewsData", @class = "form-list" }))
+{
+    Html.RenderPartial("_NewsDataPartial", Model);
+}

@@ -5,6 +5,35 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="REDOXModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FILEBASE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FILE_RANDOM_NM" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FILE_REL_NM" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FILE_PATH" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="IDENTIFY_KEY" Type="int" />
+          <Property Name="SQ" Type="float" />
+          <Property Name="BUD_DT" Type="datetime" Nullable="false" />
+          <Property Name="BUD_ID" Type="int" Nullable="false" />
+          <Property Name="MAP_ID" Type="int" Nullable="false" />
+          <Property Name="MAP_SITE" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FILE_TP" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="URL_PATH" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LISTEDITOR">
+          <Key>
+            <PropertyRef Name="OBJ_NAME" />
+          </Key>
+          <Property Name="OBJ_NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OBJ_CONTENT" Type="nvarchar(max)" />
+          <Property Name="UP_DT" Type="datetime" Nullable="false" />
+          <Property Name="UP_ID" Type="int" Nullable="false" />
+          <Property Name="BUD_DT" Type="datetime" Nullable="false" />
+          <Property Name="BUD_ID" Type="int" Nullable="false" />
+          <Property Name="STATUS" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="LOGERR">
           <Key>
             <PropertyRef Name="ID" />
@@ -59,6 +88,8 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="REDOXModelStoreContainer">
+          <EntitySet Name="FILEBASE" EntityType="Self.FILEBASE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LISTEDITOR" EntityType="Self.LISTEDITOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LOGERR" EntityType="Self.LOGERR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NEWS" EntityType="Self.NEWS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
@@ -79,6 +110,8 @@
             <End Role="NEWS" EntitySet="NEWS" />
           </AssociationSet>
           <EntitySet Name="LOGERR" EntityType="REDOXModel.LOGERR" />
+          <EntitySet Name="FILEBASE" EntityType="REDOXModel.FILEBASE" />
+          <EntitySet Name="LISTEDITOR" EntityType="REDOXModel.LISTEDITOR" />
         </EntityContainer>
         <EntityType Name="NEWS">
           <Key>
@@ -135,6 +168,35 @@
           <Property Name="ERR_SRC" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="LOG_DTM" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
+        <EntityType Name="FILEBASE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FILE_RANDOM_NM" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FILE_REL_NM" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FILE_PATH" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IDENTIFY_KEY" Type="Int32" />
+          <Property Name="SQ" Type="Double" />
+          <Property Name="BUD_DT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BUD_ID" Type="Int32" Nullable="false" />
+          <Property Name="MAP_ID" Type="Int32" Nullable="false" />
+          <Property Name="MAP_SITE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FILE_TP" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="URL_PATH" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LISTEDITOR">
+          <Key>
+            <PropertyRef Name="OBJ_NAME" />
+          </Key>
+          <Property Name="OBJ_NAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OBJ_CONTENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UP_DT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UP_ID" Type="Int32" Nullable="false" />
+          <Property Name="BUD_DT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BUD_ID" Type="Int32" Nullable="false" />
+          <Property Name="STATUS" Type="Boolean" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -182,6 +244,37 @@
                 <ScalarProperty Name="ERR_SMRY" ColumnName="ERR_SMRY" />
                 <ScalarProperty Name="ERR_GID" ColumnName="ERR_GID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FILEBASE">
+            <EntityTypeMapping TypeName="REDOXModel.FILEBASE">
+              <MappingFragment StoreEntitySet="FILEBASE">
+                <ScalarProperty Name="URL_PATH" ColumnName="URL_PATH" />
+                <ScalarProperty Name="FILE_TP" ColumnName="FILE_TP" />
+                <ScalarProperty Name="MAP_SITE" ColumnName="MAP_SITE" />
+                <ScalarProperty Name="MAP_ID" ColumnName="MAP_ID" />
+                <ScalarProperty Name="BUD_ID" ColumnName="BUD_ID" />
+                <ScalarProperty Name="BUD_DT" ColumnName="BUD_DT" />
+                <ScalarProperty Name="SQ" ColumnName="SQ" />
+                <ScalarProperty Name="IDENTIFY_KEY" ColumnName="IDENTIFY_KEY" />
+                <ScalarProperty Name="FILE_PATH" ColumnName="FILE_PATH" />
+                <ScalarProperty Name="FILE_REL_NM" ColumnName="FILE_REL_NM" />
+                <ScalarProperty Name="FILE_RANDOM_NM" ColumnName="FILE_RANDOM_NM" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LISTEDITOR">
+            <EntityTypeMapping TypeName="REDOXModel.LISTEDITOR">
+              <MappingFragment StoreEntitySet="LISTEDITOR">
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="BUD_ID" ColumnName="BUD_ID" />
+                <ScalarProperty Name="BUD_DT" ColumnName="BUD_DT" />
+                <ScalarProperty Name="UP_ID" ColumnName="UP_ID" />
+                <ScalarProperty Name="UP_DT" ColumnName="UP_DT" />
+                <ScalarProperty Name="OBJ_CONTENT" ColumnName="OBJ_CONTENT" />
+                <ScalarProperty Name="OBJ_NAME" ColumnName="OBJ_NAME" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

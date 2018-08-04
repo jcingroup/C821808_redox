@@ -28,5 +28,7 @@ namespace REDOXEntities.DataBase
         public virtual DbSet<NEWS> NEWS { get; set; }
         public virtual DbSet<USER> USER { get; set; }
         public virtual DbSet<LOGERR> LOGERR { get; set; }
+        public virtual DbSet<FILEBASE> FILEBASE { get; set; }
+        public virtual DbSet<LISTEDITOR> LISTEDITOR { get; set; }
     }
 }

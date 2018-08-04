@@ -1,9 +1,11 @@
-﻿
+﻿@model Dictionary<bool, string>
 @{
     ViewBag.Title = "列表簡介";
     ViewBag.subnav = "Products";
     ViewBag.subnav2 = "Info";
     ViewBag.Crumb = "編輯";
+
+    string content = Model.Count > 0 ? Model.Values.First() : "";
 }
 
 @section Title {
@@ -15,18 +17,50 @@
     <li>@ViewBag.Title</li>
 }
 
-<form action="" class="form-list">
+<form action="/_SysAdm/ProductsInfo" method="post" class="form-list">
     <dl class="field">
         <dt class="col-1">上架狀態</dt>
         <dd class="col-7">
-            <label class="control-group">
-                <input type="radio" class="radio" name="show" checked>
-                <i class="icon"></i> 上架
-            </label>
-            <label class="control-group">
-                <input type="radio" class="radio" name="show">
-                <i class="icon"></i> 下架
-            </label>
+            @if (Model.Count > 0)
+            {
+
+                if (Model.Keys.First())
+                {
+                    <label class="control-group">
+                        <input type="radio" class="radio" name="Status" checked value="Y">
+                        <i class="icon"></i> 上架
+                    </label>
+                    <label class="control-group">
+                        <input type="radio" class="radio" name="Status" value="N">
+                        <i class="icon"></i> 下架
+                    </label>
+                }
+                else
+                {
+                    <label class="control-group">
+                        <input type="radio" class="radio" name="Status" value="Y">
+                        <i class="icon"></i> 上架
+                    </label>
+                    <label class="control-group">
+                        <input type="radio" class="radio" name="Status" checked value="N">
+                        <i class="icon"></i> 下架
+                    </label>
+                }
+            }
+            else
+            {
+                <label class="control-group">
+                    <input type="radio" class="radio" name="Status" checked value="Y">
+                    <i class="icon"></i> 上架
+                </label>
+                <label class="control-group">
+                    <input type="radio" class="radio" name="Status" value="N">
+                    <i class="icon"></i> 下架
+                </label>
+            }
+
+
+
         </dd>
     </dl>
 
@@ -39,12 +73,20 @@
                 編輯器上傳圖片或新增表格等時，請勿設定寬度及高度(將數字刪除) ，以免行動裝置顯示時會跑版。<br />
                 檔案尺寸寬度超過 1600 或 高度超過1200 的圖片會被壓縮(PNG透明背景會變成不透明)
             </div>
-            <textarea name="" id="" rows="15" class="form-element"></textarea>
+            <textarea name="contenttext" id="" rows="15" class="form-element">@Html.Raw(content)</textarea>
         </dd>
     </dl>
     <footer class="submit-bar mt-24">
-        <button type="button" class="btn success oi offset-1" data-glyph="circle-check">
+        <button type="submit" class="btn success oi offset-1" data-glyph="circle-check">
             儲存
         </button>
     </footer>
 </form>
+
+
+<script>
+    $(function () {
+        CKFinder.setupCKEditor(null, { basePath: '/ckfinder/', skin: 'v1' });
+        CKEDITOR.replace('contenttext');
+    })
+</script>

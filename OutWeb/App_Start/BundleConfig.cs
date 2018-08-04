@@ -22,9 +22,24 @@ namespace OutWeb
             //bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
             //          "~/Scripts/bootstrap.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/css/vendor/themify-icons.css",
-                      "~/Content/css/grid.css"));
+            //bundles.Add(new StyleBundle("~/Content/css").Include(
+            //          "~/Content/css/vendor/themify-icons.css",
+            //          "~/Content/css/grid.css"));
+
+            bundles.Add(new ScriptBundle("~/Custom/JS").Include(
+                           "~/Scripts/jquery-{version}.js",
+                           "~/Scripts/jquery-ui.min.js",
+                           "~/ckeditor/ckeditor.js",
+                           "~/ckfinder/ckfinder.js",
+                           "~/Scripts/datepicker-zh-TW.js",
+                           "~/Scripts/jq_initialization.js"
+                           ));
+
+            bundles.Add(new StyleBundle("~/Custom/Css").Include(
+                      "~/Content/css/jquery-ui.min.css",
+                      "~/Content/css/standalone.css"
+                      ));
+
         }
     }
 }

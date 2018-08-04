@@ -1,8 +1,17 @@
 ﻿using OutWeb.ActionFilter;
 using OutWeb.Authorize;
+using OutWeb.Enums;
 using OutWeb.Inc;
+using OutWeb.Models.Manage;
+using OutWeb.Models.Manage.ManageNewsModels;
+using OutWeb.Module.Manage;
 using OutWeb.Modules.Manage;
+using OutWeb.Service;
+using REDOXEntities.DataBase;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace OutWeb.Controllers
@@ -18,19 +27,129 @@ namespace OutWeb.Controllers
             return RedirectToAction("NewsList");
         }
 
-        public ActionResult NewsList()
+        #region NEWS
+
+        public ActionResult NewsList(int? page, string qry, string sort, string fSt, string pSdate, string pEdate)
         {
-            return View();
+            ListViewBase model = new ListViewBase();
+            model.Filter.CurrentPage = page ?? 1;
+            model.Filter.QueryString = qry ?? string.Empty;
+            model.Filter.SortColumn = sort ?? string.Empty;
+            model.Filter.DisplayForFrontEnd = fSt ?? string.Empty;
+            model.Filter.PublishStartDate = pSdate;
+            model.Filter.PublishEndate = pEdate;
+
+            using (var module = ListFactoryService.Create(ListMethodType.NEWS))
+            {
+                model.Result = (module.DoGetList(model.Filter) as ListResultBase);
+                model.Result.Data = (model.Result.Data as List<NEWS>);
+            }
+            return View(model);
         }
 
-        public ActionResult NewsEdit()
+        [HttpGet]
+        public ActionResult NewsAdd()
         {
-            return View();
+            NewsDetailsDataModel defaultModel = new NewsDetailsDataModel();
+            defaultModel.Data.BUD_DT = DateTime.UtcNow.AddHours(8);
+            defaultModel.Data.HOME_PAGE_DISPLAY = true;
+            using (var db = new REDOXDB())
+            {
+                if (db.NEWS.Count() > 0)
+                    defaultModel.Data.SQ = db.NEWS.Max(s => s.SQ) + 1;
+                else
+                    defaultModel.Data.SQ = 1;
+            }
+            return View(defaultModel);
         }
 
+        [ValidateInput(false)]
+        [HttpPost]
+        public ActionResult NewsAdd(FormCollection form, List<HttpPostedFileBase> files)
+        {
+            int identityId = 0;
+            using (var module = ListFactoryService.Create(Enums.ListMethodType.NEWS))
+            {
+                identityId = module.DoSaveData(form, null, files);
+            }
+            var redirectUrl = new UrlHelper(Request.RequestContext).Action("NewsEdit", "_SysAdm", new { ID = identityId });
+            return Json(new { Url = redirectUrl });
+        }
+
+        [HttpGet]
+        public ActionResult NewsEdit(int? ID)
+        {
+            if (!ID.HasValue)
+                return RedirectToAction("NewsList");
+            NewsDetailsDataModel model;
+            using (var module = ListFactoryService.Create(Enums.ListMethodType.NEWS))
+            {
+                model = (module.DoGetDetailsByID((int)ID) as NewsDetailsDataModel);
+            }
+            if (model.Data == null)
+                return RedirectToAction("Login", "SignIn");
+
+            //取檔案
+            using (FileModule fileModule = new FileModule())
+            {
+                model.FilesData = fileModule.GetFiles((int)model.Data.ID, "News");
+            }
+            return View(model);
+        }
+
+        [ValidateInput(false)]
+        [HttpPost]
+        public ActionResult NewsEdit(FormCollection form, List<HttpPostedFileBase> files)
+        {
+            int? ID = Convert.ToInt32(form["ID"]);
+            int identityId = 0;
+            using (var module = ListFactoryService.Create(Enums.ListMethodType.NEWS))
+            {
+                identityId = module.DoSaveData(form, ID, files);
+            }
+            var redirectUrl = new UrlHelper(Request.RequestContext).Action("NewsEdit", "_SysAdm", new { ID = identityId });
+            return Json(new { Url = redirectUrl });
+        }
+
+        [HttpPost]
+        public JsonResult NewsDelete(int? ID)
+        {
+            bool success = true;
+            string messages = string.Empty;
+            try
+            {
+                using (var module = ListFactoryService.Create(Enums.ListMethodType.NEWS))
+                {
+                    module.DoDeleteByID((int)ID);
+                }
+                messages = "刪除成功";
+            }
+            catch (Exception ex)
+            {
+                success = false;
+                messages = ex.Message;
+            }
+            var resultJson = Json(new { success = success, messages = messages });
+            return resultJson;
+        }
+
+        #endregion NEWS
+        [HttpGet]
         public ActionResult ProductsInfo()
         {
-            return View();
+            ProductsModule mdu = new ProductsModule();
+            var model = mdu.GetProductInfo();
+            return View(model);
+        }
+
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult ProductsInfo(FormCollection form)
+        {
+            ProductsModule mdu = new ProductsModule();
+            var acName = mdu.SaveProductInfo(form);
+            return RedirectToAction(acName);
         }
 
         public ActionResult ProductsList()
