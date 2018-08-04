@@ -12,10 +12,16 @@ namespace OutWeb
     {
         protected void Application_Start()
         {
+            //api route
+            //GlobalConfiguration.Configure(WebApiConfig.Register);
+            BundleTable.EnableOptimizations = false;
             AreaRegistration.RegisterAllAreas();
+            //controller custom route 
+            RouteTable.Routes.MapMvcAttributeRoutes();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
         }
     }
 }

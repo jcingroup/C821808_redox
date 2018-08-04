@@ -15,6 +15,8 @@
     {
         <link rel="stylesheet" href="~/Content/css/admin.css">
     }
+    @RenderSection("IncludeCSS", false)
+
     @RenderSection("css", required: false)
 </head>
 
@@ -37,6 +39,8 @@
                 </nav>
             </header><!-- header //-->
         }
+
+
 
         @if (ViewBag.IsFirstPage)
         {
@@ -69,7 +73,7 @@
                     </nav>
 
                     @* 挪到產品內頁裡
-                    <a href="~/_SysAdm/FAQList" class='oi @(ViewBag.subnav == "FAQ" ? "active" : "")' data-glyph="chat">Q&A 管理</a> *@
+                        <a href="~/_SysAdm/FAQList" class='oi @(ViewBag.subnav == "FAQ" ? "active" : "")' data-glyph="chat">Q&A 管理</a> *@
 
                     <header class='collapse-toggle oi @(ViewBag.subnav == "Cog" ? "active" : "")' data-glyph="cog">系統設定 <i class="arrow down"></i></header>
                     <nav class='collapse-content @(ViewBag.subnav == "Cog" ? "in" : "")'>
@@ -95,6 +99,7 @@
     @if (!ViewBag.IsFirstPage)
     {
         <script>
+
             // 左選單縮放特效
             var $collapse = $('.collapse-toggle');
             var fall = '.collapse-content';

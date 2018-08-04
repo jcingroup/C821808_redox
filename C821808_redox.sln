@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutWeb", "OutWeb\OutWeb.csproj", "{4BD0E247-CD59-481D-8983-ED6B9765FCAC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assembly", "Assembly", "{D09141B3-8955-49D6-9D9C-CB2CB76759D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REDOXEntities", "REDOXEntities\REDOXEntities.csproj", "{51C27A9B-E751-4A9D-8792-FDF586D7A32D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +19,16 @@ Global
 		{4BD0E247-CD59-481D-8983-ED6B9765FCAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BD0E247-CD59-481D-8983-ED6B9765FCAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BD0E247-CD59-481D-8983-ED6B9765FCAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51C27A9B-E751-4A9D-8792-FDF586D7A32D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51C27A9B-E751-4A9D-8792-FDF586D7A32D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51C27A9B-E751-4A9D-8792-FDF586D7A32D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51C27A9B-E751-4A9D-8792-FDF586D7A32D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{51C27A9B-E751-4A9D-8792-FDF586D7A32D} = {D09141B3-8955-49D6-9D9C-CB2CB76759D4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C670C103-0CD4-407E-8BD9-92C0066A6C2E}

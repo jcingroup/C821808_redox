@@ -1,31 +1,73 @@
-﻿
-@{
-    ViewBag.Title = "登入";
-    ViewBag.mainName = "肽研生醫 網站管理系統";
-    ViewBag.IsFirstPage = true;
-}
+﻿@using OutWeb.Models.UserInfo
+    @using BotDetect.Web.Mvc
+    @model SignInModel
+    @{
+        ViewBag.Title = "登入";
+        ViewBag.mainName = "肽研生醫 網站管理系統";
+        ViewBag.IsFirstPage = true;
+    }
+    @section IncludeCSS{
+        <link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl"
+              rel="stylesheet" type="text/css" />
+    }
+    @section IncludeScript{
+        <script>
+            $(function () {
 
-<h1 class="site-title">
-    @ViewBag.mainName <small class="ml-8">Web Manager</small>
-</h1>
-<h6 class="sub-copyright">REDOX MEDICARE &copy; 2018</h6>
+                //禁止按下enter
+                $('#formSignIn').on('keyup keypress', function (e) {
+                    var keyCode = e.keyCode || e.which;
+                    if (keyCode === 13) {
+                        e.preventDefault();
+                        return false;
+                    }
+                });
 
-<form action="" class="login text-left">
-    <h4 class="title mt-0">System Login</h4>
-    <main>
-        <label>帳號 Username</label>
-        <input type="text" class="form-element mb-12" tabindex="1" name="Account" id="account" placeholder="請輸入帳號" required>
+                $('#formSignIn').submit(function () {
+                    $('#formSignIn').attr('action', '/_SysAdm/Index')
+                    return true;
+                });
 
-        <label>密碼 Password</label>
-        <input type="password" class="form-element mb-12" tabindex="2" name="Password" id="pwd" placeholder="請輸入密碼" required>
 
-        <label>驗證碼 Code</label>
-        <input type="text" class="form-element mb-4" tabindex="3" placeholder="請輸入驗證碼" required>
-        <img src="" alt="驗證碼圖片">
+                if ('@TempData["SignInFail"]' != '') {
+                    alert('@TempData["SignInFail"]');
+                }
+            })
+            var captchaLinkElem = $('#ExampleCaptcha_CaptchaImage').closest('a');
+            $(captchaLinkElem).removeAttr('onclick');
+            $(captchaLinkElem).attr('href', 'javascript:;');
+            $('#CaptchaCode').attr('tabindex', '3');
+        </script>
+    }
 
-    </main>
+    <h1 class="site-title">
+        @ViewBag.mainName <small class="ml-8">Web Manager</small>
+    </h1>
+    <h6 class="sub-copyright">REDOX MEDICARE &copy; 2018</h6>
+    @using (Html.BeginForm("Login", "SignIn", FormMethod.Post, new { id = "formSignIn", @class = "text-left", autocomplete = "off" }))
+    {
+        @Html.AntiForgeryToken()
 
-    <footer class="action-bar text-center">
-        <button type="botton" class="btn" tabindex="4" onclick="location.href='@Url.Content("~/_SysAdm/NewsList")'">登入 LOGIN</button>
-    </footer>
-</form>
+        <h4 class="title mt-0">System Login</h4>
+        <main>
+            <label>帳號 Username</label>            @Html.ValidationMessageFor(m => m.Account, "", new { @class = "text-danger" })
+            <input type="text" class="form-element mb-12" tabindex="1" name="Account" id="account" placeholder="請輸入帳號" required>
+
+            <label>密碼 Password</label>            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            <input type="password" class="form-element mb-12" tabindex="2" name="Password" id="pwd" placeholder="請輸入密碼" required>
+
+            <label>驗證碼 Code</label>  @Html.ValidationMessageFor(m => m.CaptchaCode, "", new { @class = "text-danger" })
+            @{ MvcCaptcha exampleCaptcha = new MvcCaptcha("ExampleCaptcha");
+                exampleCaptcha.Reset();
+                exampleCaptcha.UserInputID = "CaptchaCode";
+            }
+            @Html.Captcha(exampleCaptcha)
+            @Html.TextBox("CaptchaCode", null, new { @class = "form-element", required = "required" })
+
+
+        </main>
+
+        <footer class="action-bar text-center">
+            <button type="submit" class="btn" tabindex="4">登入 LOGIN</button>
+        </footer>
+    }
