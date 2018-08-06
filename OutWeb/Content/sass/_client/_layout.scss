@@ -105,15 +105,25 @@ $foot-spacer: 36px;
 
 .logo-foot {
     @include text-pic('logo-foot.gif', false, 56px);
+
+    @include mq-max(wide){
+        margin-left: 2.2rem;
+    }
 }
 
 .foot {
     $foot-contacts-mt: 42px;
 
     &-about {
-        @extend .pr-32;
+        margin-right: 2.2rem;
 
         margin-top: $foot-contacts-mt;
+
+        @include mq-max(wide){
+            margin-left: 2.2rem;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(#fff, .35);
+        }
     }
 
     // 頁腳聯絡資訊
@@ -122,6 +132,10 @@ $foot-spacer: 36px;
 
         padding-top: $foot-contacts-mt;
         border-left: 1px solid rgba(#fff, .35);
+
+        @include mq-max(wide){
+            border: none;
+        }
     }
 }
 

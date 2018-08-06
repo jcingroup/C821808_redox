@@ -810,7 +810,7 @@ dd {
 .pt-32 {
   padding-top: 2rem; }
 
-.pr-32, .foot-about {
+.pr-32 {
   padding-right: 2rem; }
 
 .pb-32 {
@@ -1216,16 +1216,10 @@ figure {
       padding-left: 1rem;
       padding-right: 16px;
       padding-right: 1rem; } }
-  @media only screen and (min-device-width: 1024px) {
-    .wrap {
-      min-width: 1240px; } }
 
 #wrapper {
   min-height: 100%;
   padding-bottom: 338px; }
-  @media only screen and (min-device-width: 1024px) {
-    #wrapper {
-      min-width: 1240px; } }
   .scrolling #wrapper {
     padding-top: 54px; }
 
@@ -1264,12 +1258,24 @@ figure {
 .logo-foot {
   background: url(../images/logo-foot.gif) 0 0 no-repeat;
   height: 56px; }
+  @media (max-width: 75em) {
+    .logo-foot {
+      margin-left: 2.2rem; } }
 
 .foot-about {
+  margin-right: 2.2rem;
   margin-top: 42px; }
+  @media (max-width: 75em) {
+    .foot-about {
+      margin-left: 2.2rem;
+      padding-bottom: 30px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.35); } }
 .foot-contacts {
   padding-top: 42px;
   border-left: 1px solid rgba(255, 255, 255, 0.35); }
+  @media (max-width: 75em) {
+    .foot-contacts {
+      border: none; } }
 
 .map {
   border: 1px solid #fff; }
@@ -1296,25 +1302,78 @@ figure {
   top: -62px;
   z-index: 2; }
   .intro .card {
-    display: inline-block;
-    width: 16.66%; }
+    width: 60%;
+    display: inline-block; }
+    .intro .card:last-child {
+      margin-top: 40px; }
+      @media (min-width: 48em) {
+        .intro .card:last-child {
+          margin-left: 3rem;
+          margin-top: 0; } }
+    @media (min-width: 48em) {
+      .intro .card {
+        width: 33.33%; } }
+    @media (min-width: 64em) {
+      .intro .card {
+        width: 25%; } }
+    @media (min-width: 87.5em) {
+      .intro .card {
+        width: 16.66%; } }
 
 .about {
-  padding: 120px 0; }
-  .about .btn {
-    margin-top: 120px; }
+  padding: 120px 40px; }
+  @media (min-width: 48em) {
+    .about {
+      padding: 120px 0; } }
+  @media (max-width: 64em) {
+    .about p {
+      margin-top: 25px; } }
+  .about aside .btn {
+    margin-top: 120px;
+    display: none; }
+    @media (min-width: 48em) {
+      .about aside .btn {
+        display: inline-block; } }
+  .about .btn-s {
+    margin-top: 40px;
+    display: inline-block; }
+    @media (min-width: 48em) {
+      .about .btn-s {
+        display: none; } }
   .about img {
-    width: 50%; }
+    width: 80%; }
+    @media (min-width: 48em) {
+      .about img {
+        width: 70%; } }
+    @media (min-width: 64em) {
+      .about img {
+        width: 50%; } }
 
 .products {
-  background: #43adb5 url(../images/index/product-bg.png) 0 45% no-repeat; }
+  background: #43adb5 url(../images/index/product-bg.png) 0 -10% no-repeat; }
+  @media (min-width: 48em) {
+    .products {
+      background: #43adb5 url(../images/index/product-bg.png) 0 -10% no-repeat; } }
   .products .card {
-    float: left;
-    width: 28.17%;
+    width: 70%;
+    margin-left: 15%;
     padding: 20px 30px;
     line-height: 1.5; }
+    @media (min-width: 48em) {
+      .products .card {
+        float: left;
+        width: 40%;
+        margin-left: 10%; } }
+    @media (min-width: 64em) {
+      .products .card {
+        width: 28.17%;
+        margin-left: unset; } }
     .products .card:last-child {
-      margin-left: 2%; }
+      margin-top: 60px; }
+      @media (min-width: 48em) {
+        .products .card:last-child {
+          margin-left: 2%;
+          margin-top: unset; } }
     .products .card img {
       min-height: 180px;
       max-height: 180px; }
@@ -1336,15 +1395,23 @@ figure {
 
 .news-item {
   display: inline-block;
-  vertical-align: top;
   margin-left: -4px;
-  width: 28.33333%; }
-  .news-item:not(:last-of-type) {
-    margin-right: 3%; }
+  width: 90%;
+  margin-top: 40px; }
+  @media (min-width: 48em) {
+    .news-item {
+      margin-top: unset;
+      vertical-align: top;
+      width: 28.33333%;
+      height: 480px; } }
+  @media (min-width: 48em) {
+    .news-item:not(:last-of-type) {
+      margin-right: 3%; } }
   .news-item .date {
     border-radius: 6px; }
-  .news-item img {
-    max-height: 170px; }
+  @media (min-width: 48em) {
+    .news-item img {
+      max-height: 170px; } }
   .news-item figcaption {
     margin-top: -8px; }
 

@@ -71,21 +71,73 @@ $banner-h: 535px;
     // margin-top: -62px;
 
     .card {
+        @include grid(3, 5);
         display: inline-block;
 
-        @include grid(1, 6);
+        &:last-child {
+            margin-top: 40px;
+            
+            @include mq(tablet) {
+                margin-left: 3rem;
+                margin-top: 0;
+            }
+        }
+
+        @include mq(tablet) {
+            @include grid(1, 3);
+        }
+        @include mq(desktop) {
+            @include grid(1, 4);
+        } 
+
+        @include mq(wider) {
+            @include grid(1, 6);
+        } 
     }
 }
 
 // == 關於肽研
 .about {
-    padding: 120px 0;
 
-    .btn {
-        margin-top: 120px;
+    padding: 120px 40px;
+
+    @include mq(tablet) {
+        padding: 120px 0;
     }
+
+    p {
+        @include mq-max(desktop) {
+            margin-top: 25px;
+        } 
+    }
+
+    aside .btn {
+        margin-top: 120px;
+        display: none;
+
+        @include mq(tablet) {
+            display: inline-block;
+        } 
+    }
+
+    .btn-s {
+        margin-top: 40px;
+        display: inline-block;
+
+        @include mq(tablet) {
+            display: none;
+        } 
+    }
+
     img {
-        width: 50%;
+        width: 80%;
+
+        @include mq(tablet) {
+            width: 70%;
+        } 
+        @include mq(desktop) {
+            width: 50%;
+        } 
     }
 }
 
@@ -93,17 +145,35 @@ $banner-h: 535px;
 .products {
     @extend .py-48;
 
-    background: $bg-primary-light url(#{$img-index}/product-bg.png) 0 45% no-repeat;
+    background: $bg-primary-light url(#{$img-index}/product-bg.png) 0 -10% no-repeat;
+
+    @include mq(tablet) {
+        background: $bg-primary-light url(#{$img-index}/product-bg.png) 0 -10% no-repeat;
+    }
     // background-size: cover;
 
     .card {
-        float: left;
-        width: (100% - 41.66 - 2%)/2;
+        width: 70%;
+        margin-left: 15%;
         padding: 20px 30px;
         line-height: 1.5;
+        @include mq(tablet) {
+            float: left;
+            width: 40%;
+            margin-left: 10%;
+        }
+        @include mq(desktop) {
+            width: (100% - 41.66 - 2%)/2;
+            margin-left: unset;
+        }
 
         &:last-child {
-            margin-left: 2%;
+            margin-top: 60px;
+
+            @include mq(tablet) {
+                margin-left: 2%;
+                margin-top: unset;
+            }
         }
 
         img {
@@ -147,13 +217,25 @@ $banner-h: 535px;
         $mgr: 3%;
 
         display: inline-block;
-        vertical-align: top;
         margin-left: -4px;
+        width: 90%;
+        margin-top: 40px;
 
-        width: (100% / 3 - $mgr - 2);
+        // @include mq(tablet){
+        //     width: (100% / 3 - $mgr - 2);
+        // }
+        @include mq(tablet){
+            margin-top: unset;
+            vertical-align: top;
+            width: (100% / 3 - $mgr - 2);
+            height: 480px;
+        }
 
         &:not(:last-of-type) {
-            margin-right: $mgr;
+
+            @include mq(tablet){
+                margin-right: $mgr;
+            }
         }
 
         .date {
@@ -161,7 +243,10 @@ $banner-h: 535px;
             border-radius: $border-radius/2;
         }
         img {
-            max-height: 170px;
+
+            @include mq(tablet){
+                max-height: 170px;
+            }
         }
         figcaption {
             margin-top: -8px;

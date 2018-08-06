@@ -1,47 +1,38 @@
 ﻿@charset "UTF-8";
 
 // 本頁專用變數(把下面的setting,variables蓋掉)
-$isIndex:                        true;
-$img-page:                      '../images/page';
+$isIndex : true;
+$img-page : '../images/page';
 
 // import
 // ------------------------------------------------------------
-@import "core/function";     // (置頂)
-
-@import "_client/setting";   // 前台用變數 (會覆蓋下面的變數)
-@import "core/variables";    // 共用變數
+@import "core/function"; // (置頂)
+@import "_client/setting"; // 前台用變數 (會覆蓋下面的變數)
+@import "core/variables"; // 共用變數
 @import "core/mixins";
 
 // 由此 output css
-@import "vendor/normalize";  // 重置樣式
-@import "vendor/print";      // 列印樣式
-
+@import "vendor/normalize"; // 重置樣式
+@import "vendor/print"; // 列印樣式
 @import "element/basic";
 @import "element/link";
 @import "element/type";
 @import "element/btn";
-@import "element/util";   // 共用工具樣式
-
+@import "element/util"; // 共用工具樣式
 @import "_client/modules/nav"; // 選單
 @import "_client/modules/figure";
 @import "_client/modules/modal";
 
 @import "_client/custom"; // 前台用雜項樣式
 @import "_client/layout"; // 前台用版面
-
-
 //共用------------------------
-
-
-.editor img{
+.editor img {
 
     max-width: 100% !important;
 }
 
 
 // == banner
-
-
 $banner-h: 360px;
 
 #banner {
@@ -49,7 +40,7 @@ $banner-h: 360px;
     width: 100%;
     height: $banner-h;
     background-size: cover;
-    background-position:center;
+    background-position: center;
 
 
     h2 {
@@ -60,14 +51,14 @@ $banner-h: 360px;
         color: color(secondary);
     }
 
-    .Info & ,.Products-Contant & {
+    .Info &,
+    .Products-Contant & {
         height: 0;
     }
 }
 
 
 // == intro
-
 .intro {
     position: relative;
     text-align: left;
@@ -75,35 +66,35 @@ $banner-h: 360px;
     article {
         position: relative;
         margin: 120px auto 100px;
-        width: 1000px;
+        width: 90%;
         color: color(words);
-    }
 
+        @include mq(desktop) {
+            width: 1000px;
+        }
+    }
 }
 
 
 // == 五大保證
 .safe {
 
-    .wrap{
+    .wrap {
 
         position: relative;
         padding: 0 60px;
-        
+
         img {
-            position: absolute;
-            // left: 0;
+            position: absolute; // left: 0;
             top: 0;
         }
 
-        figcaption{
+        figcaption {
 
-            position: relative;
-            // left:650px;
+            position: relative; // left:650px;
             width: 500px;
             padding-top: 30px;
-            margin-bottom:200px;
-
+            margin-bottom: 200px;
         }
     }
 }
@@ -111,29 +102,42 @@ $banner-h: 360px;
 
 
 //產品介紹頁---------------------
-
 // == banner
-
 .Products {
 
     #banner {
         background-image: url("#{$img-page}/banner-pro.gif");
     }
 
-// == 產品
+    // == 產品
     .products {
 
         .wrap {
 
-            padding: 0 120px;
+            padding: 0 5%;
+
+            @include mq(desktop) {
+                padding: 0 120px;
+            }
 
             .card {
 
                 float: left;
-                width: 48%;
+                width: 90%;
                 transition: all .3s;
-                margin-top: 2%;
                 position: relative;
+                margin-top: 2%;
+                margin-left: 5%;
+
+                @include mq(tablet) {
+                    
+                    margin-left: unset;
+                    width: 48%;
+
+                    &:nth-child(even) {
+                        margin-left: 2%;
+                    }
+                }
 
                 &:hover {
                     color: color(primary);
@@ -148,41 +152,36 @@ $banner-h: 360px;
                     line-height: 220px;
                 }
 
-                figcaption{
+                figcaption {
                     padding: 5px;
                     width: 48%;
                     vertical-align: middle;
 
 
                     h5 {
-                        font-size:20px;
+                        font-size: 20px;
                         line-height: 1.5;
                     }
                 }
 
-                &:nth-child(even) {
-                    margin-left: 2%;
-                }
-
             }
         }
-
     }
 
-// == 五大保證
+    // == 五大保證
     .fivetop {
 
-        .wrap{
+        .wrap {
 
             margin-top: 250px;
 
-            img{
+            img {
                 left: 0;
             }
 
-            figcaption{
+            figcaption {
 
-                left:650px;
+                left: 650px;
 
                 p {
                     position: relative;
@@ -218,33 +217,29 @@ $banner-h: 360px;
 }
 
 //專業服務-------------------
-
-
 .Service {
 
-//banner
-
+    //banner
     #banner {
         background-image: url("#{$img-page}/banner-service.gif");
     }
 
-    .title{
-        text-shadow: -2px -2px rgba(230,245,255,0.7),-0.5px -0.5px rgba(230,245,255,0.9);
+    .title {
+        text-shadow: -2px -2px rgba(230, 245, 255, 0.7), -0.5px -0.5px rgba(230, 245, 255, 0.9);
     }
 
-//safe
-
-    .h2-line{
+    //safe
+    .h2-line {
 
         border-bottom: color(secondary) 5px solid;
-        width:430px;
+        width: 430px;
         margin: 0 auto;
     }
 
     .wrap {
 
         img {
-           left: 100px;
+            left: 100px;
         }
 
         figcaption {
@@ -255,7 +250,7 @@ $banner-h: 360px;
             ul {
                 position: relative;
             }
-            
+
             #test1 {
                 left: -160px;
                 margin: 55px 0 125px;
@@ -287,15 +282,13 @@ $banner-h: 360px;
                 left: -160px;
             }
         }
-
     }
 
-//實驗
+    //實驗
+    .exper {
 
-    .exper{
 
-
-        .shorter{
+        .shorter {
             width: 330px;
         }
 
@@ -303,7 +296,7 @@ $banner-h: 360px;
 
             padding: 0 200px;
 
-            .card-2{
+            .card-2 {
 
                 @extend .bg-white;
 
@@ -317,23 +310,22 @@ $banner-h: 360px;
                     filter: drop-shadow(5px 5px 10px rgba(#000, .2));
                 }
 
-                .corner{
+                .corner {
 
                     position: relative;
                     background-color: #F1F1F1;
                     clear: both;
-                    height:180px;
-                    width:100%;
+                    height: 180px;
+                    width: 100%;
                     border-top-right-radius: $border-radius;
                     border-top-left-radius: $border-radius;
 
                     h5 {
 
-                        margin:0;
+                        margin: 0;
                         padding-top: 100px;
                         color: #1786A6;
-
-                    } 
+                    }
 
                     &:after {
 
@@ -345,12 +337,14 @@ $banner-h: 360px;
                         z-index: 1;
 
 
-                        @include arrow(bottom,  404px, 70px, #F1F1F1);
-
+                        @include arrow(bottom,
+                        404px,
+                        70px,
+                        #F1F1F1);
                     }
                 }
 
-                figcaption{
+                figcaption {
 
                     @extend .font-lg;
 
@@ -366,19 +360,15 @@ $banner-h: 360px;
                         margin-bottom: 0;
                         line-height: 1.7;
                         letter-spacing: 0.5px;
-
-                    }
-
-                    // &:last-child {
+                    } // &:last-child {
                     //     background-color: #2BB7BB;
                     // }
-                    
                 }
 
                 &:last-child {
                     margin-left: 4%;
 
-                    h5{
+                    h5 {
                         color: #2BB7BB;
                     }
 
@@ -386,7 +376,6 @@ $banner-h: 360px;
                         background-color: #2BB7BB;
                     }
                 }
-
             }
         }
     }
@@ -395,21 +384,20 @@ $banner-h: 360px;
 
 
 //關於阿勃勒-------------------
+.Info {
 
-.Info{
-
-    .intro{
+    .intro {
 
         padding: 50px 0;
 
-        .wrap{
+        .wrap {
 
             img {
                 float: right;
                 margin-top: 400px;
             }
 
-            h6{
+            h6 {
                 margin-top: 8px;
                 font-size: 16px;
                 font-weight: normal;
@@ -419,12 +407,10 @@ $banner-h: 360px;
 }
 
 //產品內頁----------------------
-
 .Products-Contant {
 
-//產品
-
-    .product{
+    //產品
+    .product {
 
         .inner {
 
@@ -432,7 +418,7 @@ $banner-h: 360px;
             margin-top: 80px;
         }
 
-        img{
+        img {
             margin-top: 50px;
         }
 
@@ -451,16 +437,14 @@ $banner-h: 360px;
                 line-height: 1.7;
             }
         }
-
     }
 
-//列表
-
-    .list{
+    //列表
+    .list {
 
         margin-top: 200px;
 
-        ul{
+        ul {
 
             list-style-type: none;
 
@@ -470,7 +454,7 @@ $banner-h: 360px;
                 width: 1200px;
                 margin: 40px 0;
 
-                h5{
+                h5 {
 
                     width: 200px;
                     padding-left: 90px;
@@ -484,44 +468,42 @@ $banner-h: 360px;
                 }
             }
 
-            #list01{
+            #list01 {
                 background-image: url("#{$img-page}/product/list01.gif");
             }
-            #list02{
+            #list02 {
                 background-image: url("#{$img-page}/product/list02.gif");
             }
-            #list03{
+            #list03 {
                 background-image: url("#{$img-page}/product/list03.gif");
             }
-            #list04{
+            #list04 {
                 background-image: url("#{$img-page}/product/list04.gif");
             }
         }
     }
 
-//產品資訊
-
-    .info{
+    //產品資訊
+    .info {
 
         h2 {
             color: #595757;
             padding: 100px 0 50px;
         }
 
-        table{
+        table {
 
             line-height: 1.5;
             margin: 0px 60px;
         }
 
-        p{
+        p {
             margin: 0 60px;
         }
     }
 
-//營養標示
-
-    .table{
+    //營養標示
+    .table {
 
         color: #ffffff;
         margin-top: 100px;
@@ -537,15 +519,16 @@ $banner-h: 360px;
             margin: 0 auto;
         }
 
-        tr,td{
+        tr,
+        td {
             border: 1px solid #ffffff;
             padding: 20px;
             transition: all .35s, color .5s;
-
         }
 
         tr:hover {
-            background-color: #128088;;
+            background-color: #128088;
+            ;
         }
 
         .refer {
@@ -553,9 +536,8 @@ $banner-h: 360px;
         }
     }
 
-// Q & A
-
-    .qa{
+    // Q & A
+    .qa {
 
         margin-bottom: 100px;
 
@@ -577,8 +559,7 @@ $banner-h: 360px;
 
 
 //最新消息----------------------
-
-.List{
+.List {
 
 
     #banner {
@@ -594,16 +575,28 @@ $banner-h: 360px;
             display: inline-block;
             vertical-align: top;
             margin: 10px 2% 40px;
+            width: 80%;
 
-            width: (100% / 3 - $mgr - 2);
+            @include mq(tablet) {
+                width: (100% / 2 - $mgr - 3);
+                height: 500px;
+            }
+
+            @include mq(desktop) {
+                width: (100% / 3 - $mgr - 2);
+            }
+
 
             .date {
-                @extend .bg-primary, .text-white, .font-md, .px-12, .py-4;
+                @extend .bg-primary,.text-white,.font-md,.px-12,.py-4;
                 border-radius: $border-radius/2;
             }
             img {
-                max-height: 170px;
                 margin-top: 20px;
+
+                @include mq(tablet) {
+                    max-height: 170px;
+                }
             }
             figcaption {
                 margin-top: -8px;
@@ -616,7 +609,7 @@ $banner-h: 360px;
 
         clear: both;
         margin: 30px auto;
-        text-align: center; 
+        text-align: center;
         padding: 7px;
 
         .pagecurrent {
@@ -626,43 +619,41 @@ $banner-h: 360px;
             background-color: color(primary);
         }
 
-        & > span {
+        &>span {
             margin-bottom: 10px;
         }
 
 
-        .showPageOf{
+        .showPageOf {
             display: none!important
         }
 
-        .displaypageNum a,.showpage a,.pagecurrent{
+        .displaypageNum a,
+        .showpage a,
+        .pagecurrent {
 
             display: inline-block;
             font-size: 16px;
             padding: 10px 16px;
             margin: 10px;
             border-radius: 20px;
-            color: #666; 
-            background-color:#eee;
+            color: #666;
+            background-color: #eee;
         }
 
-        .displaypageNum a:hover,.showpage a:hover, .pagecurrent{
+        .displaypageNum a:hover,
+        .showpage a:hover,
+        .pagecurrent {
 
             background-color: color(primary);
             text-decoration: none;
             color: #ffffff;
         }
-
     }
-
-
-
-
 }
 
 
 //最新消息內頁----------------------
-
 .News-Content {
 
     #banner {
@@ -670,11 +661,15 @@ $banner-h: 360px;
         margin-bottom: 100px;
     }
     img {
-        margin: 60px 0;
+        margin: 5% 0;
+        max-width: 90%;
     }
     article {
-        margin: 30px 60px 60px;
+        margin: 0 5% 60px;
         color: #757575;
+        @include mq(desktop){
+            margin: 30px 8% 60px;
+        }
 
         p {
             margin: 20px 0;
@@ -686,55 +681,51 @@ $banner-h: 360px;
 
         clear: both;
         margin: 30px auto;
-        text-align: center; 
+        text-align: center;
         padding: 7px;
 
-        & > span {
+        &>span {
             margin-bottom: 10px;
         }
 
 
-        .showPageOf{
+        .showPageOf {
             display: none!important
         }
 
         .displaypageNum:last-child {
-            margin-left: 35%;
+            margin-left: 15%;
+            @include mq(tablet) {
+                margin-left: 35%;
+            }
         }
 
-        .displaypageNum a,.showpage a {
+        .displaypageNum a,
+        .showpage a {
 
             display: inline-block;
             font-size: 16px;
             padding: 10px 16px;
             margin: 10px;
             border-radius: 20px;
-            color: #666; 
-            background-color:#eee;
+            color: #666;
+            background-color: #eee;
         }
 
-        .displaypageNum a:hover,.showpage a:hover{
+        .displaypageNum a:hover,
+        .showpage a:hover {
 
             background-color: color(primary);
             text-decoration: none;
             color: #ffffff;
         }
-
-
     }
-
-
-
 }
 
 
 
 //聯絡我們----------------------
-
-
 .Contact-Us {
-
-    overflow-x: hidden;
 
     #banner {
         background-image: url("#{$img-page}/banner-contactus.gif");
@@ -743,47 +734,53 @@ $banner-h: 360px;
         background-size: unset;
         background-repeat: no-repeat;
 
+        h2 {
+            width: unset;
+        }
 
-        .title{
+
+        .title {
             @extend .font-jumbo;
 
             color: #ffffff;
             margin: 150px 0 0 10%;
 
-            -moz-transform:rotate(3deg);
-            -webkit-transform:rotate(3deg);
-            -o-transform:rotate(3deg);
-            -ms-transform:rotate(3deg);
-            transform:rotate(3deg);
-
-            min-width:1200px;
+            -moz-transform: rotate(3deg);
+            -webkit-transform: rotate(3deg);
+            -o-transform: rotate(3deg);
+            -ms-transform: rotate(3deg);
+            transform: rotate(3deg);
 
             @include mq-max(1600px) {
                 margin-top: 150px;
-                margin-left: 200px;
+                margin-left: 55%;
             }
         }
     }
 
-    .wrap{
+    .wrap {
 
-        h5{
+        h5 {
             color: color(secondary);
             font-weight: bold;
         }
 
         form {
 
-            margin: 100px 150px;
+            margin: 100px 5%;
+
+            @include mq(wide) {
+                margin: 100px 11%;
+            }
 
 
-            .boxleft{
+            .boxleft {
 
                 display: inline-block;
                 vertical-align: top;
 
-                .form-box{
-                    
+                .form-box {
+
                     color: color(secondary);
                     margin: 20px 20px 50px;
                     position: relative;
@@ -793,7 +790,9 @@ $banner-h: 360px;
                         padding: 4px;
                     }
 
-                    select,textarea,input{
+                    select,
+                    textarea,
+                    input {
 
                         width: 250px;
                         border: color(secondary) 2px solid;
@@ -810,9 +809,9 @@ $banner-h: 360px;
 
 
                     .select {
-                        appearance:none;
-                        -moz-appearance:none;
-                        -webkit-appearance:none;
+                        appearance: none;
+                        -moz-appearance: none;
+                        -webkit-appearance: none;
 
                         background: url("#{$img-page}/arrow.gif") no-repeat right center transparent;
                     }
@@ -823,7 +822,10 @@ $banner-h: 360px;
                     .none {
                         visibility: hidden;
                     }
+                }
 
+                .form-box-2 {
+                    display: inline-block;
                 }
 
                 .gender {
@@ -837,7 +839,7 @@ $banner-h: 360px;
                     user-select: none;
                     margin-left: 20px;
 
-                    &:hover .input ~ .checkmark {
+                    &:hover .input~.checkmark {
                         background-color: color(secondary);
                     }
 
@@ -846,8 +848,8 @@ $banner-h: 360px;
                         opacity: 0;
                         cursor: pointer;
                         width: unset;
-                        
-                        &:checked ~ .checkmark:after {
+
+                        &:checked~.checkmark:after {
                             display: block;
                         }
                     }
@@ -860,10 +862,9 @@ $banner-h: 360px;
                         width: 25px;
                         border: color(secondary) 2px solid;
                         border-radius: 50%;
-
                     }
 
-                    & .input:checked ~ .checkmark {
+                    & .input:checked~.checkmark {
                         background-color: color(secondary);
                     }
                 }
@@ -883,9 +884,9 @@ $banner-h: 360px;
             #submit {
                 display: block;
                 width: 110px;
-                padding:15px 0;
+                padding: 15px 0;
                 margin: 0 auto;
-                background-color:  color(secondary);
+                background-color: color(secondary);
                 color: #ffffff;
                 border-radius: 30px;
                 cursor: pointer;
@@ -893,14 +894,14 @@ $banner-h: 360px;
                 transition: all .3s;
 
                 &:hover {
-                    background-color:#ffffff;
+                    background-color: #ffffff;
                     color: color(secondary);
                 }
             }
         }
     }
 
-    .contact-form{
+    .contact-form {
         border: color(secondary) 1px solid;
         li {
             margin: 10px 0;
@@ -911,17 +912,15 @@ $banner-h: 360px;
 
     .modal-close {
         position: relative;
-        color:  color(secondary);
+        color: color(secondary);
         bottom: -15px;
         right: -950px;
         top: unset;
     }
-
 }
 
 
 //哪裡購買----------------------
-
 .Buy {
 
     #banner {
@@ -945,11 +944,11 @@ $banner-h: 360px;
 
         figure {
 
-            margin: 60px;
-            img{
+            margin: 60px 0;
+            img {
                 margin: 0 20px;
             }
-            a{
+            a {
                 cursor: pointer;
             }
         }
@@ -958,28 +957,47 @@ $banner-h: 360px;
 
 
 //關於我們----------------------
-
 .About {
 
     #banner {
         background-image: url("#{$img-page}/banner-about.jpg");
     }
 
-    .wrap{
+    .wrap {
 
         position: relative;
         width: 100%;
 
         .img {
-            width: 40%;
-            padding-top: 40px;
+            margin: auto;
+
+            img {
+                width: 80%;
+
+                @include mq(tablet) {
+                    width: 50%;
+                }
+                @include mq(wide) {
+                    width: 100%;
+                    margin-left: 20%;
+                }
+            }
+
+            @include mq(desktop) {
+                padding-top: 40px;
+            }
         }
 
         article {
-            width: 50%;
             color: #757575;
-            margin-left: 60px;
-            margin-top: 60px;
+            margin: 30px 30px 0;
+
+            @include mq(tablet) {
+                margin: 30px 60px 0;
+            }
+            @include mq(wide) {
+                margin: 30px 0 0 110px;
+            }
 
             p {
                 margin-top: 30px;
@@ -988,13 +1006,13 @@ $banner-h: 360px;
     }
 
     .info {
-        margin-top: 100px;
+        margin-top: 80px;
     }
 
     .team {
 
         color: #ffffff;
-        padding: 30px 0 50px;
+        padding: 30px 20px 50px;
         margin-top: 150px;
     }
     .people {
