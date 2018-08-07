@@ -17,7 +17,7 @@ using REDOXEntities.DataBase;
 using OutWeb.Expansion.ExcepProcess;
 using OutWeb.Expansion.Datetime;
 
-namespace OutWeb.Modules.Manage
+namespace OutWeb.Module.Manage
 {
     /// <summary>
     /// NEWS列表模組

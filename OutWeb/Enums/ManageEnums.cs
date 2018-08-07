@@ -29,52 +29,9 @@ namespace OutWeb.Enums
         NotSet,
         [Description("最新消息")]
         NEWS,
-        [Description("活動花絮")]
-        ACTIVITY,
-        [Description("活動花絮分類")]
-        ACTIVITYCATE,
-        [Description("本會章程")]
-        REGU,
-        [Description("理監事介紹")]
-        DIRECTOR,
-        [Description("委員會介紹")]
-        COMMITTEE,
-        [Description("會員服務")]
-        CLUB,
-        [Description("會員服務辦法")]
-        WELFARE,
-        [Description("表單下載")]
-        DOWNLOAD,
-        [Description("桃律通訊")]
-        PUBLISH,
-        [Description("律師名錄")]
-        LAWYER,
-
-
-        //=================
-        [Description("線上課程")]
-        COURSE,
-
-        [Description("分類管理")]
-        TYPEMANAGE,
-
-        [Description("問卷調查")]
-        QUESTIONNAIRES,
-
-        [Description("研討會")]
-        TRAIN,
-        [Description("研討會報名")]
-        TRAINAPPLY,
-        [Description("三竹簡訊")]
-        SMS,
-        [Description("HiNetFax傳真")]
-        FAX,
-        [Description("EMAIL")]
-        EMAIL,
-        [Description("出本品分類")]
-        BOOKKIND,
-        [Description("外部連結")]
-        LINK,
+        [Description("產品管理")]
+        PRODUCT,
+      
 
     }
 

@@ -1,6 +1,6 @@
 ﻿using OutWeb.Enums;
 using OutWeb.Models.Manage;
-using OutWeb.Modules.Manage;
+using OutWeb.Module.Manage;
 using REDOXEntities.DataBase;
 
 namespace OutWeb.Service
@@ -15,7 +15,9 @@ namespace OutWeb.Service
                 case ListMethodType.NEWS:
                     listManageModule = new NewsModule<ListFilterBase, NEWS>();
                     break;
-
+                case ListMethodType.PRODUCT:
+                    listManageModule = new ProductsModule<ListFilterBase, PRODUCT>();
+                    break;
                 default:
                     listManageModule = null;
                     break;

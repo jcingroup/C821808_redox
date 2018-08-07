@@ -211,6 +211,7 @@
     <Compile Include="Models\Manage\FileModels\FilesModel.cs" />
     <Compile Include="Models\Manage\IListFilter.cs" />
     <Compile Include="Models\Manage\IManage.cs" />
+    <Compile Include="Models\Manage\ManageProductModels\ProductDetailsDataModel.cs" />
     <Compile Include="Models\Manage\ManageNewsModels\NewsDetailsDataModel.cs" />
     <Compile Include="Models\Manage\UserInfo\LoginUserInfoModel.cs" />
     <Compile Include="Models\Manage\UserInfo\SignInModel.cs" />
@@ -1593,6 +1594,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\_SysAdm\NewsAdd.cshtml" />
     <Content Include="Views\_SysAdm\_NewsDataPartial.cshtml" />
+    <Content Include="Views\_SysAdm\ProductsAdd.cshtml" />
+    <Content Include="Views\_SysAdm\_ProductDataPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

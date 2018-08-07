@@ -15,6 +15,10 @@
             $($(this).attr('href')).fadeIn().siblings('.tab-content').hide();
             $(this).addClass('active').siblings('.active').removeClass('active');
         });
+
+        $(function () {
+            $('[href="#tab-1"]').trigger("click");
+        })
     </script>
 }
 
@@ -29,7 +33,7 @@
 }
 
 
-@using (Html.BeginForm("ProductsEdit", "_SysAdm", FormMethod.Post, new { id = "formManageProductData", @class = "form-list" }))
+@using (Html.BeginForm("ProductsAdd", "_SysAdm", FormMethod.Post, new { id = "formManageProductData", @class = "form-list" }))
 {
     Html.RenderPartial("_ProductDataPartial", Model);
 }

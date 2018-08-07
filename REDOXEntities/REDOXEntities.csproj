@@ -62,6 +62,9 @@
     <Compile Include="DataBase\NEWS.cs">
       <DependentUpon>REDOXDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataBase\PRODUCT.cs">
+      <DependentUpon>REDOXDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataBase\REDOXDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
