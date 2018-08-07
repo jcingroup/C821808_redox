@@ -1263,10 +1263,10 @@ figure {
       margin-left: 2.2rem; } }
 
 .foot-about {
-  margin-right: 2.2rem;
   margin-top: 42px; }
   @media (max-width: 75em) {
     .foot-about {
+      margin-right: 2.2rem;
       margin-left: 2.2rem;
       padding-bottom: 30px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.35); } }

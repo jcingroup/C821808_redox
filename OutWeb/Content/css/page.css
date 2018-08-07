@@ -1364,10 +1364,10 @@ figure {
       margin-left: 2.2rem; } }
 
 .foot-about {
-  margin-right: 2.2rem;
   margin-top: 42px; }
   @media (max-width: 75em) {
     .foot-about {
+      margin-right: 2.2rem;
       margin-left: 2.2rem;
       padding-bottom: 30px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.35); } }
@@ -1518,67 +1518,84 @@ figure {
     left: -160px; }
 .Service .exper .shorter {
   width: 330px; }
-.Service .exper .wrap {
-  padding: 0 200px; }
-  .Service .exper .wrap .card-2 {
-    float: left;
-    width: 48%;
-    height: 620px; }
-    .Service .exper .wrap .card-2 .shadow {
-      -webkit-filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2));
-      filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2)); }
-    .Service .exper .wrap .card-2 .corner {
-      position: relative;
-      background-color: #F1F1F1;
-      clear: both;
-      height: 180px;
-      width: 100%;
-      border-top-right-radius: 12px;
-      border-top-left-radius: 12px; }
-      .Service .exper .wrap .card-2 .corner h5 {
-        margin: 0;
-        padding-top: 100px;
-        color: #1786A6; }
-      .Service .exper .wrap .card-2 .corner:after {
-        content: "";
-        position: absolute;
-        bottom: -70px;
-        left: 0;
-        background: none;
-        z-index: 1;
-        width: 0;
-        height: 0;
-        border: 0 solid transparent;
-        border-width: 70px 202px 0 202px;
-        border-top-color: #F1F1F1; }
-    .Service .exper .wrap .card-2 figcaption {
-      height: 420px;
-      background-color: #1786A6;
-      padding: 110px 40px 20px;
-      color: #ffffff;
-      text-align: left;
-      border-bottom-right-radius: 12px;
-      border-bottom-left-radius: 12px; }
-      .Service .exper .wrap .card-2 figcaption ul {
-        margin-bottom: 0;
-        line-height: 1.7;
-        letter-spacing: 0.5px; }
-    .Service .exper .wrap .card-2:last-child {
-      margin-left: 4%; }
-      .Service .exper .wrap .card-2:last-child h5 {
-        color: #2BB7BB; }
-      .Service .exper .wrap .card-2:last-child figcaption {
-        background-color: #2BB7BB; }
+.Service .exper .wrap .card-2 {
+  display: inline-table;
+  width: 400px;
+  height: 620px;
+  margin: 10px; }
+  .Service .exper .wrap .card-2 .shadow {
+    -webkit-filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2));
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2)); }
+  .Service .exper .wrap .card-2 .corner {
+    position: relative;
+    background-color: #F1F1F1;
+    clear: both;
+    height: 180px;
+    width: 100%;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px; }
+    .Service .exper .wrap .card-2 .corner h5 {
+      margin: 0;
+      padding-top: 100px;
+      color: #1786A6; }
+    .Service .exper .wrap .card-2 .corner:after {
+      content: "";
+      position: absolute;
+      bottom: -70px;
+      left: 0;
+      background: none;
+      z-index: 1;
+      width: 0;
+      height: 0;
+      border: 0 solid transparent;
+      border-width: 70px 202px 0 202px;
+      border-top-color: #F1F1F1; }
+  .Service .exper .wrap .card-2 figcaption {
+    height: 420px;
+    background-color: #1786A6;
+    padding: 110px 40px 20px;
+    color: #ffffff;
+    text-align: left;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px; }
+    .Service .exper .wrap .card-2 figcaption ul {
+      margin-bottom: 0;
+      line-height: 1.7;
+      letter-spacing: 0.5px; }
+  .Service .exper .wrap .card-2:last-child h5 {
+    color: #2BB7BB; }
+  .Service .exper .wrap .card-2:last-child figcaption {
+    background-color: #2BB7BB; }
 
 .Info .intro {
-  padding: 50px 0; }
-  .Info .intro .wrap img {
-    float: right;
-    margin-top: 400px; }
-  .Info .intro .wrap h6 {
-    margin-top: 8px;
-    font-size: 16px;
-    font-weight: normal; }
+  margin-bottom: 200px; }
+  @media (min-width: 48em) {
+    .Info .intro {
+      padding: 50px 0;
+      margin-bottom: unset; } }
+  @media (max-width: 48em) {
+    .Info .intro article {
+      margin: 60px auto; } }
+  .Info .intro .wrap {
+    position: relative; }
+    .Info .intro .wrap img {
+      position: absolute;
+      width: 50%;
+      max-width: 300px;
+      right: 15%;
+      bottom: -250px; }
+      @media (min-width: 48em) {
+        .Info .intro .wrap img {
+          right: 100px;
+          bottom: -100px; } }
+      @media (min-width: 64em) {
+        .Info .intro .wrap img {
+          right: 200px;
+          bottom: 100px; } }
+    .Info .intro .wrap h6 {
+      margin-top: 8px;
+      font-size: 16px;
+      font-weight: normal; }
 
 .Products-Contant .product .inner {
   max-width: 1000px;
@@ -1622,9 +1639,11 @@ figure {
   padding: 100px 0 50px; }
 .Products-Contant .info table {
   line-height: 1.5;
-  margin: 0px 60px; }
+  margin: 0 5%; }
+  .Products-Contant .info table td:first-child {
+    width: 85px; }
 .Products-Contant .info p {
-  margin: 0 60px; }
+  margin: 0 5%; }
 .Products-Contant .table {
   color: #ffffff;
   margin-top: 100px; }
@@ -1648,12 +1667,13 @@ figure {
   margin-bottom: 100px; }
   .Products-Contant .qa h2 {
     padding: 100px 0 50px; }
-  .Products-Contant .qa .paragraph {
-    margin: 20px auto;
-    width: 1000px; }
-    .Products-Contant .qa .paragraph p:first-child {
-      color: #005081;
-      font-weight: bold; }
+  .Products-Contant .qa article {
+    margin: 0 5%; }
+    .Products-Contant .qa article .paragraph {
+      margin: 20px 10%; }
+      .Products-Contant .qa article .paragraph p:first-child {
+        color: #005081;
+        font-weight: bold; }
 
 .List #banner {
   background-image: url("../images/page/banner-list.jpg");
@@ -1764,16 +1784,13 @@ figure {
     width: unset; }
   .Contact-Us #banner .title {
     color: #ffffff;
-    margin: 150px 0 0 10%;
+    margin-top: 150px;
+    margin-left: 55%;
     -moz-transform: rotate(3deg);
     -webkit-transform: rotate(3deg);
     -o-transform: rotate(3deg);
     -ms-transform: rotate(3deg);
     transform: rotate(3deg); }
-    @media (max-width: 100em) {
-      .Contact-Us #banner .title {
-        margin-top: 150px;
-        margin-left: 55%; } }
 .Contact-Us .wrap h5 {
   color: #005081;
   font-weight: bold; }
@@ -1813,7 +1830,11 @@ figure {
       .Contact-Us .wrap form .boxleft .form-box .none {
         visibility: hidden; }
     .Contact-Us .wrap form .boxleft .form-box-2 {
-      display: inline-block; }
+      display: inline-block;
+      margin: 15px 0 0 40%; }
+      @media (min-width: 48em) {
+        .Contact-Us .wrap form .boxleft .form-box-2 {
+          margin: unset; } }
     .Contact-Us .wrap form .boxleft .gender {
       position: relative;
       padding-left: 35px;

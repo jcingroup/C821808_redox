@@ -229,6 +229,7 @@ $banner-h: 360px;
     }
 
     //safe
+
     .h2-line {
 
         border-bottom: color(secondary) 5px solid;
@@ -294,15 +295,17 @@ $banner-h: 360px;
 
         .wrap {
 
-            padding: 0 200px;
+            // padding: 0 200px;
 
             .card-2 {
 
                 @extend .bg-white;
 
-                float: left;
-                width: 48%;
+                // float: left;
+                display: inline-table;
+                width: 400px;
                 height: 620px;
+                margin: 10px;
 
                 .shadow {
 
@@ -366,7 +369,7 @@ $banner-h: 360px;
                 }
 
                 &:last-child {
-                    margin-left: 4%;
+                    // margin-left: 4%;
 
                     h5 {
                         color: #2BB7BB;
@@ -387,14 +390,43 @@ $banner-h: 360px;
 .Info {
 
     .intro {
+        margin-bottom: 200px;
 
-        padding: 50px 0;
+        @include mq(tablet) {
+                padding: 50px 0;
+                margin-bottom: unset;
+            }
+
+        article {
+            @include mq-max(tablet) {
+                margin: 60px auto;
+            }
+        }
 
         .wrap {
+            position: relative;
 
             img {
-                float: right;
-                margin-top: 400px;
+                // float: right;
+
+                position: absolute;
+                width: 50%;
+                max-width: 300px;
+
+                right: 15%;
+                bottom: -250px;
+
+                @include mq(tablet) {
+
+                    right: 100px;
+                    bottom: -100px;
+                }
+
+                @include mq(desktop) {
+
+                    right: 200px;
+                    bottom: 100px;
+                }
             }
 
             h6 {
@@ -494,11 +526,15 @@ $banner-h: 360px;
         table {
 
             line-height: 1.5;
-            margin: 0px 60px;
+            margin: 0 5%;
+            
+            td:first-child {
+                width: 85px;
+            }
         }
 
         p {
-            margin: 0 60px;
+            margin: 0 5%;
         }
     }
 
@@ -544,14 +580,19 @@ $banner-h: 360px;
         h2 {
             padding: 100px 0 50px;
         }
-        .paragraph {
 
-            margin: 20px auto;
-            width: 1000px;
+        article {
 
-            p:first-child {
-                color: color(secondary);
-                font-weight: bold;
+            margin: 0 5%;
+
+            .paragraph {
+
+                margin: 20px 10%;
+
+                p:first-child {
+                    color: color(secondary);
+                    font-weight: bold;
+                }
             }
         }
     }
@@ -743,7 +784,9 @@ $banner-h: 360px;
             @extend .font-jumbo;
 
             color: #ffffff;
-            margin: 150px 0 0 10%;
+            // margin: 150px 0 0 10%;
+            margin-top: 150px;
+            margin-left: 55%;
 
             -moz-transform: rotate(3deg);
             -webkit-transform: rotate(3deg);
@@ -751,10 +794,6 @@ $banner-h: 360px;
             -ms-transform: rotate(3deg);
             transform: rotate(3deg);
 
-            @include mq-max(1600px) {
-                margin-top: 150px;
-                margin-left: 55%;
-            }
         }
     }
 
@@ -826,6 +865,11 @@ $banner-h: 360px;
 
                 .form-box-2 {
                     display: inline-block;
+                    margin: 15px 0 0 40%;
+
+                    @include mq(tablet){
+                        margin: unset;
+                    }
                 }
 
                 .gender {

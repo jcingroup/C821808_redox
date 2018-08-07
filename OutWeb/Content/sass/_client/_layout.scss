@@ -115,11 +115,11 @@ $foot-spacer: 36px;
     $foot-contacts-mt: 42px;
 
     &-about {
-        margin-right: 2.2rem;
 
         margin-top: $foot-contacts-mt;
 
         @include mq-max(wide){
+            margin-right: 2.2rem;
             margin-left: 2.2rem;
             padding-bottom: 30px;
             border-bottom: 1px solid rgba(#fff, .35);
