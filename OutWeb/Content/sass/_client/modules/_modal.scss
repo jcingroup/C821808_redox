@@ -36,7 +36,7 @@
 
 .modal-close {
     background: none;
-    color: $modal-close-color;
+    color: color(secondary);
     font-size: em($modal-close-size);
     line-height: 1;
     z-index: z(overlay) + 1;

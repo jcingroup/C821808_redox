@@ -902,7 +902,7 @@ dd {
 .font-sp {
   font-family: "Montserrat"; }
 
-.text-white, .btn.white:hover, .btn.white:active, .btn.white.active, .top-nav .mail, .goTop, .goTop:hover, .goTop:active, #footer, #footer a, .List .news-item .date {
+.text-white, .btn.white:hover, .btn.white:active, .btn.white.active, .top-nav .mail, .goTop, .goTop:hover, .goTop:active, #footer, #footer a, .Service .exper .wrap .card-2 figcaption, .Products-Content .list ul .list01 h5, .List .news-item .date, .Contact-Us #banner .title {
   color: #fff; }
 
 .text-black {
@@ -1104,7 +1104,7 @@ figure {
 
 .modal-close {
   background: none;
-  color: #fff;
+  color: #005081;
   font-size: 3.125em;
   line-height: 1;
   z-index: 1000;
@@ -1387,6 +1387,18 @@ figure {
 .editor img {
   max-width: 100% !important; }
 
+.box-m {
+  display: block; }
+  @media (min-width: 41.6875em) {
+    .box-m {
+      display: none; } }
+
+.box-pc {
+  display: none; }
+  @media (min-width: 41.6875em) {
+    .box-pc {
+      display: block; } }
+
 #banner {
   width: 100%;
   height: 360px;
@@ -1398,7 +1410,7 @@ figure {
     text-align: center;
     width: 100%;
     color: #005081; }
-  .Info #banner, .Products-Contant #banner {
+  .Info #banner, .Products-Content #banner {
     height: 0; }
 
 .intro {
@@ -1411,7 +1423,7 @@ figure {
     color: #757575; }
     @media (min-width: 64em) {
       .intro article {
-        width: 1000px; } }
+        width: 950px; } }
 
 .safe .wrap {
   position: relative;
@@ -1425,6 +1437,11 @@ figure {
     padding-top: 30px;
     margin-bottom: 200px; }
 
+.h2-line {
+  border-bottom: #005081 5px solid;
+  margin: 0 auto;
+  width: 430px; }
+
 .Products #banner {
   background-image: url("../images/page/banner-pro.gif"); }
 .Products .products .wrap {
@@ -1433,10 +1450,9 @@ figure {
     .Products .products .wrap {
       padding: 0 120px; } }
   .Products .products .wrap .card {
-    float: left;
+    position: relative;
     width: 90%;
     transition: all .3s;
-    position: relative;
     margin-top: 2%;
     margin-left: 5%; }
     @media (min-width: 48em) {
@@ -1450,8 +1466,7 @@ figure {
     .Products .products .wrap .card .img {
       width: 48%;
       text-align: center;
-      min-height: 220px;
-      max-height: 220px;
+      height: 220px;
       line-height: 220px; }
     .Products .products .wrap .card figcaption {
       padding: 5px;
@@ -1488,10 +1503,6 @@ figure {
   background-image: url("../images/page/banner-service.gif"); }
 .Service .title {
   text-shadow: -2px -2px rgba(230, 245, 255, 0.7), -0.5px -0.5px rgba(230, 245, 255, 0.9); }
-.Service .h2-line {
-  border-bottom: #005081 5px solid;
-  width: 430px;
-  margin: 0 auto; }
 .Service .wrap img {
   left: 100px; }
 .Service .wrap figcaption {
@@ -1554,7 +1565,6 @@ figure {
     height: 420px;
     background-color: #1786A6;
     padding: 110px 40px 20px;
-    color: #ffffff;
     text-align: left;
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px; }
@@ -1590,88 +1600,84 @@ figure {
           bottom: -100px; } }
       @media (min-width: 64em) {
         .Info .intro .wrap img {
-          right: 200px;
           bottom: 100px; } }
     .Info .intro .wrap h6 {
       margin-top: 8px;
       font-size: 16px;
       font-weight: normal; }
 
-.Products-Contant .product .inner {
+.Products-Content .product .inner {
   max-width: 1000px;
   margin-top: 80px; }
-.Products-Contant .product img {
+.Products-Content .product img {
   margin-top: 50px; }
-.Products-Contant .product article {
+.Products-Content .product article {
   padding: 0 25px; }
-  .Products-Contant .product article h2 {
+  .Products-Content .product article h2 {
     margin: 175px 0 50px; }
-  .Products-Contant .product article p {
+  .Products-Content .product article p {
     margin-top: 20px;
     line-height: 1.7; }
-.Products-Contant .list {
+.Products-Content .list {
   margin-top: 200px; }
-  .Products-Contant .list ul {
+  .Products-Content .list ul {
     list-style-type: none; }
-    .Products-Contant .list ul .list01 {
+    .Products-Content .list ul .list01 {
       height: 192px;
       width: 1200px;
       margin: 40px 0; }
-      .Products-Contant .list ul .list01 h5 {
+      .Products-Content .list ul .list01 h5 {
         width: 200px;
         padding-left: 90px;
-        color: #ffffff;
         margin-top: 30px;
         vertical-align: top; }
-      .Products-Contant .list ul .list01 article {
+      .Products-Content .list ul .list01 article {
         padding: 45px 0 0 15px;
         line-height: 1.5; }
-    .Products-Contant .list ul #list01 {
+    .Products-Content .list ul #list01 {
       background-image: url("../images/page/product/list01.gif"); }
-    .Products-Contant .list ul #list02 {
+    .Products-Content .list ul #list02 {
       background-image: url("../images/page/product/list02.gif"); }
-    .Products-Contant .list ul #list03 {
+    .Products-Content .list ul #list03 {
       background-image: url("../images/page/product/list03.gif"); }
-    .Products-Contant .list ul #list04 {
+    .Products-Content .list ul #list04 {
       background-image: url("../images/page/product/list04.gif"); }
-.Products-Contant .info h2 {
+.Products-Content .info h2 {
   color: #595757;
   padding: 100px 0 50px; }
-.Products-Contant .info table {
+.Products-Content .info table {
   line-height: 1.5;
   margin: 0 5%; }
-  .Products-Contant .info table td:first-child {
+  .Products-Content .info table td:first-child {
     width: 85px; }
-.Products-Contant .info p {
+.Products-Content .info p {
   margin: 0 5%; }
-.Products-Contant .table {
-  color: #ffffff;
+.Products-Content .table {
   margin-top: 100px; }
-  .Products-Contant .table h2 {
+  .Products-Content .table h2 {
     padding: 100px 0 50px; }
-  .Products-Contant .table table {
+  .Products-Content .table table {
     border: 4px solid #ffffff;
     border-collapse: collapse;
     width: 85%;
     margin: 0 auto; }
-  .Products-Contant .table tr,
-  .Products-Contant .table td {
+  .Products-Content .table tr, .Products-Content .table td {
     border: 1px solid #ffffff;
     padding: 20px;
     transition: all .35s, color .5s; }
-  .Products-Contant .table tr:hover {
+  .Products-Content .table tr:hover {
     background-color: #128088; }
-  .Products-Contant .table .refer {
+  .Products-Content .table .refer {
     margin: 50px 0 100px; }
-.Products-Contant .qa {
+.Products-Content .qa {
   margin-bottom: 100px; }
-  .Products-Contant .qa h2 {
+  .Products-Content .qa h2 {
     padding: 100px 0 50px; }
-  .Products-Contant .qa article {
+  .Products-Content .qa article {
     margin: 0 5%; }
-    .Products-Contant .qa article .paragraph {
+    .Products-Content .qa article .paragraph {
       margin: 20px 10%; }
-      .Products-Contant .qa article .paragraph p:first-child {
+      .Products-Content .qa article .paragraph p:first-child {
         color: #005081;
         font-weight: bold; }
 
@@ -1700,35 +1706,6 @@ figure {
         max-height: 170px; } }
   .List .news-item figcaption {
     margin-top: -8px; }
-.List #blog-pager {
-  clear: both;
-  margin: 30px auto;
-  text-align: center;
-  padding: 7px; }
-  .List #blog-pager .pagecurrent {
-    font-weight: bold;
-    color: #ffffff;
-    background-color: #1599A3; }
-  .List #blog-pager > span {
-    margin-bottom: 10px; }
-  .List #blog-pager .showPageOf {
-    display: none !important; }
-  .List #blog-pager .displaypageNum a,
-  .List #blog-pager .showpage a,
-  .List #blog-pager .pagecurrent {
-    display: inline-block;
-    font-size: 16px;
-    padding: 10px 16px;
-    margin: 10px;
-    border-radius: 20px;
-    color: #666;
-    background-color: #eee; }
-  .List #blog-pager .displaypageNum a:hover,
-  .List #blog-pager .showpage a:hover,
-  .List #blog-pager .pagecurrent {
-    background-color: #1599A3;
-    text-decoration: none;
-    color: #ffffff; }
 
 .News-Content #banner {
   background-image: url("../images/page/banner-list.jpg");
@@ -1746,12 +1723,9 @@ figure {
     margin: 20px 0;
     line-height: 1.8; }
 .News-Content #blog-pager {
-  clear: both;
   margin: 30px auto;
   text-align: center;
   padding: 7px; }
-  .News-Content #blog-pager > span {
-    margin-bottom: 10px; }
   .News-Content #blog-pager .showPageOf {
     display: none !important; }
   .News-Content #blog-pager .displaypageNum:last-child {
@@ -1762,14 +1736,11 @@ figure {
   .News-Content #blog-pager .displaypageNum a,
   .News-Content #blog-pager .showpage a {
     display: inline-block;
-    font-size: 16px;
     padding: 10px 16px;
-    margin: 10px;
     border-radius: 20px;
     color: #666;
     background-color: #eee; }
-  .News-Content #blog-pager .displaypageNum a:hover,
-  .News-Content #blog-pager .showpage a:hover {
+  .News-Content #blog-pager .displaypageNum a:hover, .News-Content #blog-pager .showpage a:hover {
     background-color: #1599A3;
     text-decoration: none;
     color: #ffffff; }
@@ -1783,7 +1754,6 @@ figure {
   .Contact-Us #banner h2 {
     width: unset; }
   .Contact-Us #banner .title {
-    color: #ffffff;
     margin-top: 150px;
     margin-left: 55%;
     -moz-transform: rotate(3deg);
@@ -1792,7 +1762,6 @@ figure {
     -ms-transform: rotate(3deg);
     transform: rotate(3deg); }
 .Contact-Us .wrap h5 {
-  color: #005081;
   font-weight: bold; }
 .Contact-Us .wrap form {
   margin: 100px 5%; }
@@ -1803,21 +1772,15 @@ figure {
     display: inline-block;
     vertical-align: top; }
     .Contact-Us .wrap form .boxleft .form-box {
-      color: #005081;
-      margin: 20px 20px 50px;
-      position: relative; }
+      margin: 20px 20px 50px; }
       .Contact-Us .wrap form .boxleft .form-box .label {
         vertical-align: middle;
         padding: 4px; }
-      .Contact-Us .wrap form .boxleft .form-box select,
-      .Contact-Us .wrap form .boxleft .form-box textarea,
-      .Contact-Us .wrap form .boxleft .form-box input {
+      .Contact-Us .wrap form .boxleft .form-box select, .Contact-Us .wrap form .boxleft .form-box textarea, .Contact-Us .wrap form .boxleft .form-box input {
         width: 250px;
         border: #005081 2px solid;
         padding: 4px 10px;
         color: #005081; }
-      .Contact-Us .wrap form .boxleft .form-box option {
-        border: #005081 2px solid; }
       .Contact-Us .wrap form .boxleft .form-box textarea {
         vertical-align: top; }
       .Contact-Us .wrap form .boxleft .form-box .select {
@@ -1848,7 +1811,6 @@ figure {
       .Contact-Us .wrap form .boxleft .gender:hover .input ~ .checkmark {
         background-color: #005081; }
       .Contact-Us .wrap form .boxleft .gender .input {
-        position: absolute;
         opacity: 0;
         cursor: pointer;
         width: unset; }
@@ -1874,9 +1836,6 @@ figure {
     display: block;
     width: 110px;
     padding: 15px 0;
-    margin: 0 auto;
-    background-color: #005081;
-    color: #ffffff;
     border-radius: 30px;
     cursor: pointer;
     border: #005081 2px solid;
@@ -1891,9 +1850,7 @@ figure {
     font-weight: bolder; }
 .Contact-Us .modal-close {
   position: relative;
-  color: #005081;
-  bottom: -15px;
-  right: -950px;
+  right: -90%;
   top: unset; }
 
 .Buy #banner {
@@ -1901,53 +1858,42 @@ figure {
 .Buy .shop {
   margin: 200px 0; }
   .Buy .shop h2 {
-    color: #005081;
     margin-bottom: 0; }
-  .Buy .shop .h2-line {
-    border-bottom: #005081 5px solid;
-    width: 190px;
-    margin: 0 auto; }
+  .Buy .shop .underline {
+    width: 190px; }
   .Buy .shop figure {
     margin: 60px 0; }
-    .Buy .shop figure img {
-      margin: 0 20px; }
     .Buy .shop figure a {
       cursor: pointer; }
 
 .About #banner {
   background-image: url("../images/page/banner-about.jpg"); }
-.About .wrap {
-  position: relative;
-  width: 100%; }
+@media (min-width: 64em) {
   .About .wrap .img {
-    margin: auto; }
+    padding-top: 40px; } }
+.About .wrap .img img {
+  width: 80%; }
+  @media (min-width: 48em) {
     .About .wrap .img img {
-      width: 80%; }
-      @media (min-width: 48em) {
-        .About .wrap .img img {
-          width: 50%; } }
-      @media (min-width: 75em) {
-        .About .wrap .img img {
-          width: 100%;
-          margin-left: 20%; } }
-    @media (min-width: 64em) {
-      .About .wrap .img {
-        padding-top: 40px; } }
-  .About .wrap article {
-    color: #757575;
-    margin: 30px 30px 0; }
-    @media (min-width: 48em) {
-      .About .wrap article {
-        margin: 30px 60px 0; } }
-    @media (min-width: 75em) {
-      .About .wrap article {
-        margin: 30px 0 0 110px; } }
-    .About .wrap article p {
-      margin-top: 30px; }
+      width: 50%; } }
+  @media (min-width: 75em) {
+    .About .wrap .img img {
+      width: 100%;
+      margin-left: 20%; } }
+.About .wrap article {
+  color: #757575;
+  margin: 30px 30px 0; }
+  @media (min-width: 48em) {
+    .About .wrap article {
+      margin: 30px 60px 0; } }
+  @media (min-width: 75em) {
+    .About .wrap article {
+      margin: 30px 0 0 110px; } }
+  .About .wrap article p {
+    margin-top: 30px; }
 .About .info {
   margin-top: 80px; }
 .About .team {
-  color: #ffffff;
   padding: 30px 20px 50px;
   margin-top: 150px; }
 .About .people {
@@ -1957,8 +1903,7 @@ figure {
     margin-bottom: 100px;
     padding: 20px 50px;
     display: inline-block;
-    vertical-align: top;
-    margin-left: -4px; }
+    vertical-align: top; }
     .About .people .card:not(:last-of-type) {
       margin-right: 3%; }
     .About .people .card-1 {

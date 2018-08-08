@@ -6,9 +6,9 @@
 }
 
 <section class="wrap">
-	<h5 class="font-xl">如果您有任何疑問，或是有專案需求欲更進一步瞭解，歡迎隨時來信，我們將竭誠為您服務。</h5>
+	<h5 class="font-xl text-secondary">如果您有任何疑問，或是有專案需求欲更進一步瞭解，歡迎隨時來信，我們將竭誠為您服務。</h5>
 
-	<form class="text-left">
+	<form class="text-left text-secondary">
 		<div class="boxleft">
 			<div class="form-box">
 				<label class="label">類別</label>
@@ -82,7 +82,7 @@
 
 		<!-- 套程式-寄送信箱:service@redoxm.com-->
 
-		<input class="center" id="submit" type="submit" value="提交">
+		<input class="center text-white bg-secondary" id="submit" type="submit" value="提交">
 
 
 
@@ -158,6 +158,7 @@
 		});
 		$(".modal").click(function() {
 		    $(this).removeClass("in");
+		    $("body").css("overflow","auto");
 		});
 		// 點中間內容時不會被close
 		$(".modal-content").click(function(e){

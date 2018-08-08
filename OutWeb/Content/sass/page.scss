@@ -26,9 +26,24 @@ $img-page : '../images/page';
 @import "_client/custom"; // 前台用雜項樣式
 @import "_client/layout"; // 前台用版面
 //共用------------------------
+
+
 .editor img {
 
     max-width: 100% !important;
+}
+
+.box-m {
+    display: block;
+    @include mq(phone-plus) {
+        display: none;
+    }
+}
+.box-pc {
+    display: none;
+    @include mq(phone-plus) {
+        display: block;
+    }
 }
 
 
@@ -52,7 +67,7 @@ $banner-h: 360px;
     }
 
     .Info &,
-    .Products-Contant & {
+    .Products-Content & {
         height: 0;
     }
 }
@@ -70,147 +85,142 @@ $banner-h: 360px;
         color: color(words);
 
         @include mq(desktop) {
-            width: 1000px;
+            width: 950px;
         }
     }
 }
 
 
-// == 五大保證
-.safe {
+// == 產品頁-五大保證+服務頁-安全
+.safe .wrap {
 
-    .wrap {
+    position: relative;
+    padding: 0 60px;
+
+    img {
+        position: absolute;
+        top: 0;
+    }
+
+    figcaption {
 
         position: relative;
-        padding: 0 60px;
-
-        img {
-            position: absolute; // left: 0;
-            top: 0;
-        }
-
-        figcaption {
-
-            position: relative; // left:650px;
-            width: 500px;
-            padding-top: 30px;
-            margin-bottom: 200px;
-        }
+        width: 500px;
+        padding-top: 30px;
+        margin-bottom: 200px;
     }
 }
 
+//標題底線
+.h2-line {
+
+    border-bottom: color(secondary) 5px solid;
+    margin: 0 auto;
+    width: 430px;//功能性評估
+}
 
 
 //產品介紹頁---------------------
 // == banner
 .Products {
 
-    #banner {
-        background-image: url("#{$img-page}/banner-pro.gif");
-    }
+    #banner { background-image: url("#{$img-page}/banner-pro.gif");}
 
     // == 產品
-    .products {
+    .products .wrap {
 
-        .wrap {
+        padding: 0 5%;
 
-            padding: 0 5%;
-
-            @include mq(desktop) {
-                padding: 0 120px;
-            }
-
-            .card {
-
-                float: left;
-                width: 90%;
-                transition: all .3s;
-                position: relative;
-                margin-top: 2%;
-                margin-left: 5%;
-
-                @include mq(tablet) {
-                    
-                    margin-left: unset;
-                    width: 48%;
-
-                    &:nth-child(even) {
-                        margin-left: 2%;
-                    }
-                }
-
-                &:hover {
-                    color: color(primary);
-                }
-
-                .img {
-
-                    width: 48%;
-                    text-align: center;
-                    min-height: 220px;
-                    max-height: 220px;
-                    line-height: 220px;
-                }
-
-                figcaption {
-                    padding: 5px;
-                    width: 48%;
-                    vertical-align: middle;
-
-
-                    h5 {
-                        font-size: 20px;
-                        line-height: 1.5;
-                    }
-                }
-
-            }
+        @include mq(desktop) {
+            padding: 0 120px;
         }
-    }
 
-    // == 五大保證
-    .fivetop {
+        .card {
 
-        .wrap {
+            position: relative;
 
-            margin-top: 250px;
+            width: 90%;
+            transition: all .3s;
+            margin-top: 2%;
+            margin-left: 5%;
 
-            img {
-                left: 0;
+            @include mq(tablet) {
+                
+                margin-left: unset;
+                width: 48%;
+
+                &:nth-child(even) {
+                    margin-left: 2%;
+                }
+            }
+
+            &:hover {
+                color: color(primary);
+            }
+
+            .img {
+
+                width: 48%;
+                text-align: center;
+                height: 220px;
+                line-height: 220px;
             }
 
             figcaption {
 
-                left: 650px;
+                padding: 5px;
+                width: 48%;
+                vertical-align: middle;
 
-                p {
-                    position: relative;
-                    color: color(words);
+                h5 {
+                    font-size: 20px;
+                    line-height: 1.5;
                 }
+            }
 
-                #p1 {
-                    left: -130px;
-                    margin-bottom: 90px;
-                }
+        }
+    }
 
-                #p2 {
-                    left: -15px;
-                    margin-bottom: 125px;
-                }
+    // == 五大保證
+    .fivetop .wrap {
 
-                #p3 {
-                    left: 25px;
-                    margin-bottom: 125px;
-                }
+        margin-top: 250px;
 
-                #p4 {
-                    left: -15px;
-                    margin-bottom: 95px;
-                }
+        img {
+            left: 0;
+        }
 
-                #p5 {
-                    left: -90px;
-                }
+        figcaption {
+
+            left: 650px;
+
+            p {
+                position: relative;
+                color: color(words);
+            }
+
+            #p1 {
+                left: -130px;
+                margin-bottom: 90px;
+            }
+
+            #p2 {
+                left: -15px;
+                margin-bottom: 125px;
+            }
+
+            #p3 {
+                left: 25px;
+                margin-bottom: 125px;
+            }
+
+            #p4 {
+                left: -15px;
+                margin-bottom: 95px;
+            }
+
+            #p5 {
+                left: -90px;
             }
         }
     }
@@ -220,22 +230,14 @@ $banner-h: 360px;
 .Service {
 
     //banner
-    #banner {
-        background-image: url("#{$img-page}/banner-service.gif");
-    }
+    #banner { background-image: url("#{$img-page}/banner-service.gif");}
 
     .title {
         text-shadow: -2px -2px rgba(230, 245, 255, 0.7), -0.5px -0.5px rgba(230, 245, 255, 0.9);
     }
 
+
     //safe
-
-    .h2-line {
-
-        border-bottom: color(secondary) 5px solid;
-        width: 430px;
-        margin: 0 auto;
-    }
 
     .wrap {
 
@@ -288,96 +290,83 @@ $banner-h: 360px;
     //實驗
     .exper {
 
-
         .shorter {
             width: 330px;
         }
 
-        .wrap {
+        .wrap .card-2 {
 
-            // padding: 0 200px;
+            @extend .bg-white;
 
-            .card-2 {
+            display: inline-table;
+            width: 400px;
+            height: 620px;
+            margin: 10px;
 
-                @extend .bg-white;
+            .shadow {
 
-                // float: left;
-                display: inline-table;
-                width: 400px;
-                height: 620px;
-                margin: 10px;
+                -webkit-filter: drop-shadow(5px 5px 10px rgba(#000, .2));
+                filter: drop-shadow(5px 5px 10px rgba(#000, .2));
+            }
 
-                .shadow {
+            .corner {
 
-                    -webkit-filter: drop-shadow(5px 5px 10px rgba(#000, .2));
-                    filter: drop-shadow(5px 5px 10px rgba(#000, .2));
+                position: relative;
+                background-color: #F1F1F1;
+                clear: both;
+                height: 180px;
+                width: 100%;
+                border-top-right-radius: $border-radius;
+                border-top-left-radius: $border-radius;
+
+                h5 {
+
+                    margin: 0;
+                    padding-top: 100px;
+                    color: #1786A6;
                 }
 
-                .corner {
+                &:after {
 
-                    position: relative;
-                    background-color: #F1F1F1;
-                    clear: both;
-                    height: 180px;
-                    width: 100%;
-                    border-top-right-radius: $border-radius;
-                    border-top-left-radius: $border-radius;
-
-                    h5 {
-
-                        margin: 0;
-                        padding-top: 100px;
-                        color: #1786A6;
-                    }
-
-                    &:after {
-
-                        content: "";
-                        position: absolute;
-                        bottom: -70px;
-                        left: 0;
-                        background: none;
-                        z-index: 1;
+                    content: "";
+                    position: absolute;
+                    bottom: -70px;
+                    left: 0;
+                    background: none;
+                    z-index: 1;
 
 
-                        @include arrow(bottom,
-                        404px,
-                        70px,
-                        #F1F1F1);
-                    }
+                    @include arrow( bottom, 404px, 70px, #F1F1F1);
+                }
+            }
+
+            figcaption {
+
+                @extend .font-lg, .text-white;
+
+                height: 420px;
+                background-color: #1786A6;
+                padding: 110px 40px 20px;
+                text-align: left;
+                border-bottom-right-radius: $border-radius;
+                border-bottom-left-radius: $border-radius;
+
+                ul {
+
+                    margin-bottom: 0;
+                    line-height: 1.7;
+                    letter-spacing: 0.5px;
+                }
+            }
+
+            &:last-child {
+
+                h5 {
+                    color: #2BB7BB;
                 }
 
                 figcaption {
-
-                    @extend .font-lg;
-
-                    height: 420px;
-                    background-color: #1786A6;
-                    padding: 110px 40px 20px;
-                    color: #ffffff;
-                    text-align: left;
-                    border-bottom-right-radius: $border-radius;
-                    border-bottom-left-radius: $border-radius;
-
-                    ul {
-                        margin-bottom: 0;
-                        line-height: 1.7;
-                        letter-spacing: 0.5px;
-                    } // &:last-child {
-                    //     background-color: #2BB7BB;
-                    // }
-                }
-
-                &:last-child {
-                    // margin-left: 4%;
-
-                    h5 {
-                        color: #2BB7BB;
-                    }
-
-                    figcaption {
-                        background-color: #2BB7BB;
-                    }
+                    background-color: #2BB7BB;
                 }
             }
         }
@@ -390,24 +379,27 @@ $banner-h: 360px;
 .Info {
 
     .intro {
+
         margin-bottom: 200px;
 
         @include mq(tablet) {
-                padding: 50px 0;
-                margin-bottom: unset;
-            }
+
+            padding: 50px 0;
+            margin-bottom: unset;
+        }
 
         article {
+
             @include mq-max(tablet) {
                 margin: 60px auto;
             }
         }
 
         .wrap {
+
             position: relative;
 
             img {
-                // float: right;
 
                 position: absolute;
                 width: 50%;
@@ -424,7 +416,6 @@ $banner-h: 360px;
 
                 @include mq(desktop) {
 
-                    right: 200px;
                     bottom: 100px;
                 }
             }
@@ -439,7 +430,7 @@ $banner-h: 360px;
 }
 
 //產品內頁----------------------
-.Products-Contant {
+.Products-Content {
 
     //產品
     .product {
@@ -451,6 +442,7 @@ $banner-h: 360px;
         }
 
         img {
+
             margin-top: 50px;
         }
 
@@ -487,10 +479,10 @@ $banner-h: 360px;
                 margin: 40px 0;
 
                 h5 {
+                    @extend .text-white;
 
                     width: 200px;
                     padding-left: 90px;
-                    color: #ffffff;
                     margin-top: 30px;
                     vertical-align: top;
                 }
@@ -541,7 +533,6 @@ $banner-h: 360px;
     //營養標示
     .table {
 
-        color: #ffffff;
         margin-top: 100px;
 
         h2 {
@@ -555,8 +546,7 @@ $banner-h: 360px;
             margin: 0 auto;
         }
 
-        tr,
-        td {
+        tr,td {
             border: 1px solid #ffffff;
             padding: 20px;
             transition: all .35s, color .5s;
@@ -564,7 +554,6 @@ $banner-h: 360px;
 
         tr:hover {
             background-color: #128088;
-            ;
         }
 
         .refer {
@@ -601,7 +590,6 @@ $banner-h: 360px;
 
 //最新消息----------------------
 .List {
-
 
     #banner {
         background-image: url("#{$img-page}/banner-list.jpg");
@@ -645,52 +633,54 @@ $banner-h: 360px;
         }
     }
 
+// 目前不用這個功能
+// 部落格頁面切換效果：https://www.wfublog.com/2014/11/blogger-number-page-navigation.html
 
-    #blog-pager {
+    // #blog-pager {
 
-        clear: both;
-        margin: 30px auto;
-        text-align: center;
-        padding: 7px;
+    //     clear: both;
+    //     margin: 30px auto;
+    //     text-align: center;
+    //     padding: 7px;
 
-        .pagecurrent {
+    //     .pagecurrent {
 
-            font-weight: bold;
-            color: #ffffff;
-            background-color: color(primary);
-        }
+    //         font-weight: bold;
+    //         color: #ffffff;
+    //         background-color: color(primary);
+    //     }
 
-        &>span {
-            margin-bottom: 10px;
-        }
+    //     &>span {
+    //         margin-bottom: 10px;
+    //     }
 
 
-        .showPageOf {
-            display: none!important
-        }
+    //     .showPageOf {
+    //         display: none!important
+    //     }
 
-        .displaypageNum a,
-        .showpage a,
-        .pagecurrent {
+    //     .displaypageNum a,
+    //     .showpage a,
+    //     .pagecurrent {
 
-            display: inline-block;
-            font-size: 16px;
-            padding: 10px 16px;
-            margin: 10px;
-            border-radius: 20px;
-            color: #666;
-            background-color: #eee;
-        }
+    //         display: inline-block;
+    //         font-size: 16px;
+    //         padding: 10px 16px;
+    //         margin: 10px;
+    //         border-radius: 20px;
+    //         color: #666;
+    //         background-color: #eee;
+    //     }
 
-        .displaypageNum a:hover,
-        .showpage a:hover,
-        .pagecurrent {
+    //     .displaypageNum a:hover,
+    //     .showpage a:hover,
+    //     .pagecurrent {
 
-            background-color: color(primary);
-            text-decoration: none;
-            color: #ffffff;
-        }
-    }
+    //         background-color: color(primary);
+    //         text-decoration: none;
+    //         color: #ffffff;
+    //     }
+    // }
 }
 
 
@@ -701,14 +691,19 @@ $banner-h: 360px;
         background-image: url("#{$img-page}/banner-list.jpg");
         margin-bottom: 100px;
     }
+
     img {
         margin: 5% 0;
         max-width: 90%;
     }
+
     article {
+
         margin: 0 5% 60px;
         color: #757575;
+
         @include mq(desktop){
+
             margin: 30px 8% 60px;
         }
 
@@ -720,15 +715,9 @@ $banner-h: 360px;
 
     #blog-pager {
 
-        clear: both;
         margin: 30px auto;
         text-align: center;
         padding: 7px;
-
-        &>span {
-            margin-bottom: 10px;
-        }
-
 
         .showPageOf {
             display: none!important
@@ -745,16 +734,13 @@ $banner-h: 360px;
         .showpage a {
 
             display: inline-block;
-            font-size: 16px;
             padding: 10px 16px;
-            margin: 10px;
             border-radius: 20px;
             color: #666;
             background-color: #eee;
         }
 
-        .displaypageNum a:hover,
-        .showpage a:hover {
+        .displaypageNum a:hover,.showpage a:hover {
 
             background-color: color(primary);
             text-decoration: none;
@@ -769,6 +755,7 @@ $banner-h: 360px;
 .Contact-Us {
 
     #banner {
+
         background-image: url("#{$img-page}/banner-contactus.gif");
         margin-bottom: 100px;
         background-color: #F4D731;
@@ -781,10 +768,9 @@ $banner-h: 360px;
 
 
         .title {
-            @extend .font-jumbo;
 
-            color: #ffffff;
-            // margin: 150px 0 0 10%;
+            @extend .font-jumbo, .text-white;
+
             margin-top: 150px;
             margin-left: 55%;
 
@@ -800,7 +786,6 @@ $banner-h: 360px;
     .wrap {
 
         h5 {
-            color: color(secondary);
             font-weight: bold;
         }
 
@@ -809,6 +794,7 @@ $banner-h: 360px;
             margin: 100px 5%;
 
             @include mq(wide) {
+
                 margin: 100px 11%;
             }
 
@@ -820,18 +806,14 @@ $banner-h: 360px;
 
                 .form-box {
 
-                    color: color(secondary);
                     margin: 20px 20px 50px;
-                    position: relative;
 
                     .label {
                         vertical-align: middle;
                         padding: 4px;
                     }
 
-                    select,
-                    textarea,
-                    input {
+                    select,textarea,input {
 
                         width: 250px;
                         border: color(secondary) 2px solid;
@@ -839,13 +821,9 @@ $banner-h: 360px;
                         color: color(secondary);
                     }
 
-                    option {
-                        border: color(secondary) 2px solid;
-                    }
                     textarea {
                         vertical-align: top;
                     }
-
 
                     .select {
                         appearance: none;
@@ -888,7 +866,7 @@ $banner-h: 360px;
                     }
 
                     .input {
-                        position: absolute;
+
                         opacity: 0;
                         cursor: pointer;
                         width: unset;
@@ -926,12 +904,10 @@ $banner-h: 360px;
             }
 
             #submit {
+
                 display: block;
                 width: 110px;
                 padding: 15px 0;
-                margin: 0 auto;
-                background-color: color(secondary);
-                color: #ffffff;
                 border-radius: 30px;
                 cursor: pointer;
                 border: color(secondary) 2px solid;
@@ -946,8 +922,11 @@ $banner-h: 360px;
     }
 
     .contact-form {
+
         border: color(secondary) 1px solid;
+
         li {
+
             margin: 10px 0;
             font-weight: bolder;
         }
@@ -955,46 +934,36 @@ $banner-h: 360px;
 
 
     .modal-close {
+
         position: relative;
-        color: color(secondary);
-        bottom: -15px;
-        right: -950px;
+        right: -90%;
         top: unset;
     }
 }
 
-
 //哪裡購買----------------------
 .Buy {
 
-    #banner {
-        background-image: url("#{$img-page}/banner-buy.jpg");
-    }
+    #banner { background-image: url("#{$img-page}/banner-buy.jpg");}
 
     .shop {
 
         margin: 200px 0;
 
         h2 {
-            color: color(secondary);
             margin-bottom: 0;
         }
 
-        .h2-line {
-            border-bottom: #005081 5px solid;
+        .underline {
             width: 190px;
-            margin: 0 auto;
         }
 
         figure {
 
             margin: 60px 0;
-            img {
-                margin: 0 20px;
-            }
-            a {
-                cursor: pointer;
-            }
+
+            // img { margin: 0 20px;}
+            a { cursor: pointer;}
         }
     }
 }
@@ -1003,17 +972,16 @@ $banner-h: 360px;
 //關於我們----------------------
 .About {
 
-    #banner {
-        background-image: url("#{$img-page}/banner-about.jpg");
-    }
+    #banner { background-image: url("#{$img-page}/banner-about.jpg");}
 
     .wrap {
 
-        position: relative;
-        width: 100%;
-
         .img {
-            margin: auto;
+
+            @include mq(desktop) {
+
+                padding-top: 40px;
+            }
 
             img {
                 width: 80%;
@@ -1027,9 +995,6 @@ $banner-h: 360px;
                 }
             }
 
-            @include mq(desktop) {
-                padding-top: 40px;
-            }
         }
 
         article {
@@ -1055,7 +1020,6 @@ $banner-h: 360px;
 
     .team {
 
-        color: #ffffff;
         padding: 30px 20px 50px;
         margin-top: 150px;
     }
@@ -1072,7 +1036,6 @@ $banner-h: 360px;
             $mgr: 3%;
             display: inline-block;
             vertical-align: top;
-            margin-left: -4px;
 
             &:not(:last-of-type) {
                 margin-right: $mgr;
