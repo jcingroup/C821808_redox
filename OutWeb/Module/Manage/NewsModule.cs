@@ -246,9 +246,9 @@ namespace OutWeb.Module.Manage
             if (displayMode == "F")
             {
                 if (status == "Y")
-                    result = data.Where(s => s.DISABLE == true).ToList();
-                else
                     result = data.Where(s => s.DISABLE == false).ToList();
+                else
+                    result = data.Where(s => s.DISABLE == true).ToList();
             }
             return result;
         }

@@ -15,6 +15,10 @@
             $($(this).attr('href')).fadeIn().siblings('.tab-content').hide();
             $(this).addClass('active').siblings('.active').removeClass('active');
         });
+
+        $(function () {
+            $('.tab-nav').eq(0).trigger("click");
+        })
     </script>
 }
 

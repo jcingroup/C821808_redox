@@ -3,6 +3,7 @@ using OutWeb.Expansion.ExcepProcess;
 using OutWeb.Models;
 using OutWeb.Models.Manage;
 using OutWeb.Models.Manage.FileModels;
+using OutWeb.Models.Manage.ManageProductModels;
 using OutWeb.Provider;
 using OutWeb.Repositories;
 using OutWeb.Service;
@@ -10,6 +11,7 @@ using REDOXEntities.DataBase;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -21,7 +23,7 @@ namespace OutWeb.Module.Manage
         private string _actionName { get; set; } = string.Empty;
 
         private REDOXDB DB { get; set; } = new REDOXDB();
-
+        private string rootPath { get { return HttpContext.Current.Server.MapPath("~/"); } }
 
         public ProductsModule()
         {
@@ -45,7 +47,6 @@ namespace OutWeb.Module.Manage
 
         public string SaveProductInfo(FormCollection form)
         {
-
             bool status = form["Status"] == "Y" ? true : false;
             string content = form["contenttext"];
 
@@ -88,9 +89,52 @@ namespace OutWeb.Module.Manage
             return _actionName;
         }
 
-        public override object DoGetList(object model)
+        public override object DoGetList(object filter)
         {
-            throw new NotImplementedException();
+            ListResultBase result = new ListResultBase();
+            TFilter filterModel = (filter as TFilter);
+            PublicMethodRepository.FilterXss(filterModel);
+            List<TData> data = new List<TData>();
+            try
+            {
+                var enumerable = (IEnumerable<TData>)(typeof(REDOXDB).GetProperty(typeof(TData).Name).GetValue(DB, null));
+                if (PublicMethodRepository.CurrentMode == SiteMode.FronEnd)
+                    data = enumerable.Where(s => !s.DISABLE && s.HOME_PAGE_DISPLAY).ToList();
+                else
+                    data = enumerable.ToList();
+
+                //關鍵字搜尋
+                if (!string.IsNullOrEmpty(filterModel.QueryString))
+                {
+                    data = this.DoListFilterStringQuery(filterModel.QueryString, data);
+                }
+                //PUB_DT_STR搜尋
+                if (!string.IsNullOrEmpty(filterModel.PublishStartDate) && !string.IsNullOrEmpty(filterModel.PublishEndate))
+                {
+                    data = this.DoListDateFilter(Convert.ToDateTime(filterModel.PublishStartDate), Convert.ToDateTime(filterModel.PublishEndate), data);
+                }
+
+                //上下架
+                if (!string.IsNullOrEmpty(filterModel.DisplayForFrontEnd))
+                {
+                    data = this.DoListStatusFilter(filterModel.DisplayForFrontEnd, "F", data);
+                }
+
+                //SQ
+                data = this.DoListSort(filterModel.SortColumn, filterModel.Status, data);
+
+                //分頁
+                data = this.DoListPageList(filterModel.CurrentPage, data, out PaginationResult pagination);
+                result.Pagination = pagination;
+                foreach (var d in data)
+                    PublicMethodRepository.HtmlDecode(d);
+                result.Data = data;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
         }
 
         public override int DoSaveData(FormCollection form, int? ID = null, List<HttpPostedFileBase> files = null)
@@ -123,11 +167,6 @@ namespace OutWeb.Module.Manage
             saveModel.EDIT3 = form["EDIT3"];
             saveModel.EDIT3_MOBILE = form["EDIT3_MOBILE"];
             saveModel.QA = form["QA"];
-
-
-
-
-
 
             saveModel.UPT_DT = DateTime.UtcNow.AddHours(8);
             saveModel.UPT_ID = UserProvider.Instance.User.ID;
@@ -206,17 +245,41 @@ namespace OutWeb.Module.Manage
 
         public override object DoGetDetailsByID(int ID)
         {
-            throw new NotImplementedException();
+            ProductDetailsDataModel result = new ProductDetailsDataModel();
+            PRODUCT data = DB.PRODUCT.Where(w => w.ID == ID).FirstOrDefault();
+            PublicMethodRepository.HtmlDecode(data);
+            result.Data = data;
+            return result;
         }
 
         public override void DoDeleteByID(int ID)
         {
-            throw new NotImplementedException();
+            var data = this.DB.PRODUCT.Where(s => s.ID == ID).FirstOrDefault();
+            if (data == null)
+                throw new Exception("[刪除PRODUCTS] 查無此PRODUCTS，可能已被移除");
+            try
+            {
+                var delFiles = this.DB.FILEBASE.Where(o => o.MAP_SITE.StartsWith(_actionName) && o.MAP_ID == ID).ToList();
+                if (delFiles.Count > 0)
+                {
+                    foreach (var f in delFiles)
+                        File.Delete(string.Concat(rootPath, f.FILE_PATH));
+                    this.DB.FILEBASE.RemoveRange(delFiles);
+                }
+
+                this.DB.PRODUCT.Remove(data);
+                this.DB.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("[刪除PRODUCTS]" + ex.Message);
+            }
         }
 
         public List<TData> DoListFilterStringQuery(string filterStr, List<TData> data)
         {
-            throw new NotImplementedException();
+            var result = data.Where(s => s.TITLE.Contains(filterStr.Trim())).ToList();
+            return result;
         }
 
         public List<TData> DoListDateFilter(DateTime publishSdate, DateTime publishEdate, List<TData> data)
@@ -231,17 +294,85 @@ namespace OutWeb.Module.Manage
 
         public List<TData> DoListStatusFilter(string status, string displayMode, List<TData> data)
         {
-            throw new NotImplementedException();
+            List<TData> result = null;
+            if (displayMode == "F")
+            {
+                if (status == "Y")
+                    result = data.Where(s => s.DISABLE == false).ToList();
+                else
+                    result = data.Where(s => s.DISABLE == true).ToList();
+            }
+            return result;
         }
 
+        /// <summary>
+        /// 取出分頁資料
+        /// </summary>
+        /// <param name="currentPage"></param>
+        /// <param name="data"></param>
         public List<TData> DoListPageList(int currentPage, List<TData> data, out PaginationResult pagination, bool doPagination = true)
         {
-            throw new NotImplementedException();
+            int pageSize = doPagination ? PublicMethodRepository.ListPageSize : data.Count() == 0 ? 1 : data.Count();
+
+            int startRow = (currentPage - 1) * pageSize;
+            PaginationResult paginationResult = new PaginationResult()
+            {
+                CurrentPage = currentPage,
+                DataCount = data.Count,
+                PageSize = pageSize,
+                FirstPage = 1,
+                LastPage = Convert.ToInt32(Math.Ceiling((decimal)data.Count / pageSize))
+            };
+            pagination = paginationResult;
+            data = data.Skip(startRow).Take(pageSize).ToList();
+            return data;
         }
 
+        /// <summary>
+        /// 列表SQ功能
+        /// </summary>
+        /// <param name="sortCloumn"></param>
+        /// <param name="data"></param>
         public List<TData> DoListSort(string sortCloumn, string status, List<TData> data)
         {
-            throw new NotImplementedException();
+            switch (sortCloumn)
+            {
+                case "sortTitle/asc":
+                    data = data.OrderBy(o => o.TITLE).ThenBy(g => g.SQ).ToList();
+                    break;
+
+                case "sortTitle/desc":
+                    data = data.OrderByDescending(o => o.TITLE).ThenBy(g => g.SQ).ToList();
+                    break;
+
+                case "sortSpec/asc":
+                    data = data.OrderBy(o => o.SPEC).ThenByDescending(g => g.SQ).ToList();
+                    break;
+
+                case "sortSpec/desc":
+                    data = data.OrderByDescending(o => o.SPEC).ThenByDescending(g => g.SQ).ToList();
+                    break;
+
+                case "sortStatus/asc":
+                    data = data.OrderBy(o => o.DISABLE).ThenBy(g => g.SQ).ToList();
+                    break;
+
+                case "sortStatus/desc":
+                    data = data.OrderByDescending(o => o.DISABLE).ThenBy(g => g.SQ).ToList();
+                    break;
+                case "sortIndex/asc":
+                    data = data.OrderBy(o => o.SQ).ThenBy(g => g.SQ).ToList();
+                    break;
+
+                case "sortIndex/desc":
+                    data = data.OrderByDescending(o => o.SQ).ThenBy(g => g.SQ).ToList();
+                    break;
+                    
+                default:
+                    data = data.OrderByDescending(o => o.SQ).ThenByDescending(g => g.BUD_DT).ToList();
+                    break;
+            }
+            return data;
         }
 
         public override void Dispose()

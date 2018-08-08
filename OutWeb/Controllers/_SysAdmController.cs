@@ -157,7 +157,6 @@ namespace OutWeb.Controllers
 
         public ActionResult ProductsList(int? page, string qry, string sort, string fSt, string pSdate, string pEdate)
         {
-            return View();
             ListViewBase model = new ListViewBase();
             model.Filter.CurrentPage = page ?? 1;
             model.Filter.QueryString = qry ?? string.Empty;
