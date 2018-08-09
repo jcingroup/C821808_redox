@@ -53,17 +53,25 @@ $banner-h: 360px;
 #banner {
 
     width: 100%;
-    height: $banner-h;
+    height: $banner-h/2;
     background-size: cover;
     background-position: center;
 
+    @include mq(tablet) {
+        height: $banner-h;
+    }
+
 
     h2 {
-        margin-top: 150px;
+        margin-top: 65px;
         position: absolute;
         text-align: center;
         width: 100%;
         color: color(secondary);
+
+        @include mq(tablet) {
+            margin-top: 150px;
+        }
     }
 
     .Info &,
@@ -299,9 +307,14 @@ $banner-h: 360px;
             @extend .bg-white;
 
             display: inline-table;
-            width: 400px;
+            width: 320px;
             height: 620px;
             margin: 10px;
+
+
+            @include mq(tablet) {
+                width: 400px;
+            }
 
             .shadow {
 
@@ -330,13 +343,17 @@ $banner-h: 360px;
 
                     content: "";
                     position: absolute;
-                    bottom: -70px;
+                    bottom: -50px;
                     left: 0;
                     background: none;
                     z-index: 1;
+                    
+                    @include mq(tablet){
+                        bottom: -70px;
+                        @include arrow( bottom, 404px, 70px, #F1F1F1);
+                    }
 
-
-                    @include arrow( bottom, 404px, 70px, #F1F1F1);
+                    @include arrow( bottom, 320px, 50px, #F1F1F1);
                 }
             }
 
@@ -344,12 +361,18 @@ $banner-h: 360px;
 
                 @extend .font-lg, .text-white;
 
-                height: 420px;
+                height: 480px;
                 background-color: #1786A6;
-                padding: 110px 40px 20px;
+                padding: 90px 40px 20px;
                 text-align: left;
                 border-bottom-right-radius: $border-radius;
                 border-bottom-left-radius: $border-radius;
+
+
+                @include mq(tablet){
+                    padding: 110px 40px 20px;
+                    height: 420px;
+                }
 
                 ul {
 
@@ -1031,7 +1054,9 @@ $banner-h: 360px;
 
             background-color: #F7F8F8;
             margin-bottom: 100px;
-            padding: 20px 50px;
+            padding: 10px 30px;
+            width: 80%;
+
 
             $mgr: 3%;
             display: inline-block;
@@ -1041,14 +1066,24 @@ $banner-h: 360px;
                 margin-right: $mgr;
             }
 
+            @include mq(desktop) {
+                padding: 20px 50px;
+            }
+
             &-1 {
                 height: 480px;
-                width: (100% / 3 - $mgr - 2);
+
+                @include mq(tablet) {
+                    width: (100% / 3 - $mgr - 2);
+                }
             }
 
             &-2 {
                 height: 750px;
+
+                @include mq(tablet) {
                 width: 35%;
+                }
             }
 
             figcaption {

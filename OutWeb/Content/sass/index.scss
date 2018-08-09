@@ -147,8 +147,12 @@ $banner-h: 535px;
 
     background: $bg-primary-light url(#{$img-index}/product-bg.png) 0 -10% no-repeat;
 
-    @include mq(tablet) {
-        background: $bg-primary-light url(#{$img-index}/product-bg.png) 0 -10% no-repeat;
+    @include mq-max(tablet) {
+        background: unset;
+
+        h2 {
+            color: color(secondary);
+        }
     }
     // background-size: cover;
 
@@ -213,7 +217,26 @@ $banner-h: 535px;
 
 // == 最新消息
 .news {
+    &-list {
+       
+        @include mq(tablet) {
+
+            background: $bg-primary-light;
+        }
+
+        h2{
+
+            color: color(secondary);
+
+            @include mq(tablet) {
+
+                color: #ffffff;
+            }
+        }
+
+    }
     &-item {
+
         $mgr: 3%;
 
         display: inline-block;
@@ -260,14 +283,68 @@ $banner-h: 535px;
 
     max-width: 800px;
     line-height: 1.4;
+
+    padding: 0 9%;
+     @include mq(tablet) {
+        padding: 0;
+     }
+}
+
+.img-list {
+    padding-left: 0;
+
+    li {
+        $img-size: 121px;
+        $img-mg: 23px;
+        display: inline-block;
+
+        background: url(#{$img-index}/service.jpg) 0 0 no-repeat;
+        font-weight: bolder;
+        padding-top: $img-size + 26;
+        min-width: $img-size + 2;
+        margin: 0 3.2%;
+
+        @for $i from 2 through 4 {
+            &:nth-child(#{$i}) {
+                background-position: -(($img-size + $img-mg) * ($i - 1)) 0;
+            }
+        }
+        &:last-child {
+            background-position: right 0;
+        }
+    }
+}
+.service-list {
+
+    padding: 0 15%;
+
+    @include mq(tablet) {
+        padding: 0;
+    }
+
+    h4{
+
+        text-align: center;
+
+        @include mq(tablet) {
+
+            text-align: left;
+        }
+    }
 }
 .list-half {
     li {
-        float: left;
-        width: 46%;
+
+        @include mq(tablet) {
+            float: left;
+            width: 46%;
+        }
 
         &:nth-child(even) {
-            margin-left: 4%;
+
+            @include mq(tablet){
+                margin-left: 4%;
+            }
         }
     }
 }
