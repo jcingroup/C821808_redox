@@ -113,7 +113,6 @@ $banner-h: 360px;
     figcaption {
 
         position: relative;
-        width: 500px;
         padding-top: 30px;
         margin-bottom: 200px;
     }
@@ -201,6 +200,7 @@ $banner-h: 360px;
         figcaption {
 
             left: 650px;
+            width: 500px;
 
             p {
                 position: relative;
@@ -245,55 +245,95 @@ $banner-h: 360px;
     }
 
 
-    //safe
+    .safe{
 
-    .wrap {
+        .wrap {
+            
+            max-width: 800px;
+            padding: 0 0 0 30px;
 
-        img {
-            left: 100px;
+            @include mq(desktop) {
+                background-image: url("#{$img-page}/safe.gif");
+                background-repeat: no-repeat;
+                max-width: 1000px;
+            }
+
+            figcaption {
+
+                color: color(words);
+                padding: 65px 10% 0;
+
+                @include mq(desktop) {
+                    padding: 65px 0 0;
+                }
+
+                div {
+                    margin: 0 auto;
+
+                    @include mq(desktop) {
+
+                        height: 120px;
+                        margin-bottom: 68px;
+                        display: inline-flex;
+                        align-items: center;
+                        
+                    }
+
+                }
+
+                h4 {
+                    color: color(secondary);
+                    line-height: 32px;
+                    text-align: left;
+                    margin: 0;
+                    vertical-align: middle;
+
+                    @include mq(desktop) {
+                        text-align: center;
+                        color: #ffffff;
+                        display: inline-block;
+                        width: 200px;
+                    }
+                }
+
+                .h4-r{
+                    color: color(primary);
+                    margin: unset;
+
+                    @include mq(desktop) {
+                        color: #ffffff;
+                        margin-left: 183px;
+                    }
+                }
+
+                ul {
+
+                    padding: 3% 10%;
+                    
+                    @include mq(desktop) {
+                        display: inline-block;
+                        margin-left: 330px;
+                        padding: unset;
+                    }
+                }
+
+                // #test1, #test3, #test5, #test7 {
+                //     margin-left: 300px;
+                // } 
+
+                // #test2, #test4, #test6 {
+                //     margin-left: 300px;
+                // } 
+
+                #test5 {
+                    width: 350px;
+                }
+
+            }
         }
 
-        figcaption {
-
-            color: color(words);
-            left: 750px;
-
-            ul {
-                position: relative;
-            }
-
-            #test1 {
-                left: -160px;
-                margin: 55px 0 125px;
-            }
-
-            #test2 {
-                margin-bottom: 120px;
-            }
-
-            #test3 {
-                left: -160px;
-                margin-bottom: 130px;
-            }
-
-            #test4 {
-                margin-bottom: 110px;
-            }
-
-            #test5 {
-                left: -160px;
-                margin-bottom: 95px;
-            }
-
-            #test6 {
-                margin-bottom: 130px;
-            }
-
-            #test7 {
-                left: -160px;
-            }
-        }
     }
+
 
     //實驗
     .exper {
@@ -460,13 +500,18 @@ $banner-h: 360px;
 
         .inner {
 
-            max-width: 1000px;
+            max-width: 900px;
             margin-top: 80px;
         }
 
         img {
 
             margin-top: 50px;
+            max-width: 200px;
+
+            @include mq(tablet){
+                max-width: 350px;
+            }
         }
 
         article {
@@ -475,7 +520,11 @@ $banner-h: 360px;
 
             h2 {
 
-                margin: 175px 0 50px;
+                margin: 15px 0 50px;
+
+                @include mq(tablet){
+                    margin: 175px 0 50px;
+                }
             }
 
             p {
@@ -494,37 +543,67 @@ $banner-h: 360px;
         ul {
 
             list-style-type: none;
+        }
 
-            .list01 {
+        &-each {
+            position: relative;
+            height: 192px;
+            margin: 40px 0;
+            background: #FBFBFB;
+            border: 1px solid #EFEFEF; 
+            border-radius: 20px;
 
-                height: 192px;
-                width: 1200px;
-                margin: 40px 0;
+            h5 {
+                @extend .text-white;
 
-                h5 {
-                    @extend .text-white;
-
-                    width: 200px;
-                    padding-left: 90px;
-                    margin-top: 30px;
-                    vertical-align: top;
-                }
-                article {
-                    padding: 45px 0 0 15px;
-                    line-height: 1.5;
-                }
+                width: 200px;
+                padding-left: 50px;
+                margin-top: 30px;
+                vertical-align: top;
             }
+            article {
+                padding: 45px 10px 0 225px;
+                line-height: 1.5;
+            }
+        }
+        &-title {
 
-            #list01 {
+            position: absolute;
+            top:-15px;
+            background-repeat: no-repeat;
+            margin-left: 50px;
+            height: 165px;
+        }
+
+        #list01{
+
+            border-right: 30px solid color(secondary);
+
+            div {
                 background-image: url("#{$img-page}/product/list01.gif");
             }
-            #list02 {
+        }
+        #list02 {
+            
+            border-right: 30px solid #289DDA;
+            
+            div {
                 background-image: url("#{$img-page}/product/list02.gif");
             }
-            #list03 {
+        }
+        #list03 {
+            
+            border-right: 30px solid #95529C;
+            
+            div {
                 background-image: url("#{$img-page}/product/list03.gif");
             }
-            #list04 {
+        }
+        #list04 {
+            
+            border-right: 30px solid #DE4A45;
+            
+            div {
                 background-image: url("#{$img-page}/product/list04.gif");
             }
         }
@@ -782,8 +861,12 @@ $banner-h: 360px;
         background-image: url("#{$img-page}/banner-contactus.gif");
         margin-bottom: 100px;
         background-color: #F4D731;
-        background-size: unset;
+        background-size: 90%;
         background-repeat: no-repeat;
+
+        @include mq(tablet) {
+            background-size: unset;
+        }
 
         h2 {
             width: unset;
@@ -792,16 +875,23 @@ $banner-h: 360px;
 
         .title {
 
-            @extend .font-jumbo, .text-white;
+            @extend .text-white;
 
-            margin-top: 150px;
-            margin-left: 55%;
+            font-size: 40px;
+            margin-top: 60px;
+            margin-left: 50%;
 
             -moz-transform: rotate(3deg);
             -webkit-transform: rotate(3deg);
             -o-transform: rotate(3deg);
             -ms-transform: rotate(3deg);
             transform: rotate(3deg);
+
+            @include mq(tablet) {
+                font-size: 64px;
+                margin-top: 150px;
+                margin-left: 55%;
+            }
 
         }
     }
@@ -814,34 +904,55 @@ $banner-h: 360px;
 
         form {
 
-            margin: 100px 5%;
+            // margin: 100px 5%;
+            padding: 0 10px;
 
             @include mq(wide) {
 
-                margin: 100px 11%;
+
+                padding: 0;
+                margin: 100px auto;
             }
 
 
             .boxleft {
 
-                display: inline-block;
                 vertical-align: top;
 
                 .form-box {
 
-                    margin: 20px 20px 50px;
+                    margin: 30px 20px 0;
 
                     .label {
                         vertical-align: middle;
                         padding: 4px;
+                        width: 80px;
                     }
 
                     select,textarea,input {
 
-                        width: 250px;
+                        width: 100%;
                         border: color(secondary) 2px solid;
-                        padding: 4px 10px;
+                        margin-top: 10px;
+                        padding: 10px;
                         color: color(secondary);
+
+                        @include mq(wide) {
+                            width: 80%;
+                            max-width: 350px;
+                        }
+                    }
+                    input {
+
+                        @include mq(desktop) {
+                            width: 45%;
+                        }
+                    }
+                    select,textarea, {
+
+                        @include mq(desktop) {
+                            width: 80%;
+                        }
                     }
 
                     textarea {
@@ -862,14 +973,18 @@ $banner-h: 360px;
                     .none {
                         visibility: hidden;
                     }
+                    &:last-child {
+                        margin-bottom: 50px;
+                    }
                 }
 
                 .form-box-2 {
-                    display: inline-block;
-                    margin: 15px 0 0 40%;
+                    margin-top: 15px;
+                    text-align: right;
 
-                    @include mq(tablet){
+                    @include mq(desktop){
                         margin: unset;
+                        display: inline-block;
                     }
                 }
 
@@ -893,6 +1008,7 @@ $banner-h: 360px;
                         opacity: 0;
                         cursor: pointer;
                         width: unset;
+                        display: none;
 
                         &:checked~.checkmark:after {
                             display: block;
@@ -917,8 +1033,8 @@ $banner-h: 360px;
                 #robox {
 
                     border: color(secondary) 2px solid;
-                    width: 338px;
                     padding: 20px 75px;
+                    text-align: center;
                 }
 
                 .hover-underline {
@@ -1079,7 +1195,7 @@ $banner-h: 360px;
             }
 
             &-2 {
-                height: 750px;
+                height: 800px;
 
                 @include mq(tablet) {
                 width: 35%;
