@@ -1,63 +1,109 @@
-﻿@{
+﻿@using OutWeb.Models.Manage
+@using REDOXEntities.DataBase
+@using OutWeb.Repositories
+@model ListViewBase
+
+@{
     ViewBag.Title = "產品介紹";
     ViewBag.BodyClass = "Products";
     ViewBag.bannerTitle = "產品介紹";
+    Dictionary<bool, string> productInfo = TempData["ProductInfo"] as Dictionary<bool, string>;
+    string content = string.Empty;
+    if (productInfo.Any(a => a.Key))
+    {
+        content = productInfo.Count > 0 ? productInfo.Values.First() : "";
+    }
+    else
+    {
+        content = string.Empty;
+    }
+    List<PRODUCT> Data = (Model.Result.Data as List<PRODUCT>);
+    string currentUrl = PublicMethodRepository.UrlMathPath;
+    Dictionary<int, List<FileViewModel>> Files = TempData["Files"] as Dictionary<int, List<FileViewModel>>;
 }
 
 <section class="intro">
-    <article>
-    	<p>為什麼要補充RD236酵素?</p>
-    	<p>生活中的毒無所不在，如何運用身體代謝機制達到排毒的作用，是我們首要解決的問題。</p>
-    	<p>現在的人生活快節奏，工作壓力大，三餐老是在外，油膩、蔬果攝取不足，</p>
-    	<p>再加上污染的環境和不安全的食材充斥著我們的生活，過度的食用容易造成毒素累積，</p>
-    	<p>引起各種身體不適及其他相關問題，因此研究指出，適當補充天然萃取的RD236酵素</p>
-    	<p>能幫助我們主動排毒，健康排毒。</p>
-    </article>
+    @Html.Raw(content)
+
+    @*<article>
+            <p>為什麼要補充RD236酵素?</p>
+            <p>生活中的毒無所不在，如何運用身體代謝機制達到排毒的作用，是我們首要解決的問題。</p>
+            <p>現在的人生活快節奏，工作壓力大，三餐老是在外，油膩、蔬果攝取不足，</p>
+            <p>再加上污染的環境和不安全的食材充斥著我們的生活，過度的食用容易造成毒素累積，</p>
+            <p>引起各種身體不適及其他相關問題，因此研究指出，適當補充天然萃取的RD236酵素</p>
+            <p>能幫助我們主動排毒，健康排毒。</p>
+        </article>*@
 </section>
 
 <section class="products">
     <div class="wrap">
 
-		<!-- 套程式-產品管理 -->
+        @foreach (var data in Data)
+        {
+            string fileUrl = string.Empty;
+            string imgAlt = string.Empty;
+            var file = Files.Where(s => s.Key == data.ID).First().Value.FirstOrDefault();
+            if (file == null)
+            {
+                fileUrl = @"";
+            }
+            else
+            {
+                fileUrl = currentUrl + "/" + file.FileUrl;
+                imgAlt = data.TITLE;
+            }
 
-    	<figure class="card text-left pull-left">
-    		<a class="full-link" href="~/Products/Content"></a>
-            
-            <div  class="img pull-left">
-            	<img src="~/Content/images/page/product01.jpg" alt="順便有酵 阿勃勒酵素軟糖">
-            </div>
-            
-            <figcaption  class="pull-left">
+            <figure class="card  text-left pull-left">
+                <a class="full-link" href="@Url.Content("~/Products/Content?ID=" + data.ID)" />
+                <div class="img pull-left">
+                    @if (file != null)
+                    {
+                        <img src="@fileUrl" alt="@imgAlt">
+                    }
+                </div>
+                <figcaption class="pull-left">
+                    <h5>@data.TITLE</h5>
+                    <h5>@data.SPEC</h5>
+                </figcaption>
+            </figure>
+        }
+        <!-- 套程式-產品管理 -->
+        @*<figure class="card text-left pull-left">
+                <a class="full-link" href="~/Products/Content"></a>
 
-                <h5>
+                <div class="img pull-left">
+                    <img src="~/Content/images/page/product01.jpg" alt="順便有酵 阿勃勒酵素軟糖">
+                </div>
 
-                <!-- 產品名稱 -->
+                <figcaption class="pull-left">
 
-                順便有酵 阿勃勒酵素軟糖
+                    <h5>
 
-            	</h5>
+                        <!-- 產品名稱 -->
+                        順便有酵 阿勃勒酵素軟糖
 
-                <h5>
+                    </h5>
 
-                <!-- 規格 -->
+                    <h5>
 
-                60粒
+                        <!-- 規格 -->
+                        60粒
 
-            	</h5>
+                    </h5>
 
-            </figcaption>
-        </figure>
-		
-        <figure class="card  text-left pull-left">
-        	<a class="full-link" href="~/Products/Content"></a>
-            <div  class="img pull-left">
-            	<img src="~/Content/images/page/product02.jpg" alt="順便有酵 阿勃勒酵素軟糖">
-            </div>
-            <figcaption class="pull-left">
-                <h5>順便有酵 阿勃勒酵素軟糖</h5>
-                <h5>18粒</h5>
-            </figcaption>
-        </figure>
+                </figcaption>
+            </figure>
+
+            <figure class="card  text-left pull-left">
+                <a class="full-link" href="~/Products/Content"></a>
+                <div class="img pull-left">
+                    <img src="~/Content/images/page/product02.jpg" alt="順便有酵 阿勃勒酵素軟糖">
+                </div>
+                <figcaption class="pull-left">
+                    <h5>順便有酵 阿勃勒酵素軟糖</h5>
+                    <h5>18粒</h5>
+                </figcaption>
+            </figure>*@
 
     </div>
 </section>
@@ -66,36 +112,36 @@
 
     <div class="wrap">
 
-	    <img src="~/Content/images/page/5p.gif">
-		
-		<figcaption class="text-left">
-			<div id="p1">
-				<h5>品質</h5>
-		    	<p>產品經過SGS安全性評估、容器檢測、微生物檢測、原料檢驗、半成品檢驗、出廠檢驗等多項檢驗的把關。</p>
-	    	</div>
+        <img src="~/Content/images/page/5p.gif">
 
-	    	<div id="p2">
-				<h5>專業</h5>
-		    	<p>經美國毒理學會DABT毒理學家，嚴選國家級原料，以專利萃取技術，精萃具功能驗證及製程改良之健康無毒產品。</p>
-	    	</div>
+        <figcaption class="text-left">
+            <div id="p1">
+                <h5>品質</h5>
+                <p>產品經過SGS安全性評估、容器檢測、微生物檢測、原料檢驗、半成品檢驗、出廠檢驗等多項檢驗的把關。</p>
+            </div>
 
-	    	<div id="p3">
-				<h5>信賴</h5>
-		    	<p>由美國毒理學會DABT毒理學家，領導跨領域之研發團隊，採用美國FDA藥物研發等級之製作流程，讓產品不僅更有效，並且更安全性。</p>
-	    	</div>
+            <div id="p2">
+                <h5>專業</h5>
+                <p>經美國毒理學會DABT毒理學家，嚴選國家級原料，以專利萃取技術，精萃具功能驗證及製程改良之健康無毒產品。</p>
+            </div>
 
-	    	<div id="p4">
-				<h5>透明</h5>
-		    	<p>我們大膽揭露成份內容與配方架構，讓消費者一目了然，買的安心，吃的健康。</p>
-	    	</div>
+            <div id="p3">
+                <h5>信賴</h5>
+                <p>由美國毒理學會DABT毒理學家，領導跨領域之研發團隊，採用美國FDA藥物研發等級之製作流程，讓產品不僅更有效，並且更安全性。</p>
+            </div>
 
-	    	<div id="p5">
-				<h5>愛台灣</h5>
-		    	<p>MIT永續經營，採國外進口原料與器材在台檢驗製造。</p>
-	    	</div>
+            <div id="p4">
+                <h5>透明</h5>
+                <p>我們大膽揭露成份內容與配方架構，讓消費者一目了然，買的安心，吃的健康。</p>
+            </div>
 
-	    </figcaption>
+            <div id="p5">
+                <h5>愛台灣</h5>
+                <p>MIT永續經營，採國外進口原料與器材在台檢驗製造。</p>
+            </div>
 
-	</div>
+        </figcaption>
+
+    </div>
 
 </section>

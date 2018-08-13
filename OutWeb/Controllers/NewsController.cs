@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace OutWeb.Controllers
 {
-    public class NewsController : WebUserController
+    public class NewsController : Controller
     {
         public NewsController()
         {

@@ -60,7 +60,18 @@ namespace OutWeb.Module.Manage
         public override object DoGetDetailsByID(int ID)
         {
             NewsDetailsDataModel result = new NewsDetailsDataModel();
-            NEWS data = DB.NEWS.Where(w => w.ID == ID).FirstOrDefault();
+            NEWS data = null;
+
+            if (PublicMethodRepository.CurrentMode == SiteMode.FronEnd)
+            {
+                data = DB.NEWS.Where(w => w.ID == ID && !w.DISABLE && w.HOME_PAGE_DISPLAY).FirstOrDefault();
+            }
+            else
+            {
+                data = DB.NEWS.Where(w => w.ID == ID).FirstOrDefault();
+            }
+
+
             PublicMethodRepository.HtmlDecode(data);
             result.Data = data;
             return result;

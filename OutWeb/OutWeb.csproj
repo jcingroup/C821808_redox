@@ -1603,7 +1603,6 @@
     <Content Include="Views\_SysAdm\_NewsDataPartial.cshtml" />
     <Content Include="Views\_SysAdm\ProductsAdd.cshtml" />
     <Content Include="Views\_SysAdm\_ProductDataPartial.cshtml" />
-    <Content Include="Views\Products\Content - 複製.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

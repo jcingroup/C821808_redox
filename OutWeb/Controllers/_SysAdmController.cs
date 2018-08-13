@@ -156,7 +156,7 @@ namespace OutWeb.Controllers
         {
             var mdu = new ProductsModule<ListFilterBase, PRODUCT>();
             var acName = mdu.SaveProductInfo(form);
-            return RedirectToAction(acName);
+            return RedirectToAction("ProductsInfo");
         }
 
         #region Product
