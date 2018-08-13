@@ -1,87 +1,120 @@
-﻿
+﻿@using OutWeb.Models.Manage
+@using REDOXEntities.DataBase
+@using OutWeb.Repositories
+@model ListViewBase
 @{
     ViewBag.Title = "最新消息";
     ViewBag.BodyClass = "List";
     ViewBag.bannerTitle = "最新消息";
+    List<NEWS> Data = (Model.Result.Data as List<NEWS>);
+    string currentUrl = PublicMethodRepository.UrlMathPath;
+    Dictionary<int, List<FileViewModel>> Files = TempData["Files"] as Dictionary<int, List<FileViewModel>>;
 }
 
 <section class="news-list py-48">
     <div class="wrap">
 
         <!-- 套程式-最新消息 (每頁最多顯示9筆資料、最多顯示60字 + ... 呈現) -->
+        @foreach (var data in Data)
+        {
+            string fileUrl = string.Empty;
+            string imgAlt = string.Empty;
+            var file = Files.Where(s => s.Key == data.ID).First().Value.FirstOrDefault();
+            if (file == null)
+            {
+                fileUrl = @"";
+            }
+            else
+            {
+                fileUrl = currentUrl + "/" + file.FileUrl;
+                imgAlt = data.TITLE;
+            }
 
-        <figure class="card news-item">
-            <img src="~/Content/images/index/news.jpg">
-            <figcaption>
-                <span class="date">2018-06-13</span>
-                <h5 class="text-left text-primary">台灣力推魅力10島</h5>
-                <p class="text-left">台灣有豐富的海洋自然資源及人文景觀，交通部觀光局為呼應全球永續觀光發暫趨勢，挑選出10大魅力島嶼，包括龜山島、綠島、蘭嶼...</p>
-                <a href="~/News/Content" class="more font-xl b">閱讀更多</a>
-            </figcaption>
-        </figure>
 
-        <figure class="card news-item">
-            <img src="~/Content/images/index/news2.jpg">
-            <figcaption>
-                <span class="date">2018-06-13</span>
-                <h5 class="text-left text-primary">前進花東</h5>
-                <p class="text-left">為拓展花東地區國際觀光市場，交通部觀光局金(13)日於臺北火車站1樓多功能展演區舉辦「前進花東 好遊創意行銷啟航」記者會，宣告繼觀...</p>
-                <a href="~/News/Content" class="more font-xl b">閱讀更多</a>
-            </figcaption>
-        </figure>
+            <figure class="card news-item">
+                @if (file != null)
+                {
+                    <img src="@fileUrl" alt="@imgAlt">
+                }
 
-        <figure class="card news-item">
-            <img src="~/Content/images/index/news3.jpg">
-            <figcaption>
-                <span class="date">2018-06-13</span>
-                <h5 class="text-left text-primary">台灣力推魅力10島</h5>
-                <p class="text-left">台灣有豐富的海洋自然資源及人文景觀，交通部觀光局為呼應全球永續觀光發暫趨勢，挑選出10大魅力島嶼，包括龜山島、綠島、蘭嶼...</p>
-                <a href="~/News/Content" class="more font-xl b">閱讀更多</a>
-            </figcaption>
-        </figure>
+                <figcaption>
+                    <span class="date">@data.PUB_DT_STR</span>
+                    <h5 class="text-left text-primary">@data.TITLE</h5>
+                    <p class="text-left">@data.CONTENT</p>
+                    <a class="more font-xl b" href="@Url.Content("~/News/Content?ID=" + data.ID)">閱讀更多</a>
+                </figcaption>
+            </figure>
 
-        <figure class="card news-item">
-            <img src="~/Content/images/index/news.jpg">
-            <figcaption>
-                <span class="date">2018-06-13</span>
-                <h5 class="text-left text-primary">台灣力推魅力10島</h5>
-                <p class="text-left">台灣有豐富的海洋自然資源及人文景觀，交通部觀光局為呼應全球永續觀光發暫趨勢，挑選出10大魅力島嶼，包括龜山島、綠島、蘭嶼...</p>
-                <a href="~/News/Content" class="more font-xl b">閱讀更多</a>
-            </figcaption>
-        </figure>
+        }
 
-        <figure class="card news-item">
-            <img src="~/Content/images/index/news2.jpg">
-            <figcaption>
-                <span class="date">2018-06-13</span>
-                <h5 class="text-left text-primary">前進花東</h5>
-                <p class="text-left">為拓展花東地區國際觀光市場，交通部觀光局金(13)日於臺北火車站1樓多功能展演區舉辦「前進花東 好遊創意行銷啟航」記者會，宣告繼觀...</p>
-                <a href="~/News/Content" class="more font-xl b">閱讀更多</a>
-            </figcaption>
-        </figure>
+        @*<figure class="card news-item">
+                <img src="~/Content/images/index/news.jpg">
+                <figcaption>
+                    <span class="date">2018-06-13</span>
+                    <h5 class="text-left text-primary">台灣力推魅力10島</h5>
+                    <p class="text-left">台灣有豐富的海洋自然資源及人文景觀，交通部觀光局為呼應全球永續觀光發暫趨勢，挑選出10大魅力島嶼，包括龜山島、綠島、蘭嶼...</p>
+                    <a href="~/News/Content" class="more font-xl b">閱讀更多</a>
+                </figcaption>
+            </figure>
 
-        <figure class="card news-item">
-            <img src="~/Content/images/index/news3.jpg">
-            <figcaption>
-                <span class="date">2018-06-13</span>
-                <h5 class="text-left text-primary">台灣力推魅力10島</h5>
-                <p class="text-left">台灣有豐富的海洋自然資源及人文景觀，交通部觀光局為呼應全球永續觀光發暫趨勢，挑選出10大魅力島嶼，包括龜山島、綠島、蘭嶼...</p>
-                <a href="~/News/Content" class="more font-xl b">閱讀更多</a>
-            </figcaption>
-        </figure>
+            <figure class="card news-item">
+                <img src="~/Content/images/index/news2.jpg">
+                <figcaption>
+                    <span class="date">2018-06-13</span>
+                    <h5 class="text-left text-primary">前進花東</h5>
+                    <p class="text-left">為拓展花東地區國際觀光市場，交通部觀光局金(13)日於臺北火車站1樓多功能展演區舉辦「前進花東 好遊創意行銷啟航」記者會，宣告繼觀...</p>
+                    <a href="~/News/Content" class="more font-xl b">閱讀更多</a>
+                </figcaption>
+            </figure>
 
+            <figure class="card news-item">
+                <img src="~/Content/images/index/news3.jpg">
+                <figcaption>
+                    <span class="date">2018-06-13</span>
+                    <h5 class="text-left text-primary">台灣力推魅力10島</h5>
+                    <p class="text-left">台灣有豐富的海洋自然資源及人文景觀，交通部觀光局為呼應全球永續觀光發暫趨勢，挑選出10大魅力島嶼，包括龜山島、綠島、蘭嶼...</p>
+                    <a href="~/News/Content" class="more font-xl b">閱讀更多</a>
+                </figcaption>
+            </figure>
+
+            <figure class="card news-item">
+                <img src="~/Content/images/index/news.jpg">
+                <figcaption>
+                    <span class="date">2018-06-13</span>
+                    <h5 class="text-left text-primary">台灣力推魅力10島</h5>
+                    <p class="text-left">台灣有豐富的海洋自然資源及人文景觀，交通部觀光局為呼應全球永續觀光發暫趨勢，挑選出10大魅力島嶼，包括龜山島、綠島、蘭嶼...</p>
+                    <a href="~/News/Content" class="more font-xl b">閱讀更多</a>
+                </figcaption>
+            </figure>
+
+            <figure class="card news-item">
+                <img src="~/Content/images/index/news2.jpg">
+                <figcaption>
+                    <span class="date">2018-06-13</span>
+                    <h5 class="text-left text-primary">前進花東</h5>
+                    <p class="text-left">為拓展花東地區國際觀光市場，交通部觀光局金(13)日於臺北火車站1樓多功能展演區舉辦「前進花東 好遊創意行銷啟航」記者會，宣告繼觀...</p>
+                    <a href="~/News/Content" class="more font-xl b">閱讀更多</a>
+                </figcaption>
+            </figure>
+
+            <figure class="card news-item">
+                <img src="~/Content/images/index/news3.jpg">
+                <figcaption>
+                    <span class="date">2018-06-13</span>
+                    <h5 class="text-left text-primary">台灣力推魅力10島</h5>
+                    <p class="text-left">台灣有豐富的海洋自然資源及人文景觀，交通部觀光局為呼應全球永續觀光發暫趨勢，挑選出10大魅力島嶼，包括龜山島、綠島、蘭嶼...</p>
+                    <a href="~/News/Content" class="more font-xl b">閱讀更多</a>
+                </figcaption>
+            </figure>*@
     </div>
 </section>
-
 
 <!--目前不用這個功能
     部落格頁面切換效果：https://www.wfublog.com/2014/11/blogger-number-page-navigation.html
 -->
-
 <!--
-    
-<section class="blog-pager" id="blog-pager">
 
+<section class="blog-pager" id="blog-pager">
 
     <span class="showPageOf">Page 1 of 16</span>
     <span class="pagecurrent">1</span>
@@ -102,5 +135,3 @@
         <a href="javascript:" onclick="pageNav.redirect(16)">Last</a>
     </span>
 </section> -->
-
-

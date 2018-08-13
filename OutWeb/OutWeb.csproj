@@ -199,10 +199,12 @@
     <Compile Include="Enums\ModelInitProperty.cs" />
     <Compile Include="Expansion\Datetime\DatetimeProcess.cs" />
     <Compile Include="Expansion\Exception\AppExceptionHandler.cs" />
+    <Compile Include="Expansion\StringProcess\StringHandler.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Inc\DotWeb.cs" />
+    <Compile Include="Models\Front\HomeDataModel.cs" />
     <Compile Include="Models\IPaginationModel.cs" />
     <Compile Include="Models\Manage\BaseModels\ListFilterBase.cs" />
     <Compile Include="Models\Manage\BaseModels\ListResultBase.cs" />
@@ -1596,6 +1598,7 @@
     <Content Include="Views\_SysAdm\_NewsDataPartial.cshtml" />
     <Content Include="Views\_SysAdm\ProductsAdd.cshtml" />
     <Content Include="Views\_SysAdm\_ProductDataPartial.cshtml" />
+    <Content Include="Views\Products\Content - 複製.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

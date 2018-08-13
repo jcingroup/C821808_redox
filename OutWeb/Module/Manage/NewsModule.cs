@@ -102,7 +102,8 @@ namespace OutWeb.Module.Manage
                 data = this.DoListSort(filterModel.SortColumn, filterModel.Status, data);
 
                 //分頁
-                data = this.DoListPageList(filterModel.CurrentPage, data, out PaginationResult pagination);
+                bool isDoPage = PublicMethodRepository.CurrentMode == SiteMode.Back ? true : false;
+                data = this.DoListPageList(filterModel.CurrentPage, data, out PaginationResult pagination, isDoPage);
                 result.Pagination = pagination;
                 foreach (var d in data)
                     PublicMethodRepository.HtmlDecode(d);

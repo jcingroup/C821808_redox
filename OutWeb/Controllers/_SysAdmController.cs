@@ -7,6 +7,7 @@ using OutWeb.Models.Manage.ManageNewsModels;
 using OutWeb.Models.Manage.ManageProductModels;
 using OutWeb.Module.Manage;
 using OutWeb.Modules.Manage;
+using OutWeb.Repositories;
 using OutWeb.Service;
 using REDOXEntities.DataBase;
 using System;
@@ -22,6 +23,11 @@ namespace OutWeb.Controllers
     [CheckFolder]
     public class _SysAdmController : WebUserController
     {
+        public _SysAdmController()
+        {
+            PublicMethodRepository.CurrentMode = SiteMode.Back;
+        }
+
         // GET: _SysAdm
         public ActionResult Index()
         {
@@ -157,6 +163,7 @@ namespace OutWeb.Controllers
 
         public ActionResult ProductsList(int? page, string qry, string sort, string fSt, string pSdate, string pEdate)
         {
+            PublicMethodRepository.CurrentMode = SiteMode.Back;
             ListViewBase model = new ListViewBase();
             model.Filter.CurrentPage = page ?? 1;
             model.Filter.QueryString = qry ?? string.Empty;

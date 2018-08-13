@@ -11,7 +11,6 @@ namespace OutWeb.Inc
             ViewBag.IsFirstPage = false; //預設為false
             PublicMethodRepository.CurrentMode = SiteMode.Back;
             PublicMethodRepository.ListPageSize = (int)PageSizeConfig.SIZE10;
-
         }
 
     }

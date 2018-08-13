@@ -1,4 +1,23 @@
-﻿@{
+﻿@using OutWeb.Expansion.StringProcess
+@using OutWeb.Models.Manage
+@using REDOXEntities.DataBase
+@using OutWeb.Repositories
+@using OutWeb.Models.Front
+@model HomeDataModel
+
+@{
+    ViewBag.Title = "產品介紹";
+    ViewBag.BodyClass = "Products";
+    ViewBag.bannerTitle = "產品介紹";
+    List<PRODUCT> ProductsData = (Model.Result["Products"].Result.Data as List<PRODUCT>);
+    List<NEWS> NewsData = (Model.Result["News"].Result.Data as List<NEWS>);
+
+    Dictionary<int, List<FileViewModel>> ProductFiles = TempData["ProductFiles"] as Dictionary<int, List<FileViewModel>>;
+    Dictionary<int, List<FileViewModel>> NewstFiles = TempData["NewstFiles"] as Dictionary<int, List<FileViewModel>>;
+    string currentUrl = PublicMethodRepository.UrlMathPath;
+
+}
+@{
     ViewBag.Title = "首頁";
 }
 
@@ -77,41 +96,76 @@
     <div class="wrap">
         <h2 class="title col-md-5 text-white mt-0">產品介紹</h2>
 
-        <!--    套程式-產品介紹    -->
-        <figure class="card">
+        @foreach (var data in ProductsData)
+        {
+            string fileUrl = string.Empty;
+            string imgAlt = string.Empty;
+            var file = ProductFiles.Where(s => s.Key == data.ID).First().Value.FirstOrDefault();
+            if (file == null)
+            {
+                fileUrl = @"";
+            }
+            else
+            {
+                fileUrl = currentUrl + "/" + file.FileUrl;
+                imgAlt = data.TITLE;
+            }
 
-            <!--產品圖-->
-            <img src="~/Content/images/index/product.jpg" alt="RD236消化軟糖">
+            <figure class="card">
+                @if (file != null)
+                {
+                    <img src="@fileUrl" alt="@imgAlt">
+                }
 
-            <figcaption class="text-primary">
+                <figcaption class="text-primary">
+                    <h5 class="text-left b  font-xl">@data.TITLE</h5>
 
-                <!--產品名稱-->
-                <h5 class="text-left b  font-xl">順便有酵 阿勃勒酵素軟糖</h5>
+                    <span style="white-space: pre-line">@data.HOME_INFO</span>
 
-                <ul class="text-left">
+                    @*<ul class="text-left">
+                        <li>促進新陳代謝，維持健康</li>
+                        <li>改變細菌欉生態，幫助消化</li>
+                        <li>維持消化道機能，使排便順暢</li>
+                        </ul>*@
+                    <a class="btn more" href="@Url.Content("~/Products/Content?ID=" + data.ID)">了解更多</a>
+                </figcaption>
+            </figure>
+        }
 
-                    <!--首頁專用資訊-->
-                    <li>促進新陳代謝，維持健康</li>
-                    <li>改變細菌欉生態，幫助消化</li>
-                    <li>維持消化道機能，使排便順暢</li>
-                </ul>
+        <!--    套程式-產品介紹    2則-->
+        @* <figure class="card">
+                        <!--產品圖-->
+                        <!--產品圖-->
+                        <img src="~/Content/images/index/product.jpg" alt="RD236消化軟糖">
 
-                <a href="~/Products/Content" class="btn more">了解更多</a>
-            </figcaption>
-        </figure>
+                        <figcaption class="text-primary">
 
-        <figure class="card">
-            <img src="~/Content/images/index/product2.jpg" alt="RD236消化軟糖">
-            <figcaption class="text-primary">
-                <h5 class="text-left b  font-xl">順便有酵 阿勃勒酵素軟糖</h5>
-                <ul class="text-left">
-                    <li>促進新陳代謝，維持健康</li>
-                    <li>改變細菌欉生態，幫助消化</li>
-                    <li>維持消化道機能，使排便順暢</li>
-                </ul>
-                <a href="~/Products/Content" class="btn more">了解更多</a>
-            </figcaption>
-        </figure>
+                            <!--產品名稱-->
+                            <h5 class="text-left b  font-xl">順便有酵 阿勃勒酵素軟糖</h5>
+
+                            <ul class="text-left">
+
+                                <!--首頁專用資訊-->
+                                <li>促進新陳代謝，維持健康</li>
+                                <li>改變細菌欉生態，幫助消化</li>
+                                <li>維持消化道機能，使排便順暢</li>
+                            </ul>
+
+                            <a href="~/Products/Content" class="btn more">了解更多</a>
+                        </figcaption>
+                    </figure>
+            <figure class="card">
+                            <img src="~/Content/images/index/product2.jpg" alt="RD236消化軟糖">
+                            <figcaption class="text-primary">
+                                <h5 class="text-left b  font-xl">順便有酵 阿勃勒酵素軟糖</h5>
+                                <ul class="text-left">
+                                    <li>促進新陳代謝，維持健康</li>
+                                    <li>改變細菌欉生態，幫助消化</li>
+                                    <li>維持消化道機能，使排便順暢</li>
+                                </ul>
+                                <a href="~/Products/Content" class="btn more">了解更多</a>
+                            </figcaption>
+                        </figure>*@
     </div>
 </section>
 
@@ -130,53 +184,81 @@
     <div class="wrap">
         <h2 class="title mt-0">最新消息</h2>
 
+        <!--    套程式-最新消息    3則-->
 
-        <!--    套程式-最新消息    -->
+        @foreach (var data in NewsData)
+        {
+            string fileUrl = string.Empty;
+            string imgAlt = string.Empty;
+            var file = NewstFiles.Where(s => s.Key == data.ID).First().Value.FirstOrDefault();
+            if (file == null)
+            {
+                fileUrl = @"";
+            }
+            else
+            {
+                fileUrl = currentUrl + "/" + file.FileUrl;
+                imgAlt = data.TITLE;
+            }
+            <figure class="card news-item">
+                @if (file != null)
+                {
+                    <img src="@fileUrl" alt="@imgAlt">
+                }
 
-        <figure class="card news-item">
+                <figcaption>
+                    <span class="date">@data.PUB_DT_STR</span>
+                    <h5 class="text-left text-primary">@data.TITLE</h5>
+                    <p class="text-left">@data.CONTENT</p>
+                    <a class="more font-xl b" href="@Url.Content("~/News/Content?ID=" + data.ID)">閱讀更多</a>
+                </figcaption>
+            </figure>
 
-            <!--    列表圖    -->
+        }
 
-            <img src="~/Content/images/index/news.jpg">
+        @*<figure class="card news-item">
 
-            <figcaption>
+                <!--    列表圖    -->
 
-                <!--    發稿時間    -->
+                <img src="~/Content/images/index/news.jpg">
 
-                <span class="date">2018-06-13</span>
+                <figcaption>
 
-                <!--    標題    -->
+                    <!--    發稿時間    -->
 
-                <h5 class="text-left text-primary">台灣力推魅力10島</h5>
+                    <span class="date">2018-06-13</span>
 
-                <!--    編輯器文字內容 最多顯示60字 + ... 呈現    -->
+                    <!--    標題    -->
 
-                <p class="text-left">台灣有豐富的海洋自然資源及人文景觀，交通部觀光局為呼應全球永續觀光發暫趨勢，挑選出10大魅力島嶼，包括龜山島、綠島、蘭嶼...</p>
+                    <h5 class="text-left text-primary">台灣力推魅力10島</h5>
 
-                <a href="~/News/Content" class="more font-xl b">閱讀更多</a>
+                    <!--    編輯器文字內容 最多顯示60字 + ... 呈現    -->
 
-            </figcaption>
-        </figure>
+                    <p class="text-left">台灣有豐富的海洋自然資源及人文景觀，交通部觀光局為呼應全球永續觀光發暫趨勢，挑選出10大魅力島嶼，包括龜山島、綠島、蘭嶼...</p>
 
-        <figure class="card news-item">
-            <img src="~/Content/images/index/news2.jpg">
-            <figcaption>
-                <span class="date">2018-06-13</span>
-                <h5 class="text-left text-primary">前進花東</h5>
-                <p class="text-left">為拓展花東地區國際觀光市場，交通部觀光局金(13)日於臺北火車站1樓多功能展演區舉辦「前進花東 好遊創意行銷啟航」記者會，宣告繼觀...</p>
-                <a href="~/News/Content" class="more font-xl b">閱讀更多</a>
-            </figcaption>
-        </figure>
+                    <a href="~/News/Content" class="more font-xl b">閱讀更多</a>
+                </figcaption>
+            </figure>
 
-        <figure class="card news-item">
-            <img src="~/Content/images/index/news3.jpg">
-            <figcaption>
-                <span class="date">2018-06-13</span>
-                <h5 class="text-left text-primary">台灣力推魅力10島</h5>
-                <p class="text-left">台灣有豐富的海洋自然資源及人文景觀，交通部觀光局為呼應全球永續觀光發暫趨勢，挑選出10大魅力島嶼，包括龜山島、綠島、蘭嶼...</p>
-                <a href="~/News/Content" class="more font-xl b">閱讀更多</a>
-            </figcaption>
-        </figure>
+            <figure class="card news-item">
+                <img src="~/Content/images/index/news2.jpg">
+                <figcaption>
+                    <span class="date">2018-06-13</span>
+                    <h5 class="text-left text-primary">前進花東</h5>
+                    <p class="text-left">為拓展花東地區國際觀光市場，交通部觀光局金(13)日於臺北火車站1樓多功能展演區舉辦「前進花東 好遊創意行銷啟航」記者會，宣告繼觀...</p>
+                    <a href="~/News/Content" class="more font-xl b">閱讀更多</a>
+                </figcaption>
+            </figure>
+
+            <figure class="card news-item">
+                <img src="~/Content/images/index/news3.jpg">
+                <figcaption>
+                    <span class="date">2018-06-13</span>
+                    <h5 class="text-left text-primary">台灣力推魅力10島</h5>
+                    <p class="text-left">台灣有豐富的海洋自然資源及人文景觀，交通部觀光局為呼應全球永續觀光發暫趨勢，挑選出10大魅力島嶼，包括龜山島、綠島、蘭嶼...</p>
+                    <a href="~/News/Content" class="more font-xl b">閱讀更多</a>
+                </figcaption>
+            </figure>*@
     </div>
 </section>
 
@@ -226,4 +308,3 @@
         </article>
     </div>
 </section>
-

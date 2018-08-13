@@ -124,7 +124,8 @@ namespace OutWeb.Module.Manage
                 data = this.DoListSort(filterModel.SortColumn, filterModel.Status, data);
 
                 //分頁
-                data = this.DoListPageList(filterModel.CurrentPage, data, out PaginationResult pagination);
+                bool isDoPage = PublicMethodRepository.CurrentMode == SiteMode.FronEnd ? false : true;
+                data = this.DoListPageList(filterModel.CurrentPage, data, out PaginationResult pagination, isDoPage);
                 result.Pagination = pagination;
                 foreach (var d in data)
                     PublicMethodRepository.HtmlDecode(d);
@@ -246,7 +247,15 @@ namespace OutWeb.Module.Manage
         public override object DoGetDetailsByID(int ID)
         {
             ProductDetailsDataModel result = new ProductDetailsDataModel();
-            PRODUCT data = DB.PRODUCT.Where(w => w.ID == ID).FirstOrDefault();
+            PRODUCT data = new PRODUCT();
+            if (PublicMethodRepository.CurrentMode == SiteMode.FronEnd)
+            {
+                data = DB.PRODUCT.Where(w => w.ID == ID && !w.DISABLE && w.HOME_PAGE_DISPLAY).FirstOrDefault();
+            }
+            else
+            {
+                data = DB.PRODUCT.Where(w => w.ID == ID).FirstOrDefault();
+            }
             PublicMethodRepository.HtmlDecode(data);
             result.Data = data;
             return result;
@@ -367,7 +376,7 @@ namespace OutWeb.Module.Manage
                 case "sortIndex/desc":
                     data = data.OrderByDescending(o => o.SQ).ThenBy(g => g.SQ).ToList();
                     break;
-                    
+
                 default:
                     data = data.OrderByDescending(o => o.SQ).ThenByDescending(g => g.BUD_DT).ToList();
                     break;
