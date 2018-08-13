@@ -103,7 +103,6 @@ $banner-h: 360px;
 .safe .wrap {
 
     position: relative;
-    padding: 0 60px;
 
     img {
         position: absolute;
@@ -113,7 +112,6 @@ $banner-h: 360px;
     figcaption {
 
         position: relative;
-        padding-top: 30px;
         margin-bottom: 200px;
     }
 }
@@ -191,44 +189,178 @@ $banner-h: 360px;
     // == 五大保證
     .fivetop .wrap {
 
-        margin-top: 250px;
+        margin-top: 100px;
+        padding: 0 5%;
+
+        @include mq(phone) {
+            padding: 0 60px;
+        }
+        @include mq(desktop) {
+            margin-top: 250px;
+            padding: 0 0 0 60px;
+        }
 
         img {
-            left: 0;
+            display: none;
+            @include mq(desktop) {
+                display: block;
+                left: 0;
+            }
         }
 
         figcaption {
+            position: relative;
+            padding-top: 40px;
 
-            left: 650px;
-            width: 500px;
+            div {
+                
+                padding:30px 0;
+                border-bottom: #757575 1px solid;
+
+                @include mq(mobile) {
+                    padding: unset;
+                }
+
+                @include mq(desktop) {
+                    height: 50px;
+                    border-bottom: none;
+                }
+
+
+                @for $i from 1 through 5 {
+
+                    &:nth-child(#{$i}) {
+                        h5 {
+
+                            background-image: url("#{$img-page}/product/5p-#{$i}.gif");
+
+                            @include mq(desktop) {
+                                background-image: none;
+                            }
+                        }
+                    }
+                }
+            }
+
+
+            h5 {
+
+                background-repeat: no-repeat;
+                background-position: center 10px;
+
+                font-size: 20px;
+                padding: 70px 0 30px;
+                text-align: center;
+                display: block;
+                margin: 0;
+                vertical-align: middle;
+                width: 100%;
+
+                @include mq(mobile) {
+                    display: inline-block;
+                    width: 15%;
+                    border-right: #757575 1px solid;
+                }
+
+                @include mq(desktop) {
+                    background: none;
+                    text-align: right;
+                    font-size: 32px;
+                    padding: unset;
+                    width: unset;
+                    border-right: unset;
+                }
+            }
 
             p {
-                position: relative;
+                vertical-align: middle;
                 color: color(words);
+                padding:0 5%;
+
+                @include mq(mobile) {
+                    display: inline-block;
+                    padding-left: 20px;
+                }
+            }
+
+            #p2, #p3, #p4, #p5 {
+                p {
+                    width: 100%;
+                    @include mq(mobile) {
+                        width: 75%;
+                    }
+                }
             }
 
             #p1 {
-                left: -130px;
-                margin-bottom: 90px;
+
+                @include mq(desktop) {
+                    margin-left: 430px;
+                    margin-bottom: 60px;
+                }
+
+                @include mq(wide) {
+                    margin-bottom: 70px;
+                }
+
+                h5 {
+                    color: #E50012;
+                }
+
+                p{
+                    width: 100%;
+                    @include mq(mobile) {
+                        width: 80%;
+                    }
+                }
+
             }
 
             #p2 {
-                left: -15px;
-                margin-bottom: 125px;
+
+                @include mq(desktop) {
+                    margin-left: 540px;
+                    margin-bottom: 110px;
+                }
+
+                h5 {
+                    color: #5F1985;
+                }
             }
 
             #p3 {
-                left: 25px;
-                margin-bottom: 125px;
+
+                @include mq(desktop) {
+                    margin-left: 590px;
+                    margin-bottom: 130px;
+                }
+
+                h5 {
+                    color: #036EB7;
+                }
             }
 
             #p4 {
-                left: -15px;
-                margin-bottom: 95px;
+
+                @include mq(desktop) {
+                    margin-left: 540px;
+                    margin-bottom: 70px;
+                }
+
+                h5 {
+                    color: #00913A;
+                }
             }
 
             #p5 {
-                left: -90px;
+
+                @include mq(desktop) {
+                    margin-left: 430px;
+                }
+
+                h5 {
+                    color: #E50012;
+                }
             }
         }
     }
@@ -247,6 +379,13 @@ $banner-h: 360px;
 
     .safe{
 
+
+        h2:after {
+            content:" ";
+            border-bottom: color(secondary) 5px solid;
+            margin:0 auto;
+        }
+
         .wrap {
             
             max-width: 800px;
@@ -262,6 +401,10 @@ $banner-h: 360px;
 
                 color: color(words);
                 padding: 65px 10% 0;
+
+                @include mq(tablet) {
+                    padding: 65px 20% 0;
+                }
 
                 @include mq(desktop) {
                     padding: 65px 0 0;
@@ -288,11 +431,24 @@ $banner-h: 360px;
                     margin: 0;
                     vertical-align: middle;
 
+                    &:before {
+                        content:"●";
+                        @include mq(desktop) {
+                            content:"";
+                        }
+                    }
+
                     @include mq(desktop) {
                         text-align: center;
                         color: #ffffff;
                         display: inline-block;
                         width: 200px;
+                    }
+
+                    span {
+                        @include  mq(desktop){
+                            display: block;
+                        }
                     }
                 }
 
@@ -317,16 +473,10 @@ $banner-h: 360px;
                     }
                 }
 
-                // #test1, #test3, #test5, #test7 {
-                //     margin-left: 300px;
-                // } 
-
-                // #test2, #test4, #test6 {
-                //     margin-left: 300px;
-                // } 
-
                 #test5 {
-                    width: 350px;
+                    @include mq(phone) {
+                        width: 350px;
+                    }
                 }
 
             }
@@ -338,10 +488,6 @@ $banner-h: 360px;
     //實驗
     .exper {
 
-        .shorter {
-            width: 330px;
-        }
-
         .wrap .card-2 {
 
             @extend .bg-white;
@@ -352,7 +498,7 @@ $banner-h: 360px;
             margin: 10px;
 
 
-            @include mq(tablet) {
+            @include mq(phone) {
                 width: 400px;
             }
 
@@ -388,7 +534,7 @@ $banner-h: 360px;
                     background: none;
                     z-index: 1;
                     
-                    @include mq(tablet){
+                    @include mq(phone){
                         bottom: -70px;
                         @include arrow( bottom, 404px, 70px, #F1F1F1);
                     }
@@ -409,7 +555,7 @@ $banner-h: 360px;
                 border-bottom-left-radius: $border-radius;
 
 
-                @include mq(tablet){
+                @include mq(phone){
                     padding: 110px 40px 20px;
                     height: 420px;
                 }
@@ -501,15 +647,18 @@ $banner-h: 360px;
         .inner {
 
             max-width: 900px;
-            margin-top: 80px;
+            margin-top: 30px;
         }
 
         img {
-
             margin-top: 50px;
             max-width: 200px;
 
-            @include mq(tablet){
+            @include mq(phone) {
+                float: right;
+            }
+
+            @include mq(tablet) {
                 max-width: 350px;
             }
         }
@@ -657,9 +806,8 @@ $banner-h: 360px;
         tr:hover {
             background-color: #128088;
         }
-
         .refer {
-            margin: 50px 0 100px;
+            padding: 50px 0 100px;
         }
     }
 
@@ -905,9 +1053,9 @@ $banner-h: 360px;
         form {
 
             // margin: 100px 5%;
-            padding: 0 10px;
+            padding: 0 10%;
 
-            @include mq(wide) {
+            @include mq(desktop) {
 
 
                 padding: 0;
@@ -927,6 +1075,10 @@ $banner-h: 360px;
                         vertical-align: middle;
                         padding: 4px;
                         width: 80px;
+                        display: inline-block;
+                        @include mq(tablet){
+                            text-align: right;
+                        }
                     }
 
                     select,textarea,input {
@@ -937,21 +1089,19 @@ $banner-h: 360px;
                         padding: 10px;
                         color: color(secondary);
 
+                        @include mq(tablet) {
+                            width: 47%;
+                        }
                         @include mq(wide) {
                             width: 80%;
                             max-width: 350px;
                         }
                     }
-                    input {
 
-                        @include mq(desktop) {
-                            width: 45%;
-                        }
-                    }
                     select,textarea, {
 
                         @include mq(desktop) {
-                            width: 80%;
+                            width: 70%;
                         }
                     }
 
@@ -982,7 +1132,7 @@ $banner-h: 360px;
                     margin-top: 15px;
                     text-align: right;
 
-                    @include mq(desktop){
+                    @include mq(tablet){
                         margin: unset;
                         display: inline-block;
                     }

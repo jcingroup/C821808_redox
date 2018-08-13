@@ -1432,14 +1432,12 @@ figure {
         width: 950px; } }
 
 .safe .wrap {
-  position: relative;
-  padding: 0 60px; }
+  position: relative; }
   .safe .wrap img {
     position: absolute;
     top: 0; }
   .safe .wrap figcaption {
     position: relative;
-    padding-top: 30px;
     margin-bottom: 200px; }
 
 .h2-line {
@@ -1481,34 +1479,141 @@ figure {
         font-size: 20px;
         line-height: 1.5; }
 .Products .fivetop .wrap {
-  margin-top: 250px; }
+  margin-top: 100px;
+  padding: 0 5%; }
+  @media (min-width: 35.5em) {
+    .Products .fivetop .wrap {
+      padding: 0 60px; } }
+  @media (min-width: 64em) {
+    .Products .fivetop .wrap {
+      margin-top: 250px;
+      padding: 0 0 0 60px; } }
   .Products .fivetop .wrap img {
-    left: 0; }
+    display: none; }
+    @media (min-width: 64em) {
+      .Products .fivetop .wrap img {
+        display: block;
+        left: 0; } }
   .Products .fivetop .wrap figcaption {
-    left: 650px;
-    width: 500px; }
+    position: relative;
+    padding-top: 40px; }
+    .Products .fivetop .wrap figcaption div {
+      padding: 30px 0;
+      border-bottom: #757575 1px solid; }
+      @media (min-width: 23.4375em) {
+        .Products .fivetop .wrap figcaption div {
+          padding: unset; } }
+      @media (min-width: 64em) {
+        .Products .fivetop .wrap figcaption div {
+          height: 50px;
+          border-bottom: none; } }
+      .Products .fivetop .wrap figcaption div:nth-child(1) h5 {
+        background-image: url("../images/page/product/5p-1.gif"); }
+        @media (min-width: 64em) {
+          .Products .fivetop .wrap figcaption div:nth-child(1) h5 {
+            background-image: none; } }
+      .Products .fivetop .wrap figcaption div:nth-child(2) h5 {
+        background-image: url("../images/page/product/5p-2.gif"); }
+        @media (min-width: 64em) {
+          .Products .fivetop .wrap figcaption div:nth-child(2) h5 {
+            background-image: none; } }
+      .Products .fivetop .wrap figcaption div:nth-child(3) h5 {
+        background-image: url("../images/page/product/5p-3.gif"); }
+        @media (min-width: 64em) {
+          .Products .fivetop .wrap figcaption div:nth-child(3) h5 {
+            background-image: none; } }
+      .Products .fivetop .wrap figcaption div:nth-child(4) h5 {
+        background-image: url("../images/page/product/5p-4.gif"); }
+        @media (min-width: 64em) {
+          .Products .fivetop .wrap figcaption div:nth-child(4) h5 {
+            background-image: none; } }
+      .Products .fivetop .wrap figcaption div:nth-child(5) h5 {
+        background-image: url("../images/page/product/5p-5.gif"); }
+        @media (min-width: 64em) {
+          .Products .fivetop .wrap figcaption div:nth-child(5) h5 {
+            background-image: none; } }
+    .Products .fivetop .wrap figcaption h5 {
+      background-repeat: no-repeat;
+      background-position: center 10px;
+      font-size: 20px;
+      padding: 70px 0 30px;
+      text-align: center;
+      display: block;
+      margin: 0;
+      vertical-align: middle;
+      width: 100%; }
+      @media (min-width: 23.4375em) {
+        .Products .fivetop .wrap figcaption h5 {
+          display: inline-block;
+          width: 15%;
+          border-right: #757575 1px solid; } }
+      @media (min-width: 64em) {
+        .Products .fivetop .wrap figcaption h5 {
+          background: none;
+          text-align: right;
+          font-size: 32px;
+          padding: unset;
+          width: unset;
+          border-right: unset; } }
     .Products .fivetop .wrap figcaption p {
-      position: relative;
-      color: #757575; }
-    .Products .fivetop .wrap figcaption #p1 {
-      left: -130px;
-      margin-bottom: 90px; }
-    .Products .fivetop .wrap figcaption #p2 {
-      left: -15px;
-      margin-bottom: 125px; }
-    .Products .fivetop .wrap figcaption #p3 {
-      left: 25px;
-      margin-bottom: 125px; }
-    .Products .fivetop .wrap figcaption #p4 {
-      left: -15px;
-      margin-bottom: 95px; }
-    .Products .fivetop .wrap figcaption #p5 {
-      left: -90px; }
+      vertical-align: middle;
+      color: #757575;
+      padding: 0 5%; }
+      @media (min-width: 23.4375em) {
+        .Products .fivetop .wrap figcaption p {
+          display: inline-block;
+          padding-left: 20px; } }
+    .Products .fivetop .wrap figcaption #p2 p, .Products .fivetop .wrap figcaption #p3 p, .Products .fivetop .wrap figcaption #p4 p, .Products .fivetop .wrap figcaption #p5 p {
+      width: 100%; }
+      @media (min-width: 23.4375em) {
+        .Products .fivetop .wrap figcaption #p2 p, .Products .fivetop .wrap figcaption #p3 p, .Products .fivetop .wrap figcaption #p4 p, .Products .fivetop .wrap figcaption #p5 p {
+          width: 75%; } }
+    @media (min-width: 64em) {
+      .Products .fivetop .wrap figcaption #p1 {
+        margin-left: 430px;
+        margin-bottom: 60px; } }
+    @media (min-width: 75em) {
+      .Products .fivetop .wrap figcaption #p1 {
+        margin-bottom: 70px; } }
+    .Products .fivetop .wrap figcaption #p1 h5 {
+      color: #E50012; }
+    .Products .fivetop .wrap figcaption #p1 p {
+      width: 100%; }
+      @media (min-width: 23.4375em) {
+        .Products .fivetop .wrap figcaption #p1 p {
+          width: 80%; } }
+    @media (min-width: 64em) {
+      .Products .fivetop .wrap figcaption #p2 {
+        margin-left: 540px;
+        margin-bottom: 110px; } }
+    .Products .fivetop .wrap figcaption #p2 h5 {
+      color: #5F1985; }
+    @media (min-width: 64em) {
+      .Products .fivetop .wrap figcaption #p3 {
+        margin-left: 590px;
+        margin-bottom: 130px; } }
+    .Products .fivetop .wrap figcaption #p3 h5 {
+      color: #036EB7; }
+    @media (min-width: 64em) {
+      .Products .fivetop .wrap figcaption #p4 {
+        margin-left: 540px;
+        margin-bottom: 70px; } }
+    .Products .fivetop .wrap figcaption #p4 h5 {
+      color: #00913A; }
+    @media (min-width: 64em) {
+      .Products .fivetop .wrap figcaption #p5 {
+        margin-left: 430px; } }
+    .Products .fivetop .wrap figcaption #p5 h5 {
+      color: #E50012; }
 
 .Service #banner {
   background-image: url("../images/page/banner-service.gif"); }
 .Service .title {
   text-shadow: -2px -2px rgba(230, 245, 255, 0.7), -0.5px -0.5px rgba(230, 245, 255, 0.9); }
+.Service .safe h2:after {
+  content: " ";
+  border-bottom: #005081 5px solid;
+  margin: 0 auto; }
 .Service .safe .wrap {
   max-width: 800px;
   padding: 0 0 0 30px; }
@@ -1520,6 +1625,9 @@ figure {
   .Service .safe .wrap figcaption {
     color: #757575;
     padding: 65px 10% 0; }
+    @media (min-width: 48em) {
+      .Service .safe .wrap figcaption {
+        padding: 65px 20% 0; } }
     @media (min-width: 64em) {
       .Service .safe .wrap figcaption {
         padding: 65px 0 0; } }
@@ -1537,12 +1645,20 @@ figure {
       text-align: left;
       margin: 0;
       vertical-align: middle; }
+      .Service .safe .wrap figcaption h4:before {
+        content: "●"; }
+        @media (min-width: 64em) {
+          .Service .safe .wrap figcaption h4:before {
+            content: ""; } }
       @media (min-width: 64em) {
         .Service .safe .wrap figcaption h4 {
           text-align: center;
           color: #ffffff;
           display: inline-block;
           width: 200px; } }
+      @media (min-width: 64em) {
+        .Service .safe .wrap figcaption h4 span {
+          display: block; } }
     .Service .safe .wrap figcaption .h4-r {
       color: #1599A3;
       margin: unset; }
@@ -1557,16 +1673,15 @@ figure {
           display: inline-block;
           margin-left: 330px;
           padding: unset; } }
-    .Service .safe .wrap figcaption #test5 {
-      width: 350px; }
-.Service .exper .shorter {
-  width: 330px; }
+    @media (min-width: 35.5em) {
+      .Service .safe .wrap figcaption #test5 {
+        width: 350px; } }
 .Service .exper .wrap .card-2 {
   display: inline-table;
   width: 320px;
   height: 620px;
   margin: 10px; }
-  @media (min-width: 48em) {
+  @media (min-width: 35.5em) {
     .Service .exper .wrap .card-2 {
       width: 400px; } }
   .Service .exper .wrap .card-2 .shadow {
@@ -1596,7 +1711,7 @@ figure {
       border: 0 solid transparent;
       border-width: 50px 160px 0 160px;
       border-top-color: #F1F1F1; }
-      @media (min-width: 48em) {
+      @media (min-width: 35.5em) {
         .Service .exper .wrap .card-2 .corner:after {
           bottom: -70px;
           width: 0;
@@ -1611,7 +1726,7 @@ figure {
     text-align: left;
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px; }
-    @media (min-width: 48em) {
+    @media (min-width: 35.5em) {
       .Service .exper .wrap .card-2 figcaption {
         padding: 110px 40px 20px;
         height: 420px; } }
@@ -1655,10 +1770,13 @@ figure {
 
 .Products-Content .product .inner {
   max-width: 900px;
-  margin-top: 80px; }
+  margin-top: 30px; }
 .Products-Content .product img {
   margin-top: 50px;
   max-width: 200px; }
+  @media (min-width: 35.5em) {
+    .Products-Content .product img {
+      float: right; } }
   @media (min-width: 48em) {
     .Products-Content .product img {
       max-width: 350px; } }
@@ -1739,7 +1857,7 @@ figure {
   .Products-Content .table tr:hover {
     background-color: #128088; }
   .Products-Content .table .refer {
-    margin: 50px 0 100px; }
+    padding: 50px 0 100px; }
 .Products-Content .qa {
   margin-bottom: 100px; }
   .Products-Content .qa h2 {
@@ -1844,8 +1962,8 @@ figure {
 .Contact-Us .wrap h5 {
   font-weight: bold; }
 .Contact-Us .wrap form {
-  padding: 0 10px; }
-  @media (min-width: 75em) {
+  padding: 0 10%; }
+  @media (min-width: 64em) {
     .Contact-Us .wrap form {
       padding: 0;
       margin: 100px auto; } }
@@ -1856,23 +1974,27 @@ figure {
       .Contact-Us .wrap form .boxleft .form-box .label {
         vertical-align: middle;
         padding: 4px;
-        width: 80px; }
+        width: 80px;
+        display: inline-block; }
+        @media (min-width: 48em) {
+          .Contact-Us .wrap form .boxleft .form-box .label {
+            text-align: right; } }
       .Contact-Us .wrap form .boxleft .form-box select, .Contact-Us .wrap form .boxleft .form-box textarea, .Contact-Us .wrap form .boxleft .form-box input {
         width: 100%;
         border: #005081 2px solid;
         margin-top: 10px;
         padding: 10px;
         color: #005081; }
+        @media (min-width: 48em) {
+          .Contact-Us .wrap form .boxleft .form-box select, .Contact-Us .wrap form .boxleft .form-box textarea, .Contact-Us .wrap form .boxleft .form-box input {
+            width: 47%; } }
         @media (min-width: 75em) {
           .Contact-Us .wrap form .boxleft .form-box select, .Contact-Us .wrap form .boxleft .form-box textarea, .Contact-Us .wrap form .boxleft .form-box input {
             width: 80%;
             max-width: 350px; } }
       @media (min-width: 64em) {
-        .Contact-Us .wrap form .boxleft .form-box input {
-          width: 45%; } }
-      @media (min-width: 64em) {
         .Contact-Us .wrap form .boxleft .form-box select, .Contact-Us .wrap form .boxleft .form-box textarea {
-          width: 80%; } }
+          width: 70%; } }
       .Contact-Us .wrap form .boxleft .form-box textarea {
         vertical-align: top; }
       .Contact-Us .wrap form .boxleft .form-box .select {
@@ -1889,7 +2011,7 @@ figure {
     .Contact-Us .wrap form .boxleft .form-box-2 {
       margin-top: 15px;
       text-align: right; }
-      @media (min-width: 64em) {
+      @media (min-width: 48em) {
         .Contact-Us .wrap form .boxleft .form-box-2 {
           margin: unset;
           display: inline-block; } }

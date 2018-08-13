@@ -292,13 +292,13 @@ dt {
 dd {
   margin-left: 0; }
 
-.list-inline, .safe-list, .list-unstyled {
+.list-inline, .list-unstyled {
   list-style: none;
   padding-left: 0; }
 
-.list-inline > li, .safe-list > li {
+.list-inline > li {
   display: inline-block; }
-  .list-inline > li:not(:last-child), .safe-list > li:not(:last-child) {
+  .list-inline > li:not(:last-child) {
     margin-right: 5px; }
 
 .btn {
@@ -1290,17 +1290,35 @@ figure {
   color: #595757; }
   .banner-1 .inner {
     margin-top: 42px;
-    max-width: 763px; }
+    max-width: 763px;
+    padding: 0 6%; }
+    .banner-1 .inner img {
+      float: unset;
+      max-height: 250px;
+      padding: 2% 7% 0; }
+      @media (min-width: 37.5em) {
+        .banner-1 .inner img {
+          float: right;
+          max-height: unset; } }
   .banner-1 h2 {
-    margin-top: 120px;
-    margin-bottom: 38px; }
+    margin-top: 20px; }
+    @media (min-width: 37.5em) {
+      .banner-1 h2 {
+        margin-top: 120px;
+        margin-bottom: 38px; } }
   .banner-1 .lead {
     font-weight: bolder; }
+    @media (max-width: 37.5em) {
+      .banner-1 .lead {
+        font-size: 18px; } }
 
 .intro {
   position: relative;
-  top: -62px;
+  top: 62px;
   z-index: 2; }
+  @media (min-width: 48em) {
+    .intro {
+      top: -62px; } }
   .intro .card {
     width: 60%;
     display: inline-block; }
@@ -1383,6 +1401,7 @@ figure {
 .safe-list li {
   background: url(../images/index/safe.gif) 0 0 no-repeat;
   font-weight: bolder;
+  display: inline-block;
   padding-top: 148px;
   min-width: 124px;
   margin: 0 3.2%; }

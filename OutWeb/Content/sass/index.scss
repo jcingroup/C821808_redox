@@ -42,6 +42,7 @@ $banner-h: 535px;
         height: $banner-h;
     }
 }
+
 .banner {
     &-1 {
         @extend .bg-warning;
@@ -51,14 +52,33 @@ $banner-h: 535px;
         .inner {
             margin-top: 42px;
             max-width: 763px;
+            padding: 0 6%;
+
+            img {
+
+                float: unset;
+                max-height: 250px;
+                padding: 2% 7% 0;
+                
+                @include mq(600) {
+                    float: right;
+                    max-height: unset;
+                }
+            }
         }
         h2 {
-            margin-top: 120px;
-            margin-bottom: 38px;
+            margin-top: 20px;
+            @include mq(600) {
+                margin-top: 120px;
+                margin-bottom: 38px;
+            }
         }
         .lead {
             @extend .font-xl;
             font-weight: bolder;
+            @include mq-max(600) {
+                font-size: 18px;
+            }
         }
     }
 }
@@ -66,9 +86,12 @@ $banner-h: 535px;
 // == intro
 .intro {
     position: relative;
-    top: -62px;
+    top: 62px;
     z-index: 2;
-    // margin-top: -62px;
+
+    @include mq(tablet) {
+        top: -62px;
+    }
 
     .card {
         @include grid(3, 5);
@@ -191,7 +214,7 @@ $banner-h: 535px;
 .safe {
     // 列表
     &-list {
-        @extend %list-inline, .font-xl, .text-primary;
+        @extend .font-xl, .text-primary;
 
         li {
             $img-size: 122px;
@@ -199,6 +222,7 @@ $banner-h: 535px;
 
             background: url(#{$img-index}/safe.gif) 0 0 no-repeat;
             font-weight: bolder;
+            display: inline-block;
             padding-top: $img-size + 26;
             min-width: $img-size + 2;
             margin: 0 3.2%;
@@ -283,11 +307,11 @@ $banner-h: 535px;
 
     max-width: 800px;
     line-height: 1.4;
-
     padding: 0 9%;
-     @include mq(tablet) {
+
+    @include mq(tablet) {
         padding: 0;
-     }
+    }
 }
 
 .img-list {
