@@ -1497,6 +1497,11 @@
     <Content Include="Content\images\page\news01.jpg" />
     <Content Include="Content\images\page\product01.jpg" />
     <Content Include="Content\images\page\product02.jpg" />
+    <Content Include="Content\images\page\product\5p-1.gif" />
+    <Content Include="Content\images\page\product\5p-2.gif" />
+    <Content Include="Content\images\page\product\5p-3.gif" />
+    <Content Include="Content\images\page\product\5p-4.gif" />
+    <Content Include="Content\images\page\product\5p-5.gif" />
     <Content Include="Content\images\page\product\list01.gif" />
     <Content Include="Content\images\page\product\list02.gif" />
     <Content Include="Content\images\page\product\list03.gif" />
