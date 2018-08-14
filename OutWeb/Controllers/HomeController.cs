@@ -17,12 +17,13 @@ namespace OutWeb.Controllers
     {
         public HomeController()
         {
-            ViewBag.IsFirstPage = true; //是否為首頁，請在首頁的Action此值設為True
+            ViewBag.IsFirstPage = false; //是否為首頁，請在首頁的Action此值設為True
             PublicMethodRepository.CurrentMode = SiteMode.FronEnd;
         }
 
         public ActionResult Index()
         {
+            ViewBag.IsFirstPage = true;
             var mdu = new ProductsModule<ListFilterBase, PRODUCT>();
             Dictionary<bool, string> productInfo = mdu.GetProductInfo();
             TempData["productInfo"] = productInfo;

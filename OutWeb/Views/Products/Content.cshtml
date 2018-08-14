@@ -25,13 +25,28 @@
                 {
                     string fileUrl = string.Empty;
                     fileUrl = currentUrl + "/" + file.FileUrl;
-                    <img class="pull-right" src="@fileUrl" alt="@Model.Data.TITLE" data-swiper-parallax="-220">
+                    <img src="@fileUrl" alt="@Model.Data.TITLE" data-swiper-parallax="-220">
                 }
             }
 
                     <article class="rest text-left" data-swiper-parallax="-200">
+
                         <!-- 簡介 -->
                         <span style="white-space: pre-line">@Model.Data.DESC</span>
+
+
+                        <!-- 簡介忘記註解到品名，請參照這段修改 -->
+
+                        <!-- 產品名稱 -->
+				        <h2 class="text-secondary font-xxl">順便有酵 阿勃勒酵素軟糖</h2>
+
+				        <!-- 簡介 -->
+				        <p>由天然植物-阿勃勒果實中萃取出對人體有效的抗氧化物質-RD236酵素，在原料萃取時，已將阿勃勒特殊的苦味與異味去除。</p>
+				        <p>利用獨特的微囊殼包覆技術，使RD236酵素的營養，在軟糖製造過程中不受破壞。</p>
+				        <p>「順便有酵 消化軟糖」，適口性極佳，以軟糖 作為糖心，在表面上加上薄薄的脆皮糖衣，使「順便有酵 化軟糖」具有皮脆心軟的特殊咬感。</p>
+
+
+
                     </article>
 
         </div>
@@ -439,41 +454,41 @@
             @Html.Raw(Model.Data.QA)
 
             @*<div class="paragraph">
-            <!-- 問題 -->
-            <p>Q：該如何保存？</p>
-            <!-- 回答 -->
-            <p class="editor">A：開封後建議置於常溫乾燥處</p>
-        </div>
+	            <!-- 問題 -->
+	            <p>Q：該如何保存？</p>
+	            <!-- 回答 -->
+	            <p class="editor">A：開封後建議置於常溫乾燥處</p>
+	        </div>
 
-        <div class="paragraph">
-            <p>Q：何時建議食用？</p>
-            <p class="editor">A：飯前空腹效果較佳，任何時間皆可吃</p>
-        </div>
+	        <div class="paragraph">
+	            <p>Q：何時建議食用？</p>
+	            <p class="editor">A：飯前空腹效果較佳，任何時間皆可吃</p>
+	        </div>
 
-        <div class="paragraph">
-            <p>Q：幾歲可以吃？</p>
-            <p class="editor">A：任何年齡層皆可</p>
-        </div>
+	        <div class="paragraph">
+	            <p>Q：幾歲可以吃？</p>
+	            <p class="editor">A：任何年齡層皆可</p>
+	        </div>
 
-        <div class="paragraph">
-            <p>Q：吃多是否會造成身體負擔？</p>
-            <p class="editor">A：本產品為天然草本萃取軟糖食品，吃多亦可幫助排便</p>
-        </div>
+	        <div class="paragraph">
+	            <p>Q：吃多是否會造成身體負擔？</p>
+	            <p class="editor">A：本產品為天然草本萃取軟糖食品，吃多亦可幫助排便</p>
+	        </div>
 
-        <div class="paragraph">
-            <p>Q：本軟糖是否要搭配水一起服用？</p>
-            <p class="editor">A：是的，建議一次最少300 cc</p>
-        </div>
+	        <div class="paragraph">
+	            <p>Q：本軟糖是否要搭配水一起服用？</p>
+	            <p class="editor">A：是的，建議一次最少300 cc</p>
+	        </div>
 
-        <div class="paragraph">
-            <p>Q：腸胃不好的可以吃嗎？</p>
-            <p class="editor">A：當然可以，RD236酵素的功能就是整腸健胃</p>
-        </div>
+	        <div class="paragraph">
+	            <p>Q：腸胃不好的可以吃嗎？</p>
+	            <p class="editor">A：當然可以，RD236酵素的功能就是整腸健胃</p>
+	        </div>
 
-        <div class="paragraph">
-            <p>Q：一盒可以吃多久？</p>
-            <p class="editor">A：依個人而定，若每天食用2-4顆，可吃一個月左右</p>
-        </div>*@
+	        <div class="paragraph">
+	            <p>Q：一盒可以吃多久？</p>
+	            <p class="editor">A：依個人而定，若每天食用2-4顆，可吃一個月左右</p>
+	        </div>*@
 
 
         </article>

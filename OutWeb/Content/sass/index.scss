@@ -289,6 +289,13 @@ $banner-h: 535px;
             @extend .bg-primary, .text-white, .font-md, .px-12, .py-4;
             border-radius: $border-radius/2;
         }
+        .imgbox {
+
+            @include mq(tablet){
+                height: 170px;
+                line-height: 170px;
+            }
+        }
         img {
 
             @include mq(tablet){
@@ -297,6 +304,18 @@ $banner-h: 535px;
         }
         figcaption {
             margin-top: -8px;
+        }
+        h5 {
+            overflow:hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        p {
+            
+
+            @include mq(tablet){
+                height: 105px;
+            }
         }
     }
 }

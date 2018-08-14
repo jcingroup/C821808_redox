@@ -17,7 +17,7 @@ namespace OutWeb.Controllers
 
         public ProductsController()
         {
-            ViewBag.IsFirstPage = true; 
+            ViewBag.IsFirstPage = false; 
             PublicMethodRepository.CurrentMode = SiteMode.FronEnd;
         }
 

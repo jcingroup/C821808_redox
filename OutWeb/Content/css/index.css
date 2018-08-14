@@ -1439,10 +1439,21 @@ figure {
   .news-item .date {
     border-radius: 6px; }
   @media (min-width: 48em) {
+    .news-item .imgbox {
+      height: 170px;
+      line-height: 170px; } }
+  @media (min-width: 48em) {
     .news-item img {
       max-height: 170px; } }
   .news-item figcaption {
     margin-top: -8px; }
+  .news-item h5 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; }
+  @media (min-width: 48em) {
+    .news-item p {
+      height: 105px; } }
 
 .sub-title {
   max-width: 800px;

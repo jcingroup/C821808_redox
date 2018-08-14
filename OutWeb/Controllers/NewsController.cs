@@ -16,7 +16,7 @@ namespace OutWeb.Controllers
     {
         public NewsController()
         {
-            ViewBag.IsFirstPage = true;
+            ViewBag.IsFirstPage = false;
             PublicMethodRepository.CurrentMode = SiteMode.FronEnd;
         }
         public ActionResult Index()

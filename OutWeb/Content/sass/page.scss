@@ -1,7 +1,7 @@
 ﻿@charset "UTF-8";
 
 // 本頁專用變數(把下面的setting,variables蓋掉)
-$isIndex : true;
+$isPage : true;
 $img-page : '../images/page';
 
 // import
@@ -169,6 +169,10 @@ $banner-h: 360px;
                 text-align: center;
                 height: 220px;
                 line-height: 220px;
+
+                img{
+                    max-height: 100%;
+                }
             }
 
             figcaption {
@@ -677,7 +681,6 @@ $banner-h: 360px;
             }
 
             p {
-
                 margin-top: 20px;
                 line-height: 1.7;
             }
@@ -879,6 +882,11 @@ $banner-h: 360px;
             }
             figcaption {
                 margin-top: -8px;
+            }
+            h5 {
+                overflow:hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
             }
         }
     }

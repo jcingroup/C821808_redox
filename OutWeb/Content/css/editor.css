@@ -858,7 +858,7 @@ th, td {
 .font-sp {
   font-family: "Montserrat"; }
 
-.text-white, .goTop, .goTop:hover, .goTop:active {
+.text-white, .goTop, .goTop:hover, .goTop:active, .list-each h5 {
   color: #fff; }
 
 .text-black {
@@ -1110,3 +1110,80 @@ body {
 
 img {
   max-width: 100%; }
+
+li {
+  list-style: none; }
+
+.list {
+  margin-top: 200px; }
+  .list ul {
+    list-style-type: none; }
+  .list-each {
+    position: relative;
+    height: 192px;
+    margin: 40px 0;
+    background: #FBFBFB;
+    border: 1px solid #EFEFEF;
+    border-radius: 20px; }
+    .list-each h5 {
+      width: 200px;
+      padding-left: 50px;
+      margin-top: 30px;
+      vertical-align: top; }
+    .list-each article {
+      padding: 45px 10px 0 225px;
+      line-height: 1.5; }
+  .list-title {
+    position: absolute;
+    top: -15px;
+    background-repeat: no-repeat;
+    margin-left: 50px;
+    height: 165px; }
+  .list #list01 {
+    border-right: 30px solid #005081; }
+    .list #list01 div {
+      background-image: url("../images/page/product/list01.gif"); }
+  .list #list02 {
+    border-right: 30px solid #289DDA; }
+    .list #list02 div {
+      background-image: url("../images/page/product/list02.gif"); }
+  .list #list03 {
+    border-right: 30px solid #95529C; }
+    .list #list03 div {
+      background-image: url("../images/page/product/list03.gif"); }
+  .list #list04 {
+    border-right: 30px solid #DE4A45; }
+    .list #list04 div {
+      background-image: url("../images/page/product/list04.gif"); }
+
+.info table {
+  line-height: 1.5;
+  margin: 0 5%; }
+  .info table td:first-child {
+    width: 85px; }
+.info p {
+  margin: 0 5%; }
+
+.table {
+  margin-top: 100px; }
+  .table h2 {
+    padding: 100px 0 50px; }
+  .table table {
+    border: 4px solid #ffffff;
+    border-collapse: collapse;
+    width: 85%;
+    margin: 0 auto; }
+  .table tr, .table td {
+    border: 1px solid #ffffff;
+    padding: 20px;
+    transition: all .35s, color .5s; }
+  .table tr:hover {
+    background-color: #128088; }
+  .table .refer {
+    padding: 50px 0 100px; }
+
+.paragraph {
+  margin: 20px 10%; }
+  .paragraph p:first-child {
+    color: #005081;
+    font-weight: bold; }

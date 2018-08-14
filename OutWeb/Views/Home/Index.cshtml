@@ -120,7 +120,7 @@
                 <figcaption class="text-primary">
                     <h5 class="text-left b  font-xl">@data.TITLE</h5>
 
-                    <span style="white-space: pre-line">@data.HOME_INFO</span>
+                    <div class="text-left" style="white-space: pre-line">@data.HOME_INFO</div>
 
                     @*<ul class="text-left">
                         <li>促進新陳代謝，維持健康</li>
@@ -201,16 +201,20 @@
                 imgAlt = data.TITLE;
             }
             <figure class="card news-item">
-                @if (file != null)
-                {
-                    <img src="@fileUrl" alt="@imgAlt">
-                }
+                <div class="imgbox">
+                    @if (file != null)
+                    {
+                        <img src="@fileUrl" alt="@imgAlt">
+                    }
+                </div>
 
                 <figcaption>
                     <span class="date">@data.PUB_DT_STR</span>
                     <h5 class="text-left text-primary">@data.TITLE</h5>
                     <p class="text-left">@data.CONTENT</p>
-                    <a class="more font-xl b" href="@Url.Content("~/News/Content?ID=" + data.ID)">閱讀更多</a>
+                    <div>
+                        <a class="more font-xl b" href="@Url.Content("~/News/Content?ID=" + data.ID)">閱讀更多</a>
+                    </div>
                 </figcaption>
             </figure>
 
