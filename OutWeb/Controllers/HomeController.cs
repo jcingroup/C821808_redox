@@ -18,7 +18,7 @@ namespace OutWeb.Controllers
         public HomeController()
         {
             ViewBag.IsFirstPage = false; //是否為首頁，請在首頁的Action此值設為True
-            PublicMethodRepository.CurrentMode = SiteMode.FronEnd;
+            PublicMethodRepository.CurrentMode = SiteMode.Home;
         }
 
         public ActionResult Index()

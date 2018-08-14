@@ -9,37 +9,56 @@
 
 }
 @section IncludeScript{
+    @*提交分頁表單,建立隱藏欄位為查詢欄位值*@
+    <script>
+    function paginationSubmit(page) {
+        $('input[name="page"]').val(page);
 
+        var input = $("<input>")
+            .attr("type", "hidden")
+            .attr("name", "qry").val("@Model.Filter.QueryString");
+
+        var input = $("<input>")
+            .attr("type", "hidden")
+            .attr("name", "sort").val("@Model.Filter.SortColumn");
+
+        $('#formManageNews').append($(input));
+        $('#formManageNews')[0].submit();
+    }
+
+    //提交表單 (提供延遲提交用)
+    function submitForm() {
+        var val = $('input[name="page"]').val();
+        paginationSubmit(val);
+    }
+
+    $('input[name="page"]').on('change keyup', function(value) {
+        var lastPage = parseInt('@Model.Result.Pagination.LastPage');
+        var pageLen = parseInt('@Model.Result.Pagination.LastPage.ToString().Length');
+        var val = $(this).val();
+
+        if (val.length > pageLen || parseInt(val) > lastPage) {
+            val = val.slice(0, pageLen);
+            $(this).val(lastPage);
+            paginationSubmit(lastPage);
+        } else if (val.length < pageLen) {
+            setTimeout("submitForm()", 500)
+        } else {
+            paginationSubmit(val);
+        }
+    });
+    </script>
     <script>
 
         (function ($) {
             $(function () {
-
                 $('#statusDropListFront').val('@Model.Filter.DisplayForFrontEnd');
-
                 //搜尋
                 $('#searchBtn').click(function () {
                     $('#numPage').val(1);
                     $('#formManageNews').submit();
                 });
 
-                //分頁input
-                $('#numPage').on('keyup mouseup', function () {
-                    var minPage = @Model.Result.Pagination.FirstPage;
-                    var maxPage = @Model.Result.Pagination.LastPage;
-                    var currentPage=$(this).val() ;
-                    if(currentPage < minPage)
-                    {
-                        currentPage = minPage;
-                    }
-
-                    if(currentPage > maxPage)
-                    {
-                        currentPage = maxPage;
-                    }
-                    $(this).val(currentPage);
-                    $('#formManageNews').submit();
-                });
 
                 //刪除
                 $('.delete-btn').click(function () {
@@ -229,8 +248,8 @@
         </footer>*@
 }
 <script>
-    function paginationSubmit(page) {
-        $('#numPage').val(page);
-        $('form')[0].submit();
-    }
+                //function paginationSubmit(page) {
+                //    $('#numPage').val(page);
+                //    $('form')[0].submit();
+                //}
 </script>

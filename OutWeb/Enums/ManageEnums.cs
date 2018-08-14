@@ -70,7 +70,7 @@ namespace OutWeb.Enums
 
     public enum SiteMode
     {
-        NotSet = 0, FronEnd = 1, Back = 2
+        NotSet = 0, FronEnd = 1, Back = 2,Home=3
     }
 
 

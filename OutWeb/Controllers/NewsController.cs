@@ -30,7 +30,7 @@ namespace OutWeb.Controllers
             using (var module = ListFactoryService.Create(ListMethodType.NEWS))
             {
                 model.Result = (module.DoGetList(model.Filter) as ListResultBase);
-                List<NEWS> dataBind = (model.Result.Data as List<NEWS>).Take(9).ToList();
+                List<NEWS> dataBind = (model.Result.Data as List<NEWS>).ToList();
                 foreach (var data in dataBind)
                 {
                     data.CONTENT = data.CONTENT = PublicMethodRepository.StripHTML(data.CONTENT).SplitLengthString(60);

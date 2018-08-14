@@ -28,8 +28,8 @@ namespace OutWeb.Repositories
             if (len == 0)
                 return str;
             if (len > lenSet)
-                str = str.Substring(0, lenSet);
-            return str + "...";
+                str = str.Substring(0, lenSet) + "...";
+            return str;
         }
 
         public static ListDataMode CurrentListDataMode { get; set; } = ListDataMode.PageList;
@@ -41,7 +41,13 @@ namespace OutWeb.Repositories
         /// <returns></returns>
         public static string StripHTML(string input)
         {
-            return Regex.Replace(input, "<.*?>", String.Empty);
+            input = Regex.Replace(input, "<.*?>", String.Empty)
+            .Replace("&amp;emsp;", string.Empty)
+            .Replace("amp;", string.Empty)
+            .Replace("emsp;", string.Empty)
+            .Replace("&amp;", string.Empty)
+            .Replace("&emsp;", string.Empty);
+            return input;
         }
 
         /// <summary>

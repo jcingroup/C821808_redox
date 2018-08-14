@@ -64,6 +64,10 @@ namespace OutWeb.Module.Manage
 
             if (PublicMethodRepository.CurrentMode == SiteMode.FronEnd)
             {
+                data = DB.NEWS.Where(w => w.ID == ID && !w.DISABLE).FirstOrDefault();
+            }
+            else if (PublicMethodRepository.CurrentMode == SiteMode.Home)
+            {
                 data = DB.NEWS.Where(w => w.ID == ID && !w.DISABLE && w.HOME_PAGE_DISPLAY).FirstOrDefault();
             }
             else
@@ -87,6 +91,8 @@ namespace OutWeb.Module.Manage
             {
                 var enumerable = (IEnumerable<TData>)(typeof(REDOXDB).GetProperty(typeof(TData).Name).GetValue(DB, null));
                 if (PublicMethodRepository.CurrentMode == SiteMode.FronEnd)
+                    data = enumerable.Where(s => !s.DISABLE).ToList();
+                else if (PublicMethodRepository.CurrentMode == SiteMode.Home)
                     data = enumerable.Where(s => !s.DISABLE && s.HOME_PAGE_DISPLAY).ToList();
                 else
                     data = enumerable.ToList();
@@ -113,7 +119,9 @@ namespace OutWeb.Module.Manage
                 data = this.DoListSort(filterModel.SortColumn, filterModel.Status, data);
 
                 //分頁
-                bool isDoPage = PublicMethodRepository.CurrentMode == SiteMode.Back ? true : false;
+                //分頁
+                bool isDoPage = PublicMethodRepository.CurrentMode == SiteMode.FronEnd ||
+                     PublicMethodRepository.CurrentMode == SiteMode.Home ? false : true;
                 data = this.DoListPageList(filterModel.CurrentPage, data, out PaginationResult pagination, isDoPage);
                 result.Pagination = pagination;
                 foreach (var d in data)
@@ -298,11 +306,11 @@ namespace OutWeb.Module.Manage
             switch (sortCloumn)
             {
                 case "sortPublishDate/asc":
-                    data = data.OrderBy(o => o.BUD_DT).ThenBy(g => g.SQ).ToList();
+                    data = data.OrderBy(o => o.PUB_DT_STR).ThenBy(g => g.SQ).ToList();
                     break;
 
                 case "sortPublishDate/desc":
-                    data = data.OrderByDescending(o => o.BUD_DT).ThenBy(g => g.SQ).ToList();
+                    data = data.OrderByDescending(o => o.PUB_DT_STR).ThenBy(g => g.SQ).ToList();
                     break;
 
                 case "sortIndex/asc":

@@ -99,9 +99,12 @@ namespace OutWeb.Module.Manage
             {
                 var enumerable = (IEnumerable<TData>)(typeof(REDOXDB).GetProperty(typeof(TData).Name).GetValue(DB, null));
                 if (PublicMethodRepository.CurrentMode == SiteMode.FronEnd)
+                    data = enumerable.Where(s => !s.DISABLE).ToList();
+                else if (PublicMethodRepository.CurrentMode == SiteMode.Home)
                     data = enumerable.Where(s => !s.DISABLE && s.HOME_PAGE_DISPLAY).ToList();
                 else
                     data = enumerable.ToList();
+
 
                 //關鍵字搜尋
                 if (!string.IsNullOrEmpty(filterModel.QueryString))
@@ -124,7 +127,8 @@ namespace OutWeb.Module.Manage
                 data = this.DoListSort(filterModel.SortColumn, filterModel.Status, data);
 
                 //分頁
-                bool isDoPage = PublicMethodRepository.CurrentMode == SiteMode.FronEnd ? false : true;
+                bool isDoPage = PublicMethodRepository.CurrentMode == SiteMode.FronEnd||
+                     PublicMethodRepository.CurrentMode == SiteMode.Home ? false : true;
                 data = this.DoListPageList(filterModel.CurrentPage, data, out PaginationResult pagination, isDoPage);
                 result.Pagination = pagination;
                 foreach (var d in data)
@@ -249,6 +253,10 @@ namespace OutWeb.Module.Manage
             ProductDetailsDataModel result = new ProductDetailsDataModel();
             PRODUCT data = new PRODUCT();
             if (PublicMethodRepository.CurrentMode == SiteMode.FronEnd)
+            {
+                data = DB.PRODUCT.Where(w => w.ID == ID && !w.DISABLE).FirstOrDefault();
+            }
+            else if (PublicMethodRepository.CurrentMode == SiteMode.Home)
             {
                 data = DB.PRODUCT.Where(w => w.ID == ID && !w.DISABLE && w.HOME_PAGE_DISPLAY).FirstOrDefault();
             }
