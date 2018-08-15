@@ -1,17 +1,19 @@
 ﻿@using OutWeb.Models.UserInfo
-    @using BotDetect.Web.Mvc
-    @model SignInModel
-    @{
-        ViewBag.Title = "登入";
-        ViewBag.mainName = "肽研生醫 網站管理系統";
-        ViewBag.IsFirstPage = true;
-    }
-    @section IncludeCSS{
-        <link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl"
-              rel="stylesheet" type="text/css" />
-    }
-    @section IncludeScript{
-        <script>
+@using BotDetect.Web.Mvc
+@model SignInModel
+@{
+    ViewBag.Title = "登入";
+    ViewBag.mainName = "肽研生醫 網站管理系統";
+    ViewBag.IsFirstPage = true;
+}
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
+@section IncludeCSS{
+    <link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl"
+          rel="stylesheet" type="text/css" />
+}
+@section IncludeScript{
+    <script>
             $(function () {
 
                 //禁止按下enter
@@ -37,37 +39,43 @@
             $(captchaLinkElem).removeAttr('onclick');
             $(captchaLinkElem).attr('href', 'javascript:;');
             $('#CaptchaCode').attr('tabindex', '3');
-        </script>
-    }
+    </script>
+}
 
-    <h1 class="site-title">
-        @ViewBag.mainName <small class="ml-8">Web Manager</small>
-    </h1>
-    <h6 class="sub-copyright">REDOX MEDICARE &copy; 2018</h6>
-    @using (Html.BeginForm("Login", "SignIn", FormMethod.Post, new { id = "formSignIn", @class = "text-left", autocomplete = "off" }))
-    {
-        @Html.AntiForgeryToken()
+<h1 class="site-title">
+    @ViewBag.mainName <small class="ml-8">Web Manager</small>
+</h1>
+<h6 class="sub-copyright">REDOX MEDICARE &copy; 2018</h6>
+@using (Html.BeginForm("Login", "SignIn", FormMethod.Post, new { id = "formSignIn", @class = "text-left", autocomplete = "off" }))
+{
+    @Html.AntiForgeryToken()
 
-        <h4 class="title mt-0">System Login</h4>
-        <main>
-            <label>帳號 Username</label>            @Html.ValidationMessageFor(m => m.Account, "", new { @class = "text-danger" })
-            <input type="text" class="form-element mb-12" tabindex="1" name="Account" id="account" placeholder="請輸入帳號" required>
+    <h4 class="title mt-0">System Login</h4>
+    <main>
+        <label>帳號 Username</label>            @Html.ValidationMessageFor(m => m.Account, "", new { @class = "text-danger" })
+        <input type="text" class="form-element mb-12" tabindex="1" name="Account" id="account" placeholder="請輸入帳號" required>
 
-            <label>密碼 Password</label>            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-            <input type="password" class="form-element mb-12" tabindex="2" name="Password" id="pwd" placeholder="請輸入密碼" required>
+        <label>密碼 Password</label>            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+        <input type="password" class="form-element mb-12" tabindex="2" name="Password" id="pwd" placeholder="請輸入密碼" required>
 
-            <label>驗證碼 Code</label>  @Html.ValidationMessageFor(m => m.CaptchaCode, "", new { @class = "text-danger" })
-            @{ MvcCaptcha exampleCaptcha = new MvcCaptcha("ExampleCaptcha");
-                exampleCaptcha.Reset();
-                exampleCaptcha.UserInputID = "CaptchaCode";
-            }
-            @Html.Captcha(exampleCaptcha)
-            @Html.TextBox("CaptchaCode", null, new { @class = "form-element", required = "required" })
+        <label>驗證碼 Code</label>  @Html.ValidationMessageFor(m => m.CaptchaCode, "", new { @class = "text-danger" })
+        @{ MvcCaptcha exampleCaptcha = new MvcCaptcha("ExampleCaptcha");
+            exampleCaptcha.Reset();
+            exampleCaptcha.UserInputID = "CaptchaCode";
+        }
+        @Html.Captcha(exampleCaptcha)
+        @Html.TextBox("CaptchaCode", null, new { @class = "form-element", required = "required" })
 
 
-        </main>
+    </main>
 
-        <footer class="action-bar text-center">
-            <button type="submit" class="btn" tabindex="4">登入 LOGIN</button>
-        </footer>
-    }
+    <footer class="action-bar text-center">
+        <button type="submit" class="btn" tabindex="4">登入 LOGIN</button>
+    </footer>
+
+    <div class="g-recaptcha" data-sitekey="6Lf-7GkUAAAAALQTdVcevoj25EP2-5no1XVw1Z8k"></div>
+
+
+}
+
+

@@ -41,12 +41,15 @@ namespace OutWeb.Repositories
         /// <returns></returns>
         public static string StripHTML(string input)
         {
-            input = Regex.Replace(input, "<.*?>", String.Empty)
-            .Replace("&amp;emsp;", string.Empty)
-            .Replace("amp;", string.Empty)
-            .Replace("emsp;", string.Empty)
-            .Replace("&amp;", string.Empty)
-            .Replace("&emsp;", string.Empty);
+            input = Regex.Replace(input, "<.*?>", String.Empty);
+
+
+            input = input.Replace("&emsp;", "");
+            //.Replace("&amp;emsp;", string.Empty)
+            //.Replace("amp;", string.Empty)
+            //.Replace("emsp;", string.Empty)
+            //.Replace("&amp;", string.Empty)
+            //.Replace("&emsp;", string.Empty);
             return input;
         }
 
