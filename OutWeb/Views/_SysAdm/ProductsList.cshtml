@@ -141,7 +141,8 @@
 @using (Html.BeginForm("ProductsList", "_SysAdm", FormMethod.Get, new { id = "formManageProducts" }))
 {
     <div class="alert-warning mb-16">
-        <strong>排序：</strong> 數字愈大愈前面。
+        <strong>排序：</strong> 數字愈大愈前面。<br>
+        <strong>首頁狀態：</strong> 首頁最多顯示兩筆產品。
     </div>
 
     <div class="btn-group mb-8">
@@ -200,7 +201,10 @@
                     <td>@data.TITLE</td>
                     <td class="text-left">@data.SPEC</td>
                     <td><span class="@disFrontStyle">@disFrontStr</span></td>
-                    <td><span class="label">下架</span></td>
+                    <td>
+                        <!-- 顯示於首頁才出現下面的符號，沒有就留空 -->
+                        <i class="oi text-success" data-glyph="check"></i>
+                    </td>
                     <td>@data.SQ</td>
                 </tr>
             }
