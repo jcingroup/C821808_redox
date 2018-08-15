@@ -187,6 +187,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Authorize\AuthAttribute.cs" />
     <Compile Include="Authorize\ErrorHandlerAttribute.cs" />
+    <Compile Include="Controllers\MailController.cs" />
     <Compile Include="Controllers\ContactUsController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
@@ -1603,6 +1604,7 @@
     <Content Include="Views\_SysAdm\_NewsDataPartial.cshtml" />
     <Content Include="Views\_SysAdm\ProductsAdd.cshtml" />
     <Content Include="Views\_SysAdm\_ProductDataPartial.cshtml" />
+    <Content Include="Views\Mail\MsgMail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

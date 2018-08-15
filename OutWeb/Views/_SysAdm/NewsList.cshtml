@@ -181,6 +181,7 @@
                 <th><button id="sortPublishDate" type="button" sort-type="" class="th-sort-toggle">發稿時間</button></th>
                 <th class="text-left">標題</th>
                 <th><button id="sortDisable" type="button" sort-type="" class="th-sort-toggle">上架狀態</button></th>
+                <th><button type="button" sort-type="" class="th-sort-toggle">首頁狀態</button></th>
                 <th><button id="sortIndex" sort-type="" type="button" class="th-sort-toggle">排序</button></th>
             </tr>
         </thead>
@@ -200,6 +201,7 @@
                     <td>@data.PUB_DT_STR</td>
                     <td class="text-left">@data.TITLE</td>
                     <td><span class="@disFrontStyle">@disFrontStr</span></td>
+                    <td><span class="label-success">上架</span></td>
                     <td>@data.SQ</td>
                 </tr>
             }
