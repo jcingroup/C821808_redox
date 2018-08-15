@@ -1,11 +1,16 @@
 ﻿@using OutWeb.Repositories
-
+@model FormCollection
 @{
     ViewBag.Title = "MsgMail";
     ViewBag.Website = "肽研生醫";
     Layout = null;
     string web_url = PublicMethodRepository.UrlMathPath;
-
+    string tel = Model["tel"];
+    string email = Model["email"];
+    string gender = Model["gender"];
+    string name = Model["Name"];
+    string companyName = Model["CompanyName"];
+    string content = Model["contenttext"];
 }
 
 <!DOCTYPE html>
@@ -107,8 +112,7 @@
                                             <tr><td height="25">&nbsp;</td></tr>
                                             <tr>
                                                 <td style="color:#000001;font-size:18px;line-height:24px">
-                                                    這裡是編輯器內容
-                                                    這裡是編輯器內容這裡是編輯器內容這裡是編輯器內容這裡是編輯器內容這裡是編輯器內容這裡是編輯器內容
+                                                    @Html.Raw(content)
                                                 </td>
                                             </tr>
                                             <tr><td height="25">&nbsp;</td></tr>
