@@ -1518,6 +1518,10 @@
     <Content Include="Content\images\page\product\m-list02.gif" />
     <Content Include="Content\images\page\product\m-list03.gif" />
     <Content Include="Content\images\page\product\m-list04.gif" />
+    <Content Include="Content\images\page\product\mc-list01.png" />
+    <Content Include="Content\images\page\product\mc-list02.png" />
+    <Content Include="Content\images\page\product\mc-list03.png" />
+    <Content Include="Content\images\page\product\mc-list04.png" />
     <Content Include="Content\images\page\safe.gif" />
     <Content Include="Content\css\images\ui-icons_444444_256x240.png" />
     <Content Include="Content\css\images\ui-icons_555555_256x240.png" />

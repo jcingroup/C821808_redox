@@ -705,7 +705,6 @@ $banner-h: 360px;
 
             h5 {
                 @extend .text-white;
-
                 margin-top: 30px;
                 vertical-align: top;
             }
@@ -735,10 +734,15 @@ $banner-h: 360px;
                     li:nth-child(#{$i}) {
                         div {
                             background-image: url("#{$img-page}/product/m-list0#{$i}.gif");
-                            background-size: 40%;
+                            background-size: 33%;
 
                             @include mq(mobile) {
-                                background-size: 25%;
+                                background-size: 30%;
+                            }
+
+                            @include mq(480) {
+                                background-image: url("#{$img-page}/product/mc-list0#{$i}.png"), url("#{$img-page}/product/m-list0#{$i}.gif");
+                                background-position: left top 45px, left top;
                             }
                             @include mq(phone) {
                                 background-size: 21%;
@@ -755,18 +759,21 @@ $banner-h: 360px;
                 min-height: 130px;
 
                 h5 {
+                    text-align: center;
                     width: 21%;
                     margin-top: 22px;
-                    margin-left: 28px;
+                    margin-left: 9%;
 
                     @include mq(phone) {
-                        width: 15%;
+
+                        margin-left: 4%;
+                        width: 18%;
                     }
                 }
 
                 article {
                     @extend .font-lg;
-                    padding: 15px 0 20px 30%;
+                    padding: 15px 0 20px 33%;
 
                     @include mq(phone) {
                         padding-left: 25%;
@@ -1164,8 +1171,9 @@ $banner-h: 360px;
 
         form {
 
-            // margin: 100px 5%;
-            padding: 0 10%;
+            @include mq(phone) {
+                padding: 0 10%;
+            }
 
             @include mq(desktop) {
 
@@ -1293,10 +1301,13 @@ $banner-h: 360px;
                 }
 
                 #robox {
-
-                    border: color(secondary) 2px solid;
-                    padding: 20px 75px;
                     text-align: center;
+                    margin: 30px 0;
+
+                    @include mq(tablet) {
+                        padding: 20px 75px;
+                        margin: 30px 20px 0;
+                    }
                 }
 
                 .hover-underline {

@@ -557,7 +557,7 @@ dd {
 .mt-24 {
   margin-top: 1.5rem; }
 
-.mr-24, .nav-link:not(:last-child) {
+.mr-24 {
   margin-right: 1.5rem; }
 
 .mb-24 {
@@ -1009,8 +1009,12 @@ dd {
   color: #EFEFEF; }
 
 #menu {
-  padding: 59px 0; }
+  padding: 44px 0; }
+  @media (min-width: 64em) {
+    #menu {
+      padding: 59px 0; } }
   .scrolling #menu {
+    height: 100%;
     width: 100%;
     padding-top: 18px;
     padding-bottom: 18px;
@@ -1022,6 +1026,9 @@ dd {
     transition: 0.5s ease;
     -webkit-animation: scrolling 0.8s alternate both;
     animation: scrolling 0.8s alternate both; }
+    @media (min-width: 64em) {
+      .scrolling #menu {
+        height: unset; } }
 @-webkit-keyframes scrolling {
   from {
     opacity: 0.5;
@@ -1036,10 +1043,29 @@ dd {
   to {
     opacity: 1;
     top: 0; } }
+.nav-bar {
+  padding-top: 5rem; }
+  @media (min-width: 64em) {
+    .nav-bar {
+      padding: unset; } }
+
+.nav-bar-close {
+  display: none; }
+
 .nav-link {
-  text-shadow: 0 0 0 #005081; }
+  text-shadow: 0 0 0 #005081;
+  display: block;
+  padding: 5px 0;
+  width: 80px;
+  margin: 15px auto; }
   .nav-link:hover, .nav-link:active, .nav-link.active {
     color: #1599A3; }
+  @media (min-width: 64em) {
+    .nav-link {
+      display: unset;
+      padding: unset; }
+      .nav-link:not(:last-child) {
+        margin-right: 1.5rem; } }
 
 .top-nav .mail {
   margin-top: 18px; }
@@ -1051,6 +1077,13 @@ dd {
   height: 38px; }
 .top-nav .icon-line {
   background-position: right 0; }
+
+.menu-btn {
+  background: url("../images/mbtn.png");
+  height: 52px;
+  width: 60px;
+  position: absolute;
+  left: 25px; }
 
 figure .full-link:empty {
   width: 100%;
@@ -1225,6 +1258,11 @@ figure {
 
 #header {
   z-index: 3; }
+  @media (min-width: 64em) {
+    #header section:first-child {
+      float: left; }
+    #header section:last-child {
+      float: right; } }
 
 .logo {
   cursor: pointer;
@@ -1235,13 +1273,19 @@ figure {
   left: 50%;
   width: 217px;
   margin-left: -108.5px;
-  top: 110px; }
+  top: 100px; }
+  @media (min-width: 64em) {
+    .logo {
+      top: 110px; } }
   .scrolling .logo {
-    top: 3px;
+    top: 18px;
     background-image: url(../images/logo-s.gif);
     width: 48px;
     height: 48px;
     margin-left: -24px; }
+    @media (min-width: 64em) {
+      .scrolling .logo {
+        top: 3px; } }
 
 #footer {
   background: #43adb5;

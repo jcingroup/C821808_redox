@@ -34,17 +34,18 @@
             </nav>
             <nav id="menu" class="sticky">
                 <h1 class="logo" onclick="location.href='@Url.Content("~/Home")'" title="回首頁" tabindex="-1">肽研生醫 REDOX MEDICARE</h1>
-                <div class="wrap">
-                    <section class="pull-left">
-                        <a class="nav-link @(ViewBag.BodyClass == "Index" ? "active" : "")" href="~/Home">首頁</a>
-                        <a class="nav-link @(ViewBag.BodyClass == "AboutUs" ? "active" : "")" href="~/Home/AboutUs">關於我們</a>
-                        <a class="nav-link @(ViewBag.BodyClass == "News" ? "active" : "")" href="~/News">最新消息</a>
-                        <a class="nav-link @(ViewBag.BodyClass == "Products" ? "active" : "")" href="~/Products">產品介紹</a>
+                <button class="menu-btn"></button>
+                <div class="wrap nav-bar">
+                    <section>
+                        <a class="nav-link hover-underline @(ViewBag.BodyClass == "Index" ? "active" : "")" href="~/Home">首頁</a>
+                        <a class="nav-link hover-underline @(ViewBag.BodyClass == "AboutUs" ? "active" : "")" href="~/Home/AboutUs">關於我們</a>
+                        <a class="nav-link hover-underline @(ViewBag.BodyClass == "News" ? "active" : "")" href="~/News">最新消息</a>
+                        <a class="nav-link hover-underline @(ViewBag.BodyClass == "Products" ? "active" : "")" href="~/Products">產品介紹</a>
                     </section>
-                    <section class="pull-right">
-                        <a class="nav-link @(ViewBag.BodyClass == "Service" ? "active" : "")" href="~/Home/Service">專業服務</a>
-                        <a class="nav-link @(ViewBag.BodyClass == "Buy" ? "active" : "")" href="~/Home/Buy">哪裡購買</a>
-                        <a class="nav-link @(ViewBag.BodyClass == "ContactUs" ? "active" : "")" href="~/ContactUs">連絡我們</a>
+                    <section>
+                        <a class="nav-link hover-underline @(ViewBag.BodyClass == "Service" ? "active" : "")" href="~/Home/Service">專業服務</a>
+                        <a class="nav-link hover-underline @(ViewBag.BodyClass == "Buy" ? "active" : "")" href="~/Home/Buy">哪裡購買</a>
+                        <a class="nav-link hover-underline @(ViewBag.BodyClass == "ContactUs" ? "active" : "")" href="~/ContactUs">連絡我們</a>
                     </section>
                 </div>
             </nav>
