@@ -238,6 +238,9 @@
     <Compile Include="Service\CustomHtmlHelper.cs" />
     <Compile Include="Service\ListBaseService.cs" />
     <Compile Include="Service\ListFactoryService.cs" />
+    <Compile Include="Service\MailerProcess\Mailer.cs" />
+    <Compile Include="Service\MailerProcess\MailInfo.cs" />
+    <Compile Include="Service\MailerProcess\MailSetting.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ApplicationInsights.config" />
