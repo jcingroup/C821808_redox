@@ -1180,11 +1180,11 @@ figure {
   font-size: 15px;
   font-size: 0.9375rem; }
 
-.font-lg, .nav-link, .help, .goTop, .card figcaption, #footer, .Service .exper .wrap .card-2 figcaption {
+.font-lg, .nav-link, .help, .goTop, .card figcaption, #footer, .Service .exper .wrap .card-2 figcaption, .Products-Content .list .box-m .list-each article {
   font-size: 18px;
   font-size: 1.125rem; }
 
-.font-xl {
+.font-xl, .Products-Content .list .box-pc .list-each article {
   font-size: 21px;
   font-size: 1.3125rem; }
 
@@ -1798,41 +1798,119 @@ figure {
     list-style-type: none; }
   .Products-Content .list-each {
     position: relative;
-    height: 192px;
     margin: 40px 0;
     background: #FBFBFB;
-    border: 1px solid #EFEFEF;
-    border-radius: 20px; }
+    border: 1px solid #EFEFEF; }
     .Products-Content .list-each h5 {
-      width: 200px;
-      padding-left: 50px;
       margin-top: 30px;
       vertical-align: top; }
     .Products-Content .list-each article {
-      padding: 45px 10px 0 225px;
       line-height: 1.5; }
   .Products-Content .list-title {
     position: absolute;
     top: -15px;
     background-repeat: no-repeat;
+    height: 165px; }
+  .Products-Content .list .box-m ul {
+    padding-right: 1.2em; }
+    .Products-Content .list .box-m ul li:nth-child(1) div {
+      background-image: url("../images/page/product/m-list01.gif");
+      background-size: 40%; }
+      @media (min-width: 23.4375em) {
+        .Products-Content .list .box-m ul li:nth-child(1) div {
+          background-size: 25%; } }
+      @media (min-width: 35.5em) {
+        .Products-Content .list .box-m ul li:nth-child(1) div {
+          background-size: 21%; } }
+    .Products-Content .list .box-m ul li:nth-child(2) div {
+      background-image: url("../images/page/product/m-list02.gif");
+      background-size: 40%; }
+      @media (min-width: 23.4375em) {
+        .Products-Content .list .box-m ul li:nth-child(2) div {
+          background-size: 25%; } }
+      @media (min-width: 35.5em) {
+        .Products-Content .list .box-m ul li:nth-child(2) div {
+          background-size: 21%; } }
+    .Products-Content .list .box-m ul li:nth-child(3) div {
+      background-image: url("../images/page/product/m-list03.gif");
+      background-size: 40%; }
+      @media (min-width: 23.4375em) {
+        .Products-Content .list .box-m ul li:nth-child(3) div {
+          background-size: 25%; } }
+      @media (min-width: 35.5em) {
+        .Products-Content .list .box-m ul li:nth-child(3) div {
+          background-size: 21%; } }
+    .Products-Content .list .box-m ul li:nth-child(4) div {
+      background-image: url("../images/page/product/m-list04.gif");
+      background-size: 40%; }
+      @media (min-width: 23.4375em) {
+        .Products-Content .list .box-m ul li:nth-child(4) div {
+          background-size: 25%; } }
+      @media (min-width: 35.5em) {
+        .Products-Content .list .box-m ul li:nth-child(4) div {
+          background-size: 21%; } }
+  .Products-Content .list .box-m .list-each {
+    display: flex;
+    margin: 40px 0;
+    border-radius: 10px;
+    min-height: 130px; }
+    .Products-Content .list .box-m .list-each h5 {
+      width: 21%;
+      margin-top: 22px;
+      margin-left: 28px; }
+      @media (min-width: 35.5em) {
+        .Products-Content .list .box-m .list-each h5 {
+          width: 15%; } }
+    .Products-Content .list .box-m .list-each article {
+      padding: 15px 0 20px 30%; }
+      @media (min-width: 35.5em) {
+        .Products-Content .list .box-m .list-each article {
+          padding-left: 25%; } }
+  .Products-Content .list .box-m .list-title {
+    top: -10px;
+    background-repeat: no-repeat;
+    margin-left: 10px;
+    height: 165px;
+    width: 100%; }
+  .Products-Content .list .box-m #list01 {
+    border-right: 15px solid #005081; }
+  .Products-Content .list .box-m #list02 {
+    border-right: 15px solid #289DDA; }
+  .Products-Content .list .box-m #list03 {
+    border-right: 15px solid #95529C; }
+  .Products-Content .list .box-m #list04 {
+    border-right: 15px solid #DE4A45; }
+  .Products-Content .list .box-pc ul li:nth-child(1) div {
+    background-image: url("../images/page/product/list01.gif"); }
+  .Products-Content .list .box-pc ul li:nth-child(2) div {
+    background-image: url("../images/page/product/list02.gif"); }
+  .Products-Content .list .box-pc ul li:nth-child(3) div {
+    background-image: url("../images/page/product/list03.gif"); }
+  .Products-Content .list .box-pc ul li:nth-child(4) div {
+    background-image: url("../images/page/product/list04.gif"); }
+  .Products-Content .list .box-pc .list-each {
+    height: 192px;
+    margin: 40px 0;
+    border-radius: 20px; }
+    .Products-Content .list .box-pc .list-each h5 {
+      width: 200px;
+      padding-left: 50px;
+      margin-top: 30px; }
+    .Products-Content .list .box-pc .list-each article {
+      padding: 45px 10px 0 225px; }
+  .Products-Content .list .box-pc .list-title {
+    top: -15px;
+    background-repeat: no-repeat;
     margin-left: 50px;
     height: 165px; }
-  .Products-Content .list #list01 {
+  .Products-Content .list .box-pc #list01 {
     border-right: 30px solid #005081; }
-    .Products-Content .list #list01 div {
-      background-image: url("../images/page/product/list01.gif"); }
-  .Products-Content .list #list02 {
+  .Products-Content .list .box-pc #list02 {
     border-right: 30px solid #289DDA; }
-    .Products-Content .list #list02 div {
-      background-image: url("../images/page/product/list02.gif"); }
-  .Products-Content .list #list03 {
+  .Products-Content .list .box-pc #list03 {
     border-right: 30px solid #95529C; }
-    .Products-Content .list #list03 div {
-      background-image: url("../images/page/product/list03.gif"); }
-  .Products-Content .list #list04 {
+  .Products-Content .list .box-pc #list04 {
     border-right: 30px solid #DE4A45; }
-    .Products-Content .list #list04 div {
-      background-image: url("../images/page/product/list04.gif"); }
 .Products-Content .info h2 {
   color: #595757;
   padding: 100px 0 50px; }
@@ -1850,11 +1928,14 @@ figure {
   .Products-Content .table table {
     border: 4px solid #ffffff;
     border-collapse: collapse;
-    width: 85%;
     margin: 0 auto; }
+  .Products-Content .table .box-pc table {
+    width: 85%; }
+  .Products-Content .table .box-pc tr, .Products-Content .table .box-pc td {
+    padding: 20px; }
   .Products-Content .table tr, .Products-Content .table td {
     border: 1px solid #ffffff;
-    padding: 20px;
+    padding: 20px 10px;
     transition: all .35s, color .5s; }
   .Products-Content .table tr:hover {
     background-color: #128088; }
@@ -1864,13 +1945,14 @@ figure {
   margin-bottom: 100px; }
   .Products-Content .qa h2 {
     padding: 100px 0 50px; }
-  .Products-Content .qa article {
-    margin: 0 5%; }
-    .Products-Content .qa article .paragraph {
-      margin: 20px 10%; }
-      .Products-Content .qa article .paragraph p:first-child {
-        color: #005081;
-        font-weight: bold; }
+  @media (min-width: 41.6875em) {
+    .Products-Content .qa article {
+      margin: 0 5%; } }
+  .Products-Content .qa article .paragraph {
+    margin: 20px 10%; }
+    .Products-Content .qa article .paragraph p:first-child {
+      color: #005081;
+      font-weight: bold; }
 
 .List #banner {
   background-image: url("../images/page/banner-list.jpg");
