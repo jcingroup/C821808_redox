@@ -1,0 +1,11 @@
+﻿
+@{
+    Layout = null;
+}
+
+<script>
+       if ("@TempData["MailSendMsg"]" != "") {
+            alert("@TempData["MailSendMsg"]");
+           history.go(-1);
+       }
+</script>

@@ -1623,6 +1623,7 @@
     <Content Include="Views\_SysAdm\ProductsAdd.cshtml" />
     <Content Include="Views\_SysAdm\_ProductDataPartial.cshtml" />
     <Content Include="Views\Mail\MsgMail.cshtml" />
+    <Content Include="Views\ContactUs\EmptyView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

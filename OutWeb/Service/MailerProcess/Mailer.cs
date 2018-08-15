@@ -45,7 +45,7 @@ namespace OutWeb.Service.MailerProcess
         {
             ValidMailSetting();
             Boolean isSuccess = false;
-            string address ="";
+            string address = "furit1984@gmail.com";
             MailMessage message = new MailMessage();
             try
             {
@@ -54,10 +54,11 @@ namespace OutWeb.Service.MailerProcess
                 foreach (var to in info.To)
                     message.To.Add(to);
                 //寄件者
-                message.From = new MailAddress(address, "");
+                message.From = new MailAddress(address, "顧客信通知");
                 message.IsBodyHtml = true;
                 message.Subject = info.Subject;
                 message.Body = info.Body.ToString();
+                message.Priority = MailPriority.Normal;
 
                 if (info.CC != null) { info.CC.ForEach(x => message.CC.Add(x)); }
 
@@ -77,8 +78,9 @@ namespace OutWeb.Service.MailerProcess
                 #endregion
                 using (SmtpClient client = new SmtpClient(setting.SmtpServer, (int)setting.Port))
                 {
+                    
                     client.EnableSsl = true;
-                    client.UseDefaultCredentials = false;
+                    //client.UseDefaultCredentials = false;
                     client.Credentials = new System.Net.NetworkCredential(setting.UserName, setting.Password);
                     client.Timeout = Int32.MaxValue;
                     client.Send(message);

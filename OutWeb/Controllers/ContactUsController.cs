@@ -17,6 +17,11 @@ namespace OutWeb.Controllers
         {
             ViewBag.IsFirstPage = false;
         }
+        public ActionResult EmptyView()
+        {
+            return View("EmptyView");
+        }
+
 
         public ActionResult Index()
         {
@@ -66,7 +71,7 @@ namespace OutWeb.Controllers
         [ValidateInput(false)]
         public ActionResult ContactUs(FormCollection form)
         {
-            string renderedHTML = RenderViewToString("MailController", "MsgMail", form);
+            string renderedHTML = RenderViewToString("Mail", "MsgMail", form);
             string mailTo = PublicMethodRepository.GetConfigAppSetting("MailTo");
             string subJect = "測試郵件";
             StringBuilder mailContent = new StringBuilder(renderedHTML);
@@ -78,11 +83,16 @@ namespace OutWeb.Controllers
                 To = mailToList,
             };
             var isSend = new Mailer(mailInfo).SendMail();
-            return View();
+            if (isSend)
+            {
+                TempData["MailSendMsg"] = "信件已成功寄出。";
+            }
+            else
+            {
+                TempData["MailSendMsg"] = "信件寄送失敗。";
+            }
+            return View("EmptyView");
         }
-
-
-
 
         private static string RenderViewToString(string controllerName, string viewName, object model)
         {
@@ -90,7 +100,7 @@ namespace OutWeb.Controllers
             {
                 var routeData = new RouteData();
                 routeData.Values.Add("controller", controllerName);
-                //var emailControllerContext = new ControllerContext(new HttpContextWrapper(new HttpContext(new HttpRequest(null, "http://google.com", null), new HttpResponse(null))), routeData, new ViewTemplateController());
+
                 var emailControllerContext = new ControllerContext(new HttpContextWrapper(System.Web.HttpContext.Current), routeData, new MailController());
 
                 var razorViewEngine = new RazorViewEngine();
@@ -101,5 +111,7 @@ namespace OutWeb.Controllers
                 return writer.ToString();
             }
         }
+
+
     }
 }

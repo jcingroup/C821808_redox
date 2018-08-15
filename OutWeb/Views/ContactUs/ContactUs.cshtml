@@ -74,10 +74,10 @@
 
             <!-- 套程式--這邊要用google 我不是機器人 取代div box -->
             @*<p>我不是機器人空間預留</p>*@
-                <div class="form-box" id="robox">
-                	@Html.RecaptchaV2(key)
-                </div>
-            
+            <div class="form-box" id="robox">
+                @Html.RecaptchaV2(key)
+            </div>
+
 
             <div class="form-box">
                 <p>所提供的資料只供肽研生醫內部使用。</p>
@@ -139,7 +139,6 @@
 </section>
 
 @section scripts {
-
     <script>
 
         $("#contactUsFrm").submit(function () {
@@ -165,6 +164,7 @@
                             valid= true;
                         }
                         else {
+                            console.log('error msg:'+result.msg);
                             valid = false;
                         }
                     }, error: function (error) {
@@ -200,12 +200,8 @@
         $(".modal-content").click(function (e) {
             e.stopPropagation();
         });
+
     </script>
 
-    <script>
-        $(function () {
-            CKFinder.setupCKEditor(null, { basePath: '/ckfinder/', skin: 'v1' });
-            CKEDITOR.replace('contenttext');
-        })
-    </script>
+
 }
