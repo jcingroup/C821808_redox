@@ -1014,7 +1014,6 @@ dd {
     #menu {
       padding: 59px 0; } }
   .scrolling #menu {
-    height: 100%;
     width: 100%;
     padding-top: 18px;
     padding-bottom: 18px;
@@ -1044,20 +1043,32 @@ dd {
     opacity: 1;
     top: 0; } }
 .nav-bar {
-  padding-top: 5rem; }
+  padding-top: 5rem;
+  transition: .3s; }
   @media (min-width: 64em) {
     .nav-bar {
       padding: unset; } }
 
-.nav-bar-close {
-  display: none; }
+.menu {
+  height: 100%; }
+
+.menu-close {
+  height: 125px; }
+  @media (min-width: 64em) {
+    .menu-close {
+      height: 80px; } }
+
+.nav-close {
+  opacity: 0;
+  visibility: hidden; }
 
 .nav-link {
   text-shadow: 0 0 0 #005081;
   display: block;
   padding: 5px 0;
   width: 80px;
-  margin: 15px auto; }
+  margin: 15px auto;
+  transition: 0.5s ease; }
   .nav-link:hover, .nav-link:active, .nav-link.active {
     color: #1599A3; }
   @media (min-width: 64em) {
@@ -1066,6 +1077,23 @@ dd {
       padding: unset; }
       .nav-link:not(:last-child) {
         margin-right: 1.5rem; } }
+  @media (max-width: 64em) {
+    .nav-link {
+      position: relative; }
+      .nav-link:after {
+        border-bottom: 1px solid;
+        width: 0;
+        -webkit-transition: 0.35s;
+        transition: 0.35s;
+        position: absolute;
+        bottom: -2px;
+        left: 50%; }
+        .nav-link:after, .hover-underline:after, .top-nav .mail:after {
+          content: '';
+          display: block; }
+      .nav-link:hover:after, .nav-link:active:after {
+        width: 100%;
+        left: 0; } }
 
 .top-nav .mail {
   margin-top: 18px; }
@@ -1079,6 +1107,9 @@ dd {
   background-position: right 0; }
 
 .menu-btn {
+  transition: .3s;
+  opacity: 0;
+  visibility: hidden;
   background: url("../images/mbtn.png");
   height: 52px;
   width: 60px;
@@ -1314,9 +1345,6 @@ figure {
     position: absolute;
     bottom: -2px;
     left: 50%; }
-    .hover-underline:after, .top-nav .mail:after {
-      content: '';
-      display: block; }
   .hover-underline:hover:after, .top-nav .mail:hover:after, .hover-underline:active:after, .top-nav .mail:active:after {
     width: 100%;
     left: 0; }

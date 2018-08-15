@@ -32,20 +32,20 @@
                     </section>
                 </div>
             </nav>
-            <nav id="menu" class="sticky">
+            <nav id="menu" class="sticky menu menu-close">
                 <h1 class="logo" onclick="location.href='@Url.Content("~/Home")'" title="回首頁" tabindex="-1">肽研生醫 REDOX MEDICARE</h1>
-                <button class="menu-btn"></button>
-                <div class="wrap nav-bar">
+                <button class="menu-btn" id="menu-btn"></button>
+                <div class="wrap nav-bar nav-close" id="navBar">
                     <section>
-                        <a class="nav-link hover-underline @(ViewBag.BodyClass == "Index" ? "active" : "")" href="~/Home">首頁</a>
-                        <a class="nav-link hover-underline @(ViewBag.BodyClass == "AboutUs" ? "active" : "")" href="~/Home/AboutUs">關於我們</a>
-                        <a class="nav-link hover-underline @(ViewBag.BodyClass == "News" ? "active" : "")" href="~/News">最新消息</a>
+                        <a class="nav-link @(ViewBag.BodyClass == "Index" ? "active" : "")" href="~/Home">首頁</a>
+                        <a class="nav-link @(ViewBag.BodyClass == "AboutUs" ? "active" : "")" href="~/Home/AboutUs">關於我們</a>
+                        <a class="nav-link @(ViewBag.BodyClass == "News" ? "active" : "")" href="~/News">最新消息</a>
                         <a class="nav-link hover-underline @(ViewBag.BodyClass == "Products" ? "active" : "")" href="~/Products">產品介紹</a>
                     </section>
                     <section>
-                        <a class="nav-link hover-underline @(ViewBag.BodyClass == "Service" ? "active" : "")" href="~/Home/Service">專業服務</a>
+                        <a class="nav-link @(ViewBag.BodyClass == "Service" ? "active" : "")" href="~/Home/Service">專業服務</a>
                         <a class="nav-link hover-underline @(ViewBag.BodyClass == "Buy" ? "active" : "")" href="~/Home/Buy">哪裡購買</a>
-                        <a class="nav-link hover-underline @(ViewBag.BodyClass == "ContactUs" ? "active" : "")" href="~/ContactUs">連絡我們</a>
+                        <a class="nav-link @(ViewBag.BodyClass == "ContactUs" ? "active" : "")" href="~/ContactUs">連絡我們</a>
                     </section>
                 </div>
             </nav>
@@ -111,6 +111,56 @@
                 $('.goTop').removeClass('fade-in').addClass('fade-out');
             }
         });
+    </script>
+
+    <!-- 手機列選單 -->
+
+    <script>
+        var menu = document.getElementById("menu");
+        var menuBtn = document.getElementById("menu-btn");
+
+        //nav resize
+        window.addEventListener("resize", topBtn);
+        window.addEventListener("load", topBtn);
+
+        function topBtn() {
+            var width = document.body.offsetWidth + 17;
+            // console.dir(" 網頁可見區域寬："+ width + " (包括邊線和捲軸的寬)");
+
+            if (width < 1024){
+                menuBtn.style.visibility = "visible";
+                menuBtn.style.opacity = "1"
+                navBar.classList.add("nav-close");
+                menu.classList.add("menu-close");
+
+            }else{
+                menuBtn.style.visibility = "hidden";
+                menuBtn.style.opacity = "0"
+                navBar.className = "wrap nav-bar";
+                menu.className = "sticky menu";
+            }
+        }
+
+        //nav click
+        menuBtn.addEventListener("click", clickMenu);
+
+        function clickMenu() {
+            var navBar = document.getElementById("navBar");
+            
+            if (navBar.classList == "wrap nav-bar"){
+                navBar.classList.add("nav-close");
+                menu.classList.add("menu-close");
+
+            }else{
+                navBar.className = "wrap nav-bar";
+                menu.className = "sticky menu";
+            }
+            // console.dir(navBar.classList);
+        }
+
+
+        
+        
     </script>
     @RenderSection("scripts", required: false)
 </body>

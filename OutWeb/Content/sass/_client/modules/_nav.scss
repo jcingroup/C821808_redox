@@ -15,7 +15,6 @@ $menu-h: 140px;
     .scrolling & {
         @extend .bg-white;
 
-        height: 100%;
         width: 100%;
         padding-top: ($sticky-h - 18)/2;
         padding-bottom: ($sticky-h - 18)/2;
@@ -43,12 +42,24 @@ $menu-h: 140px;
 }
 .nav-bar {
     padding-top: 5rem;
+    transition: .3s;
+    
     @include mq(desktop){
         padding: unset;
     }
 }
-.nav-bar-close {
-    display: none;
+.menu {
+    height: 100%;
+}
+.menu-close{
+    height: 125px;
+    @include mq(desktop){
+        height: 80px;
+    }
+}
+.nav-close {
+    opacity: 0;
+    visibility: hidden;
 }
 .nav-link {
 
@@ -74,6 +85,7 @@ $menu-h: 140px;
 
     width: 80px;
     margin: 15px auto;
+    transition: 0.5s ease;
 
     @include mq(desktop) {
 
@@ -82,6 +94,28 @@ $menu-h: 140px;
 
         &:not(:last-child) {
             margin-right: 1.5rem;
+        }
+    }
+
+
+
+    @include mq-max(desktop) {
+
+        position: relative;
+
+        @include el(after) {
+            border-bottom: 1px solid;
+            width: 0;
+
+            @include transition(.35s);
+            @include absolute(left 50% bottom -2px);
+        }
+
+        &:hover, &:active {
+            &:after {
+                width: 100%;
+                left: 0;
+            }
         }
     }
 
@@ -111,6 +145,9 @@ $menu-h: 140px;
 }
 
 .menu-btn {
+    transition: .3s;
+    opacity: 0;
+    visibility: hidden;
     background: url("../images/mbtn.png");
     height: 52px;
     width: 60px;
