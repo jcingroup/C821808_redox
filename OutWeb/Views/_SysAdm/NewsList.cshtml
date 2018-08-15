@@ -204,7 +204,10 @@
                     <td><span class="@disFrontStyle">@disFrontStr</span></td>
                     <td>
                         <!-- 顯示於首頁才出現下面的符號，沒有就留空 -->
-                        <i class="oi text-success" data-glyph="check"></i>
+                        @if (data.HOME_PAGE_DISPLAY)
+                        {
+                            <i class="oi text-success" data-glyph="check"></i>
+                        }
                     </td>
                     <td>@data.SQ</td>
                 </tr>
@@ -254,8 +257,8 @@
         </footer>*@
 }
 <script>
-                //function paginationSubmit(page) {
-                //    $('#numPage').val(page);
-                //    $('form')[0].submit();
-                //}
+                    //function paginationSubmit(page) {
+                    //    $('#numPage').val(page);
+                    //    $('form')[0].submit();
+                    //}
 </script>
