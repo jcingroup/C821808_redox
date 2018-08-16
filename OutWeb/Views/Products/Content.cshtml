@@ -22,18 +22,21 @@
 
             <div class="img-box editor center">
 
-		        @if (Model.FilesData.Count > 0)
-		        {
-		            foreach (var file in Model.FilesData)
-		            {
-		                string fileUrl = string.Empty;
-		                fileUrl = currentUrl + "/" + file.FileUrl;
-		                <img src="@fileUrl" alt="@Model.Data.TITLE">
-		            }
-		        }
+                @if (Model.FilesData.Count > 0)
+                {
+                    foreach (var file in Model.FilesData)
+                    {
+                        string fileUrl = string.Empty;
+                        fileUrl = currentUrl + "/" + file.FileUrl;
+                        <img src="@fileUrl" alt="@Model.Data.TITLE">
+                    }
+                }
+                else
+                {
+                    @* 沒有上傳圖片時，顯示下面圖片 *@
+                    <img src="~/Content/images/no-pic.jpg" alt="">
+                }
 
-		        @* 沒有上傳圖片時，顯示下面圖片
-		        <img src="~/Content/images/no-pic.jpg" alt=""> *@
 
             </div>
 

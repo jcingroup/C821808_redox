@@ -111,9 +111,12 @@
                 {
                     <img src="@fileUrl" alt="@imgAlt">
                 }
+                else
+                {
+                    @* 沒有上傳圖片時，顯示下面圖片*@
+                    <img src="~/Content/images/no-pic.jpg" alt="">
+                }
 
-                @* 沒有上傳圖片時，顯示下面圖片
-                <img src="~/Content/images/no-pic.jpg" alt=""> *@
 
                 <figcaption class="text-primary">
                     <h5 class="text-left b  font-xl">@data.TITLE</h5>
@@ -204,9 +207,12 @@
                     {
                         <img src="@fileUrl" alt="@imgAlt">
                     }
+                    else
+                    {
+                        @* 沒有上傳圖片時，顯示下面圖片 *@
+                        <img src="~/Content/images/no-pic.jpg" alt="">
+                    }
 
-                    @* 沒有上傳圖片時，顯示下面圖片
-                    <img src="~/Content/images/no-pic.jpg" alt=""> *@
 
                 </div>
 

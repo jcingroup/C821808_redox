@@ -23,17 +23,17 @@
 }
 
 <section class="intro">
-    
+
 
     <article>
-    	@Html.Raw(content)
+        @Html.Raw(content)
 
         @*<p>為什麼要補充RD236酵素?</p>
-        <p>生活中的毒無所不在，如何運用身體代謝機制達到排毒的作用，是我們首要解決的問題。</p>
-        <p>現在的人生活快節奏，工作壓力大，三餐老是在外，油膩、蔬果攝取不足，</p>
-        <p>再加上污染的環境和不安全的食材充斥著我們的生活，過度的食用容易造成毒素累積，</p>
-        <p>引起各種身體不適及其他相關問題，因此研究指出，適當補充天然萃取的RD236酵素</p>
-        <p>能幫助我們主動排毒，健康排毒。</p>*@
+            <p>生活中的毒無所不在，如何運用身體代謝機制達到排毒的作用，是我們首要解決的問題。</p>
+            <p>現在的人生活快節奏，工作壓力大，三餐老是在外，油膩、蔬果攝取不足，</p>
+            <p>再加上污染的環境和不安全的食材充斥著我們的生活，過度的食用容易造成毒素累積，</p>
+            <p>引起各種身體不適及其他相關問題，因此研究指出，適當補充天然萃取的RD236酵素</p>
+            <p>能幫助我們主動排毒，健康排毒。</p>*@
     </article>
 </section>
 
@@ -62,9 +62,12 @@
                     {
                         <img src="@fileUrl" alt="@imgAlt">
                     }
+                    else
+                    {
+                        @* 沒有上傳圖片時，顯示下面圖片*@
+                        <img src="~/Content/images/no-pic.jpg" alt="">
+                    }
 
-                    @* 沒有上傳圖片時，顯示下面圖片
-		        	<img src="~/Content/images/no-pic.jpg" alt=""> *@
 
                 </div>
                 <figcaption class="pull-left">
@@ -120,7 +123,7 @@
 
         <img src="~/Content/images/page/5p.gif">
         <div class="five-title">
-        	<h2 class="font-xxl pt-64">五大保證</h2>
+            <h2 class="font-xxl pt-64">五大保證</h2>
         </div>
 
         <figcaption class="text-left">
