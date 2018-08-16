@@ -28,9 +28,12 @@
 		            {
 		                string fileUrl = string.Empty;
 		                fileUrl = currentUrl + "/" + file.FileUrl;
-		                <img src="@fileUrl" alt="@Model.Data.TITLE" data-swiper-parallax="-220">
+		                <img src="@fileUrl" alt="@Model.Data.TITLE">
 		            }
 		        }
+
+		        @* 沒有上傳圖片時，顯示下面圖片
+		        <img src="~/Content/images/no-pic.jpg" alt=""> *@
 
             </div>
 
