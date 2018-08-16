@@ -31,10 +31,14 @@
             }
 
             <figure class="card news-item">
-                @if (file != null)
-                {
-                    <img src="@fileUrl" alt="@imgAlt">
-                }
+                <div class="imgbox">
+
+                    @if (file != null)
+                    {
+                        <img src="@fileUrl" alt="@imgAlt">
+                    }
+
+                </div>
 
                 <figcaption>
                     <span class="date">@data.PUB_DT_STR</span>

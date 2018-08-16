@@ -211,6 +211,17 @@ $banner-h: 360px;
                 left: 0;
             }
         }
+        .five-title{
+            color: #5C5D5D;
+            background: url("#{$img-page}/5p-s.gif") 0 0 no-repeat;
+            background-position: center top;
+            h2 {
+                padding-top: 6rem;
+            }
+            @include mq(desktop) {
+                display: none;
+            }
+        }
 
         figcaption {
             position: relative;
@@ -661,7 +672,7 @@ $banner-h: 360px;
             margin-top: 30px;
         }
 
-        img {
+        .img-box {
             margin-top: 50px;
             max-width: 200px;
 
@@ -671,6 +682,13 @@ $banner-h: 360px;
 
             @include mq(tablet) {
                 max-width: 350px;
+
+                height: 500px;
+                line-height: 500px;
+            }
+
+            img {
+                max-height: 100%;
             }
         }
 
@@ -991,8 +1009,15 @@ $banner-h: 360px;
                 @extend .bg-primary,.text-white,.font-md,.px-12,.py-4;
                 border-radius: $border-radius/2;
             }
+
+            .imgbox {
+
+                @include mq(tablet){
+                    height: 170px;
+                    line-height: 170px;
+                }
+            }
             img {
-                margin-top: 20px;
 
                 @include mq(tablet) {
                     max-height: 170px;

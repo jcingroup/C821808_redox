@@ -19,15 +19,20 @@
 
             <!-- 套程式-產品管理 -->
             <!-- 產品圖 -->
-            @if (Model.FilesData.Count > 0)
-            {
-                foreach (var file in Model.FilesData)
-                {
-                    string fileUrl = string.Empty;
-                    fileUrl = currentUrl + "/" + file.FileUrl;
-                    <img src="@fileUrl" alt="@Model.Data.TITLE" data-swiper-parallax="-220">
-                }
-            }
+
+            <div class="img-box editor center">
+
+		        @if (Model.FilesData.Count > 0)
+		        {
+		            foreach (var file in Model.FilesData)
+		            {
+		                string fileUrl = string.Empty;
+		                fileUrl = currentUrl + "/" + file.FileUrl;
+		                <img src="@fileUrl" alt="@Model.Data.TITLE" data-swiper-parallax="-220">
+		            }
+		        }
+
+            </div>
 
             <article class="rest text-left" data-swiper-parallax="-200">
 

@@ -1488,6 +1488,8 @@
     <Content Include="Content\images\logo-s.gif" />
     <Content Include="Content\images\logo.gif" />
     <Content Include="Content\images\mbtn.png" />
+    <Content Include="Content\images\no-pic.jpg" />
+    <Content Include="Content\images\page\5p-s.gif" />
     <Content Include="Content\images\page\5p.gif" />
     <Content Include="Content\images\page\about\p01.gif" />
     <Content Include="Content\images\page\about\p02.gif" />
