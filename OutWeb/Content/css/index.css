@@ -343,7 +343,7 @@ dd {
   .btn.white:hover, .btn.white:active, .btn.white.active {
     background: #1abbc7; }
 
-.text-hide, .top-nav .icon-fb, .top-nav .icon-line, .logo, .logo-foot {
+.text-hide, .icon-fb, .icon-line, .logo, .logo-foot {
   font: 0/0 a;
   color: transparent;
   text-shadow: none;
@@ -517,7 +517,7 @@ dd {
 .mb-12 {
   margin-bottom: 0.75rem; }
 
-.ml-12, .top-nav .icon-line {
+.ml-12, .icon-line {
   margin-left: 0.75rem; }
 
 .mx-12 {
@@ -1009,10 +1009,7 @@ dd {
   color: #EFEFEF; }
 
 #menu {
-  padding: 44px 0; }
-  @media (min-width: 64em) {
-    #menu {
-      padding: 59px 0; } }
+  padding: 34px 0; }
   .scrolling #menu {
     width: 100%;
     padding-top: 18px;
@@ -1025,9 +1022,6 @@ dd {
     transition: 0.5s ease;
     -webkit-animation: scrolling 0.8s alternate both;
     animation: scrolling 0.8s alternate both; }
-    @media (min-width: 64em) {
-      .scrolling #menu {
-        height: unset; } }
 @-webkit-keyframes scrolling {
   from {
     opacity: 0.5;
@@ -1044,23 +1038,44 @@ dd {
     top: 0; } }
 .nav-bar {
   padding-top: 5rem;
-  transition: .3s; }
+  transition: .3s;
+  visibility: hidden;
+  opacity: 0; }
   @media (min-width: 64em) {
     .nav-bar {
-      padding: unset; } }
+      padding: unset;
+      visibility: visible;
+      opacity: 1; } }
 
 .menu {
-  height: 100%; }
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+  background: #fff; }
+  @media (min-width: 64em) {
+    .menu {
+      position: relative;
+      height: 60px;
+      left: unset;
+      top: unset;
+      bottom: unset;
+      right: unset; } }
 
 .menu-close {
-  height: 125px; }
-  @media (min-width: 64em) {
-    .menu-close {
-      height: 80px; } }
+  position: relative;
+  height: 90px; }
+  .scrolling .menu-close {
+    height: 80px; }
+    @media (min-width: 64em) {
+      .scrolling .menu-close {
+        height: 60px; } }
 
-.nav-close {
-  opacity: 0;
-  visibility: hidden; }
+.nav-open {
+  opacity: 1;
+  visibility: visible; }
 
 .nav-link {
   text-shadow: 0 0 0 #005081;
@@ -1095,26 +1110,46 @@ dd {
         width: 100%;
         left: 0; } }
 
-.top-nav .mail {
-  margin-top: 18px; }
-.top-nav .icon-fb, .top-nav .icon-line {
-  display: block;
-  float: left;
+.top-nav {
+  display: none; }
+  @media (min-width: 64em) {
+    .top-nav {
+      display: block; } }
+  .top-nav .mail {
+    margin-top: 18px; }
+  .top-nav .icon-fb, .top-nav .icon-line {
+    display: block;
+    float: left; }
+
+.icon-fb, .icon-line {
   background: url(../images/icon-social.gif) 0 0 no-repeat;
   width: 38px;
   height: 38px; }
-.top-nav .icon-line {
+
+.icon-line {
   background-position: right 0; }
 
 .menu-btn {
   transition: .3s;
-  opacity: 0;
-  visibility: hidden;
-  background: url("../images/mbtn.png");
+  opacity: 1;
+  visibility: visible;
+  background: url("../images/mbtn.png") 0 0 no-repeat;
   height: 52px;
   width: 60px;
   position: absolute;
-  left: 25px; }
+  left: 25px;
+  top: 20px; }
+  @media (min-width: 64em) {
+    .menu-btn {
+      opacity: 0;
+      visibility: hidden; } }
+  .scrolling .menu-btn {
+    top: 15px; }
+  .menu-btn:focus {
+    box-shadow: none; }
+
+.close-btn {
+  background: url("../images/x.gif") 0 0 no-repeat; }
 
 figure .full-link:empty {
   width: 100%;
@@ -1269,6 +1304,9 @@ figure {
 
 /*      layout
 -----------------------------------------------------------------------*/
+html, body {
+  height: 100%; }
+
 .wrap {
   max-width: 1240px; }
   @media (max-width: 77.4375em) {
@@ -1301,10 +1339,12 @@ figure {
   left: 50%;
   width: 217px;
   margin-left: -108.5px;
-  top: 100px; }
-  @media (min-width: 64em) {
+  top: 10px; }
+  @media (max-width: 64em) {
     .logo {
-      top: 110px; } }
+      background-image: url(../images/logo-s.gif);
+      top: 20px;
+      margin-left: -20px; } }
   .scrolling .logo {
     top: 18px;
     background-image: url(../images/logo-s.gif);
@@ -1313,7 +1353,7 @@ figure {
     margin-left: -24px; }
     @media (min-width: 64em) {
       .scrolling .logo {
-        top: 3px; } }
+        top: 6px; } }
 
 #footer {
   background: #43adb5;

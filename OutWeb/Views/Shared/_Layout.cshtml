@@ -35,17 +35,20 @@
             <nav id="menu" class="sticky menu menu-close">
                 <h1 class="logo" onclick="location.href='@Url.Content("~/Home")'" title="回首頁" tabindex="-1">肽研生醫 REDOX MEDICARE</h1>
                 <button class="menu-btn" id="menu-btn"></button>
-                <div class="wrap nav-bar nav-close" id="navBar">
+                <div class="wrap nav-bar" id="navBar">
                     <section>
                         <a class="nav-link @(ViewBag.BodyClass == "Index" ? "active" : "")" href="~/Home">首頁</a>
                         <a class="nav-link @(ViewBag.BodyClass == "AboutUs" ? "active" : "")" href="~/Home/AboutUs">關於我們</a>
-                        <a class="nav-link @(ViewBag.BodyClass == "News" ? "active" : "")" href="~/News">最新消息</a>
+                        <a class="nav-link @(ViewBag.BodyClass == "List" ? "active" : "")" href="~/News">最新消息</a>
                         <a class="nav-link hover-underline @(ViewBag.BodyClass == "Products" ? "active" : "")" href="~/Products">產品介紹</a>
                     </section>
                     <section>
                         <a class="nav-link @(ViewBag.BodyClass == "Service" ? "active" : "")" href="~/Home/Service">專業服務</a>
                         <a class="nav-link hover-underline @(ViewBag.BodyClass == "Buy" ? "active" : "")" href="~/Home/Buy">哪裡購買</a>
                         <a class="nav-link @(ViewBag.BodyClass == "ContactUs" ? "active" : "")" href="~/ContactUs">連絡我們</a>
+                        <a class="icon-fb nav-link mt-64" href="https://www.facebook.com/redoxmedicare/" target="new"></a>
+                        <a class="icon-line nav-link" href="https://line.me/R/ti/p/%40fgr1047s"target="new"></a>
+                        
                     </section>
                 </div>
             </nav>
@@ -118,28 +121,8 @@
     <script>
         var menu = document.getElementById("menu");
         var menuBtn = document.getElementById("menu-btn");
+        var body = document.getElementsByTagName("body")[0];
 
-        //nav resize
-        window.addEventListener("resize", topBtn);
-        window.addEventListener("load", topBtn);
-
-        function topBtn() {
-            var width = document.body.offsetWidth + 17;
-            // console.dir(" 網頁可見區域寬："+ width + " (包括邊線和捲軸的寬)");
-
-            if (width < 1024){
-                menuBtn.style.visibility = "visible";
-                menuBtn.style.opacity = "1"
-                navBar.classList.add("nav-close");
-                menu.classList.add("menu-close");
-
-            }else{
-                menuBtn.style.visibility = "hidden";
-                menuBtn.style.opacity = "0"
-                navBar.className = "wrap nav-bar";
-                menu.className = "sticky menu";
-            }
-        }
 
         //nav click
         menuBtn.addEventListener("click", clickMenu);
@@ -147,20 +130,21 @@
         function clickMenu() {
             var navBar = document.getElementById("navBar");
             
-            if (navBar.classList == "wrap nav-bar"){
-                navBar.classList.add("nav-close");
+            if (navBar.classList == "wrap nav-bar nav-open"){
+                menuBtn.className = "menu-btn";
+                navBar.className = "wrap nav-bar";
                 menu.classList.add("menu-close");
+                body.style.overflow = "auto";
 
             }else{
-                navBar.className = "wrap nav-bar";
+                navBar.classList.add("nav-open");
+                menuBtn.classList.add("close-btn");
                 menu.className = "sticky menu";
+                body.style.overflow = "hidden";
             }
             // console.dir(navBar.classList);
         }
 
-
-        
-        
     </script>
     @RenderSection("scripts", required: false)
 </body>

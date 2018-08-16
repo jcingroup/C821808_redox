@@ -343,7 +343,7 @@ dd {
   .btn.white:hover, .btn.white:active, .btn.white.active {
     background: #1abbc7; }
 
-.text-hide, .top-nav .icon-fb, .top-nav .icon-line, .logo, .logo-foot {
+.text-hide, .icon-fb, .icon-line, .logo, .logo-foot {
   font: 0/0 a;
   color: transparent;
   text-shadow: none;
@@ -517,7 +517,7 @@ dd {
 .mb-12 {
   margin-bottom: 0.75rem; }
 
-.ml-12, .top-nav .icon-line {
+.ml-12, .icon-line {
   margin-left: 0.75rem; }
 
 .mx-12 {
@@ -902,7 +902,7 @@ dd {
 .font-sp {
   font-family: "Montserrat"; }
 
-.text-white, .btn.white:hover, .btn.white:active, .btn.white.active, .top-nav .mail, .goTop, .goTop:hover, .goTop:active, #footer, #footer a, .Service .exper .wrap .card-2 figcaption, .Products-Content .list-each h5, .List .news-item .date, .Contact-Us #banner .title {
+.text-white, .btn.white:hover, .btn.white:active, .btn.white.active, .top-nav .mail, .goTop, .goTop:hover, .goTop:active, #footer, #footer a, .Service .exper .wrap .card-2 figcaption, .Products-Content .list-each h5, .List .news-item .date, .ContactUs #banner .title {
   color: #fff; }
 
 .text-black {
@@ -1009,10 +1009,7 @@ dd {
   color: #EFEFEF; }
 
 #menu {
-  padding: 44px 0; }
-  @media (min-width: 64em) {
-    #menu {
-      padding: 59px 0; } }
+  padding: 34px 0; }
   .scrolling #menu {
     width: 100%;
     padding-top: 18px;
@@ -1025,9 +1022,6 @@ dd {
     transition: 0.5s ease;
     -webkit-animation: scrolling 0.8s alternate both;
     animation: scrolling 0.8s alternate both; }
-    @media (min-width: 64em) {
-      .scrolling #menu {
-        height: unset; } }
 @-webkit-keyframes scrolling {
   from {
     opacity: 0.5;
@@ -1044,23 +1038,44 @@ dd {
     top: 0; } }
 .nav-bar {
   padding-top: 5rem;
-  transition: .3s; }
+  transition: .3s;
+  visibility: hidden;
+  opacity: 0; }
   @media (min-width: 64em) {
     .nav-bar {
-      padding: unset; } }
+      padding: unset;
+      visibility: visible;
+      opacity: 1; } }
 
 .menu {
-  height: 100%; }
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+  background: #fff; }
+  @media (min-width: 64em) {
+    .menu {
+      position: relative;
+      height: 60px;
+      left: unset;
+      top: unset;
+      bottom: unset;
+      right: unset; } }
 
 .menu-close {
-  height: 125px; }
-  @media (min-width: 64em) {
-    .menu-close {
-      height: 80px; } }
+  position: relative;
+  height: 90px; }
+  .scrolling .menu-close {
+    height: 80px; }
+    @media (min-width: 64em) {
+      .scrolling .menu-close {
+        height: 60px; } }
 
-.nav-close {
-  opacity: 0;
-  visibility: hidden; }
+.nav-open {
+  opacity: 1;
+  visibility: visible; }
 
 .nav-link {
   text-shadow: 0 0 0 #005081;
@@ -1095,26 +1110,46 @@ dd {
         width: 100%;
         left: 0; } }
 
-.top-nav .mail {
-  margin-top: 18px; }
-.top-nav .icon-fb, .top-nav .icon-line {
-  display: block;
-  float: left;
+.top-nav {
+  display: none; }
+  @media (min-width: 64em) {
+    .top-nav {
+      display: block; } }
+  .top-nav .mail {
+    margin-top: 18px; }
+  .top-nav .icon-fb, .top-nav .icon-line {
+    display: block;
+    float: left; }
+
+.icon-fb, .icon-line {
   background: url(../images/icon-social.gif) 0 0 no-repeat;
   width: 38px;
   height: 38px; }
-.top-nav .icon-line {
+
+.icon-line {
   background-position: right 0; }
 
 .menu-btn {
   transition: .3s;
-  opacity: 0;
-  visibility: hidden;
-  background: url("../images/mbtn.png");
+  opacity: 1;
+  visibility: visible;
+  background: url("../images/mbtn.png") 0 0 no-repeat;
   height: 52px;
   width: 60px;
   position: absolute;
-  left: 25px; }
+  left: 25px;
+  top: 20px; }
+  @media (min-width: 64em) {
+    .menu-btn {
+      opacity: 0;
+      visibility: hidden; } }
+  .scrolling .menu-btn {
+    top: 15px; }
+  .menu-btn:focus {
+    box-shadow: none; }
+
+.close-btn {
+  background: url("../images/x.gif") 0 0 no-repeat; }
 
 figure .full-link:empty {
   width: 100%;
@@ -1370,6 +1405,9 @@ figure {
 
 /*      layout
 -----------------------------------------------------------------------*/
+html, body {
+  height: 100%; }
+
 .wrap {
   max-width: 1240px; }
   @media (max-width: 77.4375em) {
@@ -1402,10 +1440,12 @@ figure {
   left: 50%;
   width: 217px;
   margin-left: -108.5px;
-  top: 100px; }
-  @media (min-width: 64em) {
+  top: 10px; }
+  @media (max-width: 64em) {
     .logo {
-      top: 110px; } }
+      background-image: url(../images/logo-s.gif);
+      top: 20px;
+      margin-left: -20px; } }
   .scrolling .logo {
     top: 18px;
     background-image: url(../images/logo-s.gif);
@@ -1414,7 +1454,7 @@ figure {
     margin-left: -24px; }
     @media (min-width: 64em) {
       .scrolling .logo {
-        top: 3px; } }
+        top: 6px; } }
 
 #footer {
   background: #43adb5;
@@ -1752,9 +1792,12 @@ figure {
         width: 350px; } }
 .Service .exper .wrap .card-2 {
   display: inline-table;
-  width: 320px;
+  width: 260px;
   height: 620px;
   margin: 10px; }
+  @media (min-width: 23.4375em) {
+    .Service .exper .wrap .card-2 {
+      width: 320px; } }
   @media (min-width: 35.5em) {
     .Service .exper .wrap .card-2 {
       width: 400px; } }
@@ -1783,8 +1826,15 @@ figure {
       width: 0;
       height: 0;
       border: 0 solid transparent;
-      border-width: 50px 160px 0 160px;
+      border-width: 50px 130px 0 130px;
       border-top-color: #F1F1F1; }
+      @media (min-width: 23.4375em) {
+        .Service .exper .wrap .card-2 .corner:after {
+          width: 0;
+          height: 0;
+          border: 0 solid transparent;
+          border-width: 50px 160px 0 160px;
+          border-top-color: #F1F1F1; } }
       @media (min-width: 35.5em) {
         .Service .exper .wrap .card-2 .corner:after {
           bottom: -70px;
@@ -1796,7 +1846,7 @@ figure {
   .Service .exper .wrap .card-2 figcaption {
     height: 480px;
     background-color: #1786A6;
-    padding: 90px 40px 20px;
+    padding: 75px 40px 20px;
     text-align: left;
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px; }
@@ -2112,19 +2162,19 @@ figure {
     text-decoration: none;
     color: #ffffff; }
 
-.Contact-Us #banner {
+.ContactUs #banner {
   background-image: url("../images/page/banner-contactus.gif");
   margin-bottom: 100px;
   background-color: #F4D731;
   background-size: 90%;
   background-repeat: no-repeat; }
   @media (min-width: 48em) {
-    .Contact-Us #banner {
+    .ContactUs #banner {
       background-size: unset; } }
-  .Contact-Us #banner h2 {
+  .ContactUs #banner h2 {
     width: unset; }
-  .Contact-Us #banner .title {
-    font-size: 40px;
+  .ContactUs #banner .title {
+    font-size: 33px;
     margin-top: 60px;
     margin-left: 50%;
     -moz-transform: rotate(3deg);
@@ -2132,69 +2182,72 @@ figure {
     -o-transform: rotate(3deg);
     -ms-transform: rotate(3deg);
     transform: rotate(3deg); }
+    @media (min-width: 23.4375em) {
+      .ContactUs #banner .title {
+        font-size: 40px; } }
     @media (min-width: 48em) {
-      .Contact-Us #banner .title {
+      .ContactUs #banner .title {
         font-size: 64px;
         margin-top: 150px;
         margin-left: 55%; } }
-.Contact-Us .wrap h5 {
+.ContactUs .wrap h5 {
   font-weight: bold; }
 @media (min-width: 35.5em) {
-  .Contact-Us .wrap form {
+  .ContactUs .wrap form {
     padding: 0 10%; } }
 @media (min-width: 64em) {
-  .Contact-Us .wrap form {
+  .ContactUs .wrap form {
     padding: 0;
     margin: 100px auto; } }
-.Contact-Us .wrap form .boxleft {
+.ContactUs .wrap form .boxleft {
   vertical-align: top; }
-  .Contact-Us .wrap form .boxleft .form-box {
+  .ContactUs .wrap form .boxleft .form-box {
     margin: 30px 20px 0; }
-    .Contact-Us .wrap form .boxleft .form-box .label {
+    .ContactUs .wrap form .boxleft .form-box .label {
       vertical-align: middle;
       padding: 4px;
       width: 80px;
       display: inline-block; }
       @media (min-width: 48em) {
-        .Contact-Us .wrap form .boxleft .form-box .label {
+        .ContactUs .wrap form .boxleft .form-box .label {
           text-align: right; } }
-    .Contact-Us .wrap form .boxleft .form-box select, .Contact-Us .wrap form .boxleft .form-box textarea, .Contact-Us .wrap form .boxleft .form-box input {
+    .ContactUs .wrap form .boxleft .form-box select, .ContactUs .wrap form .boxleft .form-box textarea, .ContactUs .wrap form .boxleft .form-box input {
       width: 100%;
       border: #005081 2px solid;
       margin-top: 10px;
       padding: 10px;
       color: #005081; }
       @media (min-width: 48em) {
-        .Contact-Us .wrap form .boxleft .form-box select, .Contact-Us .wrap form .boxleft .form-box textarea, .Contact-Us .wrap form .boxleft .form-box input {
+        .ContactUs .wrap form .boxleft .form-box select, .ContactUs .wrap form .boxleft .form-box textarea, .ContactUs .wrap form .boxleft .form-box input {
           width: 47%; } }
       @media (min-width: 75em) {
-        .Contact-Us .wrap form .boxleft .form-box select, .Contact-Us .wrap form .boxleft .form-box textarea, .Contact-Us .wrap form .boxleft .form-box input {
+        .ContactUs .wrap form .boxleft .form-box select, .ContactUs .wrap form .boxleft .form-box textarea, .ContactUs .wrap form .boxleft .form-box input {
           width: 80%;
           max-width: 350px; } }
     @media (min-width: 64em) {
-      .Contact-Us .wrap form .boxleft .form-box select, .Contact-Us .wrap form .boxleft .form-box textarea {
+      .ContactUs .wrap form .boxleft .form-box select, .ContactUs .wrap form .boxleft .form-box textarea {
         width: 70%; } }
-    .Contact-Us .wrap form .boxleft .form-box textarea {
+    .ContactUs .wrap form .boxleft .form-box textarea {
       vertical-align: top; }
-    .Contact-Us .wrap form .boxleft .form-box .select {
+    .ContactUs .wrap form .boxleft .form-box .select {
       appearance: none;
       -moz-appearance: none;
       -webkit-appearance: none;
       background: url("../images/page/arrow.gif") no-repeat right center transparent; }
-    .Contact-Us .wrap form .boxleft .form-box .red {
+    .ContactUs .wrap form .boxleft .form-box .red {
       color: #FF5F73; }
-    .Contact-Us .wrap form .boxleft .form-box .none {
+    .ContactUs .wrap form .boxleft .form-box .none {
       visibility: hidden; }
-    .Contact-Us .wrap form .boxleft .form-box:last-child {
+    .ContactUs .wrap form .boxleft .form-box:last-child {
       margin-bottom: 50px; }
-  .Contact-Us .wrap form .boxleft .form-box-2 {
+  .ContactUs .wrap form .boxleft .form-box-2 {
     margin-top: 15px;
     text-align: right; }
     @media (min-width: 48em) {
-      .Contact-Us .wrap form .boxleft .form-box-2 {
+      .ContactUs .wrap form .boxleft .form-box-2 {
         margin: unset;
         display: inline-block; } }
-  .Contact-Us .wrap form .boxleft .gender {
+  .ContactUs .wrap form .boxleft .gender {
     position: relative;
     padding-left: 35px;
     padding-top: 7px;
@@ -2204,16 +2257,16 @@ figure {
     -ms-user-select: none;
     user-select: none;
     margin-left: 20px; }
-    .Contact-Us .wrap form .boxleft .gender:hover .input ~ .checkmark {
+    .ContactUs .wrap form .boxleft .gender:hover .input ~ .checkmark {
       background-color: #005081; }
-    .Contact-Us .wrap form .boxleft .gender .input {
+    .ContactUs .wrap form .boxleft .gender .input {
       opacity: 0;
       cursor: pointer;
       width: unset;
       display: none; }
-      .Contact-Us .wrap form .boxleft .gender .input:checked ~ .checkmark:after {
+      .ContactUs .wrap form .boxleft .gender .input:checked ~ .checkmark:after {
         display: block; }
-    .Contact-Us .wrap form .boxleft .gender .checkmark {
+    .ContactUs .wrap form .boxleft .gender .checkmark {
       position: absolute;
       top: 3px;
       left: 3px;
@@ -2221,18 +2274,18 @@ figure {
       width: 25px;
       border: #005081 2px solid;
       border-radius: 50%; }
-    .Contact-Us .wrap form .boxleft .gender .input:checked ~ .checkmark {
+    .ContactUs .wrap form .boxleft .gender .input:checked ~ .checkmark {
       background-color: #005081; }
-  .Contact-Us .wrap form .boxleft #robox {
+  .ContactUs .wrap form .boxleft #robox {
     text-align: center;
     margin: 30px 0; }
     @media (min-width: 48em) {
-      .Contact-Us .wrap form .boxleft #robox {
+      .ContactUs .wrap form .boxleft #robox {
         padding: 20px 75px;
         margin: 30px 20px 0; } }
-  .Contact-Us .wrap form .boxleft .hover-underline, .Contact-Us .wrap form .boxleft .top-nav .mail, .top-nav .Contact-Us .wrap form .boxleft .mail {
+  .ContactUs .wrap form .boxleft .hover-underline, .ContactUs .wrap form .boxleft .top-nav .mail, .top-nav .ContactUs .wrap form .boxleft .mail {
     cursor: pointer; }
-.Contact-Us .wrap form #submit {
+.ContactUs .wrap form #submit {
   display: block;
   margin: 0 auto;
   clear: both;
@@ -2242,15 +2295,15 @@ figure {
   cursor: pointer;
   border: #005081 2px solid;
   transition: all .3s; }
-  .Contact-Us .wrap form #submit:hover {
+  .ContactUs .wrap form #submit:hover {
     background-color: #ffffff;
     color: #005081; }
-.Contact-Us .contact-form {
+.ContactUs .contact-form {
   border: #005081 1px solid; }
-  .Contact-Us .contact-form li {
+  .ContactUs .contact-form li {
     margin: 10px 0;
     font-weight: bolder; }
-.Contact-Us .modal-close {
+.ContactUs .modal-close {
   position: relative;
   right: -90%;
   top: unset; }
@@ -2268,61 +2321,61 @@ figure {
     .Buy .shop figure a {
       cursor: pointer; }
 
-.About #banner {
+.AboutUs #banner {
   background-image: url("../images/page/banner-about.jpg"); }
 @media (min-width: 64em) {
-  .About .wrap .img {
+  .AboutUs .wrap .img {
     padding-top: 40px; } }
-.About .wrap .img img {
+.AboutUs .wrap .img img {
   width: 80%; }
   @media (min-width: 48em) {
-    .About .wrap .img img {
+    .AboutUs .wrap .img img {
       width: 50%; } }
   @media (min-width: 75em) {
-    .About .wrap .img img {
+    .AboutUs .wrap .img img {
       width: 100%;
       margin-left: 20%; } }
-.About .wrap article {
+.AboutUs .wrap article {
   color: #757575;
   margin: 30px 30px 0; }
   @media (min-width: 48em) {
-    .About .wrap article {
+    .AboutUs .wrap article {
       margin: 30px 60px 0; } }
   @media (min-width: 75em) {
-    .About .wrap article {
+    .AboutUs .wrap article {
       margin: 30px 0 0 110px; } }
-  .About .wrap article p {
+  .AboutUs .wrap article p {
     margin-top: 30px; }
-.About .info {
+.AboutUs .info {
   margin-top: 80px; }
-.About .team {
+.AboutUs .team {
   padding: 30px 20px 50px;
   margin-top: 150px; }
-.About .people {
+.AboutUs .people {
   margin-top: 130px; }
-  .About .people .card {
+  .AboutUs .people .card {
     background-color: #F7F8F8;
     margin-bottom: 100px;
     padding: 10px 30px;
     width: 80%;
     display: inline-block;
     vertical-align: top; }
-    .About .people .card:not(:last-of-type) {
+    .AboutUs .people .card:not(:last-of-type) {
       margin-right: 3%; }
     @media (min-width: 64em) {
-      .About .people .card {
+      .AboutUs .people .card {
         padding: 20px 50px; } }
-    .About .people .card-1 {
+    .AboutUs .people .card-1 {
       height: 480px; }
       @media (min-width: 48em) {
-        .About .people .card-1 {
+        .AboutUs .people .card-1 {
           width: 28.33333%; } }
-    .About .people .card-2 {
-      height: 800px; }
+    .AboutUs .people .card-2 {
+      height: 820px; }
       @media (min-width: 48em) {
-        .About .people .card-2 {
+        .AboutUs .people .card-2 {
           width: 35%; } }
-    .About .people .card figcaption h5 {
+    .AboutUs .people .card figcaption h5 {
       line-height: 1.8; }
-    .About .people .card figcaption p {
+    .AboutUs .people .card figcaption p {
       color: #1599A3; }

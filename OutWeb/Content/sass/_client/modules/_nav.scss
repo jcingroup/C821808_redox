@@ -1,16 +1,13 @@
 ﻿@charset "UTF-8";
 
-$menu-h: 140px;
+$menu-h: 90px;
 
 
 // == 主選單
 // ------------------------------------------------------------
 #menu {
-    padding: ($menu-h - 52)/2 0;
 
-    @include mq(desktop){
-        padding: ($menu-h - 22)/2 0;
-    }
+    padding: ($menu-h - 22)/2 0;
 
     .scrolling & {
         @extend .bg-white;
@@ -20,10 +17,6 @@ $menu-h: 140px;
         padding-bottom: ($sticky-h - 18)/2;
         border-bottom: 1px solid color(muted);
         z-index: z(overlay);
-
-        @include mq(desktop){
-            height: unset;
-        }
 
         @include fixed(top 0);
         @include transition(.5s ease);
@@ -43,23 +36,52 @@ $menu-h: 140px;
 .nav-bar {
     padding-top: 5rem;
     transition: .3s;
+    visibility: hidden;
+    opacity: 0;
     
     @include mq(desktop){
         padding: unset;
+
+        visibility: visible;
+        opacity: 1;
     }
 }
 .menu {
-    height: 100%;
-}
-.menu-close{
-    height: 125px;
-    @include mq(desktop){
-        height: 80px;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 999;
+    background: #fff;
+
+    @include mq(desktop) {
+        position: relative;
+        height: 60px;
+
+        left: unset;
+        top: unset;
+        bottom: unset;
+        right: unset;
     }
 }
-.nav-close {
-    opacity: 0;
-    visibility: hidden;
+.menu-close{
+    position: relative;
+    height: 90px;
+
+    .scrolling & {
+
+        height: 80px;
+
+        @include mq(desktop) {
+            height: 60px;
+        }
+    }
+}
+.nav-open {
+    opacity: 1;
+    visibility: visible;
 }
 .nav-link {
 
@@ -127,30 +149,54 @@ $menu-h: 140px;
 .top-nav {
     @extend .bg-secondary, .py-16;
 
+    display: none;
+    @include mq(desktop) {
+        display: block;
+    }
+
     .mail {
         @extend .hover-underline, .text-white;
         margin-top: 18px;
     }
-
     .icon-fb, .icon-line {
         display: block;
         float: left;
-        @include text-pic('icon-social.gif', 38px, 38px);
-    }
-
-    .icon-line {
-        @extend .ml-12;
-        background-position: right 0;
     }
 }
 
+.icon-fb, .icon-line {
+    @include text-pic('icon-social.gif', 38px, 38px);
+}
+
+.icon-line {
+    @extend .ml-12;
+    background-position: right 0;
+}
+
+//mobile button
+
 .menu-btn {
     transition: .3s;
-    opacity: 0;
-    visibility: hidden;
-    background: url("../images/mbtn.png");
+    opacity: 1;
+    visibility: visible;
+    background: url("../images/mbtn.png") 0 0 no-repeat;
     height: 52px;
     width: 60px;
     position: absolute;
     left: 25px;
+    top: 20px;
+    @include mq(desktop) {
+        opacity: 0;
+        visibility: hidden;
+    }
+    .scrolling & {
+        top: 15px;
+    }
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+.close-btn {
+    background: url("../images/x.gif") 0 0 no-repeat;
 }

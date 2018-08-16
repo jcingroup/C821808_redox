@@ -6,9 +6,8 @@
 @model HomeDataModel
 
 @{
-    ViewBag.Title = "產品介紹";
-    ViewBag.BodyClass = "Products";
-    ViewBag.bannerTitle = "產品介紹";
+    ViewBag.Title = "首頁";
+    ViewBag.BodyClass = "Index";
     List<PRODUCT> ProductsData = (Model.Result["Products"].Result.Data as List<PRODUCT>);
     List<NEWS> NewsData = (Model.Result["News"].Result.Data as List<NEWS>);
 
@@ -17,10 +16,6 @@
     string currentUrl = PublicMethodRepository.UrlMathPath;
 
 }
-@{
-    ViewBag.Title = "首頁";
-}
-
 @section css {
     <link rel="stylesheet" href="~/Content/css/vendor/swiper.min.css">
 }

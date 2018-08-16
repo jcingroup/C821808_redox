@@ -497,10 +497,13 @@ $banner-h: 360px;
             @extend .bg-white;
 
             display: inline-table;
-            width: 320px;
+            width: 260px;
             height: 620px;
             margin: 10px;
 
+            @include mq(mobile) {
+                width: 320px;
+            }
 
             @include mq(phone) {
                 width: 400px;
@@ -537,13 +540,17 @@ $banner-h: 360px;
                     left: 0;
                     background: none;
                     z-index: 1;
+                    @include mq(mobile) {
+                        @include arrow( bottom, 320px, 50px, #F1F1F1);
+                    }
                     
                     @include mq(phone){
                         bottom: -70px;
                         @include arrow( bottom, 404px, 70px, #F1F1F1);
                     }
 
-                    @include arrow( bottom, 320px, 50px, #F1F1F1);
+                    @include arrow( bottom, 260px, 50px, #F1F1F1);
+
                 }
             }
 
@@ -553,7 +560,7 @@ $banner-h: 360px;
 
                 height: 480px;
                 background-color: #1786A6;
-                padding: 90px 40px 20px;
+                padding: 75px 40px 20px;
                 text-align: left;
                 border-bottom-right-radius: $border-radius;
                 border-bottom-left-radius: $border-radius;
@@ -1121,7 +1128,7 @@ $banner-h: 360px;
 
 
 //聯絡我們----------------------
-.Contact-Us {
+.ContactUs {
 
     #banner {
 
@@ -1144,7 +1151,7 @@ $banner-h: 360px;
 
             @extend .text-white;
 
-            font-size: 40px;
+            font-size: 33px;
             margin-top: 60px;
             margin-left: 50%;
 
@@ -1153,6 +1160,11 @@ $banner-h: 360px;
             -o-transform: rotate(3deg);
             -ms-transform: rotate(3deg);
             transform: rotate(3deg);
+
+            @include mq(mobile) {
+                font-size: 40px;
+            }
+
 
             @include mq(tablet) {
                 font-size: 64px;
@@ -1384,7 +1396,7 @@ $banner-h: 360px;
 
 
 //關於我們----------------------
-.About {
+.AboutUs {
 
     #banner { background-image: url("#{$img-page}/banner-about.jpg");}
 
@@ -1470,7 +1482,7 @@ $banner-h: 360px;
             }
 
             &-2 {
-                height: 800px;
+                height: 820px;
 
                 @include mq(tablet) {
                 width: 35%;

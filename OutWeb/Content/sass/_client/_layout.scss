@@ -3,6 +3,10 @@
 /*      layout
 -----------------------------------------------------------------------*/
 // 置中(有最大寬度限制,非滿版才需要)
+
+html,body {
+    height: 100%;
+}
 .wrap {
     @extend .center;
 
@@ -70,18 +74,25 @@
     cursor: pointer;
 
     // this proj only
+    
     @include text-pic($logo-img, nth($logo-size, 1), nth($logo-size, 2));
     @include center(nth($logo-size, 1));
 
-    top: 100px;
-    @include mq(desktop) {top: 110px;}
+    @include mq-max(desktop) {
+        background-image: url(#{$img-path}/logo-s.gif);
+        top: 20px;
+        margin-left: -20px;
+    }
+    
+
+    top: 10px;
 
     .scrolling & {
         $size: 48px;
 
         top: 18px;
         @include mq(desktop) {
-            top: ($sticky-h - $size)/2;
+            top: ($sticky-h - $size);
         }
         background-image: url(#{$img-path}/logo-s.gif);
 
