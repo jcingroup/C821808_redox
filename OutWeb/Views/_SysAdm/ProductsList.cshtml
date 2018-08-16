@@ -125,7 +125,10 @@
                         $('#sortIndex').addClass(sortTp)
                         $('#sortIndex').attr('sort-type', sortTp);
                         break;
-
+                    case "sortHomeStatus":
+                        $('#sortHomeStatus').addClass(sortTp)
+                        $('#sortHomeStatus').attr('sort-type', sortTp);
+                        break;
                     default:
                         break;
                 }
@@ -181,7 +184,7 @@
                 <th class="text-left"><button id="sortTitle" type="button" sort-type="" class="th-sort-toggle">產品名稱</button></th>
                 <th><button id="sortSpec" type="button" sort-type="" class="th-sort-toggle">產品規格</button></th>
                 <th><button id="sortStatus" type="button" sort-type="" class="th-sort-toggle">上架狀態</button></th>
-                <th><button type="button" sort-type="" class="th-sort-toggle">首頁狀態</button></th>
+                <th><button id="sortHomeStatus" type="button" sort-type="" class="th-sort-toggle">首頁狀態</button></th>
                 <th><button id="sortIndex" sort-type="" type="button" class="th-sort-toggle">排序</button></th>
             </tr>
         </thead>
@@ -202,8 +205,11 @@
                     <td class="text-left">@data.SPEC</td>
                     <td><span class="@disFrontStyle">@disFrontStr</span></td>
                     <td>
-                        <!-- 顯示於首頁才出現下面的符號，沒有就留空 -->
-                        <i class="oi text-success" data-glyph="check"></i>
+                        @if (data.HOME_PAGE_DISPLAY)
+                        {
+                            <!-- 顯示於首頁才出現下面的符號，沒有就留空 -->
+                            <i class="oi text-success" data-glyph="check"></i>
+                        }
                     </td>
                     <td>@data.SQ</td>
                 </tr>

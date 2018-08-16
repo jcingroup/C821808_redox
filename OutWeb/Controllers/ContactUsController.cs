@@ -2,8 +2,10 @@
 using Newtonsoft.Json;
 using OutWeb.Repositories;
 using OutWeb.Service.MailerProcess;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
@@ -72,10 +74,10 @@ namespace OutWeb.Controllers
         public ActionResult ContactUs(FormCollection form)
         {
             string renderedHTML = RenderViewToString("Mail", "MsgMail", form);
-            string mailTo = PublicMethodRepository.GetConfigAppSetting("MailTo");
+            var mailTo = PublicMethodRepository.GetConfigAppSetting("MailTo").Split(new string[] { @";" }, StringSplitOptions.RemoveEmptyEntries).ToList();
             string subJect = "測試郵件";
             StringBuilder mailContent = new StringBuilder(renderedHTML);
-            List<string> mailToList = new List<string>() { mailTo };
+            List<string> mailToList = mailTo;
             var mailInfo = new MailInfo()
             {
                 Subject = subJect,

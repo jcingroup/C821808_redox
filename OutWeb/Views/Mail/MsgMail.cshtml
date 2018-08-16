@@ -7,6 +7,7 @@
     string web_url = PublicMethodRepository.UrlMathPath;
     string tel = Model["tel"];
     string email = Model["email"];
+    string cate = Model["cate"];
     string gender = Model["gender"];
     string name = Model["Name"];
     string companyName = Model["CompanyName"];
@@ -110,7 +111,7 @@
                                                 <td style="text-align: right;color:#005081;font-size:22px;font-weight:bold;line-height:34px;width: 20%;">類&emsp;&emsp;別</td>
                                                 <td style="width: 7%"></td>
                                                 <td style="color:#000001;font-size:18px;line-height:24px">
-                                                    專案需求
+                                                    @cate
                                                 </td>
                                             </tr>
                                             <tr><td height="25">&nbsp;</td></tr>
@@ -119,7 +120,7 @@
                                                 <td style="text-align: right;color:#005081;font-size:22px;font-weight:bold;line-height:34px;width: 20%;">公司名稱</td>
                                                 <td style="width: 7%"></td>
                                                 <td style="color:#000001;font-size:18px;line-height:24px">
-                                                    A公司
+                                                    @companyName
                                                 </td>
                                             </tr>
                                             <tr><td height="25">&nbsp;</td></tr>
@@ -128,7 +129,7 @@
                                                 <td style="text-align: right;color:#005081;font-size:22px;font-weight:bold;line-height:34px;width: 20%;">姓&emsp;&emsp;名</td>
                                                 <td style="width: 7%"></td>
                                                 <td style="color:#000001;font-size:18px;line-height:24px">
-                                                    AAA<span>先生</span>
+                                                    @name<span>@gender</span>
                                                 </td>
                                             </tr>
                                             <tr><td height="25">&nbsp;</td></tr>
@@ -137,7 +138,7 @@
                                                 <td style="text-align: right;color:#005081;font-size:22px;font-weight:bold;line-height:34px;width: 20%;">連絡電話</td>
                                                 <td style="width: 7%"></td>
                                                 <td style="color:#000001;font-size:18px;line-height:24px">
-                                                    09XXXXXX
+                                                    @tel
                                                 </td>
                                             </tr>
                                             <tr><td height="25">&nbsp;</td></tr>
@@ -146,7 +147,7 @@
                                                 <td style="text-align: right;color:#005081;font-size:22px;font-weight:bold;line-height:34px;width: 20%;">電子信箱</td>
                                                 <td style="width: 7%"></td>
                                                 <td style="color:#000001;font-size:18px;line-height:24px">
-                                                    XXXXX@gmail.com
+                                                    @email
                                                 </td>
                                             </tr>
                                             <tr><td height="50">&nbsp;</td></tr>

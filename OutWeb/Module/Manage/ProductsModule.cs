@@ -385,6 +385,16 @@ namespace OutWeb.Module.Manage
                     data = data.OrderByDescending(o => o.SQ).ThenBy(g => g.SQ).ToList();
                     break;
 
+                case "sortHomeStatus/asc":
+                    data = data.OrderBy(o => o.HOME_PAGE_DISPLAY).ThenBy(g => g.SQ).ToList();
+                    break;
+
+                case "sortHomeStatus/desc":
+                    data = data.OrderByDescending(o => o.HOME_PAGE_DISPLAY).ThenBy(g => g.SQ).ToList();
+                    break;
+
+
+                    
                 default:
                     data = data.OrderByDescending(o => o.SQ).ThenByDescending(g => g.BUD_DT).ToList();
                     break;

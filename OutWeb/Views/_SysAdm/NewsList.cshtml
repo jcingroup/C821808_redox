@@ -122,6 +122,10 @@
                         $('#sortDisable').addClass(sortTp)
                         $('#sortDisable').attr('sort-type', sortTp);
                         break;
+                    case "sortHomeStatus":
+                        $('#sortHomeStatus').addClass(sortTp)
+                        $('#sortHomeStatus').attr('sort-type', sortTp);
+                        break;
 
                     default:
                         break;
@@ -182,7 +186,7 @@
                 <th><button id="sortPublishDate" type="button" sort-type="" class="th-sort-toggle">發稿時間</button></th>
                 <th class="text-left">標題</th>
                 <th><button id="sortDisable" type="button" sort-type="" class="th-sort-toggle">上架狀態</button></th>
-                <th><button type="button" sort-type="" class="th-sort-toggle">首頁狀態</button></th>
+                <th><button id="sortHomeStatus" type="button" sort-type="" class="th-sort-toggle">首頁狀態</button></th>
                 <th><button id="sortIndex" sort-type="" type="button" class="th-sort-toggle">排序</button></th>
             </tr>
         </thead>
