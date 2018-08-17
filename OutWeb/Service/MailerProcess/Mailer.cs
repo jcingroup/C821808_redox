@@ -43,9 +43,10 @@ namespace OutWeb.Service.MailerProcess
 
         public Boolean SendMail()
         {
-            ValidMailSetting();
+            //ValidMailSetting();
             Boolean isSuccess = false;
-            string address = "furit1984@gmail.com";
+            //string address = "furit1984@gmail.com";
+            string address = "info@jcin.com.tw";
             MailMessage message = new MailMessage();
             try
             {
@@ -76,15 +77,24 @@ namespace OutWeb.Service.MailerProcess
                 #region SendMail
 
                 #endregion
-                using (SmtpClient client = new SmtpClient(setting.SmtpServer, (int)setting.Port))
+
+                using (SmtpClient client = new SmtpClient("msa.hinet.net"))
                 {
-                    
                     client.EnableSsl = true;
                     //client.UseDefaultCredentials = false;
-                    client.Credentials = new System.Net.NetworkCredential(setting.UserName, setting.Password);
+                    //client.Credentials = new System.Net.NetworkCredential(setting.UserName, setting.Password);
                     client.Timeout = Int32.MaxValue;
                     client.Send(message);
                 }
+                //using (SmtpClient client = new SmtpClient(setting.SmtpServer, (int)setting.Port))
+                //{
+
+                //    client.EnableSsl = true;
+                //    //client.UseDefaultCredentials = false;
+                //    client.Credentials = new System.Net.NetworkCredential(setting.UserName, setting.Password);
+                //    client.Timeout = Int32.MaxValue;
+                //    client.Send(message);
+                //}
 
                 isSuccess = true;
             }
