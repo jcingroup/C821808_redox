@@ -85,7 +85,7 @@ $menu-h: 90px;
 }
 .nav-link {
 
-    @extend .font-lg, .text-secondary;
+    @extend .font-lg, .text-secondary, .hover-underline;
 
     text-shadow: 0 0 0 color(secondary);
 
@@ -111,7 +111,7 @@ $menu-h: 90px;
 
     @include mq(desktop) {
 
-        display: unset;
+        display: inline;
         padding: unset;
 
         &:not(:last-child) {
@@ -121,25 +121,25 @@ $menu-h: 90px;
 
 
 
-    @include mq-max(desktop) {
+    // @include mq-max(desktop) {
 
-        position: relative;
+    //     position: relative;
 
-        @include el(after) {
-            border-bottom: 1px solid;
-            width: 0;
+    //     @include el(after) {
+    //         border-bottom: 1px solid;
+    //         width: 0;
 
-            @include transition(.35s);
-            @include absolute(left 50% bottom -2px);
-        }
+    //         @include transition(.35s);
+    //         @include absolute(left 50% bottom -2px);
+    //     }
 
-        &:hover, &:active {
-            &:after {
-                width: 100%;
-                left: 0;
-            }
-        }
-    }
+    //     &:hover, &:active {
+    //         &:after {
+    //             width: 100%;
+    //             left: 0;
+    //         }
+    //     }
+    // }
 
 }
 
@@ -150,6 +150,7 @@ $menu-h: 90px;
     @extend .bg-secondary, .py-16;
 
     display: none;
+
     @include mq(desktop) {
         display: block;
     }

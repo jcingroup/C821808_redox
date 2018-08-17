@@ -112,7 +112,7 @@ $banner-h: 360px;
     figcaption {
 
         position: relative;
-        margin-bottom: 200px;
+        margin-bottom: 100px;
     }
 }
 
@@ -569,13 +569,16 @@ $banner-h: 360px;
 
                 @extend .font-lg, .text-white;
 
-                height: 480px;
+                height: 550px;
                 background-color: #1786A6;
                 padding: 75px 40px 20px;
                 text-align: left;
                 border-bottom-right-radius: $border-radius;
                 border-bottom-left-radius: $border-radius;
 
+                @include mq(mobile){
+                    height: 480px;
+                }
 
                 @include mq(phone){
                     padding: 110px 40px 20px;
@@ -787,11 +790,11 @@ $banner-h: 360px;
                     text-align: center;
                     width: 21%;
                     margin-top: 22px;
-                    margin-left: 9%;
+                    margin-left: 8%;
 
                     @include mq(phone) {
 
-                        margin-left: 4%;
+                        margin-left: 3%;
                         width: 18%;
                     }
                 }
@@ -1338,13 +1341,17 @@ $banner-h: 360px;
                 }
 
                 #robox {
-                    text-align: -webkit-center;
-                    text-align: -moz-center;
+                    display: flex;
 
                     @include mq(tablet) {
+                        display: block;
                         text-align: unset;
                         padding: 20px 75px;
-                        margin: 30px 20px 0;
+                        margin: 30px 40px 0;
+                    }
+
+                    .g-recaptcha{
+                        margin: 0 auto;
                     }
                 }
 
@@ -1500,7 +1507,7 @@ $banner-h: 360px;
             }
 
             &-1 {
-                height: 480px;
+                height: 500px;
 
                 @include mq(tablet) {
                     width: (100% / 3 - $mgr - 2);

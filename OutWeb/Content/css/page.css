@@ -1088,27 +1088,10 @@ dd {
     color: #1599A3; }
   @media (min-width: 64em) {
     .nav-link {
-      display: unset;
+      display: inline;
       padding: unset; }
       .nav-link:not(:last-child) {
         margin-right: 1.5rem; } }
-  @media (max-width: 64em) {
-    .nav-link {
-      position: relative; }
-      .nav-link:after {
-        border-bottom: 1px solid;
-        width: 0;
-        -webkit-transition: 0.35s;
-        transition: 0.35s;
-        position: absolute;
-        bottom: -2px;
-        left: 50%; }
-        .nav-link:after, .hover-underline:after, .top-nav .mail:after {
-          content: '';
-          display: block; }
-      .nav-link:hover:after, .nav-link:active:after {
-        width: 100%;
-        left: 0; } }
 
 .top-nav {
   display: none; }
@@ -1370,9 +1353,9 @@ figure {
 .bg-primary-light {
   background: #43adb5; }
 
-.hover-underline, .top-nav .mail {
+.hover-underline, .nav-link, .top-nav .mail {
   position: relative; }
-  .hover-underline:after, .top-nav .mail:after {
+  .hover-underline:after, .nav-link:after, .top-nav .mail:after {
     border-bottom: 1px solid;
     width: 0;
     -webkit-transition: 0.35s;
@@ -1380,7 +1363,10 @@ figure {
     position: absolute;
     bottom: -2px;
     left: 50%; }
-  .hover-underline:hover:after, .top-nav .mail:hover:after, .hover-underline:active:after, .top-nav .mail:active:after {
+    .hover-underline:after, .nav-link:after, .top-nav .mail:after {
+      content: '';
+      display: block; }
+  .hover-underline:hover:after, .nav-link:hover:after, .top-nav .mail:hover:after, .hover-underline:active:after, .nav-link:active:after, .top-nav .mail:active:after {
     width: 100%;
     left: 0; }
 
@@ -1445,7 +1431,8 @@ html, body {
     .logo {
       background-image: url(../images/logo-s.gif);
       top: 20px;
-      margin-left: -20px; } }
+      margin-left: -20px;
+      width: 60px; } }
   .scrolling .logo {
     top: 18px;
     background-image: url(../images/logo-s.gif);
@@ -1550,7 +1537,7 @@ html, body {
     top: 0; }
   .safe .wrap figcaption {
     position: relative;
-    margin-bottom: 200px; }
+    margin-bottom: 100px; }
 
 .h2-line {
   border-bottom: #005081 5px solid;
@@ -1853,12 +1840,15 @@ html, body {
           border-width: 70px 202px 0 202px;
           border-top-color: #F1F1F1; } }
   .Service .exper .wrap .card-2 figcaption {
-    height: 480px;
+    height: 550px;
     background-color: #1786A6;
     padding: 75px 40px 20px;
     text-align: left;
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px; }
+    @media (min-width: 23.4375em) {
+      .Service .exper .wrap .card-2 figcaption {
+        height: 480px; } }
     @media (min-width: 35.5em) {
       .Service .exper .wrap .card-2 figcaption {
         padding: 110px 40px 20px;
@@ -2009,10 +1999,10 @@ html, body {
       text-align: center;
       width: 21%;
       margin-top: 22px;
-      margin-left: 9%; }
+      margin-left: 8%; }
       @media (min-width: 35.5em) {
         .Products-Content .list .box-m .list-each h5 {
-          margin-left: 4%;
+          margin-left: 3%;
           width: 18%; } }
     .Products-Content .list .box-m .list-each article {
       padding: 15px 0 20px 33%; }
@@ -2292,14 +2282,16 @@ html, body {
     .ContactUs .wrap form .boxleft .gender .input:checked ~ .checkmark {
       background-color: #005081; }
   .ContactUs .wrap form .boxleft #robox {
-    text-align: -webkit-center;
-    text-align: -moz-center; }
+    display: flex; }
     @media (min-width: 48em) {
       .ContactUs .wrap form .boxleft #robox {
+        display: block;
         text-align: unset;
         padding: 20px 75px;
-        margin: 30px 20px 0; } }
-  .ContactUs .wrap form .boxleft .hover-underline, .ContactUs .wrap form .boxleft .top-nav .mail, .top-nav .ContactUs .wrap form .boxleft .mail {
+        margin: 30px 40px 0; } }
+    .ContactUs .wrap form .boxleft #robox .g-recaptcha {
+      margin: 0 auto; }
+  .ContactUs .wrap form .boxleft .hover-underline, .ContactUs .wrap form .boxleft .nav-link, .ContactUs .wrap form .boxleft .top-nav .mail, .top-nav .ContactUs .wrap form .boxleft .mail {
     cursor: pointer; }
 .ContactUs .wrap form #submit {
   display: block;
@@ -2382,7 +2374,7 @@ html, body {
       .AboutUs .people .card {
         padding: 20px 50px; } }
     .AboutUs .people .card-1 {
-      height: 480px; }
+      height: 500px; }
       @media (min-width: 48em) {
         .AboutUs .people .card-1 {
           width: 28.33333%; } }

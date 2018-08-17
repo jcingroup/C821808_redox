@@ -94,7 +94,7 @@ $banner-h: 535px;
     }
 
     .card {
-        @include grid(3, 5);
+        @include grid(4, 5);
         display: inline-block;
 
         &:last-child {
@@ -104,6 +104,10 @@ $banner-h: 535px;
                 margin-left: 3rem;
                 margin-top: 0;
             }
+        }
+
+        @include mq(mobile) {
+            @include grid(3, 5);
         }
 
         @include mq(tablet) {
@@ -180,8 +184,8 @@ $banner-h: 535px;
     // background-size: cover;
 
     .card {
-        width: 70%;
-        margin-left: 15%;
+        width: 90%;
+        margin-left: 5%;
         padding: 20px 30px;
         line-height: 1.5;
         @include mq(tablet) {
@@ -275,6 +279,9 @@ $banner-h: 535px;
             margin-top: unset;
             vertical-align: top;
             width: (100% / 3 - $mgr - 2);
+            height: 500px;
+        }
+        @include mq(desktop){
             height: 480px;
         }
 
@@ -314,6 +321,10 @@ $banner-h: 535px;
             
 
             @include mq(tablet){
+                height: 150px;
+            }
+
+            @include mq(desktop){
                 height: 105px;
             }
         }
