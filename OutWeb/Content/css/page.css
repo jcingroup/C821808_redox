@@ -1092,6 +1092,22 @@ dd {
       padding: unset; }
       .nav-link:not(:last-child) {
         margin-right: 1.5rem; } }
+  @media (max-width: 64em) {
+    .nav-link {
+      position: relative; }
+      .nav-link:after {
+        content: '';
+        display: block;
+        border-bottom: 1px solid;
+        width: 0;
+        -webkit-transition: 0.35s;
+        transition: 0.35s;
+        position: absolute;
+        bottom: -2px;
+        left: 50%; }
+      .nav-link:hover:after, .nav-link:active:after {
+        width: 100%;
+        left: 0; } }
 
 .top-nav {
   display: none; }
@@ -1353,9 +1369,9 @@ figure {
 .bg-primary-light {
   background: #43adb5; }
 
-.hover-underline, .nav-link, .top-nav .mail {
+.hover-underline, .top-nav .mail {
   position: relative; }
-  .hover-underline:after, .nav-link:after, .top-nav .mail:after {
+  .hover-underline:after, .top-nav .mail:after {
     border-bottom: 1px solid;
     width: 0;
     -webkit-transition: 0.35s;
@@ -1363,10 +1379,10 @@ figure {
     position: absolute;
     bottom: -2px;
     left: 50%; }
-    .hover-underline:after, .nav-link:after, .top-nav .mail:after {
+    .hover-underline:after, .top-nav .mail:after {
       content: '';
       display: block; }
-  .hover-underline:hover:after, .nav-link:hover:after, .top-nav .mail:hover:after, .hover-underline:active:after, .nav-link:active:after, .top-nav .mail:active:after {
+  .hover-underline:hover:after, .top-nav .mail:hover:after, .hover-underline:active:after, .top-nav .mail:active:after {
     width: 100%;
     left: 0; }
 
@@ -2291,7 +2307,7 @@ html, body {
         margin: 30px 40px 0; } }
     .ContactUs .wrap form .boxleft #robox .g-recaptcha {
       margin: 0 auto; }
-  .ContactUs .wrap form .boxleft .hover-underline, .ContactUs .wrap form .boxleft .nav-link, .ContactUs .wrap form .boxleft .top-nav .mail, .top-nav .ContactUs .wrap form .boxleft .mail {
+  .ContactUs .wrap form .boxleft .privacy {
     cursor: pointer; }
 .ContactUs .wrap form #submit {
   display: block;
