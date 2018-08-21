@@ -28,6 +28,12 @@ namespace OutWeb.Controllers
             PublicMethodRepository.CurrentMode = SiteMode.Back;
         }
 
+
+
+        public ActionResult TestCk()
+        {
+            return RedirectToAction("NewsList");
+        }
         // GET: _SysAdm
         public ActionResult Index()
         {
