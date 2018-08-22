@@ -48,7 +48,7 @@
                 <figcaption>
                     <span class="date">@data.PUB_DT_STR</span>
                     <h5 class="text-left text-primary">@data.TITLE</h5>
-                    <p class="text-left">@Html.Raw(data.CONTENT)</p>
+                    <p class="text-left">@Html.Raw(HttpUtility.HtmlDecode(data.CONTENT))</p>
                     <a class="more font-xl b" href="@Url.Content("~/News/Content?ID=" + data.ID)">閱讀更多</a>
                 </figcaption>
             </figure>

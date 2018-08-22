@@ -45,6 +45,8 @@ namespace OutWeb.Repositories
 
 
             input = input.Replace("&emsp;", "");
+            input = input.Replace("&nbsp;", "");
+
             //.Replace("&amp;emsp;", string.Empty)
             //.Replace("amp;", string.Empty)
             //.Replace("emsp;", string.Empty)
