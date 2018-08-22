@@ -64,7 +64,8 @@
     <div class="box-m editor">
         <!-- Moblie box-->
         @Html.Raw(Model.Data.EDIT1_MOBILE)
-        @*<ul>
+        @*<div class="list-m">
+            <ul>
                 <li class="list-each" id="list01">
                     <div class="list-title">
                         <h5 class="font-xl">順便有酵</h5>
@@ -117,7 +118,8 @@
                         </ul>
                     </article>
                 </li>
-            </ul>*@
+            </ul>
+        </div>*@
         <!-- Mobile box end-->
     </div>
 
@@ -127,7 +129,8 @@
         <!-- 套程式-產品管理 1.主要資訊 -->
         @Html.Raw(Model.Data.EDIT1)
 
-        @*<ul>
+        @*<div class="list-pc">
+            <ul>
                 <li class="list-each" id="list01">
                     <div class="list-title">
                         <h5 class="font-xl">順便有酵</h5>
@@ -180,7 +183,8 @@
                         </ul>
                     </article>
                 </li>
-            </ul>*@
+            </ul>
+        </div>*@
 
         <!-- PC box end-->
     </div>
@@ -197,7 +201,8 @@
         <!-- 套程式-產品管理 2.產品資訊 -->
         @Html.Raw(Model.Data.EDIT2_MOBILE)
 
-        @*<table class="text-left">
+        @*<div class="info-box">
+            <table class="text-left">
                 <tr>
                     <td>產品品名：</td>
                     <td>順便有酵</td>
@@ -247,7 +252,8 @@
                     <td>肽研生醫股份有限公司</td>
                 </tr>
             </table>
-            <p class="text-left">本產品已向XX公司投保產品責任險1千萬元整</p>*@
+            <p class="text-left">本產品已向XX公司投保產品責任險1千萬元整</p>
+        </div>*@
 
         <!-- Moblie box end-->
     </div>
@@ -258,7 +264,8 @@
         <!-- 套程式-產品管理 2.產品資訊 -->
         @Html.Raw(Model.Data.EDIT2)
 
-        @*<table class="text-left">
+        @*<div class="info-box">
+            <table class="text-left">
                 <tr>
                     <td>產品品名：</td>
                     <td>順便有酵</td>
@@ -308,7 +315,8 @@
                     <td>肽研生醫股份有限公司</td>
                 </tr>
             </table>
-            <p class="text-left">本產品已向XX公司投保產品責任險1千萬元整</p>*@
+            <p class="text-left">本產品已向XX公司投保產品責任險1千萬元整</p>
+        </div>*@
 
         <!-- PC box end-->
     </div>
@@ -322,62 +330,69 @@
         <!-- Moblie box-->
         @Html.Raw(Model.Data.EDIT3_MOBILE)
 
-        @*<table class="text-left font-lg text-white">
-                <tr>
-                    <td>每一份量 5 公克（2粒）<br>每包裝含 30 份</td>
-                    <td>每份</td>
-                    <td>每100公克</td>
-                </tr>
-                <tr>
-                    <td>熱量</td>
-                    <td class="text-right">17.4大卡</td>
-                    <td class="text-right">大卡</td>
-                </tr>
-                <tr>
-                    <td>蛋白質</td>
-                    <td class="text-right">0.3公克</td>
-                    <td class="text-right">0公克</td>
-                </tr>
-                <tr>
-                    <td>脂肪</td>
-                    <td class="text-right">0公克</td>
-                    <td class="text-right">0公克</td>
-                </tr>
-                <tr>
-                    <td>飽和脂肪</td>
-                    <td class="text-right">0公克</td>
-                    <td class="text-right">0公克</td>
-                </tr>
-                <tr>
-                    <td>反式脂肪</td>
-                    <td class="text-right">0公克</td>
-                    <td class="text-right">0公克</td>
-                </tr>
-                <tr>
-                    <td>碳水化合物</td>
-                    <td class="text-right">4.4公克</td>
-                    <td class="text-right">4.4公克</td>
-                </tr>
-                <tr>
-                    <td>糖</td>
-                    <td class="text-right">2.9公克</td>
-                    <td class="text-right">2.9公克</td>
-                </tr>
-                <tr>
-                    <td>糖醇</td>
-                    <td class="text-right">0.9公克</td>
-                    <td class="text-right">0.9公克</td>
-                </tr>
-                <tr>
-                    <td>鈉</td>
-                    <td class="text-right">4毫克</td>
-                    <td class="text-right">4毫克</td>
-                </tr>
+        @*<div class="bg-primary-light" style="padding-top: 100px;">
+            <table class="table-m text-left font-lg text-white">
+                <tbody>
+                    <tr>
+                        <td>每一份量 5 公克（2粒）<br />
+                        每包裝含 30 份</td>
+                        <td>每份</td>
+                        <td>每100公克</td>
+                    </tr>
+                    <tr>
+                        <td>熱量</td>
+                        <td class="text-right">17.4大卡</td>
+                        <td class="text-right">大卡</td>
+                    </tr>
+                    <tr>
+                        <td>蛋白質</td>
+                        <td class="text-right">0.3公克</td>
+                        <td class="text-right">0公克</td>
+                    </tr>
+                    <tr>
+                        <td>脂肪</td>
+                        <td class="text-right">0公克</td>
+                        <td class="text-right">0公克</td>
+                    </tr>
+                    <tr>
+                        <td>飽和脂肪</td>
+                        <td class="text-right">0公克</td>
+                        <td class="text-right">0公克</td>
+                    </tr>
+                    <tr>
+                        <td>反式脂肪</td>
+                        <td class="text-right">0公克</td>
+                        <td class="text-right">0公克</td>
+                    </tr>
+                    <tr>
+                        <td>碳水化合物</td>
+                        <td class="text-right">4.4公克</td>
+                        <td class="text-right">4.4公克</td>
+                    </tr>
+                    <tr>
+                        <td>糖</td>
+                        <td class="text-right">2.9公克</td>
+                        <td class="text-right">2.9公克</td>
+                    </tr>
+                    <tr>
+                        <td>糖醇</td>
+                        <td class="text-right">0.9公克</td>
+                        <td class="text-right">0.9公克</td>
+                    </tr>
+                    <tr>
+                        <td>鈉</td>
+                        <td class="text-right">4毫克</td>
+                        <td class="text-right">4毫克</td>
+                    </tr>
+                </tbody>
             </table>
+
             <div class="refer text-white text-left">
                 <p>*參考值未訂定：</p>
+
                 <p>每日參考值：熱量2,000大卡、蛋白質60公克、脂肪60公克、飽和脂肪18公克、碳水化合物300公克、鈉2,000毫克。</p>
-            </div>*@
+            </div>
+        </div>*@
 
         <!-- Moblie box end-->
     </div>
@@ -388,62 +403,71 @@
         <!-- 套程式-產品管理 3.營養標示 -->
         @Html.Raw(Model.Data.EDIT3)
 
-        @*<table class="text-left font-lg text-white">
-                <tr>
-                    <td>每一份量 5 公克（2粒）<br>每包裝含 30 份</td>
-                    <td>每份</td>
-                    <td>每100公克</td>
-                </tr>
-                <tr>
-                    <td>熱量</td>
-                    <td class="text-right">17.4大卡</td>
-                    <td class="text-right">大卡</td>
-                </tr>
-                <tr>
-                    <td>蛋白質</td>
-                    <td class="text-right">0.3公克</td>
-                    <td class="text-right">0公克</td>
-                </tr>
-                <tr>
-                    <td>脂肪</td>
-                    <td class="text-right">0公克</td>
-                    <td class="text-right">0公克</td>
-                </tr>
-                <tr>
-                    <td>飽和脂肪</td>
-                    <td class="text-right">0公克</td>
-                    <td class="text-right">0公克</td>
-                </tr>
-                <tr>
-                    <td>反式脂肪</td>
-                    <td class="text-right">0公克</td>
-                    <td class="text-right">0公克</td>
-                </tr>
-                <tr>
-                    <td>碳水化合物</td>
-                    <td class="text-right">4.4公克</td>
-                    <td class="text-right">4.4公克</td>
-                </tr>
-                <tr>
-                    <td>糖</td>
-                    <td class="text-right">2.9公克</td>
-                    <td class="text-right">2.9公克</td>
-                </tr>
-                <tr>
-                    <td>糖醇</td>
-                    <td class="text-right">0.9公克</td>
-                    <td class="text-right">0.9公克</td>
-                </tr>
-                <tr>
-                    <td>鈉</td>
-                    <td class="text-right">4毫克</td>
-                    <td class="text-right">4毫克</td>
-                </tr>
+        @*<div class="bg-primary-light" style="padding-top: 100px;">
+            <table class="table-pc text-left font-lg text-white">
+                <tbody>
+                    <tr>
+                        <td>每一份量 5 公克（2粒）<br />
+                        每包裝含 30 份</td>
+                        <td>每份</td>
+                        <td>每100公克</td>
+                    </tr>
+                    <tr>
+                        <td>熱量</td>
+                        <td class="text-right">17.4大卡</td>
+                        <td class="text-right">大卡</td>
+                    </tr>
+                    <tr>
+                        <td>蛋白質</td>
+                        <td class="text-right">0.3公克</td>
+                        <td class="text-right">0公克</td>
+                    </tr>
+                    <tr>
+                        <td>脂肪</td>
+                        <td class="text-right">0公克</td>
+                        <td class="text-right">0公克</td>
+                    </tr>
+                    <tr>
+                        <td>飽和脂肪</td>
+                        <td class="text-right">0公克</td>
+                        <td class="text-right">0公克</td>
+                    </tr>
+                    <tr>
+                        <td>反式脂肪</td>
+                        <td class="text-right">0公克</td>
+                        <td class="text-right">0公克</td>
+                    </tr>
+                    <tr>
+                        <td>碳水化合物</td>
+                        <td class="text-right">4.4公克</td>
+                        <td class="text-right">4.4公克</td>
+                    </tr>
+                    <tr>
+                        <td>糖</td>
+                        <td class="text-right">2.9公克</td>
+                        <td class="text-right">2.9公克</td>
+                    </tr>
+                    <tr>
+                        <td>糖醇</td>
+                        <td class="text-right">0.9公克</td>
+                        <td class="text-right">0.9公克</td>
+                    </tr>
+                    <tr>
+                        <td>鈉</td>
+                        <td class="text-right">4毫克</td>
+                        <td class="text-right">4毫克</td>
+                    </tr>
+                </tbody>
             </table>
+
             <div class="refer text-white text-left">
                 <p>*參考值未訂定：</p>
+
                 <p>每日參考值：熱量2,000大卡、蛋白質60公克、脂肪60公克、飽和脂肪18公克、碳水化合物300公克、鈉2,000毫克。</p>
-            </div>*@
+            </div>
+
+            <div>&nbsp;</div>
+        </div>*@
 
         <!-- PC box end-->
     </div>

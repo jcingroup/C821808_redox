@@ -25,7 +25,6 @@ $grid-breakpoints: (
 @import "element/basic";
 @import "element/link";
 @import "element/type";
-@import "element/table";
 @import "element/util";
 @import "_client/custom";
 
@@ -46,79 +45,163 @@ li {
     list-style: none;
 }
 
-//列表
-.list {
-    margin-top: 200px;
+#cke_EDIT3_MOBILE{
+    @extend .bg-primary-light;
+}
 
+//列表
+.list-m {
+    margin-top: 100px;
+    max-width: 667px;
     ul {
+
+        padding-right: 1.2em;
         list-style-type: none;
+
+        @for $i from 1 through 4 {
+
+            li:nth-child(#{$i}) {
+                div {
+                    background-image: url("#{$img-page}/product/m-list0#{$i}.gif");
+                    background-size: 33%;
+
+                    @include mq(mobile) {
+                        background-size: 30%;
+                    }
+
+                    @include mq(480) {
+                        background-image: url("#{$img-page}/product/mc-list0#{$i}.png"), url("#{$img-page}/product/m-list0#{$i}.gif");
+                        background-position: left top 45px, left top;
+                    }
+                    @include mq(phone) {
+                        background-size: 21%;
+                    }
+                }
+            }
+        }
     }
 
-    &-each {
-        position: relative;
-        height: 192px;
+    .list-each {
+        display: flex;
         margin: 40px 0;
+        border-radius: 10px;
+        min-height: 130px;
+        position: relative;
         background: #FBFBFB;
-        border: 1px solid #EFEFEF;
-        border-radius: 20px;
+        border: 1px solid #EFEFEF; 
 
         h5 {
+            text-align: center;
+            width: 21%;
+            margin-top: 22px;
+            margin-left: 8%;
             @extend .text-white;
-            width: 200px;
-            padding-left: 50px;
-            margin-top: 30px;
             vertical-align: top;
+
+            @include mq(phone) {
+
+                margin-left: 3%;
+                width: 18%;
+            }
         }
 
         article {
+            @extend .font-lg;
+            padding: 15px 0 20px 33%;
+            line-height: 1.5;
+
+            @include mq(phone) {
+                padding-left: 25%;
+            }
+        }
+    }
+
+
+    .list-title {
+
+        top:-10px;
+        background-repeat: no-repeat;
+        margin-left: 10px;
+        height: 165px;
+        width: 100%;
+        position: absolute;
+    }
+
+    #list01{
+        border-right: 15px solid color(secondary);
+    }
+    #list02 {
+        border-right: 15px solid #289DDA;
+    }
+    #list03 {
+        border-right: 15px solid #95529C;
+    }
+    #list04 {
+        border-right: 15px solid #DE4A45;
+    }
+}
+.list-pc {
+    margin-top: 100px;
+
+    ul {
+        list-style-type: none;
+        @for $i from 1 through 4 {
+
+            li:nth-child(#{$i}) {
+                div {
+                    background-image: url("#{$img-page}/product/list0#{$i}.gif");
+                }
+            }
+        }
+    }
+
+    .list-each {
+        height: 192px;
+        margin: 40px 0;
+        border-radius: 20px;
+        position: relative;
+        background: #FBFBFB;
+        border: 1px solid #EFEFEF; 
+
+        h5 {
+            width: 200px;
+            padding-left: 50px;
+            margin-top: 30px;
+            @extend .text-white;
+            vertical-align: top;
+        }
+        article {
+            @extend .font-xl;
             padding: 45px 10px 0 225px;
             line-height: 1.5;
         }
     }
 
-    &-title {
-        position: absolute;
-        top: -15px;
+    .list-title {
+
+        top:-15px;
         background-repeat: no-repeat;
         margin-left: 50px;
         height: 165px;
+        position: absolute;
     }
 
-    #list01 {
+    #list01{
         border-right: 30px solid color(secondary);
-
-        div {
-            background-image: url("#{$img-page}/product/list01.gif");
-        }
     }
-
     #list02 {
         border-right: 30px solid #289DDA;
-
-        div {
-            background-image: url("#{$img-page}/product/list02.gif");
-        }
     }
-
     #list03 {
         border-right: 30px solid #95529C;
-
-        div {
-            background-image: url("#{$img-page}/product/list03.gif");
-        }
     }
-
     #list04 {
         border-right: 30px solid #DE4A45;
-
-        div {
-            background-image: url("#{$img-page}/product/list04.gif");
-        }
     }
 }
 
 //產品資訊
-.info {
+.info-box {
     table {
         line-height: 1.5;
         margin: 0 5%;
@@ -134,33 +217,45 @@ li {
 }
 
 //營養標示
-.table {
-    margin-top: 100px;
 
-    h2 {
-        padding: 100px 0 50px;
-    }
+.table-pc {
+    padding-top: 100px;
+    width: 85%;
+    border: 4px solid #ffffff !important;
+    border-collapse: collapse;
+    margin: 0 auto;
 
-    table {
-        border: 4px solid #ffffff;
-        border-collapse: collapse;
-        width: 85%;
-        margin: 0 auto;
-    }
-
-    tr, td {
-        border: 1px solid #ffffff;
+    tr,td {
         padding: 20px;
+        border: 1px solid #ffffff;
+        padding: 20px 10px;
         transition: all .35s, color .5s;
     }
-
     tr:hover {
         background-color: #128088;
     }
+}
 
-    .refer {
-        padding: 50px 0 100px;
+.table-m{
+    padding-top: 100px;
+    max-width: 667px;
+    border: 4px solid #ffffff !important;
+    border-collapse: collapse;
+    margin: 0 auto;
+    tr,td {
+        border: 1px solid #ffffff;
+        padding: 20px 10px;
+        transition: all .35s, color .5s;
     }
+    tr:hover {
+        background-color: #128088;
+    }
+}
+
+.refer {
+    max-width: 667px;
+    margin: 0 auto;
+    padding: 50px 0 100px;
 }
 
 // Q & A

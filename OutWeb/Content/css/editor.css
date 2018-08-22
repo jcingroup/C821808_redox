@@ -259,46 +259,6 @@ dd {
   .list-inline > li:not(:last-child) {
     margin-right: 5px; }
 
-/*      table
------------------------------------------------------------------------*/
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  max-width: 100%;
-  border-bottom: 1px solid #EFEFEF; }
-  table.fixed {
-    table-layout: fixed;
-    word-wrap: break-word;
-    word-break: break-all; }
-
-tbody + tbody {
-  border-top: 2px solid #EFEFEF; }
-
-th, td {
-  text-align: center;
-  vertical-align: middle;
-  padding: 0.25rem 0.5rem;
-  border-top: 1px solid #EFEFEF; }
-
-.table-bordered {
-  border: 1px solid #EFEFEF; }
-  .table-bordered th, .table-bordered td {
-    border: 1px solid #EFEFEF; }
-  .table-bordered thead th:not([colspan]), .table-bordered thead td:not([colspan]) {
-    border-bottom-width: 2px; }
-
-.table-striped :not(thead) tr:nth-child(even) {
-  background-color: #f8f9fa; }
-
-.table-striped-rowspan tbody:nth-child(even) {
-  background-color: #f8f9fa; }
-
-.table-hover tbody:hover > tr > [rowspan],
-.table-hover tbody tr:hover {
-  -webkit-transition: 0.2s ease;
-  transition: 0.2s ease;
-  background-color: #fffFD7; }
-
 .text-hide {
   font: 0/0 a;
   color: transparent;
@@ -858,7 +818,7 @@ th, td {
 .font-sp {
   font-family: "Montserrat"; }
 
-.text-white, .goTop, .goTop:hover, .goTop:active, .list-each h5 {
+.text-white, .goTop, .goTop:hover, .goTop:active, .list-m .list-each h5, .list-pc .list-each h5 {
   color: #fff; }
 
 .text-black {
@@ -976,11 +936,11 @@ th, td {
   font-size: 15px;
   font-size: 0.9375rem; }
 
-.font-lg, .help, .goTop, .card figcaption {
+.font-lg, .help, .goTop, .card figcaption, .list-m .list-each article {
   font-size: 18px;
   font-size: 1.125rem; }
 
-.font-xl {
+.font-xl, .list-pc .list-each article {
   font-size: 21px;
   font-size: 1.3125rem; }
 
@@ -1064,7 +1024,7 @@ th, td {
   font-weight: bolder;
   line-height: 1.3; }
 
-.bg-primary-light {
+.bg-primary-light, #cke_EDIT3_MOBILE {
   background: #43adb5; }
 
 .hover-underline {
@@ -1114,73 +1074,185 @@ img {
 li {
   list-style: none; }
 
-.list {
-  margin-top: 200px; }
-  .list ul {
+.list-m {
+  margin-top: 100px;
+  max-width: 667px; }
+  .list-m ul {
+    padding-right: 1.2em;
     list-style-type: none; }
-  .list-each {
+    .list-m ul li:nth-child(1) div {
+      background-image: url("../images/page/product/m-list01.gif");
+      background-size: 33%; }
+      @media (min-width: 23.4375em) {
+        .list-m ul li:nth-child(1) div {
+          background-size: 30%; } }
+      @media (min-width: 30em) {
+        .list-m ul li:nth-child(1) div {
+          background-image: url("../images/page/product/mc-list01.png"), url("../images/page/product/m-list01.gif");
+          background-position: left top 45px, left top; } }
+      @media (min-width: 35.5em) {
+        .list-m ul li:nth-child(1) div {
+          background-size: 21%; } }
+    .list-m ul li:nth-child(2) div {
+      background-image: url("../images/page/product/m-list02.gif");
+      background-size: 33%; }
+      @media (min-width: 23.4375em) {
+        .list-m ul li:nth-child(2) div {
+          background-size: 30%; } }
+      @media (min-width: 30em) {
+        .list-m ul li:nth-child(2) div {
+          background-image: url("../images/page/product/mc-list02.png"), url("../images/page/product/m-list02.gif");
+          background-position: left top 45px, left top; } }
+      @media (min-width: 35.5em) {
+        .list-m ul li:nth-child(2) div {
+          background-size: 21%; } }
+    .list-m ul li:nth-child(3) div {
+      background-image: url("../images/page/product/m-list03.gif");
+      background-size: 33%; }
+      @media (min-width: 23.4375em) {
+        .list-m ul li:nth-child(3) div {
+          background-size: 30%; } }
+      @media (min-width: 30em) {
+        .list-m ul li:nth-child(3) div {
+          background-image: url("../images/page/product/mc-list03.png"), url("../images/page/product/m-list03.gif");
+          background-position: left top 45px, left top; } }
+      @media (min-width: 35.5em) {
+        .list-m ul li:nth-child(3) div {
+          background-size: 21%; } }
+    .list-m ul li:nth-child(4) div {
+      background-image: url("../images/page/product/m-list04.gif");
+      background-size: 33%; }
+      @media (min-width: 23.4375em) {
+        .list-m ul li:nth-child(4) div {
+          background-size: 30%; } }
+      @media (min-width: 30em) {
+        .list-m ul li:nth-child(4) div {
+          background-image: url("../images/page/product/mc-list04.png"), url("../images/page/product/m-list04.gif");
+          background-position: left top 45px, left top; } }
+      @media (min-width: 35.5em) {
+        .list-m ul li:nth-child(4) div {
+          background-size: 21%; } }
+  .list-m .list-each {
+    display: flex;
+    margin: 40px 0;
+    border-radius: 10px;
+    min-height: 130px;
     position: relative;
+    background: #FBFBFB;
+    border: 1px solid #EFEFEF; }
+    .list-m .list-each h5 {
+      text-align: center;
+      width: 21%;
+      margin-top: 22px;
+      margin-left: 8%;
+      vertical-align: top; }
+      @media (min-width: 35.5em) {
+        .list-m .list-each h5 {
+          margin-left: 3%;
+          width: 18%; } }
+    .list-m .list-each article {
+      padding: 15px 0 20px 33%;
+      line-height: 1.5; }
+      @media (min-width: 35.5em) {
+        .list-m .list-each article {
+          padding-left: 25%; } }
+  .list-m .list-title {
+    top: -10px;
+    background-repeat: no-repeat;
+    margin-left: 10px;
+    height: 165px;
+    width: 100%;
+    position: absolute; }
+  .list-m #list01 {
+    border-right: 15px solid #005081; }
+  .list-m #list02 {
+    border-right: 15px solid #289DDA; }
+  .list-m #list03 {
+    border-right: 15px solid #95529C; }
+  .list-m #list04 {
+    border-right: 15px solid #DE4A45; }
+
+.list-pc {
+  margin-top: 100px; }
+  .list-pc ul {
+    list-style-type: none; }
+    .list-pc ul li:nth-child(1) div {
+      background-image: url("../images/page/product/list01.gif"); }
+    .list-pc ul li:nth-child(2) div {
+      background-image: url("../images/page/product/list02.gif"); }
+    .list-pc ul li:nth-child(3) div {
+      background-image: url("../images/page/product/list03.gif"); }
+    .list-pc ul li:nth-child(4) div {
+      background-image: url("../images/page/product/list04.gif"); }
+  .list-pc .list-each {
     height: 192px;
     margin: 40px 0;
+    border-radius: 20px;
+    position: relative;
     background: #FBFBFB;
-    border: 1px solid #EFEFEF;
-    border-radius: 20px; }
-    .list-each h5 {
+    border: 1px solid #EFEFEF; }
+    .list-pc .list-each h5 {
       width: 200px;
       padding-left: 50px;
       margin-top: 30px;
       vertical-align: top; }
-    .list-each article {
+    .list-pc .list-each article {
       padding: 45px 10px 0 225px;
       line-height: 1.5; }
-  .list-title {
-    position: absolute;
+  .list-pc .list-title {
     top: -15px;
     background-repeat: no-repeat;
     margin-left: 50px;
-    height: 165px; }
-  .list #list01 {
+    height: 165px;
+    position: absolute; }
+  .list-pc #list01 {
     border-right: 30px solid #005081; }
-    .list #list01 div {
-      background-image: url("../images/page/product/list01.gif"); }
-  .list #list02 {
+  .list-pc #list02 {
     border-right: 30px solid #289DDA; }
-    .list #list02 div {
-      background-image: url("../images/page/product/list02.gif"); }
-  .list #list03 {
+  .list-pc #list03 {
     border-right: 30px solid #95529C; }
-    .list #list03 div {
-      background-image: url("../images/page/product/list03.gif"); }
-  .list #list04 {
+  .list-pc #list04 {
     border-right: 30px solid #DE4A45; }
-    .list #list04 div {
-      background-image: url("../images/page/product/list04.gif"); }
 
-.info table {
+.info-box table {
   line-height: 1.5;
   margin: 0 5%; }
-  .info table td:first-child {
+  .info-box table td:first-child {
     width: 85px; }
-.info p {
+.info-box p {
   margin: 0 5%; }
 
-.table {
-  margin-top: 100px; }
-  .table h2 {
-    padding: 100px 0 50px; }
-  .table table {
-    border: 4px solid #ffffff;
-    border-collapse: collapse;
-    width: 85%;
-    margin: 0 auto; }
-  .table tr, .table td {
-    border: 1px solid #ffffff;
+.table-pc {
+  padding-top: 100px;
+  width: 85%;
+  border: 4px solid #ffffff !important;
+  border-collapse: collapse;
+  margin: 0 auto; }
+  .table-pc tr, .table-pc td {
     padding: 20px;
+    border: 1px solid #ffffff;
+    padding: 20px 10px;
     transition: all .35s, color .5s; }
-  .table tr:hover {
+  .table-pc tr:hover {
     background-color: #128088; }
-  .table .refer {
-    padding: 50px 0 100px; }
+
+.table-m {
+  padding-top: 100px;
+  max-width: 667px;
+  border: 4px solid #ffffff !important;
+  border-collapse: collapse;
+  margin: 0 auto; }
+  .table-m tr, .table-m td {
+    border: 1px solid #ffffff;
+    padding: 20px 10px;
+    transition: all .35s, color .5s; }
+  .table-m tr:hover {
+    background-color: #128088; }
+
+.refer {
+  max-width: 667px;
+  margin: 0 auto;
+  padding: 50px 0 100px; }
 
 .paragraph {
   margin: 20px 10%; }
