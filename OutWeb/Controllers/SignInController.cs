@@ -16,14 +16,14 @@ namespace OutWeb.Controllers
         [HttpGet]
         [Route("_SysAdm")]
         [Route("_SysAdm/Index")]
-        public ActionResult Login(int? dev)
+        public ActionResult Login()
         {
-            if (dev.HasValue && dev == 1)
-            {
-                SignInModel model = new SignInModel() { Account = "manager", Password = "manager" };
-                UserProvider.Instance.SignIn(model);
-                return RedirectToAction("NewsList", "_SysAdm", null);
-            }
+            //if (dev.HasValue && dev == 1)
+            //{
+            //    SignInModel model = new SignInModel() { Account = "manager", Password = "manager" };
+            //    UserProvider.Instance.SignIn(model);
+            //    return RedirectToAction("NewsList", "_SysAdm", null);
+            //}
 
             try
             {

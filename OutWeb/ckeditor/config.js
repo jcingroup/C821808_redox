@@ -22,7 +22,7 @@ CKEDITOR.editorConfig = function (config) {
     { name: "tools", items: ["Maximize", "-"] },
     { name: "editing" }
     ];
-
+    config.removeButtons = 'PasteFromWord,PasteText,Paste';
     config.autoUpdateElement = true;
     config.allowedContent = true;
     config.fontSize_sizes = '13/13px;14/14px;15/15px;16/16px;17/17px;18/18px;19/19px;20/20px;22/22px;24/24px;36/36px;48/48px;';
@@ -47,3 +47,4 @@ CKEDITOR.editorConfig = function (config) {
     // config.language = 'fr';
     // config.uiColor = '#AADC6E';
 };
+
