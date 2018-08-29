@@ -1521,7 +1521,6 @@
     <Content Include="Content\css\images\ui-icons_cc0000_256x240.png" />
     <Content Include="Content\css\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\images\x.gif" />
-    <Content Include="Content\images\_sysadm\icon-word.jpg" />
     <Content Include="Content\js\swiper.min.js" />
     <Content Include="Content\noIE\bg.gif" />
     <Content Include="Content\noIE\brow.gif" />
