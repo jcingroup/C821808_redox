@@ -41,19 +41,38 @@ namespace OutWeb.Repositories
         /// <returns></returns>
         public static string StripHTML(string input)
         {
-            input = Regex.Replace(input, "<.*?>", String.Empty);
+            var toPlain = HtmlToPlainText(input);
+            //input = Regex.Replace(input, "<.*?>", String.Empty);
+            //input = Regex.Replace(input, "<[^>WW]*>", String.Empty);
+            //toPlain = toPlain.Replace("&emsp;", "");
+            //toPlain = toPlain.Replace("&nbsp;", "");
 
-
-            input = input.Replace("&emsp;", "");
-            input = input.Replace("&nbsp;", "");
-
-            //.Replace("&amp;emsp;", string.Empty)
-            //.Replace("amp;", string.Empty)
-            //.Replace("emsp;", string.Empty)
-            //.Replace("&amp;", string.Empty)
-            //.Replace("&emsp;", string.Empty);
-            return input;
+            return toPlain;
         }
+
+
+        private static string HtmlToPlainText(string html)
+        {
+            const string tagWhiteSpace = @"(>|$)(\W|\n|\r)+<";//matches one or more (white space or line breaks) between '>' and '<'
+            const string stripFormatting = @"<[^>]*(>|$)";//match any character between '<' and '>', even when end tag is missing
+            const string lineBreak = @"<(br|BR)\s{0,1}\/{0,1}>";//matches: <br>,<br/>,<br />,<BR>,<BR/>,<BR />
+            var lineBreakRegex = new Regex(lineBreak, RegexOptions.Multiline);
+            var stripFormattingRegex = new Regex(stripFormatting, RegexOptions.Multiline);
+            var tagWhiteSpaceRegex = new Regex(tagWhiteSpace, RegexOptions.Multiline);
+
+            var text = html;
+            //Decode html specific characters
+            text = System.Net.WebUtility.HtmlDecode(text);
+            //Remove tag whitespace/line breaks
+            text = tagWhiteSpaceRegex.Replace(text, "><");
+            //Replace <br /> with line breaks
+            text = lineBreakRegex.Replace(text, Environment.NewLine);
+            //Strip formatting
+            text = stripFormattingRegex.Replace(text, string.Empty);
+
+            return text;
+        }
+
 
         /// <summary>
         /// 律師名錄分類
