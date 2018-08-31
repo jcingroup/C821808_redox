@@ -297,6 +297,7 @@ $banner-h: 535px;
             border-radius: $border-radius/2;
         }
         .imgbox {
+            overflow: hidden;
 
             @include mq(tablet){
                 height: 170px;

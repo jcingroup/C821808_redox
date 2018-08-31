@@ -1006,6 +1006,8 @@ $banner-h: 360px;
 
             .imgbox {
 
+                overflow: hidden;
+
                 @include mq(tablet){
                     height: 170px;
                     line-height: 170px;
