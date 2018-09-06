@@ -2251,10 +2251,10 @@ html, body {
           width: 47%; } }
       @media (min-width: 75em) {
         .ContactUs .wrap form .boxleft .form-box select, .ContactUs .wrap form .boxleft .form-box textarea, .ContactUs .wrap form .boxleft .form-box input {
-          width: 80%;
+          width: 70%;
           max-width: 350px; } }
     @media (min-width: 64em) {
-      .ContactUs .wrap form .boxleft .form-box select, .ContactUs .wrap form .boxleft .form-box textarea {
+      .ContactUs .wrap form .boxleft .form-box select, .ContactUs .wrap form .boxleft .form-box textarea, .ContactUs .wrap form .boxleft .form-box .left-input {
         width: 70%; } }
     .ContactUs .wrap form .boxleft .form-box textarea {
       vertical-align: top; }
