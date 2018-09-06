@@ -1436,13 +1436,16 @@ html, body {
       top: -62px; } }
   .intro .card {
     width: 80%;
-    display: inline-block; }
+    display: inline-block;
+    vertical-align: top; }
     .intro .card:last-child {
       margin-top: 40px; }
       @media (min-width: 48em) {
         .intro .card:last-child {
           margin-left: 3rem;
           margin-top: 0; } }
+    .intro .card .intro2 {
+      margin-bottom: 60px; }
     @media (min-width: 23.4375em) {
       .intro .card {
         width: 60%; } }

@@ -96,6 +96,7 @@ $banner-h: 535px;
     .card {
         @include grid(4, 5);
         display: inline-block;
+        vertical-align: top;
 
         &:last-child {
             margin-top: 40px;
@@ -104,6 +105,9 @@ $banner-h: 535px;
                 margin-left: 3rem;
                 margin-top: 0;
             }
+        }
+        .intro2{
+            margin-bottom: 60px;
         }
 
         @include mq(mobile) {
