@@ -233,7 +233,7 @@ $banner-h: 360px;
                 border-bottom: #757575 1px solid;
 
                 @include mq(mobile) {
-                    padding: unset;
+                    padding: 0;
                 }
 
                 @include mq(desktop) {
@@ -281,9 +281,9 @@ $banner-h: 360px;
                     background: none;
                     text-align: right;
                     font-size: 32px;
-                    padding: unset;
-                    width: unset;
-                    border-right: unset;
+                    padding: inherit;
+                    width: inherit;
+                    border-right: inherit;
                 }
             }
 
@@ -484,7 +484,7 @@ $banner-h: 360px;
                     @include mq(desktop) {
                         display: inline-block;
                         margin-left: 330px;
-                        padding: unset;
+                        padding: inherit;
                     }
                 }
 
@@ -619,7 +619,7 @@ $banner-h: 360px;
         @include mq(tablet) {
 
             padding: 50px 0;
-            margin-bottom: unset;
+            margin-bottom: 0;
         }
 
         article {
@@ -1164,7 +1164,7 @@ $banner-h: 360px;
         }
 
         h2 {
-            width: unset;
+            width: auto;
         }
 
 

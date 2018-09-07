@@ -1043,7 +1043,7 @@ dd {
   opacity: 0; }
   @media (min-width: 64em) {
     .nav-bar {
-      padding: unset;
+      padding: 0rem;
       visibility: visible;
       opacity: 1; } }
 

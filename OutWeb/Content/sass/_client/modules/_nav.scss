@@ -40,7 +40,7 @@ $menu-h: 90px;
     opacity: 0;
     
     @include mq(desktop){
-        padding: unset;
+        padding: 0rem;
 
         visibility: visible;
         opacity: 1;
