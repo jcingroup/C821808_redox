@@ -75,7 +75,7 @@ namespace OutWeb.Controllers
         {
             string renderedHTML = RenderViewToString("Mail", "MsgMail", form);
             var mailTo = PublicMethodRepository.GetConfigAppSetting("MailTo").Split(new string[] { @";" }, StringSplitOptions.RemoveEmptyEntries).ToList();
-            string subJect = "測試郵件";
+            string subJect = "肽研生醫網站線上諮詢";
             StringBuilder mailContent = new StringBuilder(renderedHTML);
             List<string> mailToList = mailTo;
             var mailInfo = new MailInfo()
