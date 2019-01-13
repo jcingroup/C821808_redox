@@ -21,6 +21,8 @@ namespace OutWeb.Repositories
 
         public static SiteMode CurrentMode { get; set; } = SiteMode.NotSet;
 
+        public static bool GoogleValidIsSuccess { get; set; } = false;
+
         public static string SplitLengthString(this string str, int lenSet)
         {
             lenSet = lenSet - 3;

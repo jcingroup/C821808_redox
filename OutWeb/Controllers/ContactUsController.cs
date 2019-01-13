@@ -38,6 +38,7 @@ namespace OutWeb.Controllers
         [HttpPost]
         public JsonResult ValidRecaptcha(FormCollection form)
         {
+            PublicMethodRepository.GoogleValidIsSuccess = false;
             var content = new JsonResult();
             bool isValid = true;
             string msg = string.Empty;
@@ -63,6 +64,7 @@ namespace OutWeb.Controllers
                 }
             }
 
+            PublicMethodRepository.GoogleValidIsSuccess = isValid;
             content.Data = JsonConvert.SerializeObject(new { success = isValid, msg = msg }, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
             content.ContentType = "application/json";
             content.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
@@ -73,6 +75,9 @@ namespace OutWeb.Controllers
         [ValidateInput(false)]
         public ActionResult ContactUs(FormCollection form)
         {
+            if (!PublicMethodRepository.GoogleValidIsSuccess)
+                throw new Exception("valid error. can't send mail");
+
             string renderedHTML = RenderViewToString("Mail", "MsgMail", form);
             var mailTo = PublicMethodRepository.GetConfigAppSetting("MailTo").Split(new string[] { @";" }, StringSplitOptions.RemoveEmptyEntries).ToList();
             string subJect = "肽研生醫網站線上諮詢";
